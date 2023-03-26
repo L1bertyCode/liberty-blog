@@ -1,0 +1,5 @@
+/.vscode
+/build-dev
+/build-prod
+/node_modules
+/storybook-static
