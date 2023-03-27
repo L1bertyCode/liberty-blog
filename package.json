@@ -16,7 +16,9 @@
   "devDependencies": {
     "@types/node": "^18.15.10",
     "@types/webpack": "^5.28.0",
+    "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.2",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
