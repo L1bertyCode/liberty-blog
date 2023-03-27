@@ -8,7 +8,7 @@ import { BuildOptions } from "./types/config";
 export const buildWebpackConfig = (
   buildOPtions: BuildOptions
 ): Configuration => {
-  const { buildMode, buildPaths, PORT } = buildOPtions;
+  const { buildMode, buildPaths, port, isDev } = buildOPtions;
   return {
     mode: buildMode,
     entry: buildPaths.entry,
@@ -19,9 +19,10 @@ export const buildWebpackConfig = (
     },
     plugins: buildPlugins(buildPaths),
     module: {
-      rules: buildLoaders(),
+      rules: buildLoaders(isDev),
     },
     resolve: buildResolvers(),
-    devServer: buildDevServer(PORT),
+    devServer: isDev ? buildDevServer(port) : undefined,
+    devtool: isDev ? "inline-source-map" : undefined,
   };
 };

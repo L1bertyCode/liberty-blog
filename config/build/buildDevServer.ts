@@ -1,8 +1,8 @@
 import { Configuration as DevServerConfiguration } from "webpack-dev-server";
 
-export const buildDevServer = (PORT: number): DevServerConfiguration => {
+export const buildDevServer = (port: number): DevServerConfiguration => {
   return {
-    port: PORT,
+    port: port,
     open: true,
     hot: true,
     historyApiFallback: true,
