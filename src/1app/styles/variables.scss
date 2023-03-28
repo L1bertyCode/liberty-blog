@@ -1,0 +1,28 @@
+:root {
+  --font-family-main: consolas, "Times New Roman", Serif;
+  --font-line-m: 24px;
+  --font-z-m: 16px;
+  --font-m: var(--font-z-m) / var(--font-line-m) var(--font-family-main);
+  --font-line-l: 32px;
+  --font-z-l: 24px;
+  --font-l: var(--font-z-l) / var(--font-line-l) var(--font-family-main);
+  --font-line-xl: 40px;
+  --font-z-xl: 32px;
+  --font-xl: var(--font-z-l) / var(--font-line-l) var(--font-family-main);
+
+  /* Transition delay */
+  --transition-delay: 0.3s;
+
+  /* Sizes */
+  --navbar-height: 50px;
+  --sidebar-width: 300px;
+  --sidebar-width-collapsed: 80px;
+
+  /* z-index */
+  --modal-z-index: 10;
+
+  /* Colors */
+  --overlay-color: rgba(0 0 0 / 60%);
+  --red-light: #f00;
+  --red-dark: #ce0505;
+}
