@@ -1,15 +1,21 @@
 import { memo, Suspense, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Route, Routes } from "react-router-dom";
-import { AboutPage } from "../3pages/AboutPage";
-import { MainPage } from "../3pages/MainPage";
-import { classNames } from "../7shared/lib/classNames/classNames";
-import { Theme } from "./porviders/ThemePorvider/lib/ThemeContext";
-import { useTheme } from "./porviders/ThemePorvider/lib/useTheme";
+import { Route, Routes, NavLink } from "react-router-dom";
+
+import { useTheme } from "./porviders/ThemePorvider";
+
+import { AboutPage } from "3pages/AboutPage";
+import { MainPage } from "3pages/MainPage";
+
+import { classNames } from "7shared/lib/classNames/classNames";
 import "./styles/index.scss";
+import {
+  LOCAL_STORAGE_THEME_KEY,
+  Theme,
+} from "./porviders/ThemePorvider/lib/ThemeContext";
 
 export const App = memo(() => {
   const { theme, toggleTheme } = useTheme();
+
   return (
     <div className={classNames("app", {}, [theme])}>
       <button onClick={toggleTheme}>Change theme</button>

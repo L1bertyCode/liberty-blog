@@ -1,4 +1,4 @@
-import { FC, ReactNode, useMemo, useState } from "react";
+import { FC, ReactElement, useMemo, useState } from "react";
 import {
   LOCAL_STORAGE_THEME_KEY,
   Theme,
@@ -6,7 +6,7 @@ import {
 } from "../lib/ThemeContext";
 
 export type ThemeProviderProps = {
-  children?: ReactNode;
+  children?: ReactElement;
   initialTheme?: Theme;
 };
 
