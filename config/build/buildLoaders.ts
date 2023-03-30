@@ -11,6 +11,17 @@ export const buildLoaders = (isDev: boolean): RuleSetRule[] => {
     use: "ts-loader",
     exclude: /node_modules/,
   };
+  const babelLoader = {
+    test: /\.m?js$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"],
+        plugins: [["i18next-extract", { locales: ["en", "ru"] }]],
+      },
+    },
+  };
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff|woff2)$/i,
     use: [
@@ -39,5 +50,5 @@ export const buildLoaders = (isDev: boolean): RuleSetRule[] => {
     ],
   };
 
-  return [cssLoader, fileLoader, svgLoader, tsLoader];
+  return [cssLoader, fileLoader, svgLoader, babelLoader, tsLoader];
 };
