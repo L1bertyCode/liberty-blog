@@ -8,7 +8,7 @@ export const LanguageSwitcher = () => {
   };
   return (
     <div>
-        {/* <select name={t("Langauge")}>
+      {/* <select name={t("Langauge")}>
           <option>
             <AppButton
               variant={AppButtonVariant.CLEAR}

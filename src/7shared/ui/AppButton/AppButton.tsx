@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import { classNames } from "7shared/lib/classNames/classNames";
 
 export enum AppButtonVariant {
