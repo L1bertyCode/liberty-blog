@@ -6,18 +6,18 @@ import { buildResolvers } from "./buildResolvers";
 import { BuildOptions } from "./types/config";
 
 export const buildWebpackConfig = (
-  buildOPtions: BuildOptions
+  buildOptions: BuildOptions
 ): Configuration => {
-  const { buildMode, buildPaths, port, isDev } = buildOPtions;
+  const { buildMode, buildPaths, port, isDev } = buildOptions;
   return {
     mode: buildMode,
     entry: buildPaths.entry,
     output: {
-      path: buildOPtions.isDev ? buildPaths.buildDev : buildPaths.buildProd,
+      path: buildOptions.isDev ? buildPaths.buildDev : buildPaths.buildProd,
       filename: "[name].[contenthash].js",
       clean: true,
     },
-    plugins: buildPlugins(buildPaths),
+    plugins: buildPlugins(buildOptions),
     module: {
       rules: buildLoaders(isDev),
     },

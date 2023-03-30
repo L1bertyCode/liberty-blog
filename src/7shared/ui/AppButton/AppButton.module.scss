@@ -1,10 +1,10 @@
 .appButton {
   cursor: pointer;
+  color: var(--inverted-primary-color);
 }
 .clear {
   background: none;
   border: none;
   overflow: none;
-  margin: 0;
   padding: 0;
 }
