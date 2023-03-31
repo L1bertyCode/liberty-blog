@@ -17,12 +17,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: [
-    "react",
-    "@typescript-eslint",
-    "react-hooks",
-    //   , "i18next"
-  ],
+  plugins: ["react", "@typescript-eslint", "react-hooks", "i18next"],
   rules: {
     semi: [2, "always"],
     "react/jsx-indent": [2, 2],
@@ -45,13 +40,13 @@ module.exports = {
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": "off",
-    // "i18next/no-literal-string": [
-    //   "warn",
-    //   {
-    //     markupOnly: true,
-    //     ignoreAttribute: ["data-testid", "to"],
-    //   },
-    // ],
+    "i18next/no-literal-string": [
+      "error",
+      {
+        markupOnly: true,
+        ignoreAttribute: ["data-testid", "to"],
+      },
+    ],
     "max-len": [
       "error",
       {

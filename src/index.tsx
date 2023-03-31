@@ -6,7 +6,8 @@ import { App } from "./1app/App";
 import "./7shared/config/i18n/i18n";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
-).render(
+);
+root.render(
   <BrowserRouter>
     <ThemeProvider>
       <App />
