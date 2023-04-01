@@ -7,6 +7,7 @@ import { Sidebar } from "4widgets/Sidebar";
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import "./styles/index.scss";
+import { ErrorBoundary } from "./porviders/ErrorBoundary";
 
 export const App = memo(() => {
   const { theme } = useTheme();
@@ -17,7 +18,9 @@ export const App = memo(() => {
         <div className="content-page">
           <Sidebar />
           <div className="page-wrapper">
-            <AppRouter />
+            <ErrorBoundary>
+              <AppRouter />
+            </ErrorBoundary>
           </div>
         </div>
       </div>
