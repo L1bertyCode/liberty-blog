@@ -2,11 +2,12 @@ import {
   ProgressPlugin,
   DefinePlugin,
   WebpackPluginInstance,
-  HotModuleReplacementPlugin,
+  // HotModuleReplacementPlugin,
 } from "webpack";
 import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export const buildPlugins = (
   buildOptions: BuildOptions
@@ -25,6 +26,7 @@ export const buildPlugins = (
     new DefinePlugin({
       __IS__DEV__: JSON.stringify(isDev),
     }),
+    new BundleAnalyzerPlugin({ openAnalyzer: false }),
     // new HotModuleReplacementPlugin(),
   ];
 };

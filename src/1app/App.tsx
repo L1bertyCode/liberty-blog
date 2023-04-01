@@ -1,4 +1,5 @@
 import { memo, Suspense } from "react";
+import { ErrorBoundary } from "./porviders/ErrorBoundary";
 import { useTheme } from "./porviders/ThemePorvider";
 import { AppRouter } from "./porviders/ThemePorvider/router";
 
@@ -7,7 +8,6 @@ import { Sidebar } from "4widgets/Sidebar";
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import "./styles/index.scss";
-import { ErrorBoundary } from "./porviders/ErrorBoundary";
 
 export const App = memo(() => {
   const { theme } = useTheme();
