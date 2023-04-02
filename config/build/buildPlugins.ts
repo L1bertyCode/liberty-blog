@@ -26,7 +26,7 @@ export const buildPlugins = (
     new DefinePlugin({
       __IS__DEV__: JSON.stringify(isDev),
     }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
+    // new BundleAnalyzerPlugin({ openAnalyzer: false }),
     // new HotModuleReplacementPlugin(),
   ];
 };
