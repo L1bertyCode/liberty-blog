@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import "1app/styles/variables.scss";
 
 import { AppButton, AppButtonVariant } from "./AppButton";
 
@@ -7,19 +8,24 @@ const meta = {
   component: AppButton,
   tags: ["autodocs"],
   argTypes: {},
+  args: {
+    children: "Text",
+  },
 } satisfies Meta<typeof AppButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {
-    children: "Text",
-  },
+  args: {},
 };
 export const Clear: Story = {
   args: {
-    children: "Text",
     variant: AppButtonVariant.CLEAR,
+  },
+};
+export const Outline: Story = {
+  args: {
+    variant: AppButtonVariant.OUTLINE,
   },
 };
