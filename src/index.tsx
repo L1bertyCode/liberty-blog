@@ -14,6 +14,3 @@ root.render(
     </ThemeProvider>
   </BrowserRouter>
 );
-
-
-// npm rm @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-links @storybook/blocks @storybook/react @storybook/react-webpack5 @storybook/testing-library storybook eslint-plugin-storybook @storybook/addon-actions @storybook/builder-webpack5 @storybook/manager-webpack5
