@@ -1,8 +1,8 @@
 import type { Preview } from "@storybook/react";
 import { StyleDecorator } from "../../src/7shared/config/storybook/StyleDecorator";
 import { ThemeDecorator } from "../../src/7shared/config/storybook/ThemeDecorator";
-import { Theme } from "../../src/1app/porviders/ThemePorvider/index";
-
+import { I18nDecorator } from "../../src/7shared/config/storybook/I18nDecorator";
+import "../../src/7shared/config/i18n/i18n";
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -19,7 +19,7 @@ const preview: Preview = {
   // args: {
   //   theme: Theme.LIGHT,
   // },
-  decorators: [ThemeDecorator, StyleDecorator],
+  decorators: [ThemeDecorator, StyleDecorator, I18nDecorator],
 };
 
 export default preview;

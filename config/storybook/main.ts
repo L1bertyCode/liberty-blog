@@ -1,8 +1,7 @@
 import path from "path";
 import { BuildPaths } from "../build/types/config";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
-import { Configuration } from "webpack";
-// import type { StorybookConfig } from "@storybook/react-webpack5";
+import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
 
 module.exports = {
   stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -31,16 +30,20 @@ module.exports = {
     config.resolve?.extensions?.push(".ts", ".tsx");
     config.resolve?.extensions?.push(".ts", ".tsx");
     config.module?.rules?.push(buildCssLoader(true));
-    // if (config.module?.rules) {
-    //   config.module.rules = config.module?.rules?.map(
-    //     (rule: RuleSetRule | "...") => {
-    //       if (rule !== "..." && /svg/.test(rule.test as string)) {
-    //         return { ...rule, exclude: /\.svg$/i };
-    //       }
-    //       return rule;
-    //     }
-    //   );
-    // }
+
+    config.module?.rules?.map((rule: RuleSetRule | "...") => {
+      if (rule !== "..." && /svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i };
+      }
+      return rule;
+    });
+    config.plugins?.push(
+      new DefinePlugin({
+        __IS__DEV__: JSON.stringify(true),
+        __API__: JSON.stringify(""),
+        __PROJECT__: JSON.stringify("storybook"),
+      })
+    );
     return config;
   },
 };
