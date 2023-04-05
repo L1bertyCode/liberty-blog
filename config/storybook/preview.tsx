@@ -2,7 +2,10 @@ import type { Preview } from "@storybook/react";
 import { StyleDecorator } from "../../src/7shared/config/storybook/StyleDecorator";
 import { ThemeDecorator } from "../../src/7shared/config/storybook/ThemeDecorator";
 import { I18nDecorator } from "../../src/7shared/config/storybook/I18nDecorator";
-import "../../src/7shared/config/i18n/i18n";
+import { RouteDecoratar } from "../../src/7shared/config/storybook/RouteDecoratar";
+import { Theme } from "../../src/1app/porviders/ThemePorvider";
+import i18n from "../../src/7shared/config/i18n/i18n";
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -13,13 +16,13 @@ const preview: Preview = {
       },
     },
   },
-  // argTypes: {
-  //   theme: { control: "select", options: [Theme.LIGHT, Theme.DARK] },
-  // },
-  // args: {
-  //   theme: Theme.LIGHT,
-  // },
-  decorators: [ThemeDecorator, StyleDecorator, I18nDecorator],
+  argTypes: {
+    theme: { control: "select", options: [Theme.LIGHT, Theme.DARK] },
+  },
+  args: {
+    theme: Theme.LIGHT,
+  },
+  decorators: [ThemeDecorator, StyleDecorator, I18nDecorator, RouteDecoratar],
 };
 
 export default preview;

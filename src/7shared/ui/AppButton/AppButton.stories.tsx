@@ -7,7 +7,7 @@ import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 const meta = {
   title: "7shared/AppButton",
   component: AppButton,
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
   argTypes: {},
   args: {
     children: "Text",

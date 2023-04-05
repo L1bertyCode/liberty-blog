@@ -7,6 +7,7 @@ import s from "./AppNavLink.module.scss";
 export enum AppNavLinkVariant {
   PRIMARY = "primary",
   SECONDARY = "secondary",
+  RED = "red",
 }
 interface AppNavLinkProps extends NavLinkProps {
   children: ReactNode;

@@ -1,5 +1,6 @@
 import { Theme, ThemeProvider, useTheme } from "1app/porviders/ThemePorvider";
 import { Decorator } from "@storybook/react";
+import "1app/styles/index.scss";
 export const ThemeDecorator: Decorator = (Story) => {
   const { theme } = useTheme();
   return (
@@ -11,6 +12,7 @@ export const ThemeDecorator: Decorator = (Story) => {
   );
 };
 export const ThemeDecoratorDark: Decorator = (Story) => {
+  const { theme } = useTheme();
   return (
     <ThemeProvider>
       <div className={`app ${Theme.DARK}`}>

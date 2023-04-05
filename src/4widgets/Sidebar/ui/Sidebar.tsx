@@ -26,12 +26,12 @@ export const Sidebar = memo((props: SidebarProps) => {
       ])}
     >
       <div className={s.links}>
-        {/* <AppNavLink to="/" className={s.link}>
+        <AppNavLink to="/" className={s.link}>
           {t("Main")}
         </AppNavLink>
         <AppNavLink to="/about" className={s.link}>
           {t("About")}
-        </AppNavLink> */}
+        </AppNavLink>
       </div>
       <div className={s.switchers}>
         <ThemeSwitcher />
