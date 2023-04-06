@@ -20,7 +20,7 @@ export const LanguageSwitcher = () => {
           <option>EN</option>
         </select> */}
 
-      <AppButton variant={AppButtonVariant.CLEAR} onClick={toggleLanguage}>
+      <AppButton variant={AppButtonVariant.PRIMARY} onClick={toggleLanguage}>
         {t("Langauge")}
       </AppButton>
     </div>

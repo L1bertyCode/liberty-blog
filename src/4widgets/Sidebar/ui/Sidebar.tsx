@@ -3,7 +3,11 @@ import { useTranslation } from "react-i18next";
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import { ThemeSwitcher } from "7shared/ui/ThemeSwitcher/ThemeSwitcher";
-import { AppButton } from "7shared/ui/AppButton/AppButton";
+import {
+  AppButton,
+  AppButtonSize,
+  AppButtonVariant,
+} from "7shared/ui/AppButton/AppButton";
 import { AppNavLink } from "7shared/ui/AppNavLink/AppNavLink";
 import { LanguageSwitcher } from "7shared/ui/LanguageSwitcher/LanguageSwitcher";
 
@@ -40,7 +44,10 @@ export const Sidebar = memo((props: SidebarProps) => {
       <AppButton
         data-testid="sidebar-toggle"
         onClick={() => setCollapsed((prev) => !prev)}
-        className={s.btn}
+        className={s.collapseBtn}
+        variant={AppButtonVariant.BACKGROUND}
+        size={AppButtonSize.M}
+        square={true}
       >
         {collapsed ? ">" : "<"}
       </AppButton>

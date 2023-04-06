@@ -1,16 +1,64 @@
 .appButton {
   cursor: pointer;
-  color: var(--inverted-primary-color);
+  padding: 6px 15px;
 }
 .clear {
+  color: var(--primary-color);
+
   background: none;
   border: none;
-  overflow: none;
+  outline: none;
   padding: 0;
 }
 .outline {
-  padding: 10px 15px;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background: none;
+}
+.primary {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  border: none;
+  outline: none;
+}
+
+.secondary {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  border: none;
+  outline: none;
+}
+
+.background {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: none;
+  outline: none;
+}
+.backgroundInverted {
+  background: var(--inverted-bg-color);
+  color: var(--inverted-secondary-color);
+  border: none;
+  outline: none;
+}
+
+.square {
+  padding: 0;
+}
+.square.m {
+  height: var(--font-line-m);
+  width: var(--font-line-m);
+  font: var(--font-m);
+}
+.square.l {
+  height: var(--font-line-l);
+  width: var(--font-line-l);
+  font: var(--font-l);
+}
+.square.xl {
+  height: var(--font-line-xl);
+  width: var(--font-line-xl);
+  font: var(--font-xl);
 }
