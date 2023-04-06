@@ -13,7 +13,7 @@ export const buildPlugins = (
   buildOptions: BuildOptions
 ): WebpackPluginInstance[] => {
   const { buildPaths, isDev } = buildOptions;
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: buildPaths.html,
       favicon: buildPaths.favicon,
@@ -26,7 +26,10 @@ export const buildPlugins = (
     new DefinePlugin({
       __IS__DEV__: JSON.stringify(isDev),
     }),
-    // new BundleAnalyzerPlugin({ openAnalyzer: false }),
-    // new HotModuleReplacementPlugin(),
   ];
+  if (isDev) {
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    // plugins.push(new HotModuleReplacementPlugin());
+  }
+  return plugins;
 };
