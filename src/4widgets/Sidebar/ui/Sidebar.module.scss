@@ -23,6 +23,16 @@
   display: flex;
   flex-direction: column;
 }
+.link {
+  display: flex;
+  .icon {
+    fill: var(--inverted-secondary-color);
+  }
+  .item {
+    margin-left: 10px;
+  }
+}
+
 .switchers {
   display: flex;
   flex-direction: column;

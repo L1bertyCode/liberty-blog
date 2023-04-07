@@ -11,6 +11,9 @@ import {
 import { AppNavLink } from "7shared/ui/AppNavLink/AppNavLink";
 import { LanguageSwitcher } from "7shared/ui/LanguageSwitcher/LanguageSwitcher";
 
+import AboutIcon from "7shared/assets/icons/about-20-20.svg";
+import MainIcon from "7shared/assets/icons/main-20-20.svg";
+
 import s from "./Sidebar.module.scss";
 
 interface SidebarProps {
@@ -31,15 +34,17 @@ export const Sidebar = memo((props: SidebarProps) => {
     >
       <div className={s.links}>
         <AppNavLink to="/" className={s.link}>
-          {t("Main")}
+          <MainIcon className={s.icon} style={{ color: "red" }} />
+          <div className={s.item}>{!collapsed ? t("Main") : undefined}</div>
         </AppNavLink>
         <AppNavLink to="/about" className={s.link}>
-          {t("About")}
+          <AboutIcon className={s.icon} />
+          <div className={s.item}>{!collapsed ? t("About") : undefined}</div>
         </AppNavLink>
       </div>
       <div className={s.switchers}>
         <ThemeSwitcher />
-        <LanguageSwitcher />
+        <LanguageSwitcher short={collapsed} />
       </div>
       <AppButton
         data-testid="sidebar-toggle"

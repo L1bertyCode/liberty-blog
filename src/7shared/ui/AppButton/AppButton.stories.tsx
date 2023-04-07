@@ -39,7 +39,6 @@ export const Background: Story = {
   args: {
     variant: AppButtonVariant.BACKGROUND,
   },
-  decorators: [ThemeDecoratorDark],
 };
 export const BackgroundInverted: Story = {
   args: {

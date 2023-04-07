@@ -3,24 +3,26 @@
   transition: var(--transition-delay);
   padding-bottom: 5px;
 }
-.appNavLink:hover {
-  transition: var(--transition-delay);
-  color: var(--primary-color);
-}
 
 .primary {
-  color: var(--inverted-primary-color);
+  color: var(--inverted-secondary-color);
 }
 .secondary {
   color: var(--inverted-secondary-color);
 }
 
 .primary.active {
-  color: var(--primary-color);
+  color: var(--inverted-secondary-color);
 }
-.primary.active {
-  color: var(--primary-color);
+.secondary.active {
+  color: var(--inverted-secondary--color);
 }
+
+.appNavLink:hover {
+  transition: var(--transition-delay);
+  color: var(--inverted-primary-color);
+}
+
 .red {
   color: var(--red-dark);
 }
