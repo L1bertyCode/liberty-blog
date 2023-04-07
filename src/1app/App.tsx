@@ -8,13 +8,14 @@ import { Sidebar } from "4widgets/Sidebar";
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import "./styles/index.scss";
+import Modal from "7shared/ui/Modal/Modal";
 
 export const App = memo(() => {
   const { theme } = useTheme();
   return (
     <Suspense fallback="">
       <div className={classNames("app", {}, [theme])}>
-        <Navbar />
+        {/* <Navbar />
         <div className="content-page">
           <Sidebar />
           <div className="page-wrapper">
@@ -22,7 +23,8 @@ export const App = memo(() => {
               <AppRouter />
             </ErrorBoundary>
           </div>
-        </div>
+        </div> */}
+        <Modal />
       </div>
     </Suspense>
   );
