@@ -7,7 +7,6 @@ import { Navbar } from "4widgets/Navbar";
 import { Sidebar } from "4widgets/Sidebar";
 
 import { classNames } from "7shared/lib/classNames/classNames";
-import "./styles/index.scss";
 import Modal from "7shared/ui/Modal/Modal";
 
 export const App = memo(() => {

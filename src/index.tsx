@@ -4,6 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import { App } from "./1app/App";
 
 import "./7shared/config/i18n/i18n";
+
+import "1app/styles/index.scss";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

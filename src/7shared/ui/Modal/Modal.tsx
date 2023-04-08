@@ -1,14 +1,8 @@
-import React, {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { useTranslation } from "react-i18next";
+import React, { ReactNode, useCallback, useEffect, useRef } from "react";
 import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./Modal.module.scss";
+import { Portal } from "../Portal/Portal";
 
 interface ModalProps {
   className?: string;
@@ -26,7 +20,6 @@ const Modal = (props: ModalProps) => {
     [s.opened]: isOpen,
     [s.softСlosing]: !isOpen,
   };
-  const { t } = useTranslation();
   const closeHandler = useCallback(() => {
     if (onClose) {
       onClose();
@@ -54,13 +47,15 @@ const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeyDowwn]);
   return (
-    <div className={classNames(s.modal, mods, [className])}>
-      <div className={s.overlay} onClick={closeHandler}>
-        <div className={s.content} onClick={onContentClick}>
-          {children}
+    <Portal>
+      <div className={classNames(s.modal, mods, [className])}>
+        <div className={s.overlay} onClick={closeHandler}>
+          <div className={s.content} onClick={onContentClick}>
+            {children}
+          </div>
         </div>
       </div>
-    </div>
+    </Portal>
   );
 };
 export default Modal;
