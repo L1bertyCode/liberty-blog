@@ -1,4 +1,4 @@
-import { memo, Suspense } from "react";
+import { memo, Suspense, useState } from "react";
 import { ErrorBoundary } from "./porviders/ErrorBoundary";
 import { useTheme } from "./porviders/ThemePorvider";
 import { AppRouter } from "./porviders/ThemePorvider/router";
@@ -12,10 +12,19 @@ import Modal from "7shared/ui/Modal/Modal";
 
 export const App = memo(() => {
   const { theme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <Suspense fallback="">
       <div className={classNames("app", {}, [theme])}>
-        {/* <Navbar />
+        <button
+          onClick={() => {
+            setIsOpen((prev) => !prev);
+          }}
+        >123</button>
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>123</Modal>
+
+        <Navbar />
         <div className="content-page">
           <Sidebar />
           <div className="page-wrapper">
@@ -23,8 +32,7 @@ export const App = memo(() => {
               <AppRouter />
             </ErrorBoundary>
           </div>
-        </div> */}
-        <Modal />
+        </div>
       </div>
     </Suspense>
   );
