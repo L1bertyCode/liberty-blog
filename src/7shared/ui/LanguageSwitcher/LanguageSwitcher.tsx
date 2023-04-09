@@ -30,7 +30,7 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
 
       <AppButton
         className={classNames("languageSwitcher", {}, [className])}
-        variant={AppButtonVariant.PRIMARY}
+        variant={AppButtonVariant.CLEAR_INVERTED}
         onClick={toggleLanguage}
       >
         {short ? t("ShortLangauge") : t("Langauge")}

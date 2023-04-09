@@ -3,6 +3,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 
 export enum AppButtonVariant {
   CLEAR = "clear",
+  CLEAR_INVERTED = "clearInverted",
   OUTLINE = "outline",
   PRIMARY = "primary",
   SECONDARY = "secondary",

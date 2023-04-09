@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageLoader } from "./PageLoader";
+import { Modal } from "./Modal";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "4widgets/PageLoader",
-  component: PageLoader,
-  // tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-} satisfies Meta<typeof PageLoader>;
+  title: "7shared/Modal",
+  component: Modal,
+  //tags: ["autodocs"],
+  //argTypes: {},
+  args: { children: "123", isOpen: true },
+} satisfies Meta<typeof Modal>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

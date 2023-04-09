@@ -4,7 +4,7 @@ import "1app/styles/index.scss";
 export const ThemeDecorator: Decorator = (Story) => {
   const { theme } = useTheme();
   return (
-    <ThemeProvider>
+    <ThemeProvider initialTheme={Theme.LIGHT}>
       <div className={`app ${theme}`}>
         <Story />
       </div>
@@ -14,7 +14,7 @@ export const ThemeDecorator: Decorator = (Story) => {
 export const ThemeDecoratorDark: Decorator = (Story) => {
   const { theme } = useTheme();
   return (
-    <ThemeProvider>
+    <ThemeProvider initialTheme={Theme.DARK}>
       <div className={`app ${Theme.DARK}`}>
         <Story />
       </div>

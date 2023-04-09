@@ -11,7 +11,7 @@ interface ModalProps {
   onClose?: () => void;
 }
 
-const Modal = (props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose } = props;
 
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -58,4 +58,3 @@ const Modal = (props: ModalProps) => {
     </Portal>
   );
 };
-export default Modal;

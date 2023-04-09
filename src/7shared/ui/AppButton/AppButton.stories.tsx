@@ -29,6 +29,12 @@ export const Clear: Story = {
     variant: AppButtonVariant.CLEAR,
   },
 };
+export const ClearInverted: Story = {
+  args: {
+    variant: AppButtonVariant.CLEAR_INVERTED,
+  },
+  decorators: [ThemeDecoratorDark],
+};
 export const Outline: Story = {
   args: {
     variant: AppButtonVariant.OUTLINE,
@@ -49,18 +55,6 @@ export const DefaultDark: Story = {
   decorators: [ThemeDecoratorDark],
 };
 
-export const PrimaryDark: Story = {
-  args: {
-    variant: AppButtonVariant.PRIMARY,
-  },
-  decorators: [ThemeDecoratorDark],
-};
-export const ClearDark: Story = {
-  args: {
-    variant: AppButtonVariant.CLEAR,
-  },
-  decorators: [ThemeDecoratorDark],
-};
 export const OutlineDark: Story = {
   args: {
     variant: AppButtonVariant.OUTLINE,
