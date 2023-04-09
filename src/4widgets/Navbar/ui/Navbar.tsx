@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { useState } from "react";
-import {Modal} from "7shared/ui/Modal/Modal";
+import { Modal } from "7shared/ui/Modal/Modal";
 import { AppButton, AppButtonVariant } from "7shared/ui/AppButton/AppButton";
 
 interface NavbarProps {
@@ -15,9 +15,9 @@ export const Navbar = (props: NavbarProps) => {
 
   const { t } = useTranslation();
 
-  const onToggleMopdal=()=>{
+  const onToggleMopdal = () => {
     setIsAuthModal((prev) => !prev);
-  }
+  };
   return (
     <div className={classNames(s.navbar, {}, [className])}>
       <div className={s.logo}>{t("Logo")}</div>
@@ -30,7 +30,10 @@ export const Navbar = (props: NavbarProps) => {
         >
           {t("Login")}
         </AppButton>
-        <Modal isOpen={isAuthModal} onClose={() =>onToggleMopdal()}>123</Modal>
+        {/* eslint-disable  */}
+        <Modal isOpen={isAuthModal} onClose={() => onToggleMopdal()}>
+          123
+        </Modal>
       </div>
     </div>
   );

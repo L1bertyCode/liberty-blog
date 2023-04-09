@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Modal } from "./Modal";
 
-import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
+import {
+  ThemeDecoratorDark,
+  ThemeDecorator,
+} from "7shared/config/storybook/ThemeDecorator";
 
 const meta = {
   title: "7shared/Modal",

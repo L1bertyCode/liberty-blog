@@ -9,6 +9,7 @@ body {
 .app {
   min-height: 100vh;
   background: var(--bg-color);
+  color: inherit;
 }
 .content-page {
   display: flex;

@@ -4,6 +4,7 @@ import { buildCssLoader } from "../build/loaders/buildCssLoader";
 import { Configuration, DefinePlugin } from "webpack";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 
+
 const config: StorybookConfig = {
   stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -11,6 +12,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "storybook-addon-themes",
+    "@etchteam/storybook-addon-css-variables-theme",
   ],
   framework: {
     name: "@storybook/react-webpack5",

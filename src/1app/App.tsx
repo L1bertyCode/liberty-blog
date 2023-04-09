@@ -7,6 +7,7 @@ import { Navbar } from "4widgets/Navbar";
 import { Sidebar } from "4widgets/Sidebar";
 
 import { classNames } from "7shared/lib/classNames/classNames";
+import "1app/styles/index.scss";
 
 export const App = memo(() => {
   const { theme } = useTheme();

@@ -21,7 +21,7 @@ const preview: Preview = {
   args: {
     theme: Theme.LIGHT,
   },
-  decorators: [ThemeDecorator, StyleDecorator, I18nDecorator, RouteDecoratar],
+  decorators: [StyleDecorator, ThemeDecorator, I18nDecorator, RouteDecoratar],
 };
 
 export default preview;

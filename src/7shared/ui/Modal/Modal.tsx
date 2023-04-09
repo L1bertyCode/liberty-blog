@@ -3,6 +3,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
+import { useTheme } from "1app/porviders/ThemePorvider";
 
 interface ModalProps {
   className?: string;
@@ -13,6 +14,7 @@ interface ModalProps {
 
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose } = props;
+  const { theme } = useTheme();
 
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -48,7 +50,7 @@ export const Modal = (props: ModalProps) => {
   }, [isOpen, onKeyDowwn]);
   return (
     <Portal>
-      <div className={classNames(s.modal, mods, [className])}>
+      <div className={classNames(s.modal, mods, [className, theme])}>
         <div className={s.overlay} onClick={closeHandler}>
           <div className={s.content} onClick={onContentClick}>
             {children}
