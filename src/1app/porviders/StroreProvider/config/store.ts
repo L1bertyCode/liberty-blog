@@ -1,11 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { StateSchema } from "./StateSchema";
 import { counterReducer } from "6entities/Counter";
-export function createReduxStore(initialState?: StateSchema) {
-  const store = configureStore<StateSchema>({
-    reducer: { counter: counterReducer },
-    devTools: __IS__DEV__,
-  });
-  return store;
-}
-export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];
+import { configureStore } from "@reduxjs/toolkit";
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
+});
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}

@@ -1,17 +1,18 @@
-import { ReactNode } from "react";
 import { Provider } from "react-redux";
-import { createReduxStore } from "../config/store";
-import { StateSchema } from "../config/StateSchema";
+
+import { ReactNode } from "react";
+import { store } from "../config/store";
 
 interface StroreProviderProps {
   children?: ReactNode;
-  initialState?: StateSchema;
+  // initialState?: StateSchema;
 }
 
 export const StroreProvider = (props: StroreProviderProps) => {
-  const { children, initialState } = props;
+  const { children } = props;
 
-  const store = createReduxStore(initialState);
+  // const store = createReduxStore(initialState);
 
   return <Provider store={store}>{children}</Provider>;
 };
+export type AppDispatch = typeof store.dispatch;

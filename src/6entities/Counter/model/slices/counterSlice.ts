@@ -4,7 +4,6 @@ import { CounterSchema } from "../types/counterSchema";
 const initialState: CounterSchema = {
   value: 0,
 };
-
 export const counterSlice = createSlice({
   name: "counter",
   initialState,
@@ -18,5 +17,5 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { actions: counterActions } = counterSlice;
+export const { increment, decrement } = counterSlice.actions;
 export const { reducer: counterReducer } = counterSlice;
