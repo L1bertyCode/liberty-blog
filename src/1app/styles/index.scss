@@ -2,14 +2,14 @@
 @import "variables";
 @import "themes/light";
 @import "themes/dark";
-body {
+.app,
+.app_modal {
   font: var(--font-m);
   color: var(--primary-color);
 }
 .app {
   min-height: 100vh;
   background: var(--bg-color);
-  color: inherit;
 }
 .content-page {
   display: flex;
