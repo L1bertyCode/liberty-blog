@@ -1,0 +1,13 @@
+.appInputWrapper {
+  display: flex;
+}
+.placholder {
+  margin-right: 5px;
+}
+.appInput {
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  background: none;
+  outline: none;
+  color: var(--primary-color);
+}

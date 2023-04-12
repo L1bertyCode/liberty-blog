@@ -1,15 +1,21 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AppInput } from "7shared/ui/AppInput/AppInput";
+
 import s from "./MainPage.module.scss";
-import { BugButton } from "1app/porviders/ErrorBoundary/ui/BubButton";
-import { Counter } from "6entities/Counter";
+
 const MainPage = () => {
   const { t } = useTranslation();
-
+  const [value, setValue] = useState("");
+  const onChange = (val: string) => {
+    setValue(val);
+  };
   return (
     <div className={s.green}>
       {t("Main")}
-      <BugButton />
-      <Counter />
+      {/* <BugButton /> */}
+      {/* <Counter /> */}
+      <AppInput value={value} onChange={onChange} placeholder="Type text" />
     </div>
   );
 };

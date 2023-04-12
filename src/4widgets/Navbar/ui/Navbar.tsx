@@ -5,6 +5,7 @@ import s from "./Navbar.module.scss";
 import { useState } from "react";
 import { Modal } from "7shared/ui/Modal/Modal";
 import { AppButton, AppButtonVariant } from "7shared/ui/AppButton/AppButton";
+import { LoginModal } from "5features/AuthByUsername";
 
 interface NavbarProps {
   className?: string;
@@ -15,8 +16,11 @@ export const Navbar = (props: NavbarProps) => {
 
   const { t } = useTranslation();
 
-  const onToggleMopdal = () => {
-    setIsAuthModal((prev) => !prev);
+  const onCloseeModal = () => {
+    setIsAuthModal(false);
+  };
+  const onShowModal = () => {
+    setIsAuthModal(true);
   };
   return (
     <div className={classNames(s.navbar, {}, [className])}>
@@ -24,16 +28,14 @@ export const Navbar = (props: NavbarProps) => {
       <div className={s.modal}>
         <AppButton
           onClick={() => {
-            onToggleMopdal();
+            onShowModal();
           }}
           variant={AppButtonVariant.CLEAR_INVERTED}
         >
           {t("Login")}
         </AppButton>
         {/* eslint-disable  */}
-        <Modal isOpen={isAuthModal} onClose={() => onToggleMopdal()}>
-          123
-        </Modal>
+        <LoginModal isOpen={isAuthModal} onClose={onCloseeModal} />
       </div>
     </div>
   );
