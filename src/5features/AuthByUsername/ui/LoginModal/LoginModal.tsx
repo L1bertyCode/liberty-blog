@@ -19,8 +19,9 @@ export const LoginModal = memo((props: LoginModalProps) => {
       className={classNames(s.loginModal, {}, [className])}
       isOpen={isOpen}
       onClose={onClose}
+      lazy={true}
     >
-      <LoginForm onClose={onClose} />
+      <LoginForm onClose={onClose} isOpen={isOpen} />
     </Modal>
   );
 });

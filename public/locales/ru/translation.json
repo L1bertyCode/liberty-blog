@@ -6,5 +6,7 @@
   "Refresh the page": "Обновите страницу",
   "An unexpected error occurred": "Произошла непредвиденная ошибка",
   "ShortLangauge": "Ру",
-  "Login": "Войти"
+  "Login": "Войти",
+  "Type username": "Введите имя пользователя",
+  "Type password": "Введите пароль"
 }

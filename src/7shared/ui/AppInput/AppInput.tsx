@@ -1,7 +1,14 @@
-import { InputHTMLAttributes, memo } from "react";
+import {
+  InputHTMLAttributes,
+  MutableRefObject,
+  memo,
+  useEffect,
+  useRef,
+} from "react";
 import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./AppInput.module.scss";
+import { log } from "console";
 
 type HTMLAppInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -12,6 +19,8 @@ interface AppInputProps extends HTMLAppInputProps {
   type?: string;
   value?: string;
   placholder?: string;
+  autoFocus?: boolean;
+
   onChange?: (value: string) => void;
 }
 // type HTMLAppInputProps = Omit<
@@ -36,19 +45,32 @@ export const AppInput = memo((props: AppInputProps) => {
     value,
     onChange,
     placeholder,
+    autoFocus,
     ...otherProps
   } = props;
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
   };
+
+  const inputRef = useRef(null) as MutableRefObject<HTMLInputElement>;
+
+  useEffect(() => {
+    if (autoFocus) {
+      inputRef?.current?.focus();
+    }
+  }, [autoFocus]);
+
   return (
     <div className={classNames(s.appInputWrapper, {}, [className])}>
       {placeholder && <div className={s.placholder}>{`${placeholder}>`}</div>}
       <input
+        ref={inputRef}
         type={type}
         value={value}
         onChange={onChangeHandler}
         className={s.appInput}
+        autoFocus={autoFocus}
+        {...otherProps}
       />
     </div>
   );

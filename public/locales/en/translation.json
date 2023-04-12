@@ -6,5 +6,7 @@
   "Refresh the page": "Refresh the page",
   "An unexpected error occurred": "An unexpected error occurred",
   "ShortLangauge": "En",
-  "Login": "Login"
+  "Login": "Login",
+  "Type username": "Type username",
+  "Type password": "Type password"
 }
