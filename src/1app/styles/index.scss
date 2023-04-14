@@ -2,8 +2,7 @@
 @import "variables";
 @import "themes/light";
 @import "themes/dark";
-.app,
-.app_modal {
+.app {
   font: var(--font-m);
   color: var(--primary-color);
 }

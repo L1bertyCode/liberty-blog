@@ -3,7 +3,6 @@ import { Modal } from "./Modal";
 
 import {
   ThemeDecoratorDark,
-  ThemeDecorator,
 } from "7shared/config/storybook/ThemeDecorator";
 
 const meta = {

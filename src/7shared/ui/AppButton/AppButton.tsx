@@ -22,6 +22,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: AppButtonVariant;
   size?: AppButtonSize;
   square?: boolean;
+  disabled?: boolean;
 }
 
 import s from "./AppButton.module.scss";
@@ -30,18 +31,20 @@ export const AppButton = (props: AppButtonProps): ReturnType<React.FC> => {
   const {
     className,
     children,
-    variant,
+    variant = AppButtonVariant.OUTLINE,
     size = AppButtonSize.M,
     square,
+    disabled,
     ...otherProps
   } = props;
   return (
     <button
-      className={classNames(s.appButton, { [s.square]: square }, [
-        className,
-        s[variant],
-        s[size],
-      ])}
+      disabled={disabled}
+      className={classNames(
+        s.appButton,
+        { [s.square]: square, [s.disabled]: disabled },
+        [className, s[variant], s[size]]
+      )}
       {...otherProps}
     >
       {children}

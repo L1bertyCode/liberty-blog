@@ -5,6 +5,7 @@ import {
   ThemeDecoratorDark,
   ThemeDecorator,
 } from "7shared/config/storybook/ThemeDecorator";
+import { Theme, ThemeProvider, useTheme } from "1app/porviders/ThemePorvider";
 
 const meta = {
   title: "7shared/ThemeSwitcher",
@@ -19,10 +20,26 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {},
-  decorators: [ThemeDecorator],
+  decorators: [
+    (Story) => (
+      <div className={`app ${Theme.LIGHT}`}>
+        <div className={` ${Theme.DARK}`}>
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemeDecoratorDark],
+  decorators: [
+    (Story) => (
+      <div className={`app ${Theme.DARK}`}>
+        <div className={` ${Theme.LIGHT}`}>
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
 };

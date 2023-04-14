@@ -8,6 +8,7 @@
   border: none;
   background: none;
   outline: none;
+  color: var(--primary-color);
 }
 
 .clearInverted {
@@ -50,4 +51,8 @@
   height: var(--font-line-xl);
   width: var(--font-line-xl);
   font: var(--font-xl);
+}
+.disabled {
+  opacity: 0.3;
+  cursor: auto;
 }

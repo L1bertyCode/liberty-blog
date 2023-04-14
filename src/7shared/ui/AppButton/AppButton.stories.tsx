@@ -3,6 +3,7 @@ import "1app/styles/variables.scss";
 
 import { AppButton, AppButtonSize, AppButtonVariant } from "./AppButton";
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
+import { Theme } from "1app/porviders/ThemePorvider";
 
 const meta = {
   title: "7shared/AppButton",
@@ -17,13 +18,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
-export const Primary: Story = {
-  args: {
-    variant: AppButtonVariant.PRIMARY,
-  },
-};
-
 export const Clear: Story = {
   args: {
     variant: AppButtonVariant.CLEAR,
@@ -33,12 +27,26 @@ export const ClearInverted: Story = {
   args: {
     variant: AppButtonVariant.CLEAR_INVERTED,
   },
-  decorators: [ThemeDecoratorDark],
+  decorators: [
+    (Story) => (
+      <div className={`app ${Theme.DARK}`}>
+        <div className={` ${Theme.LIGHT}`}>
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
 };
 export const Outline: Story = {
   args: {
     variant: AppButtonVariant.OUTLINE,
   },
+};
+export const OutlineDark: Story = {
+  args: {
+    variant: AppButtonVariant.OUTLINE,
+  },
+  decorators: [ThemeDecoratorDark],
 };
 
 export const Background: Story = {
@@ -51,16 +59,7 @@ export const BackgroundInverted: Story = {
     variant: AppButtonVariant.BACKGROUND_INVERTED,
   },
 };
-export const DefaultDark: Story = {
-  decorators: [ThemeDecoratorDark],
-};
 
-export const OutlineDark: Story = {
-  args: {
-    variant: AppButtonVariant.OUTLINE,
-  },
-  decorators: [ThemeDecoratorDark],
-};
 export const Square: Story = {
   args: {
     variant: AppButtonVariant.BACKGROUND_INVERTED,
@@ -82,5 +81,12 @@ export const SquareXL: Story = {
     children: ">",
     square: true,
     size: AppButtonSize.XL,
+  },
+};
+export const Disabled: Story = {
+  args: {
+    variant: AppButtonVariant.OUTLINE,
+    children: ">",
+    disabled: true,
   },
 };

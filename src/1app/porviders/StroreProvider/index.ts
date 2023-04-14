@@ -1,3 +1,3 @@
-export { createReduxStore } from "./config/store";
+export { createReduxStore, useAppDispatch } from "./config/store";
 export { StoreProvider } from "./ui/StoreProvider";
 export { StateSchema } from "./config/StateSchema";
