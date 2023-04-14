@@ -1,4 +1,4 @@
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { AppButton } from "7shared/ui/AppButton/AppButton";
 import { getCounterValue } from "../model/selectors/getCounterValue/getCounterValue";

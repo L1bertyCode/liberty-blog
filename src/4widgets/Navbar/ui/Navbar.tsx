@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { useState } from "react";
-import { Modal } from "7shared/ui/Modal/Modal";
 import { AppButton, AppButtonVariant } from "7shared/ui/AppButton/AppButton";
 import { LoginModal } from "5features/AuthByUsername";
 
