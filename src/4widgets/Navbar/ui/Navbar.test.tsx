@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { Navbar } from "./Navbar";
 
-import { RenderWithTranslation } from "7shared/lib/tests/renderWithTranslation/renderWithTranslation";
+import { ComponentRender } from "7shared/lib/tests/ComponentRender/ComponentRender";
 
 describe("Navbar", () => {
   test("should return", () => {
-    render(RenderWithTranslation(<Navbar />));
+    ComponentRender(<Navbar />);
     screen.debug();
   });
 });

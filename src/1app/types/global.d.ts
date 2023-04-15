@@ -19,8 +19,15 @@ declare module "*.jpeg";
 // }
 declare module "*.svg" {
   import React from "react";
-  const SVG: React.FunctionComponent<React.SVGProps<SVGElement>>;
+  const SVG: React.FunctionComponent<
+    React.SVGProps<SVGElement>
+  >;
   export default SVG;
 }
 
 declare const __IS__DEV__: boolean;
+// type DeepPartial<T> = T extends object
+//   ? {
+//       [P in keyof T]?: DeepPartial<T[P]>;
+//     }
+//   : T;

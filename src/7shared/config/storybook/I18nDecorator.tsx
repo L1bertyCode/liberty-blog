@@ -5,10 +5,10 @@ import i18n from "../i18n/i18n";
 import { Suspense } from "react";
 export const I18nDecorator: Decorator = (Story) => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <I18nextProvider i18n={i18n}>
+    <I18nextProvider i18n={i18n}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Story />
-      </I18nextProvider>
-    </Suspense>
+      </Suspense>
+    </I18nextProvider>
   );
 };

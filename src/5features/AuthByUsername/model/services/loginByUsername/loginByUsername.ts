@@ -16,7 +16,6 @@ export const loginByUsername = createAsyncThunk<
   ThunkConfig<string>
 >("login/loginByUsername", async (authData, thunkAPI) => {
   try {
-
     const response = await axios.post<User>(
       "http://localhost:8000/login",
       authData
@@ -36,13 +35,8 @@ export const loginByUsername = createAsyncThunk<
     );
 
     return response.data;
-    
   } catch (error) {
     console.log(error);
-    return thunkAPI.rejectWithValue(
-      i18n.t(
-        "You entered an incorrect username or password"
-      )
-    );
+    return thunkAPI.rejectWithValue("error");
   }
 });

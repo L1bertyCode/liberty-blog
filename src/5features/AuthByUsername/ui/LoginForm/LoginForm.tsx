@@ -53,7 +53,9 @@ export const LoginForm = memo((props: LoginFormProps) => {
       <AppText title={t("Authorization form")} />
       {error && (
         <AppText
-          text={error}
+          text={t(
+            "You entered an incorrect username or password"
+          )}
           variant={AppTextVariant.ERROR}
         />
       )}
