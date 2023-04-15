@@ -8,5 +8,8 @@
   "ShortLangauge": "En",
   "Login": "Login",
   "Type username": "Type username",
-  "Type password": "Type password"
+  "Type password": "Type password",
+  "Authorization form": "Authorization form",
+  "You entered an incorrect username or password": "You entered an incorrect username or password",
+  "Logout": "Logout"
 }

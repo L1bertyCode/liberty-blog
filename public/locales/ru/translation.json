@@ -8,5 +8,8 @@
   "ShortLangauge": "Ру",
   "Login": "Войти",
   "Type username": "Введите имя пользователя",
-  "Type password": "Введите пароль"
+  "Type password": "Введите пароль",
+  "Authorization form": "Форма авторизации",
+  "You entered an incorrect username or password": "Вы ввели неверный логин или пароль",
+  "Logout": "Выйти"
 }

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AppText } from "./AppText";
+import { AppText, AppTextVariant } from "./AppText";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 
@@ -36,5 +36,22 @@ export const OnlyText: Story = {
 };
 export const OnlyTextDark: Story = {
   args: { text: "Text Only Dark" },
+  decorators: [ThemeDecoratorDark],
+};
+
+export const ErrorLight: Story = {
+  args: {
+    title: "Error Title Light",
+    text: "Error Text Light",
+    variant: AppTextVariant.ERROR,
+  },
+};
+
+export const ErrorDark: Story = {
+  args: {
+    title: "Error Title Dark",
+    text: "Error Text Dark",
+    variant: AppTextVariant.ERROR,
+  },
   decorators: [ThemeDecoratorDark],
 };
