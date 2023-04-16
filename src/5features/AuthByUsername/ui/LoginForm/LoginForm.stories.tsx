@@ -3,6 +3,11 @@ import LoginForm from "./LoginForm";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 import { StoreProvider } from "1app/porviders/StroreProvider";
+import {
+  DeepPartial,
+  ReducersMapObject,
+} from "@reduxjs/toolkit";
+import { loginReducer } from "5features/AuthByUsername/model/slices/loginSlice";
 
 const meta = {
   title: "5features/LoginForm",
@@ -14,7 +19,8 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
+const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
+  { loginForm: loginReducer };
 export const Light: Story = {
   args: {},
   decorators: [
@@ -27,6 +33,7 @@ export const Light: Story = {
               password: "123",
             },
           }}
+          asyncReducers={{ ...defaultAsyncReducers }}
         >
           <Story />
         </StoreProvider>
@@ -48,6 +55,7 @@ export const Dark: Story = {
               password: "123",
             },
           }}
+          asyncReducers={{ ...defaultAsyncReducers }}
         >
           <Story />
         </StoreProvider>
@@ -69,6 +77,7 @@ export const LightError: Story = {
               error: "For example error",
             },
           }}
+          asyncReducers={{ ...defaultAsyncReducers }}
         >
           <Story />
         </StoreProvider>
@@ -91,6 +100,7 @@ export const DarkError: Story = {
               error: "For example error",
             },
           }}
+          asyncReducers={{ ...defaultAsyncReducers }}
         >
           <Story />
         </StoreProvider>
@@ -111,6 +121,7 @@ export const LightIsLoading: Story = {
               isLoading: true,
             },
           }}
+          asyncReducers={{ ...defaultAsyncReducers }}
         >
           <Story />
         </StoreProvider>
@@ -133,6 +144,7 @@ export const DarkIsLoading: Story = {
               isLoading: true,
             },
           }}
+          asyncReducers={{ ...defaultAsyncReducers }}
         >
           <Story />
         </StoreProvider>

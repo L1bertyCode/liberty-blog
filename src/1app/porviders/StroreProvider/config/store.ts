@@ -1,4 +1,5 @@
 import {
+  DeepPartial,
   ReducersMapObject,
   configureStore,
 } from "@reduxjs/toolkit";
@@ -18,9 +19,11 @@ export const useAppDispatch = () =>
   useDispatch<AppDispatch>();
 
 export const createReduxStore = (
-  initialState?: StateSchema
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
 ) => {
   const RootReducer: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
   };

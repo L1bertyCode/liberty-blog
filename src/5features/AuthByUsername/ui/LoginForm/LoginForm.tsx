@@ -28,6 +28,10 @@ import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "7shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 export interface LoginFormProps {
   className?: string;
@@ -35,81 +39,84 @@ export interface LoginFormProps {
   onClose: () => void;
 }
 
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+};
+
 const LoginForm = memo((props: LoginFormProps) => {
-  const { className, isOpen } = props;
+  const { className, isOpen, onClose } = props;
   const { t } = useTranslation();
-  const dispath = useAppDispatch();
-  const store = useStore() as ReducStoreWIthManager;
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
-  useEffect(() => {
-    store.reducerManager.add("loginForm", loginReducer);
-    return () => {
-      store.reducerManager.remove(
-        "loginForm",
-        loginReducer
-      );
-
-    };
-    // eslint-disable-next-line
-  }, []);
-
   const onChangeUsername = useCallback(
     (value: string) => {
-      dispath(loginActions.setUsername(value));
+      dispatch(loginActions.setUsername(value));
     },
-    [dispath]
+    [dispatch]
   );
   const onChangePassword = useCallback(
     (value: string) => {
-      dispath(loginActions.setPassword(value));
+      dispatch(loginActions.setPassword(value));
     },
-    [dispath]
+    [dispatch]
   );
-  const onLoginClick = useCallback(() => {
-    dispath(loginByUsername({ username, password }));
-  }, [dispath, username, password]);
+  const onLoginClick = useCallback(async () => {
+    dispatch(loginByUsername({ username, password }));
+    // const result = await dispatch(
+    //   loginByUsername({ username, password })
+    // );
+
+    // if (result.meta.requestStatus === "fulfilled") {
+    //   () => onClose;
+    // }
+  }, [dispatch, username, password]);
   return (
-    <div
-      className={classNames(s.loginForm, {}, [className])}
+    <DynamicModuleLoader
+      reducers={initialReducers}
+      removeAfterUnmount={true}
     >
-      <AppText title={t("Authorization form")} />
-      {error && (
-        <AppText
-          text={t(
-            "You entered an incorrect username or password"
-          )}
-          variant={AppTextVariant.ERROR}
-        />
-      )}
-      <AppInput
-        placeholder={t("Type username")}
-        type="text"
-        className={s.input}
-        autoFocus={isOpen}
-        onChange={onChangeUsername}
-        value={username}
-      />
-      <AppInput
-        placeholder={t("Type password")}
-        type="text"
-        className={s.input}
-        onChange={onChangePassword}
-        value={password}
-      />
-      <AppButton
-        disabled={isLoading}
-        onClick={onLoginClick}
-        className={s.loginBtn}
-        variant={AppButtonVariant.OUTLINE}
+      <div
+        className={classNames(s.loginForm, {}, [className])}
       >
-        {t("Login")}
-      </AppButton>
-    </div>
+        <AppText title={t("Authorization form")} />
+        {error && (
+          <AppText
+            text={t(
+              "You entered an incorrect username or password"
+            )}
+            variant={AppTextVariant.ERROR}
+          />
+        )}
+        <AppInput
+          placeholder={t("Type username")}
+          type="text"
+          className={s.input}
+          autoFocus={isOpen}
+          onChange={onChangeUsername}
+          value={username}
+        />
+        <AppInput
+          placeholder={t("Type password")}
+          type="text"
+          className={s.input}
+          onChange={onChangePassword}
+          value={password}
+        />
+        <AppButton
+          disabled={isLoading}
+          onClick={onLoginClick}
+          className={s.loginBtn}
+          variant={AppButtonVariant.OUTLINE}
+        >
+          {t("Login")}
+        </AppButton>
+      </div>
+    </DynamicModuleLoader>
   );
 });
 export default LoginForm;

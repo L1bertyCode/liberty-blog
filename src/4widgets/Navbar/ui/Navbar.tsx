@@ -77,10 +77,12 @@ export const Navbar = (props: NavbarProps) => {
           {t("Login")}
         </AppButton>
         {/* eslint-disable  */}
-        <LoginModal
-          isOpen={isAuthModal}
-          onClose={onCloseeModal}
-        />
+        {isAuthModal && (
+          <LoginModal
+            isOpen={isAuthModal}
+            onClose={onCloseeModal}
+          />
+        )}
       </div>
     </div>
   );
