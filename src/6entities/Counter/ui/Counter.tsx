@@ -7,7 +7,7 @@ interface CounterProps {}
   /* eslint-disable  i18next/no-literal-string*/
 }
 import { counterActions } from "../model/slices/counterSlice";
-import { useAppDispatch } from "1app/porviders/StroreProvider";
+import { useAppDispatch } from "1app/porviders/StoreProvider";
 
 export const Counter = (props: CounterProps) => {
   const {} = props;
@@ -22,11 +22,19 @@ export const Counter = (props: CounterProps) => {
   };
   return (
     <div>
-      <h1 data-testid="value-title">value={counterValue}</h1>
-      <AppButton data-testid="increment-btn" onClick={incrementCounter}>
+      <h1 data-testid="value-title">
+        value={counterValue}
+      </h1>
+      <AppButton
+        data-testid="increment-btn"
+        onClick={incrementCounter}
+      >
         increment
       </AppButton>
-      <AppButton data-testid="decrement-btn" onClick={decrementCounter}>
+      <AppButton
+        data-testid="decrement-btn"
+        onClick={decrementCounter}
+      >
         decrement
       </AppButton>
     </div>

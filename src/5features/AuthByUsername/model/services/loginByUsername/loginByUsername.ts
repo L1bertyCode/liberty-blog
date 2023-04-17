@@ -1,6 +1,5 @@
-import { ThunkConfig } from "1app/porviders/StroreProvider/config/StateSchema";
+import { ThunkConfig } from "1app/porviders/StoreProvider/config/StateSchema";
 import { User, userActions } from "6entities/User";
-import i18n from "7shared/config/i18n/i18n";
 import { USER_LOCALSTORAGE_KEY } from "7shared/const/localstorage";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";

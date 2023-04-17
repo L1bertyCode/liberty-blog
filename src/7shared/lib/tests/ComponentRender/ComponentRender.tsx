@@ -7,7 +7,7 @@ import { I18nextProvider } from "react-i18next";
 import {
   StateSchema,
   StoreProvider,
-} from "1app/porviders/StroreProvider";
+} from "1app/porviders/StoreProvider";
 import i18nForTests from "7shared/config/i18n/i18nForTests";
 import { DeepPartial } from "@reduxjs/toolkit";
 

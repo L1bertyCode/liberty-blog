@@ -1,4 +1,4 @@
-import { StoreProvider } from "1app/porviders/StroreProvider";
+import { StoreProvider } from "1app/porviders/StoreProvider";
 import { loginReducer } from "5features/AuthByUsername/model/slices/loginSlice";
 import {
   DeepPartial,

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import LoginForm from "./LoginForm";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
-import { StoreProvider } from "1app/porviders/StroreProvider";
+import { StoreProvider } from "1app/porviders/StoreProvider";
 import {
   DeepPartial,
   ReducersMapObject,

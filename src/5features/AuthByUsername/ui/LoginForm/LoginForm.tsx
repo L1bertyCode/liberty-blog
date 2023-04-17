@@ -18,7 +18,7 @@ import { loginByUsername } from "5features/AuthByUsername/model/services/loginBy
 import {
   ReducStoreWIthManager,
   useAppDispatch,
-} from "1app/porviders/StroreProvider";
+} from "1app/porviders/StoreProvider";
 import {
   AppText,
   AppTextVariant,
@@ -44,7 +44,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
-  const { className, isOpen, onClose } = props;
+  const { className, isOpen } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
