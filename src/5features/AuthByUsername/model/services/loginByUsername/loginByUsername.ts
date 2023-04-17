@@ -4,7 +4,7 @@ import { USER_LOCALSTORAGE_KEY } from "7shared/const/localstorage";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface LoginByUsernameProps {
+export interface LoginByUsernameProps {
   username: string;
   password: string;
 }
