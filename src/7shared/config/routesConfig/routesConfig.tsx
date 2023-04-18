@@ -32,21 +32,17 @@ export const routesConfig: Record<
   [AppRoutes.MiAN]: {
     path: RoutePath[AppRoutes.MiAN],
     element: <MainPage />,
-    icon: <div>1</div>,
   },
   [AppRoutes.ABOUT]: {
     path: RoutePath[AppRoutes.ABOUT],
     element: <AboutPage />,
-    icon: <div>1</div>,
   },
   [AppRoutes.PROFILE]: {
     path: RoutePath[AppRoutes.PROFILE],
     element: <ProfilePage />,
-    icon: <div>1</div>,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath[AppRoutes.NOT_FOUND],
     element: <NotFoundPage />,
-    icon: <div>1</div>,
   },
 };

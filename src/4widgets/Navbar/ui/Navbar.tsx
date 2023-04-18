@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { useTranslation } from "react-i18next";
@@ -19,11 +19,10 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 
-
 interface NavbarProps {
   className?: string;
 }
-export const Navbar = (props: NavbarProps) => {
+export const Navbar = memo((props: NavbarProps) => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const [isAuthModal, setIsAuthModal] = useState(false);
@@ -87,4 +86,4 @@ export const Navbar = (props: NavbarProps) => {
       </div>
     </div>
   );
-};
+});

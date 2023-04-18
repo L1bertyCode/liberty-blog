@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode, memo } from "react";
 import { classNames } from "7shared/lib/classNames/classNames";
 
 export enum AppButtonVariant {
@@ -27,7 +27,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 import s from "./AppButton.module.scss";
 
-export const AppButton = (props: AppButtonProps): ReturnType<React.FC> => {
+export const AppButton = memo((props: AppButtonProps): ReturnType<React.FC> => {
   const {
     className,
     children,
@@ -50,4 +50,4 @@ export const AppButton = (props: AppButtonProps): ReturnType<React.FC> => {
       {children}
     </button>
   );
-};
+});

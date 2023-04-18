@@ -1,19 +1,20 @@
-import { memo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { classNames } from "7shared/lib/classNames/classNames";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
+
+import { SidebatItemsList } from "4widgets/Sidebar/model/items";
+
 import { ThemeSwitcher } from "7shared/ui/ThemeSwitcher/ThemeSwitcher";
+import { LanguageSwitcher } from "7shared/ui/LanguageSwitcher/LanguageSwitcher";
+
 import {
   AppButton,
   AppButtonSize,
   AppButtonVariant,
 } from "7shared/ui/AppButton/AppButton";
-import { AppNavLink } from "7shared/ui/AppNavLink/AppNavLink";
-import { LanguageSwitcher } from "7shared/ui/LanguageSwitcher/LanguageSwitcher";
 
-import AboutIcon from "7shared/assets/icons/about-20-20.svg";
-import MainIcon from "7shared/assets/icons/main-20-20.svg";
-
+import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Sidebar.module.scss";
 
 interface SidebarProps {
@@ -24,24 +25,29 @@ export const Sidebar = memo((props: SidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
   const { t } = useTranslation();
+  const itemListMemo = useMemo(() => {
+    return SidebatItemsList.map((item) => {
+      return (
+        <SidebarItem
+          item={item}
+          key={item.path}
+          collapsed={collapsed}
+        />
+      );
+    });
+  }, [collapsed]);
 
   return (
     <div
       data-testid="sidebar"
-      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [
-        className,
-      ])}
+      className={classNames(
+        s.sidebar,
+        { [s.collapsed]: collapsed },
+        [className]
+      )}
     >
-      <div className={s.links}>
-        <AppNavLink to="/" className={s.link}>
-          <MainIcon className={s.icon} style={{ color: "red" }} />
-          <div className={s.item}>{!collapsed ? t("Main") : undefined}</div>
-        </AppNavLink>
-        <AppNavLink to="/about" className={s.link}>
-          <AboutIcon className={s.icon} />
-          <div className={s.item}>{!collapsed ? t("About") : undefined}</div>
-        </AppNavLink>
-      </div>
+      <div className={s.links}>{itemListMemo}</div>
+
       <div className={s.switchers}>
         <ThemeSwitcher />
         <LanguageSwitcher short={collapsed} />

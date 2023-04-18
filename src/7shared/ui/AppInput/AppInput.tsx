@@ -8,7 +8,6 @@ import {
 import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./AppInput.module.scss";
-import { log } from "console";
 
 type HTMLAppInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

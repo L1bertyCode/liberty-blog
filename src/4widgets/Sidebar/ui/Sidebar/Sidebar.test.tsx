@@ -1,4 +1,8 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+} from "@testing-library/react";
 import { Sidebar } from "./Sidebar";
 import { BrowserRouter } from "react-router-dom";
 import { RenderWithTranslation } from "7shared/lib/tests/renderWithTranslation/renderWithTranslation";
@@ -12,7 +16,9 @@ describe("Sidebar", () => {
         </BrowserRouter>
       )
     );
-    expect(screen.getByTestId("sidebar")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("sidebar")
+    ).toBeInTheDocument();
   });
   test("should return Sidebar", () => {
     render(
@@ -23,8 +29,12 @@ describe("Sidebar", () => {
       )
     );
     const toggleBtn = screen.getByTestId("sidebar-toggle");
-    expect(screen.getByTestId("sidebar")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("sidebar")
+    ).toBeInTheDocument();
     fireEvent.click(toggleBtn);
-    expect(screen.getByTestId("sidebar")).toHaveClass("collapsed");
+    expect(screen.getByTestId("sidebar")).toHaveClass(
+      "collapsed"
+    );
   });
 });
