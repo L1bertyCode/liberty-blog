@@ -15,10 +15,7 @@ import {
 } from "5features/AuthByUsername/model/slices/loginSlice";
 
 import { loginByUsername } from "5features/AuthByUsername/model/services/loginByUsername/loginByUsername";
-import {
-  ReducStoreWIthManager,
-  useAppDispatch,
-} from "1app/porviders/StoreProvider";
+
 import {
   AppText,
   AppTextVariant,
@@ -32,11 +29,12 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "7shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 
 export interface LoginFormProps {
   className?: string;
   isOpen?: boolean;
-  onClose: () => void;
+  onSuccess?: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -44,7 +42,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
-  const { className, isOpen } = props;
+  const { className, isOpen, onSuccess } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
@@ -67,14 +65,14 @@ const LoginForm = memo((props: LoginFormProps) => {
   );
   const onLoginClick = useCallback(async () => {
     dispatch(loginByUsername({ username, password }));
-    // const result = await dispatch(
-    //   loginByUsername({ username, password })
-    // );
-
-    // if (result.meta.requestStatus === "fulfilled") {
-    //   () => onClose;
-    // }
-  }, [dispatch, username, password]);
+    const result = await dispatch(
+      loginByUsername({ username, password })
+    );
+    console.log(result);
+    if (result.meta.requestStatus === "fulfilled") {
+      onSuccess();
+    }
+  }, [dispatch, username, password, onSuccess]);
   return (
     <DynamicModuleLoader
       reducers={initialReducers}

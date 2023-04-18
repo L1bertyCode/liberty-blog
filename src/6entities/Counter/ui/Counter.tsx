@@ -7,7 +7,7 @@ interface CounterProps {}
   /* eslint-disable  i18next/no-literal-string*/
 }
 import { counterActions } from "../model/slices/counterSlice";
-import { useAppDispatch } from "1app/porviders/StoreProvider";
+import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 
 export const Counter = (props: CounterProps) => {
   const {} = props;

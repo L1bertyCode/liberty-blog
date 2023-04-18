@@ -17,7 +17,8 @@ import {
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
-import { useAppDispatch } from "1app/porviders/StoreProvider";
+import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
+
 
 interface NavbarProps {
   className?: string;

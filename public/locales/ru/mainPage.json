@@ -1,6 +1,17 @@
 {
-    "Main": "Главная",
-    "About": "О сайте",
-    "Langauge": "Русский"
-  }
-  
+  "Main": "Главная",
+  "About": "О сайте",
+  "Langauge": "Русский",
+  "Not Found Page": "Страница не найдена",
+  "Refresh the page": "Обновите страницу",
+  "An unexpected error occurred": "Произошла непредвиденная ошибка",
+  "ShortLangauge": "Ру",
+  "Login": "Войти",
+  "Type username": "Введите имя пользователя",
+  "Type password": "Введите пароль",
+  "Authorization form": "Форма авторизации",
+  "You entered an incorrect username or password": "Вы ввели неверный логин или пароль",
+  "Logout": "Выйти",
+  "Logo": "Лого",
+  "Profile": "Профиль"
+}

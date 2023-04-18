@@ -8,7 +8,7 @@ import { Sidebar } from "4widgets/Sidebar";
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import "1app/styles/index.scss";
-import { useAppDispatch } from "./porviders/StoreProvider";
+import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 import { userActions } from "6entities/User";
 
 export const App = memo(() => {

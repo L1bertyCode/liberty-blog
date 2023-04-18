@@ -3,7 +3,6 @@ import {
   ReducersMapObject,
   configureStore,
 } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 
 import { StateSchema } from "./StateSchema";
 
@@ -14,9 +13,6 @@ import { createReducerManager } from "./reducerManager";
 export type AppDispatch = ReturnType<
   typeof createReduxStore
 >["dispatch"];
-
-export const useAppDispatch = () =>
-  useDispatch<AppDispatch>();
 
 export const createReduxStore = (
   initialState?: StateSchema,

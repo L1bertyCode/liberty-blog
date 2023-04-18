@@ -1,6 +1,17 @@
 {
-    "Main": "Main",
-    "About": "About",
-    "Langauge": "English"
-  }
-  
+  "Main": "Main",
+  "About": "About",
+  "Langauge": "English",
+  "Not Found Page": "Not Found Page",
+  "Refresh the page": "Refresh the page",
+  "An unexpected error occurred": "An unexpected error occurred",
+  "ShortLangauge": "En",
+  "Login": "Login",
+  "Type username": "Type username",
+  "Type password": "Type password",
+  "Authorization form": "Authorization form",
+  "You entered an incorrect username or password": "You entered an incorrect username or password",
+  "Logout": "Logout",
+  "Logo": "Logo",
+  "Profile": "Profile"
+}
