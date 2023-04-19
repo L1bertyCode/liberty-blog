@@ -1,5 +1,6 @@
 import { LoginSchema } from "5features/AuthByUsername";
 import { CounterSchema } from "6entities/Counter";
+import { ProfileSchema } from "6entities/Profile";
 import { UserSchema } from "6entities/User";
 import {
   AnyAction,
@@ -17,6 +18,7 @@ export interface StateSchema {
 
   //Async reducers
   loginForm?: LoginSchema;
+  profile?: ProfileSchema;
 }
 export interface ThunkExtraArg {
   api: AxiosInstance;
