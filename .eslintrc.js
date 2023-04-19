@@ -4,7 +4,11 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ["plugin:react/recommended", "plugin:storybook/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:storybook/recommended",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -13,7 +17,12 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "react-hooks", "i18next"],
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "i18next",
+  ],
   rules: {
     semi: [2, "always"],
     "react/jsx-indent": [2, 2],
@@ -71,4 +80,11 @@ module.exports = {
       },
     },
   ],
+  // settings: {
+  //   react: {
+  //     pragma: "React",
+  //     version: "detect",
+  //     flowVersion: "0.53",
+  //   },
+  // },
 };

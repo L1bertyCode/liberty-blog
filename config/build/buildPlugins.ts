@@ -12,7 +12,7 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 export const buildPlugins = (
   buildOptions: BuildOptions
 ): WebpackPluginInstance[] => {
-  const { buildPaths, isDev } = buildOptions;
+  const { buildPaths, isDev, apiUrl } = buildOptions;
   const plugins = [
     new HtmlWebpackPlugin({
       template: buildPaths.html,
@@ -25,10 +25,13 @@ export const buildPlugins = (
     }),
     new DefinePlugin({
       __IS__DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
     }),
   ];
   if (isDev) {
-    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    plugins.push(
+      new BundleAnalyzerPlugin({ openAnalyzer: false })
+    );
     // plugins.push(new HotModuleReplacementPlugin());
   }
   return plugins;

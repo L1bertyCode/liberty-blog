@@ -9,13 +9,24 @@ export default (env: BuildEnv) => {
     buildDev: path.resolve(__dirname, "build-dev"),
     buildProd: path.resolve(__dirname, "build-prod"),
     html: path.resolve(__dirname, "public", "index.html"),
-    favicon: path.resolve(__dirname, "public", "favicon.ico"),
+    favicon: path.resolve(
+      __dirname,
+      "public",
+      "favicon.ico"
+    ),
     src: path.resolve(__dirname, "src"),
   };
   const buildMode = env.mode || "development";
   const isDev = buildMode === "development";
   const PORT = env.port || 3300;
+  const apiUrl = env.apiUrl || "http://localhost:8000";
 
-  const config = buildWebpackConfig({ buildMode, buildPaths, isDev, port:PORT });
+  const config = buildWebpackConfig({
+    buildMode,
+    buildPaths,
+    isDev,
+    port: PORT,
+    apiUrl: apiUrl,
+  });
   return config;
 };

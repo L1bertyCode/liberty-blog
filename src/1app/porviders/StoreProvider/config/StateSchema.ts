@@ -20,15 +20,6 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
 }
-export interface ThunkExtraArg {
-  api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
-}
-export interface ThunkConfig<T> {
-  rejectValue: T;
-  extra: ThunkExtraArg;
-  state: StateSchema;
-}
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
@@ -43,4 +34,15 @@ export type StateSchemaKey = keyof StateSchema;
 export interface ReducStoreWIthManager
   extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance;
+  navigate: (to: To, options?: NavigateOptions) => void;
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T;
+  extra: ThunkExtraArg;
+  state: StateSchema;
 }

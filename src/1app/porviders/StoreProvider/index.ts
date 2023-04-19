@@ -6,4 +6,5 @@ export { StoreProvider } from "./ui/StoreProvider";
 export {
   StateSchema,
   ReducStoreWIthManager,
+  ThunkExtraArg,
 } from "./config/StateSchema";
