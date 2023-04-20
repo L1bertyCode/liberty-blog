@@ -1,5 +1,12 @@
-import { ButtonHTMLAttributes, ReactNode, memo } from "react";
-import { classNames } from "7shared/lib/classNames/classNames";
+import {
+  ButtonHTMLAttributes,
+  ReactNode,
+  memo,
+} from "react";
+import {
+  Mods,
+  classNames,
+} from "7shared/lib/classNames/classNames";
 
 export enum AppButtonVariant {
   CLEAR = "clear",
@@ -16,7 +23,8 @@ export enum AppButtonSize {
   L = "l",
   XL = "xl",
 }
-interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface AppButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   className?: string;
   variant?: AppButtonVariant;
@@ -27,27 +35,33 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 import s from "./AppButton.module.scss";
 
-export const AppButton = memo((props: AppButtonProps): ReturnType<React.FC> => {
-  const {
-    className,
-    children,
-    variant = AppButtonVariant.OUTLINE,
-    size = AppButtonSize.M,
-    square,
-    disabled,
-    ...otherProps
-  } = props;
-  return (
-    <button
-      disabled={disabled}
-      className={classNames(
-        s.appButton,
-        { [s.square]: square, [s.disabled]: disabled },
-        [className, s[variant], s[size]]
-      )}
-      {...otherProps}
-    >
-      {children}
-    </button>
-  );
-});
+export const AppButton = memo(
+  (props: AppButtonProps): ReturnType<React.FC> => {
+    const {
+      className,
+      children,
+      variant = AppButtonVariant.OUTLINE,
+      size = AppButtonSize.M,
+      square,
+      disabled,
+      ...otherProps
+    } = props;
+    const mods: Mods = {
+      [s.square]: square,
+      [s.disabled]: disabled,
+    };
+    return (
+      <button
+        disabled={disabled}
+        className={classNames(s.appButton, mods, [
+          className,
+          s[variant],
+          s[size],
+        ])}
+        {...otherProps}
+      >
+        {children}
+      </button>
+    );
+  }
+);

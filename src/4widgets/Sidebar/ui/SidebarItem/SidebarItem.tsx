@@ -8,7 +8,7 @@ import s from "./SidebarItem.module.scss";
 import { SidebarItemInterface } from "4widgets/Sidebar/model/items";
 
 interface SidebarItemProps {
-  item?: SidebarItemInterface;
+  item: SidebarItemInterface;
   collapsed: boolean;
   className?: string;
 }

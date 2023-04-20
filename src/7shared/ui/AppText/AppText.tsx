@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { classNames } from "7shared/lib/classNames/classNames";
+import { Mods, classNames } from "7shared/lib/classNames/classNames";
 import s from "./AppText.module.scss";
 
 export enum AppTextVariant {
@@ -22,7 +22,7 @@ export const AppText = memo((props: AppTextProps) => {
     text,
     variant = AppTextVariant.DEFAULT,
   } = props;
-  const mods = {};
+  const mods: Mods = {};
   return (
     <div
       className={classNames(s.appText, {}, [

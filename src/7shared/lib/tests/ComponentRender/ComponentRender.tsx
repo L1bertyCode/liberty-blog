@@ -9,7 +9,6 @@ import {
   StoreProvider,
 } from "1app/porviders/StoreProvider";
 import i18nForTests from "7shared/config/i18n/i18nForTests";
-import { DeepPartial } from "@reduxjs/toolkit";
 
 export interface ComponentRenderOptions {
   route?: string;

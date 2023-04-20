@@ -33,20 +33,22 @@ export const ProfileCard = memo(
       >
         <div className={s.header}>
           <AppText title={t("Profile")} />
-          <AppButton variant={AppButtonVariant.OUTLINE}
-          className={s.editBtn}>
+          <AppButton
+            variant={AppButtonVariant.OUTLINE}
+            className={s.editBtn}
+          >
             {t("Edit")}
           </AppButton>
         </div>
         <div className={s.data}>
           <AppInput
             value={data?.firstname}
-            placeholder={t("Firstname")}
+            placeholder={t("Firstname") || ""}
             className={s.input}
           />
           <AppInput
             value={data?.lastname}
-            placeholder={t("Lastname")}
+            placeholder={t("Lastname") || ""}
             className={s.input}
           />
         </div>

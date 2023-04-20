@@ -31,6 +31,7 @@ export const Light: Story = {
             loginForm: {
               username: "admin",
               password: "123",
+              isLoading: false,
             },
           }}
           asyncReducers={{ ...defaultAsyncReducers }}
@@ -53,6 +54,7 @@ export const Dark: Story = {
             loginForm: {
               username: "admin",
               password: "123",
+              isLoading: false,
             },
           }}
           asyncReducers={{ ...defaultAsyncReducers }}
@@ -75,6 +77,7 @@ export const LightError: Story = {
               username: "admin",
               password: "123",
               error: "For example error",
+              isLoading: false,
             },
           }}
           asyncReducers={{ ...defaultAsyncReducers }}
@@ -98,6 +101,8 @@ export const DarkError: Story = {
               username: "admin",
               password: "123",
               error: "For example error",
+              isLoading: false,
+
             },
           }}
           asyncReducers={{ ...defaultAsyncReducers }}

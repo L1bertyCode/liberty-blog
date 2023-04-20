@@ -8,6 +8,7 @@ import {
 import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./AppInput.module.scss";
+import { DefaultTFuncReturn } from "i18next";
 
 type HTMLAppInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -18,6 +19,7 @@ interface AppInputProps extends HTMLAppInputProps {
   type?: string;
   value?: string;
   placholder?: string;
+
   autoFocus?: boolean;
 
   onChange?: (value: string) => void;
@@ -47,11 +49,14 @@ export const AppInput = memo((props: AppInputProps) => {
     autoFocus,
     ...otherProps
   } = props;
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     onChange?.(e.target.value);
   };
 
-  const inputRef = useRef(null) as MutableRefObject<HTMLInputElement>;
+  const inputRef =
+    useRef() as MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
     if (autoFocus) {
@@ -60,8 +65,16 @@ export const AppInput = memo((props: AppInputProps) => {
   }, [autoFocus]);
 
   return (
-    <div className={classNames(s.appInputWrapper, {}, [className])}>
-      {placeholder && <div className={s.placholder}>{`${placeholder}>`}</div>}
+    <div
+      className={classNames(s.appInputWrapper, {}, [
+        className,
+      ])}
+    >
+      {placeholder && (
+        <div
+          className={s.placholder}
+        >{`${placeholder}>`}</div>
+      )}
       <input
         ref={inputRef}
         type={type}

@@ -91,7 +91,7 @@ const LoginForm = memo((props: LoginFormProps) => {
           />
         )}
         <AppInput
-          placeholder={t("Type username")}
+          placeholder={t("Type username") || ""}
           type="text"
           className={s.input}
           autoFocus={isOpen}
@@ -99,7 +99,7 @@ const LoginForm = memo((props: LoginFormProps) => {
           value={username}
         />
         <AppInput
-          placeholder={t("Type password")}
+          placeholder={t("Type password") || ""}
           type="text"
           className={s.input}
           onChange={onChangePassword}
