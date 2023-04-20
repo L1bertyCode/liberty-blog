@@ -6,7 +6,7 @@ export const classNames = (
 ): string => {
   return [
     cls,
-    ...additional?.filter(Boolean),
+    ...additional.filter(Boolean),
     ...Object.entries(mods)
       .filter(([keyCkassName, valueClassName]) => Boolean(valueClassName))
       .map(([keyCkassName, valueClassName]) => {

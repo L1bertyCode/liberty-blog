@@ -13,8 +13,5 @@
   "You entered an incorrect username or password": "You entered an incorrect username or password",
   "Logout": "Logout",
   "Logo": "Logo",
-  "Profile": "Profile",
-  "Edit": "Edit",
-  "Firstname": "Firstname",
-  "Lastname": "Lastname"
+  "Profile": "Profile"
 }

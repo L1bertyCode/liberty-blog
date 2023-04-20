@@ -6,6 +6,7 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
+    "strict": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -23,6 +24,7 @@
     "./config/jest/setupTest.ts",
     "./src/**/*.(ts|tsx}",
     "./src/**/*.ts",
-    "./src/**/*.tsx"
-, "src/5features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername.ts"  ]
+    "./src/**/*.tsx",
+    "src/5features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername.ts"
+  ]
 }
