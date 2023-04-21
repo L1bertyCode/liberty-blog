@@ -16,5 +16,7 @@
   "Profile": "Профиль",
   "Edit": "Редактировать",
   "Firstname": "Ваше имя",
-  "Lastname": "Ваша фамилия"
+  "Lastname": "Ваша фамилия",
+  "An unexpected error has occurred": "Произошла непредвиденная ошибка",
+  "Reload page": "Обновить страницу"
 }

@@ -1,11 +1,19 @@
 import { memo } from "react";
 
-import { Mods, classNames } from "7shared/lib/classNames/classNames";
+import {
+  Mods,
+  classNames,
+} from "7shared/lib/classNames/classNames";
 import s from "./AppText.module.scss";
 
 export enum AppTextVariant {
   DEFAULT = "primary",
   ERROR = "error",
+}
+export enum AppTextAlign {
+  RIGHT = "right",
+  LEFT = "left",
+  CENTER = "center",
 }
 
 export interface AppTextProps {
@@ -13,6 +21,7 @@ export interface AppTextProps {
   title?: string | undefined | null;
   text?: string | undefined | null;
   variant?: AppTextVariant;
+  align?: AppTextAlign;
 }
 
 export const AppText = memo((props: AppTextProps) => {
@@ -21,13 +30,15 @@ export const AppText = memo((props: AppTextProps) => {
     title,
     text,
     variant = AppTextVariant.DEFAULT,
+    align = AppTextAlign.LEFT,
   } = props;
   const mods: Mods = {};
   return (
     <div
-      className={classNames(s.appText, {}, [
+      className={classNames(s.appText, mods, [
         className,
         s[variant],
+        s[align],
       ])}
     >
       {title && <p className={s.title}>{title}</p>}

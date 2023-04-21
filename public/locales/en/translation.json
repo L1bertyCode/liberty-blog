@@ -16,5 +16,7 @@
   "Profile": "Profile",
   "Edit": "Edit",
   "Firstname": "Firstname",
-  "Lastname": "Lastname"
+  "Lastname": "Lastname",
+  "An unexpected error has occurred": "An unexpected error has occurred",
+  "Reload page": "Reload page"
 }

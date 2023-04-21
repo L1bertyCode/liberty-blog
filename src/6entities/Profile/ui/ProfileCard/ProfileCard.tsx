@@ -1,30 +1,63 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "7shared/lib/classNames/classNames";
 
-import s from "./ProfileCard.module.scss";
-import { useSelector } from "react-redux";
-import { getProfileData } from "6entities/Profile/model/selectors/getProfileData/getProfileData";
-import { getProfileError } from "6entities/Profile/model/selectors/getProfileError/getProfileError";
-import { getProfileIsLoading } from "6entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading";
-import { AppText } from "7shared/ui/AppText/AppText";
+import { Profile } from "../../model/types/profile";
+
+import {
+  AppText,
+  AppTextAlign,
+  AppTextVariant,
+} from "7shared/ui/AppText/AppText";
 import {
   AppButton,
   AppButtonVariant,
 } from "7shared/ui/AppButton/AppButton";
 import { AppInput } from "7shared/ui/AppInput/AppInput";
 
+import { classNames } from "7shared/lib/classNames/classNames";
+import s from "./ProfileCard.module.scss";
+import { Loader } from "7shared/ui/Loader/Loader";
+
 interface ProfileCardProps {
   className?: string;
+  data?: Profile;
+  isLoading?: boolean;
+  error?: string;
 }
 
 export const ProfileCard = memo(
   (props: ProfileCardProps) => {
-    const { className } = props;
+    const { className, data, isLoading, error } = props;
     const { t } = useTranslation();
-    const data = useSelector(getProfileData);
-    const error = useSelector(getProfileError);
-    const isLoaing = useSelector(getProfileIsLoading);
+    if (isLoading) {
+      return (
+        <div
+          className={classNames(s.profileCard, {}, [
+            className,
+            s.loading,
+          ])}
+        >
+          <Loader />
+        </div>
+      );
+    }
+    if (error) {
+      return (
+        <div
+          className={classNames(s.profileCard, {}, [
+            className,
+            s.error,
+          ])}
+        >
+          <AppText
+            align={AppTextAlign.CENTER}
+            variant={AppTextVariant.ERROR}
+            title={t("An unexpected error has occurred")}
+            text={t("Reload page")}
+          />
+        </div>
+      );
+    }
     return (
       <div
         className={classNames(s.profileCard, {}, [
