@@ -5,6 +5,7 @@ import { UserSchema } from "6entities/User";
 import {
   AnyAction,
   CombinedState,
+  Dispatch,
   EnhancedStore,
   Reducer,
   ReducersMapObject,
@@ -28,7 +29,7 @@ export interface ReducerManager {
     action: AnyAction
   ) => CombinedState<StateSchema>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
-  remove: (key: StateSchemaKey, reducer: Reducer) => void;
+  remove: (key: StateSchemaKey) => void;
 }
 export type StateSchemaKey = keyof StateSchema;
 export interface ReducStoreWIthManager
@@ -38,11 +39,12 @@ export interface ReducStoreWIthManager
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate: (to: To, options?: NavigateOptions) => void;
+  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;
   state: StateSchema;
+  disptach: Dispatch;
 }

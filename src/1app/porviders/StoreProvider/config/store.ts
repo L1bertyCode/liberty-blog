@@ -1,5 +1,7 @@
 import {
+  CombinedState,
   DeepPartial,
+  Reducer,
   ReducersMapObject,
   configureStore,
   getDefaultMiddleware,
@@ -29,17 +31,21 @@ export const createReduxStore = (
   };
   const reducerManager = createReducerManager(RootReducer);
 
+  const extraArg = {
+    api: $api,
+    navigate,
+  };
+
   const store = configureStore({
     preloadedState: initialState,
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<
+      CombinedState<StateSchema>
+    >,
     devTools: __IS__DEV__,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
-          extraArgument: {
-            api: $api,
-            navigate,
-          },
+          extraArgument: extraArg,
         },
       }),
   });

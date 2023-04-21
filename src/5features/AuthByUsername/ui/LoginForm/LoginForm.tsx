@@ -34,7 +34,7 @@ import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 export interface LoginFormProps {
   className?: string;
   isOpen?: boolean;
-  onSuccess?: () => void;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
