@@ -5,10 +5,12 @@ import {
   useEffect,
   useRef,
 } from "react";
-import { classNames } from "7shared/lib/classNames/classNames";
 
+import {
+  Mods,
+  classNames,
+} from "7shared/lib/classNames/classNames";
 import s from "./AppInput.module.scss";
-import { DefaultTFuncReturn } from "i18next";
 
 type HTMLAppInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -19,6 +21,7 @@ interface AppInputProps extends HTMLAppInputProps {
   type?: string;
   value?: string;
   placholder?: string;
+  readOnly?: boolean;
 
   autoFocus?: boolean;
 
@@ -47,6 +50,7 @@ export const AppInput = memo((props: AppInputProps) => {
     onChange,
     placeholder,
     autoFocus,
+    readOnly,
     ...otherProps
   } = props;
   const onChangeHandler = (
@@ -63,10 +67,12 @@ export const AppInput = memo((props: AppInputProps) => {
       inputRef?.current?.focus();
     }
   }, [autoFocus]);
-
+  const mods: Mods = {
+    [s.readOnly]: readOnly,
+  };
   return (
     <div
-      className={classNames(s.appInputWrapper, {}, [
+      className={classNames(s.appInputWrapper, mods, [
         className,
       ])}
     >
@@ -82,6 +88,7 @@ export const AppInput = memo((props: AppInputProps) => {
         onChange={onChangeHandler}
         className={s.appInput}
         autoFocus={autoFocus}
+        readOnly={readOnly}
         {...otherProps}
       />
     </div>

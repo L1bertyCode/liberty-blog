@@ -12,8 +12,8 @@ export enum AppButtonVariant {
   CLEAR = "clear",
   CLEAR_INVERTED = "clearInverted",
   OUTLINE = "outline",
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
+  OUTLINE_RED = "outline_red",
+
   BACKGROUND = "background",
   BACKGROUND_INVERTED = "backgroundInverted",
 }

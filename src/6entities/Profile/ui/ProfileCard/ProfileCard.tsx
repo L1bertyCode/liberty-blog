@@ -18,17 +18,30 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./ProfileCard.module.scss";
 import { Loader } from "7shared/ui/Loader/Loader";
 
+
 interface ProfileCardProps {
   className?: string;
   data?: Profile;
   isLoading?: boolean;
   error?: string;
+  readOnly?: boolean;
+  onChangeFirstname: (value: string) => void;
+  onChangeLastname: (value: string) => void;
 }
 
 export const ProfileCard = memo(
   (props: ProfileCardProps) => {
-    const { className, data, isLoading, error } = props;
+    const {
+      className,
+      data,
+      isLoading,
+      error,
+      readOnly,
+      onChangeFirstname,
+      onChangeLastname,
+    } = props;
     const { t } = useTranslation();
+
     if (isLoading) {
       return (
         <div
@@ -64,25 +77,20 @@ export const ProfileCard = memo(
           className,
         ])}
       >
-        <div className={s.header}>
-          <AppText title={t("Profile")} />
-          <AppButton
-            variant={AppButtonVariant.OUTLINE}
-            className={s.editBtn}
-          >
-            {t("Edit")}
-          </AppButton>
-        </div>
         <div className={s.data}>
           <AppInput
             value={data?.firstname}
             placeholder={t("Firstname") || ""}
             className={s.input}
+            readOnly={readOnly}
+            onChange={onChangeFirstname}
           />
           <AppInput
             value={data?.lastname}
             placeholder={t("Lastname") || ""}
             className={s.input}
+            readOnly={readOnly}
+            onChange={onChangeLastname}
           />
         </div>
       </div>

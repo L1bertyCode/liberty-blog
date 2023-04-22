@@ -18,5 +18,7 @@
   "Firstname": "Ваше имя",
   "Lastname": "Ваша фамилия",
   "An unexpected error has occurred": "Произошла непредвиденная ошибка",
-  "Reload page": "Обновить страницу"
+  "Reload page": "Обновить страницу",
+  "Cancel": "Отменить",
+  "Save": "Сохранить"
 }

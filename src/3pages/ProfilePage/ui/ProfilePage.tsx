@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import {
@@ -6,7 +6,10 @@ import {
   fetchProfileData,
   getProfileData,
   getProfileError,
+  getProfileForm,
   getProfileIsLoading,
+  getProfileReadOnly,
+  profileActions,
   profileReducer,
 } from "6entities/Profile";
 
@@ -19,6 +22,7 @@ import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./ProfilePage.module.scss";
+import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 interface ProfilePageProps {
   className?: string;
@@ -34,8 +38,31 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const dispatch = useAppDispatch();
 
   const data = useSelector(getProfileData);
+  const form = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
+
+  const readOnly = useSelector(getProfileReadOnly);
+  const onChangeFirstname = useCallback(
+    (value?: string) => {
+      dispatch(
+        profileActions.updateProfile({
+          firstname: value || "",
+        })
+      );
+    },
+    [dispatch]
+  );
+  const onChangeLastname = useCallback(
+    (value?: string) => {
+      dispatch(
+        profileActions.updateProfile({
+          lastname: value || "",
+        })
+      );
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -51,10 +78,14 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         ])}
       >
         <div>{t("Profile")}</div>
+        <ProfilePageHeader />
         <ProfileCard
-          data={data}
+          data={form}
           isLoading={isLoading}
           error={error}
+          onChangeFirstname={onChangeFirstname}
+          onChangeLastname={onChangeLastname}
+          readOnly={readOnly}
         />
       </div>
     </DynamicModuleLoader>
