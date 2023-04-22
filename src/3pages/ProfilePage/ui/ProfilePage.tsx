@@ -63,10 +63,31 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     },
     [dispatch]
   );
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(
+        profileActions.updateProfile({
+          city: value || "",
+        })
+      );
+    },
+    [dispatch]
+  );
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      dispatch(
+        profileActions.updateProfile({
+          age: Number(value || 0),
+        })
+      );
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
+
   return (
     <DynamicModuleLoader
       reducers={reducers}
@@ -84,7 +105,9 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           isLoading={isLoading}
           error={error}
           onChangeFirstname={onChangeFirstname}
+          onChangeCity={onChangeCity}
           onChangeLastname={onChangeLastname}
+          onChangeAge={onChangeAge}
           readOnly={readOnly}
         />
       </div>

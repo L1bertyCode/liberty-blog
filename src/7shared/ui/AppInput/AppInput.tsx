@@ -19,7 +19,7 @@ type HTMLAppInputProps = Omit<
 interface AppInputProps extends HTMLAppInputProps {
   className?: string;
   type?: string;
-  value?: string;
+  value?: string | number;
   placholder?: string;
   readOnly?: boolean;
 

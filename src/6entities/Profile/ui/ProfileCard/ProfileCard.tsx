@@ -18,7 +18,6 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./ProfileCard.module.scss";
 import { Loader } from "7shared/ui/Loader/Loader";
 
-
 interface ProfileCardProps {
   className?: string;
   data?: Profile;
@@ -27,6 +26,8 @@ interface ProfileCardProps {
   readOnly?: boolean;
   onChangeFirstname: (value: string) => void;
   onChangeLastname: (value: string) => void;
+  onChangeCity: (value: string) => void;
+  onChangeAge: (value: string) => void;
 }
 
 export const ProfileCard = memo(
@@ -39,6 +40,8 @@ export const ProfileCard = memo(
       readOnly,
       onChangeFirstname,
       onChangeLastname,
+      onChangeCity,
+      onChangeAge,
     } = props;
     const { t } = useTranslation();
 
@@ -91,6 +94,21 @@ export const ProfileCard = memo(
             className={s.input}
             readOnly={readOnly}
             onChange={onChangeLastname}
+          />
+          <AppInput
+            value={data?.age}
+            placeholder={t("Age") || ""}
+            className={s.input}
+            readOnly={readOnly}
+            onChange={onChangeAge}
+            type="number"
+          />
+          <AppInput
+            value={data?.city}
+            placeholder={t("City") || ""}
+            className={s.input}
+            readOnly={readOnly}
+            onChange={onChangeCity}
           />
         </div>
       </div>
