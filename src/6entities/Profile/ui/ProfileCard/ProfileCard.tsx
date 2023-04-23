@@ -17,6 +17,7 @@ import { AppInput } from "7shared/ui/AppInput/AppInput";
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./ProfileCard.module.scss";
 import { Loader } from "7shared/ui/Loader/Loader";
+import { Avatar } from "7shared/ui/Avatar/Avatar";
 
 interface ProfileCardProps {
   className?: string;
@@ -85,7 +86,11 @@ export const ProfileCard = memo(
         ])}
       >
         <div className={s.data}>
-          {data?.avatar && <img src={data?.avatar} />}
+          {data?.avatar && (
+            <div className={s.avatarWrapper}>
+              <Avatar src={data?.avatar} />
+            </div>
+          )}
           <AppInput
             value={data?.firstname}
             placeholder={t("Firstname") || ""}

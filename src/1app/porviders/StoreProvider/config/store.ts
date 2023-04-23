@@ -33,7 +33,6 @@ export const createReduxStore = (
 
   const extraArg = {
     api: $api,
-    navigate,
   };
 
   const store = configureStore({

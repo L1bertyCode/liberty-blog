@@ -17,16 +17,19 @@ const preview: Preview = {
     },
   },
   argTypes: {
-    theme: { control: "select", options: [Theme.LIGHT, Theme.DARK] },
+    theme: {
+      control: "select",
+      options: [Theme.LIGHT, Theme.DARK],
+    },
   },
   args: {
     theme: Theme.LIGHT,
   },
   decorators: [
+    RouteDecoratar,
     StyleDecorator,
     ThemeDecorator,
     I18nDecorator,
-    RouteDecoratar,
     StoreDecorator,
   ],
 };
