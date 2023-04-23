@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import {
   getProfileReadOnly,
   profileActions,
+  updateProfileData,
 } from "6entities/Profile";
 import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 
@@ -34,7 +35,7 @@ export const ProfilePageHeader = memo(
       dispatch(profileActions.cancelEdit());
     }, [dispatch]);
     const onSave = useCallback(() => {
-      dispatch(profileActions.cancelEdit());
+      dispatch(updateProfileData());
     }, [dispatch]);
     return (
       <div

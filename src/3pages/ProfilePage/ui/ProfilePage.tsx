@@ -38,11 +38,12 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const dispatch = useAppDispatch();
 
   const data = useSelector(getProfileData);
-  const form = useSelector(getProfileForm);
+  const formData = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
 
   const readOnly = useSelector(getProfileReadOnly);
+
   const onChangeFirstname = useCallback(
     (value?: string) => {
       dispatch(
@@ -83,6 +84,26 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     },
     [dispatch]
   );
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(
+        profileActions.updateProfile({
+          username: value || "",
+        })
+      );
+    },
+    [dispatch]
+  );
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(
+        profileActions.updateProfile({
+          avatar: value || "",
+        })
+      );
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -101,13 +122,15 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         <div>{t("Profile")}</div>
         <ProfilePageHeader />
         <ProfileCard
-          data={form}
+          data={formData}
           isLoading={isLoading}
           error={error}
           onChangeFirstname={onChangeFirstname}
           onChangeCity={onChangeCity}
           onChangeLastname={onChangeLastname}
           onChangeAge={onChangeAge}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatar={onChangeAvatar}
           readOnly={readOnly}
         />
       </div>

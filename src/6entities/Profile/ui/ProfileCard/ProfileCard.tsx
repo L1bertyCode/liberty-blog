@@ -24,10 +24,12 @@ interface ProfileCardProps {
   isLoading?: boolean;
   error?: string;
   readOnly?: boolean;
-  onChangeFirstname: (value: string) => void;
-  onChangeLastname: (value: string) => void;
-  onChangeCity: (value: string) => void;
-  onChangeAge: (value: string) => void;
+  onChangeFirstname?: (value: string) => void;
+  onChangeLastname?: (value: string) => void;
+  onChangeCity?: (value: string) => void;
+  onChangeAge?: (value: string) => void;
+  onChangeAvatar?: (value: string) => void;
+  onChangeUsername?: (value: string) => void;
 }
 
 export const ProfileCard = memo(
@@ -42,6 +44,8 @@ export const ProfileCard = memo(
       onChangeLastname,
       onChangeCity,
       onChangeAge,
+      onChangeAvatar,
+      onChangeUsername,
     } = props;
     const { t } = useTranslation();
 
@@ -81,6 +85,7 @@ export const ProfileCard = memo(
         ])}
       >
         <div className={s.data}>
+          {data?.avatar && <img src={data?.avatar} />}
           <AppInput
             value={data?.firstname}
             placeholder={t("Firstname") || ""}
@@ -109,6 +114,20 @@ export const ProfileCard = memo(
             className={s.input}
             readOnly={readOnly}
             onChange={onChangeCity}
+          />
+          <AppInput
+            value={data?.username}
+            placeholder={t("Username") || ""}
+            className={s.input}
+            readOnly={readOnly}
+            onChange={onChangeUsername}
+          />
+          <AppInput
+            value={data?.avatar}
+            placeholder={t("Avatar") || ""}
+            className={s.input}
+            readOnly={readOnly}
+            onChange={onChangeAvatar}
           />
         </div>
       </div>
