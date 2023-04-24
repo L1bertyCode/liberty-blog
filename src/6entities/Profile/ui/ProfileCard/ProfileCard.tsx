@@ -14,10 +14,14 @@ import {
 } from "7shared/ui/AppButton/AppButton";
 import { AppInput } from "7shared/ui/AppInput/AppInput";
 
-import { classNames } from "7shared/lib/classNames/classNames";
+import {
+  Mods,
+  classNames,
+} from "7shared/lib/classNames/classNames";
 import s from "./ProfileCard.module.scss";
 import { Loader } from "7shared/ui/Loader/Loader";
 import { Avatar } from "7shared/ui/Avatar/Avatar";
+import { read } from "fs";
 
 interface ProfileCardProps {
   className?: string;
@@ -79,9 +83,12 @@ export const ProfileCard = memo(
         </div>
       );
     }
+    const mods: Mods = {
+      [s.editing]: !readOnly,
+    };
     return (
       <div
-        className={classNames(s.profileCard, {}, [
+        className={classNames(s.profileCard, mods, [
           className,
         ])}
       >
