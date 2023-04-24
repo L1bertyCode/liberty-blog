@@ -1,4 +1,9 @@
-import { memo, useCallback, useState } from "react";
+import {
+  memo,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import { useSelector } from "react-redux";
 
 import { useTranslation } from "react-i18next";
@@ -18,6 +23,7 @@ import {
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
+import { userSlice } from "6entities/User/model/slices/userSlice";
 
 interface NavbarProps {
   className?: string;

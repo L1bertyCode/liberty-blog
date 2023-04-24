@@ -6,7 +6,6 @@ import { NotFoundPage } from "3pages/NotFoundPage";
 import { ReactNode } from "react";
 import { ProfilePage } from "3pages/ProfilePage";
 
-export type AppRouteProps = RouteProps;
 export enum AppRoutes {
   MiAN = "main",
   ABOUT = "about",
@@ -21,7 +20,11 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.PROFILE]: "/profile",
   [AppRoutes.NOT_FOUND]: "*",
 };
-export type ExtendsRouteProps = RouteProps & {
+
+export type AppRouteProps = RouteProps & {
+  authOnly?: boolean;
+};
+export type ExtendsRouteProps = AppRouteProps & {
   icon?: ReactNode;
 };
 
@@ -40,6 +43,7 @@ export const routesConfig: Record<
   [AppRoutes.PROFILE]: {
     path: RoutePath[AppRoutes.PROFILE],
     element: <ProfilePage />,
+    authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath[AppRoutes.NOT_FOUND],

@@ -21,8 +21,7 @@ import {
 import s from "./ProfileCard.module.scss";
 import { Loader } from "7shared/ui/Loader/Loader";
 import { Avatar } from "7shared/ui/Avatar/Avatar";
-import { read } from "fs";
-import { AppSelect } from "7shared/ui/AppSelect/AppSelect";
+
 import {
   Currency,
   CurrencySelect,
