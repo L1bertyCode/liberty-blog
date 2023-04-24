@@ -23,6 +23,8 @@ import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./ProfilePage.module.scss";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import { Currency } from "6entities/Currency";
+import { Country } from "6entities/Country";
 
 interface ProfilePageProps {
   className?: string;
@@ -104,7 +106,26 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     },
     [dispatch]
   );
-
+  const onChangeCurrency = useCallback(
+    (currency?: Currency) => {
+      dispatch(
+        profileActions.updateProfile({
+          currency: currency,
+        })
+      );
+    },
+    [dispatch]
+  );
+  const onChangeCountry = useCallback(
+    (country?: Country) => {
+      dispatch(
+        profileActions.updateProfile({
+          country: country,
+        })
+      );
+    },
+    [dispatch]
+  );
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
@@ -131,6 +152,8 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           onChangeAge={onChangeAge}
           onChangeUsername={onChangeUsername}
           onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
           readOnly={readOnly}
         />
       </div>

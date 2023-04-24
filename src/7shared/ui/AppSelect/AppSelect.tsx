@@ -6,6 +6,7 @@ import {
 } from "7shared/lib/classNames/classNames";
 
 import s from "./AppSelect.module.scss";
+import { DefaultTFuncReturn } from "i18next";
 
 export interface SelectOption {
   value: string;
@@ -14,15 +15,22 @@ export interface SelectOption {
 
 interface AppSelectProps {
   className?: string;
-  label?: string;
+  label?: string | DefaultTFuncReturn;
   options?: SelectOption[];
   value?: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
+  readOnly?: boolean;
 }
 
 export const AppSelect = memo((props: AppSelectProps) => {
-  const { className, label, options, value, onChange } =
-    props;
+  const {
+    className,
+    label,
+    options,
+    value,
+    onChange,
+    readOnly,
+  } = props;
 
   const { t } = useTranslation();
 
@@ -43,7 +51,9 @@ export const AppSelect = memo((props: AppSelectProps) => {
   ) => {
     onChange?.(e?.target?.value);
   };
-  const mods: Mods = {};
+  const mods: Mods = {
+    [s.readOnly]: readOnly,
+  };
   return (
     <div
       className={classNames(s.appSelectWrapper, mods, [
@@ -54,6 +64,7 @@ export const AppSelect = memo((props: AppSelectProps) => {
         <span className={s.label}>{`${label}>`}</span>
       )}
       <select
+        disabled={readOnly}
         name=""
         id=""
         value={value}

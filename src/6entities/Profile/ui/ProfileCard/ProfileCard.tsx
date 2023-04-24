@@ -22,6 +22,12 @@ import s from "./ProfileCard.module.scss";
 import { Loader } from "7shared/ui/Loader/Loader";
 import { Avatar } from "7shared/ui/Avatar/Avatar";
 import { read } from "fs";
+import { AppSelect } from "7shared/ui/AppSelect/AppSelect";
+import {
+  Currency,
+  CurrencySelect,
+} from "6entities/Currency";
+import { Country, CountrySelect } from "6entities/Country";
 
 interface ProfileCardProps {
   className?: string;
@@ -35,6 +41,8 @@ interface ProfileCardProps {
   onChangeAge?: (value: string) => void;
   onChangeAvatar?: (value: string) => void;
   onChangeUsername?: (value: string) => void;
+  onChangeCurrency?: (value: Currency) => void;
+  onChangeCountry?: (value: Country) => void;
 }
 
 export const ProfileCard = memo(
@@ -51,6 +59,8 @@ export const ProfileCard = memo(
       onChangeAge,
       onChangeAvatar,
       onChangeUsername,
+      onChangeCurrency,
+      onChangeCountry,
     } = props;
     const { t } = useTranslation();
 
@@ -140,6 +150,18 @@ export const ProfileCard = memo(
             className={s.input}
             readOnly={readOnly}
             onChange={onChangeAvatar}
+          />
+          <CurrencySelect
+            className={s.input}
+            value={data?.currency}
+            onChange={onChangeCurrency}
+            readOnly={readOnly}
+          />
+          <CountrySelect
+            className={s.input}
+            value={data?.country}
+            onChange={onChangeCountry}
+            readOnly={readOnly}
           />
         </div>
       </div>

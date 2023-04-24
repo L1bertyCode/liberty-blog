@@ -24,5 +24,7 @@
   "Age": "Возраст",
   "City": "Город",
   "Avatar": "Аватар",
-  "Username": "Имя пользователя"
+  "Username": "Имя пользователя",
+  "Specify the currency": "Укажите валюту",
+  "Choose the country": "Выберите страну"
 }
