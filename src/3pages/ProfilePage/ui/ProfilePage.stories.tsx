@@ -62,7 +62,7 @@ export const Dark: Story = {
                 age: 18,
                 currency: Currency.EUR,
                 country: Country.Germany,
-                city: "Moscowasdfs",
+                city: "Moscow",
                 username: "admin",
                 avatar: avatar,
               },
