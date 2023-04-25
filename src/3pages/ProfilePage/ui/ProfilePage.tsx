@@ -6,6 +6,7 @@ import {
   fetchProfileData,
   getProfileData,
   getProfileError,
+  getProfileErrorValidateErrors,
   getProfileForm,
   getProfileIsLoading,
   getProfileReadOnly,
@@ -25,6 +26,11 @@ import s from "./ProfilePage.module.scss";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "6entities/Currency";
 import { Country } from "6entities/Country";
+import {
+  AppText,
+  AppTextVariant,
+} from "7shared/ui/AppText/AppText";
+import { ValidateProfileError } from "6entities/Profile/model/types/profile";
 
 interface ProfilePageProps {
   className?: string;
@@ -39,12 +45,28 @@ const ProfilePage = memo((props: ProfilePageProps) => {
 
   const dispatch = useAppDispatch();
 
-  const data = useSelector(getProfileData);
+  const validateErrors = useSelector(
+    getProfileErrorValidateErrors
+  );
   const formData = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
-
   const readOnly = useSelector(getProfileReadOnly);
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t(
+      "Server error on save"
+    ),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t(
+      "Incorrect region"
+    ),
+    [ValidateProfileError.NO_DATA]: t("Data not specified"),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t(
+      "First and last name are required"
+    ),
+    [ValidateProfileError.INCORRECT_AGE]:
+      t("Incorrect age"),
+  };
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
@@ -142,6 +164,18 @@ const ProfilePage = memo((props: ProfilePageProps) => {
       >
         <div>{t("Profile")}</div>
         <ProfilePageHeader />
+
+        {validateErrors?.length &&
+          validateErrors.map((err) => {
+            return (
+              <AppText
+                key={err}
+                variant={AppTextVariant.ERROR}
+                text={validateErrorTranslates[err]}
+              />
+            );
+          })}
+
         <ProfileCard
           data={formData}
           isLoading={isLoading}

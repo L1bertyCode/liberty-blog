@@ -4,7 +4,7 @@ import {
 } from "@reduxjs/toolkit";
 
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
-import { updateProfileData } from "../services/fetchProfileData/updateProfileData";
+import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 
 import { Profile, ProfileSchema } from "../types/profile";
 
@@ -28,6 +28,7 @@ export const profileSlice = createSlice({
     cancelEdit: (state) => {
       state.readOnly = true;
       state.form = state.data;
+      state.validateError = undefined;
     },
     updateProfile: (
       state,
@@ -61,7 +62,7 @@ export const profileSlice = createSlice({
         }
       )
       .addCase(updateProfileData.pending, (state) => {
-        state.error = undefined;
+        state.validateError = undefined;
         state.isLoading = true;
       })
       .addCase(
@@ -71,13 +72,14 @@ export const profileSlice = createSlice({
           state.data = action.payload;
           state.form = action.payload;
           state.readOnly = true;
+          state.validateError = undefined;
         }
       )
       .addCase(
         updateProfileData.rejected,
         (state, action) => {
           state.isLoading = false;
-          state.error = action.payload;
+          state.validateError = action.payload;
         }
       );
   },

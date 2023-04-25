@@ -22,7 +22,7 @@ export const SidebarItem = memo(
 
     const isAuth = useSelector(getUserAuthData);
     if (item.authOnly && !isAuth) {
-      return null;
+      return <></>;
     }
     return (
       <AppNavLink to={item.path} className={s.link}>

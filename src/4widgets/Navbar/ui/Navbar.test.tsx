@@ -6,6 +6,5 @@ import { ComponentRender } from "7shared/lib/tests/ComponentRender/ComponentRend
 describe("Navbar", () => {
   test("should return", () => {
     ComponentRender(<Navbar />);
-    screen.debug();
   });
 });

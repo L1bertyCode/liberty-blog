@@ -6,13 +6,16 @@ import {
 import { Sidebar } from "./Sidebar";
 import { BrowserRouter } from "react-router-dom";
 import { RenderWithTranslation } from "7shared/lib/tests/renderWithTranslation/renderWithTranslation";
+import { StoreProvider } from "1app/porviders/StoreProvider";
 
 describe("Sidebar", () => {
   test("should return Sidebar", () => {
     render(
       RenderWithTranslation(
         <BrowserRouter>
-          <Sidebar />
+          <StoreProvider>
+            <Sidebar />
+          </StoreProvider>
         </BrowserRouter>
       )
     );
@@ -24,7 +27,9 @@ describe("Sidebar", () => {
     render(
       RenderWithTranslation(
         <BrowserRouter>
-          <Sidebar />
+          <StoreProvider>
+            <Sidebar />
+          </StoreProvider>
         </BrowserRouter>
       )
     );
