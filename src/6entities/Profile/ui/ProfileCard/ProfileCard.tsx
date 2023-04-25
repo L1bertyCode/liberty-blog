@@ -8,10 +8,7 @@ import {
   AppTextAlign,
   AppTextVariant,
 } from "7shared/ui/AppText/AppText";
-import {
-  AppButton,
-  AppButtonVariant,
-} from "7shared/ui/AppButton/AppButton";
+
 import { AppInput } from "7shared/ui/AppInput/AppInput";
 
 import {
