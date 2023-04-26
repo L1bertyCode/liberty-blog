@@ -1,6 +1,5 @@
 import {
   ThunkConfig,
-  ThunkExtraArg,
 } from "1app/porviders/StoreProvider/config/StateSchema";
 import { User, userActions } from "6entities/User";
 import { USER_LOCALSTORAGE_KEY } from "7shared/const/localstorage";
