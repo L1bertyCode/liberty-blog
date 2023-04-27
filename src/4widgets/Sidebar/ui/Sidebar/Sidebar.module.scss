@@ -4,20 +4,22 @@
   background: var(--inverted-bg-color);
   width: var(--sidebar-width);
   transition: var(--transition-delay);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .collapsed {
   width: var(--sidebar-width-collapsed);
 }
+
 .collapseBtn {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
+
 .links {
   display: flex;
   flex-direction: column;

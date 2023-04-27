@@ -1,13 +1,16 @@
 .link {
   display: flex;
   margin: 5px 0 0 20px;
+
   .icon {
     fill: var(--inverted-secondary-color);
   }
+
   .item {
     margin-left: 10px;
   }
 }
+
 .link:hover {
   .icon {
     fill: var(--inverted-primary-color);

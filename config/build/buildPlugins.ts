@@ -8,6 +8,7 @@ import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 export const buildPlugins = (
   buildOptions: BuildOptions
@@ -34,6 +35,8 @@ export const buildPlugins = (
     plugins.push(
       new BundleAnalyzerPlugin({ openAnalyzer: false })
     );
+    plugins.push(new ReactRefreshWebpackPlugin());
+
     // plugins.push(new HotModuleReplacementPlugin());
   }
   return plugins;
