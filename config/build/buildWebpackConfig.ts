@@ -8,14 +8,18 @@ import { BuildOptions } from "./types/config";
 export const buildWebpackConfig = (
   buildOptions: BuildOptions
 ): Configuration => {
-  const { buildMode, buildPaths, port, isDev } = buildOptions;
+  const { buildMode, buildPaths, port, isDev } =
+    buildOptions;
   return {
     mode: buildMode,
     entry: buildPaths.entry,
     output: {
-      path: buildOptions.isDev ? buildPaths.buildDev : buildPaths.buildProd,
+      path: buildOptions.isDev
+        ? buildPaths.buildDev
+        : buildPaths.buildProd,
       filename: "[name].[contenthash].js",
       clean: true,
+      publicPath: "/",
     },
     plugins: buildPlugins(buildOptions),
     module: {
