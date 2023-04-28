@@ -32,5 +32,6 @@
   "Data not specified": "Данные не указаны",
   "First and last name are required": "Имя и фамилия обязательны",
   "Incorrect age": "Некорректный возраст",
-  "Articles": "Статьи"
+  "Articles": "Статьи",
+  "Article not found": "Статья не найдена"
 }

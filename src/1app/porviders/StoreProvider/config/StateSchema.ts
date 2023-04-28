@@ -1,11 +1,11 @@
 import { LoginSchema } from "5features/AuthByUsername";
+import { articleDetailsSchema } from "6entities/Article";
 import { CounterSchema } from "6entities/Counter";
 import { ProfileSchema } from "6entities/Profile";
 import { UserSchema } from "6entities/User";
 import {
   AnyAction,
   CombinedState,
-  Dispatch,
   EnhancedStore,
   Reducer,
   ReducersMapObject,
@@ -20,6 +20,7 @@ export interface StateSchema {
   //Async reducers
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
+  articleDetails?: articleDetailsSchema;
 }
 
 export interface ReducerManager {
