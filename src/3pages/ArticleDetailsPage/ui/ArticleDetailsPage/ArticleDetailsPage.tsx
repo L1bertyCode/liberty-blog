@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./ArticleDetailsPage.module.scss";
+import { ArticleDetails } from "6entities/Article/ui/ArticleDetails/ArticleDetails";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -18,7 +19,7 @@ const ArticleDetailsPage = memo(
           className,
         ])}
       >
-        <div>ArticleDetailsPage</div>
+        <ArticleDetails />
       </div>
     );
   }

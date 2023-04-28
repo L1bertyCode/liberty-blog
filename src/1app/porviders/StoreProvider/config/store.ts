@@ -1,10 +1,8 @@
 import {
   CombinedState,
-  DeepPartial,
   Reducer,
   ReducersMapObject,
   configureStore,
-  getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 
 import { StateSchema } from "./StateSchema";
