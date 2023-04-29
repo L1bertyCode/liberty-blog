@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ArticleCodeBlockComponent } from "./ArticleCodeBlockComponent";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
+import { ArticleBlockType } from "6entities/Article/model/types/article";
 
 const meta = {
   title: "6entities/ArticleCodeBlockComponent",
@@ -15,10 +16,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {},
+  args: {
+    block: {
+      id: "3",
+      type: ArticleBlockType.CODE,
+      code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
+    },
+  },
 };
 
 export const Dark: Story = {
-  args: {},
+  args: {
+    block: {
+      id: "3",
+      type: ArticleBlockType.CODE,
+      code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
+    },
+  },
   decorators: [ThemeDecoratorDark],
 };

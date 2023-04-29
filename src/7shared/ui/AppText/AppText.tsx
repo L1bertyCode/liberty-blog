@@ -16,12 +16,18 @@ export enum AppTextAlign {
   CENTER = "center",
 }
 
+export enum AppTextSize {
+  M = "size_m",
+  L = "size_l",
+}
+
 export interface AppTextProps {
   className?: string;
   title?: string | undefined | null;
   text?: string | undefined | null;
   variant?: AppTextVariant;
   align?: AppTextAlign;
+  size?: AppTextSize;
 }
 
 export const AppText = memo((props: AppTextProps) => {
@@ -31,6 +37,7 @@ export const AppText = memo((props: AppTextProps) => {
     text,
     variant = AppTextVariant.DEFAULT,
     align = AppTextAlign.LEFT,
+    size = AppTextSize.M,
   } = props;
   const mods: Mods = {};
   return (
@@ -39,6 +46,7 @@ export const AppText = memo((props: AppTextProps) => {
         className,
         s[variant],
         s[align],
+        s[size],
       ])}
     >
       {title && <p className={s.title}>{title}</p>}

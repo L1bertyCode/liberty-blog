@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AppText, AppTextVariant } from "./AppText";
+import {
+  AppText,
+  AppTextSize,
+  AppTextVariant,
+} from "./AppText";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 
@@ -52,6 +56,23 @@ export const ErrorDark: Story = {
     title: "Error Title Dark",
     text: "Error Text Dark",
     variant: AppTextVariant.ERROR,
+  },
+  decorators: [ThemeDecoratorDark],
+};
+
+export const SizeL: Story = {
+  args: {
+    title: "Size L Title Light",
+    text: "Size L Text Light",
+    size: AppTextSize.L,
+  },
+};
+
+export const SizeLDark: Story = {
+  args: {
+    title: "Size L Dark Title",
+    text: "Size L Dark Text",
+    size: AppTextSize.L,
   },
   decorators: [ThemeDecoratorDark],
 };
