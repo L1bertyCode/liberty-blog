@@ -19,6 +19,11 @@ import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./ArticleDetails.module.scss";
+import {
+  AppText,
+  AppTextAlign,
+} from "7shared/ui/AppText/AppText";
+import { Skeleton } from "7shared/ui/Skeleton/Skeleton";
 
 interface ArticleDetailsProps {
   id: string;
@@ -33,10 +38,11 @@ export const ArticleDetails = memo(
     const { id, className } = props;
     const { t } = useTranslation();
 
-    const isLoading = useSelector(
-      getArticleDetailsIsLoading
-    );
-    const Data = useSelector(getArticleDetailsData);
+    // const isLoading = useSelector(
+    //   getArticleDetailsIsLoading
+    // );
+    const isLoading = true;
+    const data = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
 
     const dispatch = useAppDispatch();
@@ -47,9 +53,46 @@ export const ArticleDetails = memo(
     let content;
 
     if (isLoading) {
-      content = <div className={s.loading}>Loading...</div>;
+      content = (
+        <div>
+          <Skeleton
+            className={s.avatar}
+            width={"200px"}
+            height={"200px"}
+            border={"50%"}
+          />
+          <Skeleton
+            className={s.title}
+            width={"300px"}
+            height={"24px"}
+          />
+          <Skeleton
+            className={s.skeleton}
+            width={"600px"}
+            height={"24px"}
+          />
+          <Skeleton
+            className={s.skeleton}
+            width={"100%"}
+            height={"200px"}
+          />
+          <Skeleton
+            className={s.skeleton}
+            width={"100%"}
+            height={"200px"}
+          />
+        </div>
+      );
     } else if (error) {
-      content = <div className={s.error}>Error</div>;
+      content = (
+        <AppText
+          title={t(
+            "An error occurred while loading the page"
+          )}
+          align={AppTextAlign.CENTER}
+          className={s.error}
+        />
+      );
     } else content = <div>ArticleDetails</div>;
 
     return (

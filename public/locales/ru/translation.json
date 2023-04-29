@@ -33,5 +33,6 @@
   "First and last name are required": "Имя и фамилия обязательны",
   "Incorrect age": "Некорректный возраст",
   "Articles": "Статьи",
-  "Article not found": "Статья не найдена"
+  "Article not found": "Статья не найдена",
+  "An error occurred while loading the page": "Произошла ошибка при загрузке страницы"
 }
