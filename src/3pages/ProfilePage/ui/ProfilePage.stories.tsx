@@ -3,10 +3,14 @@ import ProfilePage from "./ProfilePage";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 
-import { StoreProvider } from "1app/porviders/StoreProvider";
+import {
+  StateSchema,
+  StoreProvider,
+} from "1app/porviders/StoreProvider";
 import { Currency } from "6entities/Currency";
 import { Country } from "6entities/Country";
 import avatar from "7shared/assets/tests/storybook.jpg";
+import { ProfileSchema } from "6entities/Profile";
 
 const meta = {
   title: "3pages/ProfilePage",

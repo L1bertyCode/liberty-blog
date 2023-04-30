@@ -4,6 +4,10 @@ import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./ArticleImageBlockComponent.module.scss";
 import { ArticleImageBlock } from "../../model/types/article";
+import {
+  AppText,
+  AppTextAlign,
+} from "7shared/ui/AppText/AppText";
 
 interface ArticleImageBlockComponentProps {
   className?: string;
@@ -22,7 +26,17 @@ export const ArticleImageBlockComponent = memo(
           [className]
         )}
       >
-        <img src={block.src} alt={block.title} />
+        <img
+          src={block.src}
+          alt={block.title}
+          className={s.img}
+        />
+        {block.title && (
+          <AppText
+            text={block.title}
+            align={AppTextAlign.CENTER}
+          />
+        )}
       </div>
     );
   }

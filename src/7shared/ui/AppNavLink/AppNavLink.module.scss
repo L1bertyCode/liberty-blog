@@ -2,6 +2,12 @@
   text-decoration: none;
   transition: var(--transition-delay);
   padding-bottom: 5px;
+  
+  &:hover {
+    transition: var(--transition-delay);
+
+    opacity: var(--opacity);
+  }
 }
 
 .primary {
@@ -20,12 +26,6 @@
   color: var(--inverted-secondary-color);
 }
 
-.appNavLink:hover {
-  transition: var(--transition-delay);
-  color: var(--inverted-primary-color);
-  fill: var(--inverted-primary-color);
-}
-
-.red {
+.appNavLink .red {
   color: var(--red-dark);
 }

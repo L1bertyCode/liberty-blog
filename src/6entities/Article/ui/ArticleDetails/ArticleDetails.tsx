@@ -65,6 +65,7 @@ export const ArticleDetails = memo(
               <ArticleCodeBlockComponent
                 className={s.block}
                 block={block}
+                key={block.id}
               />
             );
           case ArticleBlockType.IMAGE:
@@ -72,7 +73,7 @@ export const ArticleDetails = memo(
               <ArticleImageBlockComponent
                 className={s.block}
                 block={block}
-
+                key={block.id}
               />
             );
           case ArticleBlockType.TEXT:
@@ -80,6 +81,7 @@ export const ArticleDetails = memo(
               <ArticleTextBlockComponent
                 className={s.block}
                 block={block}
+                key={block.id}
               />
             );
           default:
@@ -91,7 +93,9 @@ export const ArticleDetails = memo(
 
     const dispatch = useAppDispatch();
     useEffect(() => {
-      dispatch(fetchArticleById(id));
+      if (__PROJECT__ !== "storybook") {
+        dispatch(fetchArticleById(id));
+      }
     }, [dispatch, id]);
 
     let content;

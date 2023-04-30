@@ -1,5 +1,7 @@
 import { StoreProvider } from "1app/porviders/StoreProvider";
 import { loginReducer } from "5features/AuthByUsername/model/slices/loginSlice";
+import { ArticleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";
+import { profileReducer } from "6entities/Profile";
 import {
   DeepPartial,
   ReducersMapObject,
@@ -7,7 +9,11 @@ import {
 import { Decorator } from "@storybook/react";
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
-  { loginForm: loginReducer };
+  {
+    loginForm: loginReducer,
+    pofile: profileReducer,
+    articleDFetails: ArticleDetailsReducer,
+  };
 
 export const StoreDecorator: Decorator = (
   Story,

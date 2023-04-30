@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    children: `
+    text: `
     import type { Meta, StoryObj } from "@storybook/react";
     import { ArticleCodeBlockComponent } from "./ArticleCodeBlockComponent";
   
@@ -43,7 +43,7 @@ export const Light: Story = {
 
 export const Dark: Story = {
   args: {
-    children: `
+    text: `
     import type { Meta, StoryObj } from "@storybook/react";
     import { ArticleCodeBlockComponent } from "./ArticleCodeBlockComponent";
   
