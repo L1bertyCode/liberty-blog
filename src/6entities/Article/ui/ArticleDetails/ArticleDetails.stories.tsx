@@ -7,7 +7,7 @@ import {
   ArticleBlockType,
   ArticleType,
 } from "6entities/Article/model/types/article";
-import { StoreDecorator } from "7shared/config/storybook/StoreDecorator";
+
 import { StoreProvider } from "1app/porviders/StoreProvider";
 import { articleDetailsSchema } from "6entities/Article/model/types/articleDetailsSchema";
 const article: Article = {
