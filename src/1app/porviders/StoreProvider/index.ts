@@ -7,4 +7,5 @@ export {
   StateSchema,
   ReducStoreWIthManager,
   ThunkExtraArg,
+  
 } from "./config/StateSchema";

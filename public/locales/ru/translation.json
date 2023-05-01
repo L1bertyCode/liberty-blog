@@ -34,5 +34,7 @@
   "Incorrect age": "Некорректный возраст",
   "Articles": "Статьи",
   "Article not found": "Статья не найдена",
-  "An error occurred while loading the page": "Произошла ошибка при загрузке страницы"
+  "An error occurred while loading the page": "Произошла ошибка при загрузке страницы",
+  "Comments": "Комментарии",
+  "No comments": "Комментарии отсутствуют"
 }

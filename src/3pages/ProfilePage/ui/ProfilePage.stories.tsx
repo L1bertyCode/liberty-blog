@@ -10,7 +10,11 @@ import {
 import { Currency } from "6entities/Currency";
 import { Country } from "6entities/Country";
 import avatar from "7shared/assets/tests/storybook.jpg";
-import { ProfileSchema } from "6entities/Profile";
+import {
+  ProfileSchema,
+  profileReducer,
+} from "6entities/Profile";
+import { ReducersMapObject } from "@reduxjs/toolkit";
 
 const meta = {
   title: "3pages/ProfilePage",
@@ -22,7 +26,8 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
+const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
+  { profile: profileReducer };
 export const Light: Story = {
   args: {},
   decorators: [
@@ -43,6 +48,7 @@ export const Light: Story = {
               },
             },
           }}
+          asyncReducers={{ ...defaultAsyncReducers }}
         >
           <Story />
         </StoreProvider>
@@ -72,6 +78,7 @@ export const Dark: Story = {
               },
             },
           }}
+          asyncReducers={{ ...defaultAsyncReducers }}
         >
           <Story />
         </StoreProvider>
