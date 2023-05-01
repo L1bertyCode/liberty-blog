@@ -1,3 +1,4 @@
+import { ArticleDetailsCommentsSchema } from "3pages/ArticleDetailsPage";
 import { LoginSchema } from "5features/AuthByUsername";
 import { articleDetailsSchema } from "6entities/Article";
 import { CounterSchema } from "6entities/Counter";
@@ -21,6 +22,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: articleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 export interface ReducerManager {

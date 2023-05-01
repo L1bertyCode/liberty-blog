@@ -18,7 +18,7 @@ export const CommentCard = memo(
   (props: CommentCardProps) => {
     const { className, comment, isLoading } = props;
     const { t } = useTranslation();
-    if (!isLoading) {
+    if (isLoading) {
       return (
         <div
           className={classNames(s.commentCard, {}, [
@@ -48,12 +48,12 @@ export const CommentCard = memo(
         ])}
       >
         <div className={s.header}>
-          {comment?.user.avatar ? (
+          {comment?.user?.avatar ? (
             <Avatar size={30} src={comment?.user.avatar} />
           ) : null}
           <AppText
             className={s.username}
-            title={comment?.user.username}
+            title={comment?.user?.username}
           />
         </div>
         <AppText text={comment?.text} className={s.text} />

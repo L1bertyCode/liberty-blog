@@ -16,6 +16,7 @@ interface CommentListProps {
 export const CommentList = memo(
   (props: CommentListProps) => {
     const { className, comments, isLoading } = props;
+
     const { t } = useTranslation();
     return (
       <div
@@ -26,7 +27,12 @@ export const CommentList = memo(
         <div>CommentList</div>
         {comments?.length ? (
           comments.map((comment) => (
-            <CommentCard comment={comment} className={s.comment}/>
+            <CommentCard
+              isLoading={isLoading}
+              comment={comment}
+              className={s.comment}
+              key={comment.id}
+            />
           ))
         ) : (
           <AppText text={t("No comments")} />

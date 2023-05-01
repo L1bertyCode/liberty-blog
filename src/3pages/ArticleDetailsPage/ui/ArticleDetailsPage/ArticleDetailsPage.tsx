@@ -7,16 +7,52 @@ import { ArticleDetails } from "6entities/Article/ui/ArticleDetails/ArticleDetai
 import { useParams } from "react-router-dom";
 import { AppText } from "7shared/ui/AppText/AppText";
 import { CommentList } from "6entities/Comment";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "7shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import {
+  articleDetailsCommentsReducer,
+  getArticleComments,
+} from "../../model/slices/articleDetailsCommentsSlice";
+import { useSelector } from "react-redux";
+import {
+  getArticleCommentsError,
+  getArticleCommentsIsLoading,
+} from "../../model/selectors/comments";
+import { useInitialEfect } from "7shared/lib/hooks/useInitialEfect";
+import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
+import { fetchCommentsByArticleId } from "3pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
+const reducers: ReducersList = {
+  articleDetailsComments: articleDetailsCommentsReducer,
+};
 
 const ArticleDetailsPage = memo(
   (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
+
+    const commentsIsLoading = useSelector(
+      getArticleCommentsIsLoading
+    );
+    const commentsError = useSelector(
+      getArticleCommentsError
+    );
+
+    const comments = useSelector(
+      getArticleComments.selectAll
+    );
+    const dispatch = useAppDispatch();
+
+    useInitialEfect(() =>
+      dispatch(fetchCommentsByArticleId(id))
+    );
+
     if (!id) {
       return (
         <div
@@ -28,42 +64,28 @@ const ArticleDetailsPage = memo(
         </div>
       );
     }
+
     return (
-      <div
-        className={classNames(s.articleDetailsPage, {}, [
-          className,
-        ])}
+      <DynamicModuleLoader
+        reducers={reducers}
+        removeAfterUnmount
       >
-        <ArticleDetails id={id} />
-        <AppText
-          title={t("Comments")}
-          className={s.commentTitle}
-        />
-        <CommentList
-          comments={[
-            {
-              id: "1",
-              text: "comment 1",
-              user: {
-                id: "1",
-                username: "username 1",
-                avatar:
-                  "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/master/w_2560%2Cc_limit/security_hacker_names.jpg",
-              },
-            },
-            {
-              id: "2",
-              text: "comment 2",
-              user: {
-                id: "2",
-                username: "username 2",
-                avatar:
-                  "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/master/w_2560%2Cc_limit/security_hacker_names.jpg",
-              },
-            },
-          ]}
-        />
-      </div>
+        <div
+          className={classNames(s.articleDetailsPage, {}, [
+            className,
+          ])}
+        >
+          {/* <ArticleDetails id={id} /> */}
+          <AppText
+            title={t("Comments")}
+            className={s.commentTitle}
+          />
+          <CommentList
+            isLoading={commentsIsLoading}
+            comments={comments}
+          />
+        </div>
+      </DynamicModuleLoader>
     );
   }
 );
