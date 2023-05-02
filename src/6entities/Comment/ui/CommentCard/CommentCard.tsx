@@ -7,6 +7,8 @@ import { Comment } from "6entities/Comment/model/types/comment";
 import { Avatar } from "7shared/ui/Avatar/Avatar";
 import { AppText } from "7shared/ui/AppText/AppText";
 import { Skeleton } from "7shared/ui/Skeleton/Skeleton";
+import { AppNavLink } from "7shared/ui/AppNavLink/AppNavLink";
+import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 
 interface CommentCardProps {
   className?: string;
@@ -47,7 +49,10 @@ export const CommentCard = memo(
           className,
         ])}
       >
-        <div className={s.header}>
+        <AppNavLink
+          to={`${RoutePath.profile}${comment?.user.id}`}
+          className={s.header}
+        >
           {comment?.user?.avatar ? (
             <Avatar size={30} src={comment?.user.avatar} />
           ) : null}
@@ -55,7 +60,7 @@ export const CommentCard = memo(
             className={s.username}
             title={comment?.user?.username}
           />
-        </div>
+        </AppNavLink>
         <AppText text={comment?.text} className={s.text} />
       </div>
     );

@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import {
   ProfileCard,
   fetchProfileData,
-  getProfileData,
   getProfileError,
   getProfileErrorValidateErrors,
   getProfileForm,
@@ -31,6 +30,8 @@ import {
   AppTextVariant,
 } from "7shared/ui/AppText/AppText";
 import { ValidateProfileError } from "6entities/Profile/model/types/profile";
+import { useInitialEfect } from "7shared/lib/hooks/useInitialEfect";
+import { useParams } from "react-router-dom";
 
 interface ProfilePageProps {
   className?: string;
@@ -52,6 +53,9 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readOnly = useSelector(getProfileReadOnly);
+
+  const { id } = useParams<{ id: string }>();
+  console.log("id", id);
 
   const validateErrorTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t(
@@ -148,11 +152,11 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     },
     [dispatch]
   );
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchProfileData());
+  useInitialEfect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   return (
     <DynamicModuleLoader

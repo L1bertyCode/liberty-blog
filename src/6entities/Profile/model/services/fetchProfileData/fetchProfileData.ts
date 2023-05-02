@@ -6,21 +6,24 @@ import { ThunkConfig } from "1app/porviders/StoreProvider/config/StateSchema";
 
 export const fetchProfileData = createAsyncThunk<
   Profile,
-  void,
+  string,
   ThunkConfig<string>
->("profile/fetchProfileData", async (_, ThunkApi) => {
-  const { extra, rejectWithValue } = ThunkApi;
+>(
+  "profile/fetchProfileData",
+  async (profileId, thunkApi) => {
+    const { extra, rejectWithValue } = thunkApi;
 
-  try {
-    const response = await extra.api.get<Profile>(
-      "/profile"
-    );
-    if (!response.data) {
-      throw new Error();
+    try {
+      const response = await extra.api.get<Profile>(
+        `profile/${profileId}`
+      );
+      if (!response.data) {
+        throw new Error();
+      }
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue("error");
     }
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return rejectWithValue("error");
   }
-});
+);

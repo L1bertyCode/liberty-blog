@@ -128,14 +128,28 @@
       "avatar": "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/master/w_2560%2Cc_limit/security_hacker_names.jpg"
     }
   ],
-  "profile": {
-    "firstname": "asd",
-    "lastname": "sdafasd",
-    "age": 18,
-    "currency": "EUR",
-    "country": "Germany",
-    "city": "Moscowasdfs",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "asd",
+      "lastname": "sdafasd",
+      "age": 18,
+      "currency": "EUR",
+      "country": "Germany",
+      "city": "Moscowasdfs",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "user",
+      "lastname": "user",
+      "age": 18,
+      "currency": "EUR",
+      "country": "USA",
+      "city": "Moscowasdfs",
+      "username": "user",
+      "avatar": "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/master/w_2560%2Cc_limit/security_hacker_names.jpg"
+    }
+  ]
 }
