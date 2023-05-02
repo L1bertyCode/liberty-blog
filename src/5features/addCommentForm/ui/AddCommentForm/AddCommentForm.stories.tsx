@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AddCommentForm } from "./AddCommentForm";
+import AddCommentForm from "./AddCommentForm";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 

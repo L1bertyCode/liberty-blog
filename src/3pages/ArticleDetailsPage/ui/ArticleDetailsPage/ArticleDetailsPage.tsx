@@ -23,7 +23,7 @@ import {
 import { useInitialEfect } from "7shared/lib/hooks/useInitialEfect";
 import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 import { fetchCommentsByArticleId } from "3pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import { AddCommentForm } from "5features/AuthByUsername/ui/AddCommentForm/AddCommentForm";
+import { AddCommentForm } from "5features/addCommentForm";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -76,7 +76,7 @@ const ArticleDetailsPage = memo(
             className,
           ])}
         >
-          {/* <ArticleDetails id={id} /> */}
+          <ArticleDetails id={id} />
           <AddCommentForm />
           <AppText
             title={t("Comments")}
