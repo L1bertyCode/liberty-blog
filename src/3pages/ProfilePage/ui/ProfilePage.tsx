@@ -55,7 +55,6 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const readOnly = useSelector(getProfileReadOnly);
 
   const { id } = useParams<{ id: string }>();
-  console.log("id", id);
 
   const validateErrorTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t(
