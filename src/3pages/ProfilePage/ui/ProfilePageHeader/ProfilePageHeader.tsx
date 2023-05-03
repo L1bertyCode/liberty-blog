@@ -10,11 +10,13 @@ import {
 } from "7shared/ui/AppButton/AppButton";
 import { useSelector } from "react-redux";
 import {
+  getProfileData,
   getProfileReadOnly,
   profileActions,
   updateProfileData,
 } from "6entities/Profile";
 import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
+import { getUserAuthData } from "6entities/User";
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -24,9 +26,12 @@ export const ProfilePageHeader = memo(
   (props: ProfilePageHeaderProps) => {
     const { className } = props;
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
 
     const readeOnly = useSelector(getProfileReadOnly);
-    const dispatch = useAppDispatch();
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
 
     const onEdit = useCallback(() => {
       dispatch(profileActions.setReadOnly(false));
@@ -45,30 +50,35 @@ export const ProfilePageHeader = memo(
       >
         <div className={s.header}>
           <AppText title={t("Profile")} />
-          {readeOnly ? (
-            <AppButton
-              variant={AppButtonVariant.OUTLINE}
-              className={s.editBtn}
-              onClick={onEdit}
-            >
-              {t("Edit")}
-            </AppButton>
-          ) : (
-            <div>
-              <AppButton
-                variant={AppButtonVariant.OUTLINE_RED}
-                className={s.cancelBtn}
-                onClick={onCancelEdit}
-              >
-                {t("Cancel")}
-              </AppButton>
-              <AppButton
-                variant={AppButtonVariant.OUTLINE}
-                className={s.saveBtn}
-                onClick={onSave}
-              >
-                {t("Save")}
-              </AppButton>
+
+          {canEdit && (
+            <div className={s.btnWrapper}>
+              {readeOnly ? (
+                <AppButton
+                  variant={AppButtonVariant.OUTLINE}
+                  className={s.editBtn}
+                  onClick={onEdit}
+                >
+                  {t("Edit")}
+                </AppButton>
+              ) : (
+                <div>
+                  <AppButton
+                    variant={AppButtonVariant.OUTLINE_RED}
+                    className={s.cancelBtn}
+                    onClick={onCancelEdit}
+                  >
+                    {t("Cancel")}
+                  </AppButton>
+                  <AppButton
+                    variant={AppButtonVariant.OUTLINE}
+                    className={s.saveBtn}
+                    onClick={onSave}
+                  >
+                    {t("Save")}
+                  </AppButton>
+                </div>
+              )}
             </div>
           )}
         </div>
