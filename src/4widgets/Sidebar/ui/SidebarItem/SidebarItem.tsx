@@ -3,11 +3,14 @@ import { useTranslation } from "react-i18next";
 
 import { AppNavLink } from "7shared/ui/AppNavLink/AppNavLink";
 
-import { classNames } from "7shared/lib/classNames/classNames";
-import s from "./SidebarItem.module.scss";
-import { SidebarItemInterface } from "4widgets/Sidebar/model/items";
+
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "6entities/User";
+import { SidebarItemInterface } from "4widgets/Sidebar/model/types/sidebar";
+
+
+import { classNames } from "7shared/lib/classNames/classNames";
+import s from "./SidebarItem.module.scss";
 
 interface SidebarItemProps {
   item: SidebarItemInterface;

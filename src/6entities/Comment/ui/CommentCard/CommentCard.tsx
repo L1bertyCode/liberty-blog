@@ -25,6 +25,7 @@ export const CommentCard = memo(
         <div
           className={classNames(s.commentCard, {}, [
             className,
+            s.loading
           ])}
         >
           <div className={s.header}>
@@ -42,6 +43,9 @@ export const CommentCard = memo(
           <Skeleton className={s.text} />
         </div>
       );
+    }
+    if (!comment) {
+      return null;
     }
     return (
       <div

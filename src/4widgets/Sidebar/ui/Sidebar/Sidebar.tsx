@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
-import { SidebatItemsList } from "4widgets/Sidebar/model/items";
-
 import { ThemeSwitcher } from "7shared/ui/ThemeSwitcher/ThemeSwitcher";
 import { LanguageSwitcher } from "7shared/ui/LanguageSwitcher/LanguageSwitcher";
 
@@ -16,6 +14,8 @@ import {
 
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Sidebar.module.scss";
+import { getSidebarItems } from "4widgets/Sidebar/model/selector/getSidebarItems";
+import { useSelector } from "react-redux";
 
 interface SidebarProps {
   className?: string;
@@ -25,8 +25,11 @@ export const Sidebar = memo((props: SidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
   const { t } = useTranslation();
+
+  const sidebatItemsList = useSelector(getSidebarItems);
+
   const itemListMemo = useMemo(() => {
-    return SidebatItemsList.map((item) => {
+    return sidebatItemsList.map((item) => {
       return (
         <SidebarItem
           item={item}
@@ -35,7 +38,7 @@ export const Sidebar = memo((props: SidebarProps) => {
         />
       );
     });
-  }, [collapsed]);
+  }, [collapsed, sidebatItemsList]);
 
   return (
     <div

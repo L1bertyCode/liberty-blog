@@ -7,7 +7,7 @@ import { addCommentFormReducer } from "5features/addCommentForm/model/slices/add
 import { ReducersMapObject } from "@reduxjs/toolkit";
 
 const meta = {
-  title: "6entities/CommentList",
+  title: "6entities/Comment/CommentList",
   component: CommentList,
   //tags: ["autodocs"],
   //argTypes: {},
