@@ -16,7 +16,7 @@ export const AppIcon = memo((props: AppIconProps) => {
   const {
     className,
     Svg,
-    variant = AppIconVarint.CLEAR,
+    variant = AppIconVarint.PRIMARY,
   } = props;
   return (
     <Svg

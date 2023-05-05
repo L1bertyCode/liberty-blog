@@ -1,0 +1,65 @@
+// .articleListItem {
+// }
+
+// .BIG {
+// }
+
+.SMALL {
+  width: 230px;
+  transition: var(--transition-delay);
+  cursor: pointer;
+
+  .date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+  }
+
+  &:hover {
+    opacity: var(--opacity);
+    transform: scale(1.01);
+    transition: var(--transition-delay);
+
+    .date {
+      display: block;
+      transition: var(--transition-delay);
+    }
+  }
+
+  .imageWrapper {
+    width: 200px;
+    position: relative;
+  }
+
+  .img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .types p {
+    width: 115px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .title p {
+    margin-right: 8px;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
