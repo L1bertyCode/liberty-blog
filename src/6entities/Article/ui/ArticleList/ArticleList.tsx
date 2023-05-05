@@ -24,7 +24,7 @@ export const ArticleList = memo(
       className,
       articles,
       isLoading,
-      view = ArticleView.SMALL,
+      view = ArticleView.BIG,
     } = props;
     const { t } = useTranslation();
 
@@ -35,6 +35,7 @@ export const ArticleList = memo(
           article={article}
           view={view}
           isLoading={isLoading}
+          className={s.card}
         />
       );
     };

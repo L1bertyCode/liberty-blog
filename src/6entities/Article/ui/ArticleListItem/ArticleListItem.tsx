@@ -17,6 +17,8 @@ import {
   AppIconVarint,
 } from "7shared/ui/AppIcon/AppIcon";
 import { Card } from "7shared/ui/Card/Card";
+import { useHover } from "7shared/lib/hooks/useHover";
+import { Avatar } from "7shared/ui/Avatar/Avatar";
 
 interface ArticleListItemProps {
   className?: string;
@@ -32,8 +34,10 @@ export const ArticleListItem = memo(
       article,
       view = ArticleView.SMALL,
     } = props;
-
     const { t } = useTranslation();
+    const [isHover, bindHover] = useHover();
+    console.log(isHover);
+
     if (view === ArticleView.BIG) {
       return (
         <div
@@ -42,12 +46,28 @@ export const ArticleListItem = memo(
             s[view],
           ])}
         >
-          <div>{article?.title}</div>
+          <Card>
+            <div className={s.haeder}>
+              <Avatar
+                size={30}
+                src={article?.user.avatar}
+              />
+            </div>
+            <AppText
+              text={article?.user.username}
+              className={s.username}
+            />
+            <AppText
+              text={article?.createdAt}
+              className={s.date}
+            />
+          </Card>
         </div>
       );
     }
     return (
       <div
+        {...bindHover}
         className={classNames(s.articleListItem, {}, [
           className,
           s[view],

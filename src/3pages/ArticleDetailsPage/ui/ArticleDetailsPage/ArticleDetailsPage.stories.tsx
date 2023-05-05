@@ -2,7 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ArticleDetailsPage from "./ArticleDetailsPage";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
-import { Article, ArticleBlockType, ArticleType } from "6entities/Article/model/types/article";
+import {
+  Article,
+  ArticleBlockType,
+  ArticleType,
+} from "6entities/Article/model/types/article";
 const article: Article = {
   id: "1",
   title: "Javascript news",
@@ -10,6 +14,7 @@ const article: Article = {
   img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
   views: 1022,
   createdAt: "26.02.2022",
+  user: { id: "1", username: "admin" },
   type: [ArticleType.IT],
   blocks: [
     {

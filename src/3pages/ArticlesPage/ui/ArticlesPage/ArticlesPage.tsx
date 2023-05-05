@@ -15,6 +15,12 @@ const mockArticle = {
   img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
   views: 1022,
   createdAt: "26.02.2022",
+  user: {
+    id: "1",
+    username: "admin",
+    avatar:
+      "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
+  },
   type: ["IT"],
   blocks: [
     {
@@ -77,6 +83,7 @@ const mockArticle = {
     },
   ],
 } as Article;
+
 const ArticlesPage = memo((props: ArticlesPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
@@ -86,7 +93,14 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
         className,
       ])}
     >
-      <ArticleList articles={[mockArticle]} />
+      <ArticleList
+        articles={new Array(16)
+          .fill(0)
+          .map((item, index) => ({
+            ...mockArticle,
+            id: String(index),
+          }))}
+      />
     </div>
   );
 });
