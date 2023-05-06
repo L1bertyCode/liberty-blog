@@ -94,6 +94,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
       ])}
     >
       <ArticleList
+      isLoading
         articles={new Array(16)
           .fill(0)
           .map((item, index) => ({

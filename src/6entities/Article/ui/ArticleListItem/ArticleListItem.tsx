@@ -1,8 +1,10 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
 import {
   Article,
+  ArticleBlockType,
+  ArticleTextBlock,
   ArticleView,
 } from "../../model/types/article";
 
@@ -10,7 +12,6 @@ import { classNames } from "7shared/lib/classNames/classNames";
 
 import EyeIcon from "7shared/assets/icons/eye-20-20.svg";
 
-import s from "./ArticleListItem.module.scss";
 import { AppText } from "7shared/ui/AppText/AppText";
 import {
   AppIcon,
@@ -19,6 +20,16 @@ import {
 import { Card } from "7shared/ui/Card/Card";
 import { useHover } from "7shared/lib/hooks/useHover";
 import { Avatar } from "7shared/ui/Avatar/Avatar";
+import {
+  AppButton,
+  AppButtonVariant,
+} from "7shared/ui/AppButton/AppButton";
+import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "7shared/config/routesConfig/routesConfig";
+
+import s from "./ArticleListItem.module.scss";
+import { ArticleListItemSkeleton } from "./ArticleListItemSkeleton";
 
 interface ArticleListItemProps {
   className?: string;
@@ -32,13 +43,41 @@ export const ArticleListItem = memo(
     const {
       className,
       article,
+      isLoading,
       view = ArticleView.SMALL,
     } = props;
     const { t } = useTranslation();
     const [isHover, bindHover] = useHover();
     console.log(isHover);
+    const navigate = useNavigate();
+    const onOpenArticle = useCallback(() => {
+      navigate(RoutePath.article_details + article?.id);
+    }, [article?.id, navigate]);
 
+    const types = (
+      <AppText
+        text={article?.type.join(", ")}
+        className={s.types}
+      />
+    );
+
+    const views = (
+      <>
+        <AppText
+          text={String(article?.views)}
+          className={s.views}
+        />
+        <AppIcon
+          Svg={EyeIcon}
+          variant={AppIconVarint.PRIMARY}
+        />
+      </>
+    );
+ 
     if (view === ArticleView.BIG) {
+      const textBlock = article?.blocks.find(
+        (block) => block.type === ArticleBlockType.TEXT
+      ) as ArticleTextBlock;
       return (
         <div
           className={classNames(s.articleListItem, {}, [
@@ -47,20 +86,45 @@ export const ArticleListItem = memo(
           ])}
         >
           <Card>
-            <div className={s.haeder}>
+            <div className={s.header}>
               <Avatar
                 size={30}
                 src={article?.user.avatar}
               />
+              <AppText
+                text={article?.user.username}
+                className={s.username}
+              />
+              <AppText
+                text={article?.createdAt}
+                className={s.date}
+              />
             </div>
             <AppText
-              text={article?.user.username}
-              className={s.username}
+              title={article?.title}
+              className={s.title}
             />
-            <AppText
-              text={article?.createdAt}
-              className={s.date}
+            {types}
+            <img
+              src={article?.img}
+              alt={article?.title}
+              className={s.img}
             />
+            {textBlock && (
+              <ArticleTextBlockComponent
+                block={textBlock}
+                className={s.textBlock}
+              />
+            )}
+            <div className={s.footer}>
+              <AppButton
+                onClick={onOpenArticle}
+                variant={AppButtonVariant.OUTLINE}
+              >
+                {t("Read more...")}
+              </AppButton>
+              {views}
+            </div>
           </Card>
         </div>
       );
@@ -73,7 +137,7 @@ export const ArticleListItem = memo(
           s[view],
         ])}
       >
-        <Card className={s.card}>
+        <Card onClick={onOpenArticle} className={s.card}>
           <div className={s.imageWrapper}>
             <img
               src={article?.img}
@@ -87,18 +151,8 @@ export const ArticleListItem = memo(
           </div>
 
           <div className={s.infoWrapper}>
-            <AppText
-              text={article?.type.join(", ")}
-              className={s.types}
-            />
-            <AppText
-              text={String(article?.views)}
-              className={s.views}
-            />
-            <AppIcon
-              Svg={EyeIcon}
-              variant={AppIconVarint.PRIMARY}
-            />
+            {types}
+            {views}
           </div>
 
           <AppText

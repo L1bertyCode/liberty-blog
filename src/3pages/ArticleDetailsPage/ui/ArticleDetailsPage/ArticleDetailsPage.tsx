@@ -4,7 +4,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./ArticleDetailsPage.module.scss";
 import { ArticleDetails } from "6entities/Article/ui/ArticleDetails/ArticleDetails";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AppText } from "7shared/ui/AppText/AppText";
 import { CommentList } from "6entities/Comment";
 import {
@@ -25,6 +25,8 @@ import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 import { fetchCommentsByArticleId } from "3pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { AddCommentForm } from "5features/addCommentForm";
 import { addCommentForArticle } from "3pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
+import { AppButton } from "7shared/ui/AppButton/AppButton";
+import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -45,6 +47,10 @@ const ArticleDetailsPage = memo(
     const commentsError = useSelector(
       getArticleCommentsError
     );
+    const navigate = useNavigate();
+    const onBackToList = useCallback(() => {
+      navigate(RoutePath.articles);
+    }, [navigate]);
 
     const comments = useSelector(
       getArticleComments.selectAll
@@ -84,6 +90,9 @@ const ArticleDetailsPage = memo(
             className,
           ])}
         >
+          <AppButton onClick={onBackToList}>
+            {t("Back to list")}
+          </AppButton>
           <ArticleDetails id={id} />
           <AddCommentForm onSendComment={onSendComment} />
           <AppText
