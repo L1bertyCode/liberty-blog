@@ -1,31 +1,37 @@
-import { ArticleDetailsCommentsSchema } from "3pages/ArticleDetailsPage";
-import { LoginSchema } from "5features/AuthByUsername";
-import { addCommentFormSchema } from "5features/addCommentForm";
-import { articleDetailsSchema } from "6entities/Article";
+import {To} from "react-router-dom"
+
 import { CounterSchema } from "6entities/Counter";
-import { ProfileSchema } from "6entities/Profile";
 import { UserSchema } from "6entities/User";
+import { LoginSchema } from "5features/AuthByUsername";
 import {
   AnyAction,
-  CombinedState,
   EnhancedStore,
   Reducer,
   ReducersMapObject,
 } from "@reduxjs/toolkit";
+import { CombinedState } from "redux";
+import { ProfileSchema } from "6entities/Profile";
 import { AxiosInstance } from "axios";
-import { NavigateOptions, To } from "react-router-dom";
+import { NavigateOptions } from "react-router";
+import { ArticleDetailsSchema } from "6entities/Article";
+import { ArticleDetailsCommentsSchema } from "3pages/ArticleDetailsPage";
+import { AddCommentFormSchema } from "5features/addCommentForm";
+import { ArticlesPageSchema } from "3pages/ArticlesPage";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
 
-  //Async reducers
+  // Асинхронные редюсеры
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
-  articleDetails?: articleDetailsSchema;
+  articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
-  addCommetnForm?: addCommentFormSchema;
+  addCommentForm?: AddCommentFormSchema;
+  articlesPage?: ArticlesPageSchema;
 }
+
+export type StateSchemaKey = keyof StateSchema;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
@@ -36,8 +42,8 @@ export interface ReducerManager {
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
 }
-export type StateSchemaKey = keyof StateSchema;
-export interface ReducStoreWIthManager
+
+export interface ReduxStoreWithManager
   extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
 }

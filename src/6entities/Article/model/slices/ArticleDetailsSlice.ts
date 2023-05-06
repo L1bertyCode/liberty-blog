@@ -1,19 +1,19 @@
 import {
-  PayloadAction,
   createSlice,
+  PayloadAction,
 } from "@reduxjs/toolkit";
-import { articleDetailsSchema } from "../types/articleDetailsSchema";
 import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById";
 import { Article } from "../types/article";
+import { ArticleDetailsSchema } from "../types/articleDetailsSchema";
 
-const initialState: articleDetailsSchema = {
+const initialState: ArticleDetailsSchema = {
   isLoading: false,
   error: undefined,
   data: undefined,
 };
 
-export const ArticleDetailsSlice = createSlice({
-  name: "ArticleDetails",
+export const articleDetailsSlice = createSlice({
+  name: "articleDetails",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -39,7 +39,7 @@ export const ArticleDetailsSlice = createSlice({
   },
 });
 
-export const { actions: ArticleDetailsActions } =
-  ArticleDetailsSlice;
-export const { reducer: ArticleDetailsReducer } =
-  ArticleDetailsSlice;
+export const { actions: articleDetailsActions } =
+  articleDetailsSlice;
+export const { reducer: articleDetailsReducer } =
+  articleDetailsSlice;

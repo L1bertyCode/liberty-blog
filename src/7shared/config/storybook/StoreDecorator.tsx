@@ -2,7 +2,7 @@ import { StoreProvider } from "1app/porviders/StoreProvider";
 import { articleDetailsCommentsReducer } from "3pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
 import { loginReducer } from "5features/AuthByUsername/model/slices/loginSlice";
 import { addCommentFormReducer } from "5features/addCommentForm/model/slices/addCommentFormSlice";
-import { ArticleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";
+import { articleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";
 import { profileReducer } from "6entities/Profile";
 import {
   DeepPartial,
@@ -14,7 +14,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
   {
     loginForm: loginReducer,
     pofile: profileReducer,
-    articleDFetails: ArticleDetailsReducer,
+    articleDFetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
   };

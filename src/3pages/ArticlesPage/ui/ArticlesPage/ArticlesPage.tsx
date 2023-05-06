@@ -4,6 +4,11 @@ import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./ArticlesPage.module.scss";
 import { Article, ArticleList } from "6entities/Article";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "7shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { articlesPageReducer } from "3pages/ArticlesPage/model/slices/articlesPageSlice";
 
 interface ArticlesPageProps {
   className?: string;
@@ -84,25 +89,26 @@ const mockArticle = {
   ],
 } as Article;
 
+const reducers: ReducersList = {
+  articlesPage: articlesPageReducer,
+};
+
 const ArticlesPage = memo((props: ArticlesPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
   return (
-    <div
-      className={classNames(s.articlesPage, {}, [
-        className,
-      ])}
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount
     >
-      <ArticleList
-      isLoading
-        articles={new Array(16)
-          .fill(0)
-          .map((item, index) => ({
-            ...mockArticle,
-            id: String(index),
-          }))}
-      />
-    </div>
+      <div
+        className={classNames(s.articlesPage, {}, [
+          className,
+        ])}
+      >
+        <ArticleList isLoading={false} articles={[]} />
+      </div>
+    </DynamicModuleLoader>
   );
 });
 export default ArticlesPage;

@@ -2,7 +2,7 @@ import { memo, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { ArticleDetailsReducer } from "../../../Article/model/slices/ArticleDetailsSlice";
+
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import {
   getArticleDetailsData,
@@ -37,6 +37,7 @@ import {
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
+import { articleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";
 
 interface ArticleDetailsProps {
   id: string;
@@ -44,7 +45,7 @@ interface ArticleDetailsProps {
 }
 
 const reducers: ReducersList = {
-  articleDetails: ArticleDetailsReducer,
+  articleDetails: articleDetailsReducer,
 };
 export const ArticleDetails = memo(
   (props: ArticleDetailsProps) => {

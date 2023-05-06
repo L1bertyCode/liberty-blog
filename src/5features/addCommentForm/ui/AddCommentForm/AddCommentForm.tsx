@@ -28,7 +28,7 @@ export interface AddCommentFormProps {
 }
 
 const reducers: ReducersList = {
-  addCommetnForm: addCommentFormReducer,
+  addCommentForm: addCommentFormReducer,
 };
 
 const AddCommentForm = memo(

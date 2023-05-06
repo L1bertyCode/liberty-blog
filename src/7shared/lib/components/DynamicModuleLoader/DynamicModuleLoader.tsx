@@ -1,4 +1,4 @@
-import { ReducStoreWIthManager } from "1app/porviders/StoreProvider";
+import { ReduxStoreWithManager } from "1app/porviders/StoreProvider";
 import { StateSchemaKey } from "1app/porviders/StoreProvider/config/StateSchema";
 import { Reducer } from "@reduxjs/toolkit";
 import { ReactNode, useEffect } from "react";
@@ -23,7 +23,7 @@ export const DynamicModuleLoader = (
     reducers,
     removeAfterUnmount = true,
   } = props;
-  const store = useStore() as ReducStoreWIthManager;
+  const store = useStore() as ReduxStoreWithManager;
   const dispatch = useAppDispatch();
 
   useEffect(() => {

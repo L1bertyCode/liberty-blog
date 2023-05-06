@@ -27,7 +27,7 @@ export const Light: Story = {
       return (
         <StoreProvider
           initialState={{
-            addCommetnForm: {
+            addCommentForm: {
               text: "sdfa",
             },
           }}
@@ -48,7 +48,7 @@ export const Dark: Story = {
       return (
         <StoreProvider
           initialState={{
-            addCommetnForm: {
+            addCommentForm: {
               text: "sdfa",
             },
           }}

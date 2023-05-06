@@ -9,9 +9,11 @@ import {
 } from "6entities/Article/model/types/article";
 
 import { StoreProvider } from "1app/porviders/StoreProvider";
-import { articleDetailsSchema } from "6entities/Article/model/types/articleDetailsSchema";
+
 import { ReducersMapObject } from "@reduxjs/toolkit";
-import { ArticleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";
+import { articleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";
+import { ArticleDetailsSchema } from "6entities/Article/model/types/articleDetailsSchema";
+
 const article: Article = {
   id: "1",
   title: "Javascript news",
@@ -96,7 +98,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
-  { articleDetails: ArticleDetailsReducer };
+  { articleDetails: articleDetailsReducer };
 export const Light: Story = {
   args: {},
   decorators: [
@@ -131,7 +133,7 @@ export const Dark: Story = {
               data: article,
               isLoading: false,
               error: undefined,
-            } as articleDetailsSchema,
+            } as ArticleDetailsSchema,
           }}
           asyncReducers={{ ...defaultAsyncReducers }}
         >
