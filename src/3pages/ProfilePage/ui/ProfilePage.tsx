@@ -32,6 +32,7 @@ import {
 import { ValidateProfileError } from "6entities/Profile/model/types/profile";
 import { useInitialEfect } from "7shared/lib/hooks/useInitialEfect";
 import { useParams } from "react-router-dom";
+import { Page } from "7shared/ui/Page/Page";
 
 interface ProfilePageProps {
   className?: string;
@@ -162,7 +163,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
       reducers={reducers}
       removeAfterUnmount
     >
-      <div
+      <Page
         className={classNames(s.profilePage, {}, [
           className,
         ])}
@@ -195,7 +196,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           onChangeCountry={onChangeCountry}
           readOnly={readOnly}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 });

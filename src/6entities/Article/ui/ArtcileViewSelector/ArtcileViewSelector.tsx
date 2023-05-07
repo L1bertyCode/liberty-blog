@@ -43,8 +43,9 @@ export const ArtcileViewSelector = memo(
           className,
         ])}
       >
-        {viewTypes.map((viewType) => (
+        {viewTypes.map((viewType, index) => (
           <AppButton
+            key={index}
             onClick={onClick(viewType.view)}
             variant={AppButtonVariant.CLEAR}
           >

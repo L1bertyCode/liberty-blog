@@ -27,6 +27,7 @@ import { AddCommentForm } from "5features/addCommentForm";
 import { addCommentForArticle } from "3pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { AppButton } from "7shared/ui/AppButton/AppButton";
 import { RoutePath } from "7shared/config/routesConfig/routesConfig";
+import { Page } from "7shared/ui/Page/Page";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -85,7 +86,7 @@ const ArticleDetailsPage = memo(
         reducers={reducers}
         removeAfterUnmount
       >
-        <div
+        <Page
           className={classNames(s.articleDetailsPage, {}, [
             className,
           ])}
@@ -103,7 +104,7 @@ const ArticleDetailsPage = memo(
             isLoading={commentsIsLoading}
             comments={comments}
           />
-        </div>
+        </Page>
       </DynamicModuleLoader>
     );
   }

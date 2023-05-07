@@ -3,6 +3,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./PageLoader.module.scss";
 import { Loader } from "7shared/ui/Loader/Loader";
+import { Page } from "7shared/ui/Page/Page";
 
 interface PageLoaderProps {
   className?: string;
@@ -11,8 +12,8 @@ interface PageLoaderProps {
 export const PageLoader = memo((props: PageLoaderProps) => {
   const { className } = props;
   return (
-    <div className={classNames(s.pageLoader, {}, [className])}>
+    <Page className={classNames(s.pageLoader, {}, [className])}>
       <Loader />
-    </div>
+    </Page>
   );
 });

@@ -26,6 +26,7 @@ import {
   getArticlePageIsLoading,
   getArticlePageView,
 } from "../../model/selectors/articlePageSelectors";
+import { Page } from "7shared/ui/Page/Page";
 
 interface ArticlesPageProps {
   className?: string;
@@ -35,6 +36,9 @@ const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
 };
 
+interface FetchArticleListProps {
+  page?: number;
+}
 const ArticlesPage = memo((props: ArticlesPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
@@ -52,17 +56,18 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     },
     [dispatch]
   );
-
   useInitialEfect(() => {
-    dispatch(fetchArticleList());
     dispatch(articlesPageActions.initState());
+    dispatch(fetchArticleList({
+      page: 1,
+    }));
   });
   return (
     <DynamicModuleLoader
       reducers={reducers}
       removeAfterUnmount
     >
-      <div
+      <Page
         className={classNames(s.articlesPage, {}, [
           className,
         ])}
@@ -76,7 +81,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
           articles={articles}
           view={view}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 });
