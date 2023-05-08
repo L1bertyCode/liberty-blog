@@ -29,7 +29,8 @@ import {
   getArticlesPageHasMore,
 } from "../../model/selectors/articlePageSelectors";
 import { Page } from "7shared/ui/Page/Page";
-import { fetchArticlesList } from "3pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList";
+import { fetchArticlesList } from "3pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
+import { fetchNextArticlesPage } from "3pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 interface ArticlesPageProps {
   className?: string;
@@ -49,9 +50,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
-  const error = useSelector(getArticlesPageError);
-  const page = useSelector(getArticlesPageNumber);
-  const hasMore = useSelector(getArticlesPageHasMore);
+
   const onChangeView = useCallback(
     (view: ArticleView) => {
       dispatch(articlesPageActions.setView(view));
@@ -60,19 +59,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   );
 
   const onLoadNextPart = useCallback(() => {
-    // dispatch(fetchNextArticlesPage());
-    console.log("akjldsf;lkahsjd");
-
-    if (hasMore && !isLoading) {
-
-      dispatch(articlesPageActions.setPage(page + 1));
-
-      dispatch(
-        fetchArticlesList({
-          page: page + 1,
-        })
-      );
-    }
+    dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useInitialEffect(() => {
