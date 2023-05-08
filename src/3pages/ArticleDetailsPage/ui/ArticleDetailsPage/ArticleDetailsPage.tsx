@@ -20,7 +20,7 @@ import {
   getArticleCommentsError,
   getArticleCommentsIsLoading,
 } from "../../model/selectors/comments";
-import { useInitialEfect } from "7shared/lib/hooks/useInitialEfect";
+import { useInitialEffect } from "7shared/lib/hooks/useInitialEffect";
 import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 import { fetchCommentsByArticleId } from "3pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { AddCommentForm } from "5features/addCommentForm";
@@ -65,7 +65,7 @@ const ArticleDetailsPage = memo(
       [dispatch]
     );
 
-    useInitialEfect(() =>
+    useInitialEffect(() =>
       dispatch(fetchCommentsByArticleId(id))
     );
 

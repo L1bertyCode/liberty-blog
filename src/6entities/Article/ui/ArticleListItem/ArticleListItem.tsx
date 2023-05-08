@@ -29,7 +29,7 @@ import { useNavigate } from "react-router-dom";
 import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 
 import s from "./ArticleListItem.module.scss";
-import { ArticleListItemSkeleton } from "./ArticleListItemSkeleton";
+
 
 interface ArticleListItemProps {
   className?: string;
@@ -48,7 +48,7 @@ export const ArticleListItem = memo(
     } = props;
     const { t } = useTranslation();
     const [isHover, bindHover] = useHover();
-    console.log(isHover);
+    // console.log(isHover);
     const navigate = useNavigate();
     const onOpenArticle = useCallback(() => {
       navigate(RoutePath.article_details + article?.id);

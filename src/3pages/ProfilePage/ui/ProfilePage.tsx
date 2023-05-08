@@ -30,7 +30,7 @@ import {
   AppTextVariant,
 } from "7shared/ui/AppText/AppText";
 import { ValidateProfileError } from "6entities/Profile/model/types/profile";
-import { useInitialEfect } from "7shared/lib/hooks/useInitialEfect";
+import { useInitialEffect } from "7shared/lib/hooks/useInitialEffect";
 import { useParams } from "react-router-dom";
 import { Page } from "7shared/ui/Page/Page";
 
@@ -152,7 +152,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     },
     [dispatch]
   );
-  useInitialEfect(() => {
+  useInitialEffect(() => {
     if (id) {
       dispatch(fetchProfileData(id));
     }

@@ -5,7 +5,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import ListIcon from "7shared/assets/icons/list-24-24.svg";
 import TiledIcon from "7shared/assets/icons/tiled-24-24.svg";
 
-import s from "./ArtcileViewSelector.module.scss";
+import s from "./ArticleViewSelector.module.scss";
 import { ArticleView } from "6entities/Article/model/types/article";
 import {
   AppButton,
@@ -13,7 +13,7 @@ import {
 } from "7shared/ui/AppButton/AppButton";
 import { AppIcon } from "7shared/ui/AppIcon/AppIcon";
 
-interface ArtcileViewSelectorProps {
+interface ArticleViewSelectorProps {
   className?: string;
   view: ArticleView;
   onViewClick?: (view: ArticleView) => void;
@@ -29,8 +29,8 @@ const viewTypes = [
   },
 ];
 
-export const ArtcileViewSelector = memo(
-  (props: ArtcileViewSelectorProps) => {
+export const ArticleViewSelector = memo(
+  (props: ArticleViewSelectorProps) => {
     const { className, onViewClick, view } = props;
     const { t } = useTranslation();
 

@@ -19,6 +19,17 @@ interface ArticleListProps {
   view?: ArticleView;
 }
 
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.SMALL ? 9 : 3)
+    .fill(0)
+    .map((item, index) => (
+      <ArticleListItemSkeleton
+        className={s.card}
+        key={index}
+        view={view}
+      />
+    ));
+
 export const ArticleList = memo(
   (props: ArticleListProps) => {
     const {
@@ -40,26 +51,7 @@ export const ArticleList = memo(
         />
       );
     };
-    if (isLoading) {
-      return (
-        <div
-          className={classNames(s.articleList, {}, [
-            className,
-            s[view],
-          ])}
-        >
-          {new Array(view === ArticleView.SMALL ? 9 : 3)
-            .fill(0)
-            .map((item, index) => (
-              <ArticleListItemSkeleton
-                className={s.card}
-                key={index}
-                view={view}
-              />
-            ))}
-        </div>
-      );
-    }
+
     if (!articles) {
       return null;
     }
@@ -74,6 +66,7 @@ export const ArticleList = memo(
         {articles?.length > 0
           ? articles.map(renderArticle)
           : null}
+        {isLoading && getSkeletons(view)}
       </div>
     );
   }

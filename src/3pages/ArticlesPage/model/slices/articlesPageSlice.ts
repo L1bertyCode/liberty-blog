@@ -6,8 +6,8 @@ import {
   createSlice,
 } from "@reduxjs/toolkit";
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
-import { fetchArticleList } from "../services/fetchArticleList/fetchArticleList";
 import { ARTCILE_VIEW_LOCALSTORAGE_KEY } from "7shared/const/localstorage";
+import { fetchArticlesList } from "../services/fetchArticleList/fetchArticlesList";
 
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,
@@ -57,19 +57,20 @@ const articlesPageSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticleList.pending, (state) => {
+      .addCase(fetchArticlesList.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
       .addCase(
-        fetchArticleList.fulfilled,
+        fetchArticlesList.fulfilled,
         (state, action: PayloadAction<Article[]>) => {
           state.isLoading = false;
-          articlesAdapter.setAll(state, action.payload);
+          articlesAdapter.addMany(state, action.payload);
+          state.hasMore = action.payload.length > 0;
         }
       )
       .addCase(
-        fetchArticleList.rejected,
+        fetchArticlesList.rejected,
         (state, action) => {
           state.isLoading = false;
           state.error = action.payload;
