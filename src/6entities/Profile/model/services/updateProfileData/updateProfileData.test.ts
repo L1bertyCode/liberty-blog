@@ -9,16 +9,17 @@ import { ValidateProfileError } from "../../types/profile";
 jest.mock("axios");
 const mockedAxios = jest.mocked(axios);
 const data = {
-  firstname: "S",
-  lastname: "Code",
-  age: 18,
-  currency: Currency.EUR,
-  country: Country.Germany,
-  city: "Moscow",
   username: "admin",
+  age: 22,
+  country: Country.USA,
+  lastname: "admin",
+  firstname: "asd",
+  city: "asf",
+  currency: Currency.USD,
   id: "1",
 };
-describe("updateProfileData", () => {
+
+describe("updateProfileData.test", () => {
   test("success", async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
@@ -30,7 +31,7 @@ describe("updateProfileData", () => {
         data: data,
       })
     );
-    const result = await thunk.cakkThunk();
+    const result = await thunk.callThunk();
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("fulfilled");
@@ -44,11 +45,10 @@ describe("updateProfileData", () => {
       },
     });
     thunk.api.put.mockReturnValue(
-      Promise.resolve({
-        status: 403,
-      })
+      Promise.resolve({ status: 403 })
     );
-    const result = await thunk.cakkThunk();
+
+    const result = await thunk.callThunk();
 
     expect(result.meta.requestStatus).toBe("rejected");
     expect(result.payload).toEqual([
@@ -62,12 +62,7 @@ describe("updateProfileData", () => {
         form: { ...data, lastname: "" },
       },
     });
-    thunk.api.put.mockReturnValue(
-      Promise.resolve({
-        status: 403,
-      })
-    );
-    const result = await thunk.cakkThunk();
+    const result = await thunk.callThunk();
 
     expect(result.meta.requestStatus).toBe("rejected");
     expect(result.payload).toEqual([

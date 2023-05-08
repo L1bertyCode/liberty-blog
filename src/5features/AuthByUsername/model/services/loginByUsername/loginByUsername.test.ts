@@ -74,7 +74,7 @@ describe("loginByUsername", () => {
         data: userValue,
       })
     );
-    const result = await thunk.cakkThunk({
+    const result = await thunk.callThunk({
       username: "user",
       password: "123",
     });
@@ -97,7 +97,7 @@ describe("loginByUsername", () => {
       })
     );
 
-    const result = await thunk.cakkThunk({
+    const result = await thunk.callThunk({
       username: "user",
       password: "123",
     });
