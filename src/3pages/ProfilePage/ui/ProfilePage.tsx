@@ -32,7 +32,7 @@ import {
 import { ValidateProfileError } from "6entities/Profile/model/types/profile";
 import { useInitialEffect } from "7shared/lib/hooks/useInitialEffect";
 import { useParams } from "react-router-dom";
-import { Page } from "7shared/ui/Page/Page";
+import { Page } from "4widgets/Page/Page";
 
 interface ProfilePageProps {
   className?: string;

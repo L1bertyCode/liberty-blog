@@ -17,10 +17,12 @@ import { ArticleDetailsSchema } from "6entities/Article";
 import { ArticleDetailsCommentsSchema } from "3pages/ArticleDetailsPage";
 import { AddCommentFormSchema } from "5features/addCommentForm";
 import { ArticlesPageSchema } from "3pages/ArticlesPage";
+import { ScrollSaveSchema } from "5features/ScrollSave";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;

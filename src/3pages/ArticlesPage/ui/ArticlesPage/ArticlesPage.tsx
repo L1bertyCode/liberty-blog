@@ -30,7 +30,7 @@ import {
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { initeArticlesPage } from "../../model/services/initeArticlesPage/initeArticlesPage";
 
-import { Page } from "7shared/ui/Page/Page";
+import { Page } from "4widgets/Page/Page";
 
 interface ArticlesPageProps {
   className?: string;

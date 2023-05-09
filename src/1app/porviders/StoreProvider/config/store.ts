@@ -11,6 +11,7 @@ import { counterReducer } from "6entities/Counter";
 import { userReducer } from "6entities/User";
 import { createReducerManager } from "./reducerManager";
 import { $api } from "7shared/api/api";
+import { scrollSaveReducer } from "5features/ScrollSave";
 
 
 export type AppDispatch = ReturnType<
@@ -26,6 +27,7 @@ export const createReduxStore = (
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scrollSave:scrollSaveReducer
   };
   const reducerManager = createReducerManager(RootReducer);
 
