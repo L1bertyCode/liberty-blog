@@ -22,15 +22,15 @@ import { useInitialEffect } from "7shared/lib/hooks/useInitialEffect";
 
 import { useSelector } from "react-redux";
 import {
-  getArticlesPageError,
   getArticlesPageIsLoading,
-  getArticlesPageNumber,
   getArticlesPageView,
-  getArticlesPageHasMore,
+  getArticlesPageInited,
 } from "../../model/selectors/articlePageSelectors";
+
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initeArticlesPage } from "../../model/services/initeArticlesPage/initeArticlesPage";
+
 import { Page } from "7shared/ui/Page/Page";
-import { fetchArticlesList } from "3pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
-import { fetchNextArticlesPage } from "3pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 interface ArticlesPageProps {
   className?: string;
@@ -40,16 +40,15 @@ const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
 };
 
-interface FetchArticleListProps {
-  page?: number;
-}
 const ArticlesPage = memo((props: ArticlesPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
+  const inited = useSelector(getArticlesPageInited);
 
   const onChangeView = useCallback(
     (view: ArticleView) => {
@@ -63,15 +62,13 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      })
-    );
+    dispatch(initeArticlesPage());
   });
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount={false}
+    >
       <Page
         onScrollEnd={onLoadNextPart}
         className={classNames(s.ArticlesPage, {}, [
