@@ -1,8 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "1app/porviders/StoreProvider/config/StateSchema";
-import {
-  getArticlesPageInited,
-} from "../../selectors/articlePageSelectors";
+import { getArticlesPageInited } from "../../selectors/articlePageSelectors";
 import { articlesPageActions } from "../../slices/articlesPageSlice";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
 
@@ -16,10 +14,6 @@ export const initeArticlesPage = createAsyncThunk<
 
   if (!inited) {
     dispatch(articlesPageActions.initState());
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      })
-    );
+    dispatch(fetchArticlesList({}));
   }
 });
