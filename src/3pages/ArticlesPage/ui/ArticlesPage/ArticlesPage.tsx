@@ -31,6 +31,7 @@ import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPag
 import { initeArticlesPage } from "../../model/services/initeArticlesPage/initeArticlesPage";
 
 import { Page } from "4widgets/Page/Page";
+import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 
 interface ArticlesPageProps {
   className?: string;
@@ -50,13 +51,6 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   const view = useSelector(getArticlesPageView);
   const inited = useSelector(getArticlesPageInited);
 
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
-
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
@@ -75,14 +69,12 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
           className,
         ])}
       >
-        <ArticleViewSelector
-          view={view}
-          onViewClick={onChangeView}
-        />
+        <ArticlesPageFilters />
         <ArticleList
           isLoading={isLoading}
           view={view}
           articles={articles}
+          className={s.list}
         />
       </Page>
     </DynamicModuleLoader>

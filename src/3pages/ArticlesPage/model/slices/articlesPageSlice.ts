@@ -8,6 +8,8 @@ import {
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import { ARTCILE_VIEW_LOCALSTORAGE_KEY } from "7shared/const/localstorage";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
+import { ArticlesSortField } from "6entities/Article/model/types/article";
+import { SortOrder } from "7shared/types";
 
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,
@@ -32,6 +34,11 @@ const articlesPageSlice = createSlice({
       page: 1,
       limit: 1,
       hasMore: false,
+
+      order: "asc",
+      sort: ArticlesSortField.CREATED,
+      search: "",
+
       _inited: false,
     }),
   reducers: {
@@ -48,6 +55,20 @@ const articlesPageSlice = createSlice({
         action.payload
       );
     },
+
+    setOrder: (state, action: PayloadAction<SortOrder>) => {
+      state.order = action.payload;
+    },
+    setSort: (
+      state,
+      action: PayloadAction<ArticlesSortField>
+    ) => {
+      state.sort = action.payload;
+    },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload;
+    },
+
     initState: (state) => {
       const view = localStorage.getItem(
         ARTCILE_VIEW_LOCALSTORAGE_KEY

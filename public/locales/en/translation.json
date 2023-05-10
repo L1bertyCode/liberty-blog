@@ -39,5 +39,14 @@
   "No comments": "No comments",
   "Enter comment text": "Enter comment text",
   "Read more...": "Read more...",
-  "Back to list": "Back to list"
+  "Back to list": "Back to list",
+  "Sort by": "Sort by",
+  "Search": "Search",
+  "ascending": "ascending",
+  "descending": "descending",
+  "by": "by",
+  "date of creation": "date of creation",
+  "creation date": "creation date",
+  "name": "name",
+  "views": "views"
 }
