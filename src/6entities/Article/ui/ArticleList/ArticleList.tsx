@@ -11,6 +11,10 @@ import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./ArticleList.module.scss";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
+import {
+  AppText,
+  AppTextSize,
+} from "7shared/ui/AppText/AppText";
 
 interface ArticleListProps {
   className?: string;
@@ -56,6 +60,18 @@ export const ArticleList = memo(
       return null;
     }
 
+    if (!isLoading && !articles.length) {
+      return (
+        <div
+          className={classNames(s.articleList, {}, [
+            className,
+            s[view],
+          ])}
+        >
+          <AppText size={AppTextSize.L} title={t("Article not found")} />
+        </div>
+      );
+    }
     return (
       <div
         className={classNames(s.articleList, {}, [

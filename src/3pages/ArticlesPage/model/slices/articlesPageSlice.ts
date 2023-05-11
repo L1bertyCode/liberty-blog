@@ -8,7 +8,10 @@ import {
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import { ARTCILE_VIEW_LOCALSTORAGE_KEY } from "7shared/const/localstorage";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
-import { ArticlesSortField } from "6entities/Article/model/types/article";
+import {
+  ArticleType,
+  ArticlesSortField,
+} from "6entities/Article/model/types/article";
 import { SortOrder } from "7shared/types";
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -38,6 +41,7 @@ const articlesPageSlice = createSlice({
       order: "asc",
       sort: ArticlesSortField.CREATED,
       search: "",
+      type: ArticleType.ALL,
 
       _inited: false,
     }),
@@ -67,6 +71,9 @@ const articlesPageSlice = createSlice({
     },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
+    },
+    setType: (state, action: PayloadAction<ArticleType>) => {
+      state.type = action.payload;
     },
 
     initState: (state) => {

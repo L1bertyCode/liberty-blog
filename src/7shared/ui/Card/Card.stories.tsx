@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "./Card";
+import { Card, CardVariant } from "./Card";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 import { AppText } from "../AppText/AppText";
@@ -24,6 +24,20 @@ export const Light: Story = {
 export const Dark: Story = {
   args: {
     children: <AppText text={"Text"} title={"Title"} />,
+  },
+  decorators: [ThemeDecoratorDark],
+};
+export const LightOutlined: Story = {
+  args: {
+    children: <AppText text={"Text"} title={"Title"} />,
+    variant: CardVariant.OUTLINED,
+  },
+};
+
+export const DarkOutlined: Story = {
+  args: {
+    children: <AppText text={"Text"} title={"Title"} />,
+    variant: CardVariant.OUTLINED,
   },
   decorators: [ThemeDecoratorDark],
 };

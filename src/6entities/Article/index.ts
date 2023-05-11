@@ -1,3 +1,5 @@
+export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
+
 export { ArticlesSortSelector } from "./ui/ArticlesSortSelector/ArticlesSortSelector";
 
 export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
@@ -8,5 +10,6 @@ export {
   Article,
   ArticleView,
   ArticlesSortField,
+  ArticleType,
 } from "./model/types/article";
 export type { ArticleDetailsSchema } from "./model/types/articleDetailsSchema";

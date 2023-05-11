@@ -48,5 +48,9 @@
   "date of creation": "date of creation",
   "creation date": "creation date",
   "name": "name",
-  "views": "views"
+  "views": "views",
+  "IT": "IT",
+  "All": "All",
+  "Economy": "Economy",
+  "Science": "Science"
 }
