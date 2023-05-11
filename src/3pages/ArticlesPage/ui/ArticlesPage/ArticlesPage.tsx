@@ -28,10 +28,12 @@ import {
 } from "../../model/selectors/articlePageSelectors";
 
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
-import { initeArticlesPage } from "../../model/services/initeArticlesPage/initeArticlesPage";
+
 
 import { Page } from "4widgets/Page/Page";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
+import { useSearchParams } from "react-router-dom";
+import { initArticlesPage } from "../../model/services/initeArticlesPage/initArticlesPage";
 
 interface ArticlesPageProps {
   className?: string;
@@ -55,8 +57,10 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
+  let [searchParams] = useSearchParams();
+
   useInitialEffect(() => {
-    dispatch(initeArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
   return (
     <DynamicModuleLoader
