@@ -40,7 +40,7 @@ export const ArticleList = memo(
       className,
       articles,
       isLoading,
-      view = ArticleView.BIG,
+      view = ArticleView.SMALL,
     } = props;
     const { t } = useTranslation();
 
@@ -68,15 +68,18 @@ export const ArticleList = memo(
             s[view],
           ])}
         >
-          <AppText size={AppTextSize.L} title={t("Article not found")} />
+          <AppText
+            size={AppTextSize.L}
+            title={t("Article not found")}
+          />
         </div>
       );
     }
     return (
       <div
         className={classNames(s.articleList, {}, [
-          className,
           s[view],
+          className,
         ])}
       >
         {articles?.length > 0

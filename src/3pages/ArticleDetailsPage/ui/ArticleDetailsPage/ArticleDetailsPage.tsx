@@ -32,9 +32,15 @@ import { AppButton } from "7shared/ui/AppButton/AppButton";
 import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 import { Page } from "4widgets/Page/Page";
 
-import { ArticleList } from "6entities/Article";
+import {
+  ArticleList,
+  ArticleView,
+} from "6entities/Article";
 import { fetchArticleRecommendations } from "3pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations";
-import { articleDetailsRecommendationsReducer, getArticleRecommendations } from "3pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
+import {
+  articleDetailsRecommendationsReducer,
+  getArticleRecommendations,
+} from "3pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
 import { getArticleRecommendationsIsLoading } from "3pages/ArticleDetailsPage/model/selectors/recommendations";
 
 interface ArticleDetailsPageProps {
@@ -43,7 +49,7 @@ interface ArticleDetailsPageProps {
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
   articleDetailsRecomendations:
-  articleDetailsRecommendationsReducer,
+    articleDetailsRecommendationsReducer,
 };
 
 const ArticleDetailsPage = memo(
@@ -121,6 +127,7 @@ const ArticleDetailsPage = memo(
             className={s.commentTitle}
           />
           <ArticleList
+            className={s.recommendations}
             articles={recomendations}
             isLoading={recomendationsIsLoading}
           />
