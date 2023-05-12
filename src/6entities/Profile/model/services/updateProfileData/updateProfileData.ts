@@ -5,7 +5,7 @@ import {
   ValidateProfileError,
 } from "../../types/profile";
 
-import { ThunkConfig } from "1app/porviders/StoreProvider/config/StateSchema";
+import { ThunkConfig } from "1app/providers/StoreProvider/config/StateSchema";
 import { getProfileForm } from "../../selectors/getProfileForm/getProfileForm";
 import { validateProfileData } from "../validateProfileData/validateProfileData";
 

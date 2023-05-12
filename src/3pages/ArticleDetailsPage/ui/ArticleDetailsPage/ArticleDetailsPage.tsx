@@ -5,7 +5,10 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./ArticleDetailsPage.module.scss";
 import { ArticleDetails } from "6entities/Article/ui/ArticleDetails/ArticleDetails";
 import { useNavigate, useParams } from "react-router-dom";
-import { AppText } from "7shared/ui/AppText/AppText";
+import {
+  AppText,
+  AppTextSize,
+} from "7shared/ui/AppText/AppText";
 import { CommentList } from "6entities/Comment";
 import {
   DynamicModuleLoader,
@@ -29,11 +32,18 @@ import { AppButton } from "7shared/ui/AppButton/AppButton";
 import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 import { Page } from "4widgets/Page/Page";
 
+import { ArticleList } from "6entities/Article";
+import { fetchArticleRecommendations } from "3pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations";
+import { articleDetailsRecommendationsReducer, getArticleRecommendations } from "3pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
+import { getArticleRecommendationsIsLoading } from "3pages/ArticleDetailsPage/model/selectors/recommendations";
+
 interface ArticleDetailsPageProps {
   className?: string;
 }
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsRecomendations:
+  articleDetailsRecommendationsReducer,
 };
 
 const ArticleDetailsPage = memo(
@@ -48,6 +58,7 @@ const ArticleDetailsPage = memo(
     const commentsError = useSelector(
       getArticleCommentsError
     );
+
     const navigate = useNavigate();
     const onBackToList = useCallback(() => {
       navigate(RoutePath.articles);
@@ -55,6 +66,13 @@ const ArticleDetailsPage = memo(
 
     const comments = useSelector(
       getArticleComments.selectAll
+    );
+
+    const recomendations = useSelector(
+      getArticleRecommendations.selectAll
+    );
+    const recomendationsIsLoading = useSelector(
+      getArticleRecommendationsIsLoading
     );
     const dispatch = useAppDispatch();
 
@@ -65,9 +83,10 @@ const ArticleDetailsPage = memo(
       [dispatch]
     );
 
-    useInitialEffect(() =>
-      dispatch(fetchCommentsByArticleId(id))
-    );
+    useInitialEffect(() => {
+      dispatch(fetchCommentsByArticleId(id));
+      dispatch(fetchArticleRecommendations());
+    });
 
     if (!id) {
       return (
@@ -97,6 +116,16 @@ const ArticleDetailsPage = memo(
           <ArticleDetails id={id} />
           <AddCommentForm onSendComment={onSendComment} />
           <AppText
+            size={AppTextSize.L}
+            title={t("Recommended")}
+            className={s.commentTitle}
+          />
+          <ArticleList
+            articles={recomendations}
+            isLoading={recomendationsIsLoading}
+          />
+          <AppText
+            size={AppTextSize.L}
             title={t("Comments")}
             className={s.commentTitle}
           />

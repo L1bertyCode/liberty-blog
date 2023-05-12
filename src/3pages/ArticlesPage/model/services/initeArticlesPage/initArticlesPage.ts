@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig } from "1app/porviders/StoreProvider/config/StateSchema";
+import { ThunkConfig } from "1app/providers/StoreProvider/config/StateSchema";
 import { getArticlesPageInited } from "../../selectors/articlePageSelectors";
 import { articlesPageActions } from "../../slices/articlesPageSlice";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
@@ -45,9 +45,7 @@ export const initArticlesPage = createAsyncThunk<
         );
       }
       if (typeFromUrl) {
-        dispatch(
-          articlesPageActions.setType(typeFromUrl)
-        );
+        dispatch(articlesPageActions.setType(typeFromUrl));
       }
 
       dispatch(articlesPageActions.initState());

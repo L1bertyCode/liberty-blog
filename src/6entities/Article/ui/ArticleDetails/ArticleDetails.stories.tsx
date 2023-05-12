@@ -8,7 +8,7 @@ import {
   ArticleType,
 } from "6entities/Article/model/types/article";
 
-import { StoreProvider } from "1app/porviders/StoreProvider";
+import { StoreProvider } from "1app/providers/StoreProvider";
 
 import { ReducersMapObject } from "@reduxjs/toolkit";
 import { articleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";

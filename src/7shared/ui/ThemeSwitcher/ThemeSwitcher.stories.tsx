@@ -5,7 +5,11 @@ import {
   ThemeDecoratorDark,
   ThemeDecorator,
 } from "7shared/config/storybook/ThemeDecorator";
-import { Theme, ThemeProvider, useTheme } from "1app/porviders/ThemePorvider";
+import {
+  Theme,
+  ThemeProvider,
+  useTheme,
+} from "1app/providers/ThemePorvider";
 
 const meta = {
   title: "7shared/ThemeSwitcher",

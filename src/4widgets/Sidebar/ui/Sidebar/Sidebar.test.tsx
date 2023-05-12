@@ -6,7 +6,7 @@ import {
 import { Sidebar } from "./Sidebar";
 import { BrowserRouter } from "react-router-dom";
 import { RenderWithTranslation } from "7shared/lib/tests/renderWithTranslation/renderWithTranslation";
-import { StoreProvider } from "1app/porviders/StoreProvider";
+import { StoreProvider } from "1app/providers/StoreProvider";
 
 describe("Sidebar", () => {
   test("should return Sidebar", () => {

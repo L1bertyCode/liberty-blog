@@ -15,7 +15,7 @@ import {
 } from "5features/ScrollSave";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { StateSchema } from "1app/porviders/StoreProvider";
+import { StateSchema } from "1app/providers/StoreProvider";
 import { useInitialEffect } from "7shared/lib/hooks/useInitialEffect";
 import { useThrottle } from "7shared/lib/hooks/useThrottle";
 

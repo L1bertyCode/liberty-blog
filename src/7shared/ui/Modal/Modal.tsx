@@ -13,7 +13,7 @@ import {
 
 import s from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
-import { useTheme } from "1app/porviders/ThemePorvider";
+import { useTheme } from "1app/providers/ThemePorvider";
 
 interface ModalProps {
   className?: string;

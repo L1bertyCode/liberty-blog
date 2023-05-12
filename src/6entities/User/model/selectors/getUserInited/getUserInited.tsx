@@ -1,4 +1,4 @@
-import { StateSchema } from "1app/porviders/StoreProvider";
+import { StateSchema } from "1app/providers/StoreProvider";
 
 export const getUserInited = (state: StateSchema) =>
   state.user._inited;

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CommentList } from "./CommentList";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
-import { StoreProvider } from "1app/porviders/StoreProvider";
+import { StoreProvider } from "1app/providers/StoreProvider";
 import { addCommentFormReducer } from "5features/addCommentForm/model/slices/addCommentFormSlice";
 import { ReducersMapObject } from "@reduxjs/toolkit";
 

@@ -1,4 +1,4 @@
-import { StoreProvider } from "1app/porviders/StoreProvider";
+import { StoreProvider } from "1app/providers/StoreProvider";
 import { articleDetailsCommentsReducer } from "3pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
 import { loginReducer } from "5features/AuthByUsername/model/slices/loginSlice";
 import { addCommentFormReducer } from "5features/addCommentForm/model/slices/addCommentFormSlice";

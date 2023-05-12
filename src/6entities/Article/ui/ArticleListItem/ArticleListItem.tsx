@@ -30,7 +30,6 @@ import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 
 import s from "./ArticleListItem.module.scss";
 
-
 interface ArticleListItemProps {
   className?: string;
   article?: Article;
@@ -73,7 +72,7 @@ export const ArticleListItem = memo(
         />
       </>
     );
- 
+
     if (view === ArticleView.BIG) {
       const textBlock = article?.blocks.find(
         (block) => block.type === ArticleBlockType.TEXT
@@ -87,14 +86,14 @@ export const ArticleListItem = memo(
         >
           <Card>
             <div className={s.header}>
-              <Avatar
+              {/* <Avatar
                 size={30}
-                src={article?.user.avatar}
+                src={article.user.avatar}
               />
               <AppText
                 text={article?.user.username}
                 className={s.username}
-              />
+              /> */}
               <AppText
                 text={article?.createdAt}
                 className={s.date}

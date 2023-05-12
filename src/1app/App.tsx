@@ -1,6 +1,6 @@
 import { memo, Suspense, useEffect } from "react";
-import { ErrorBoundary } from "./porviders/ErrorBoundary";
-import { useTheme } from "./porviders/ThemePorvider";
+import { ErrorBoundary } from "./providers/ErrorBoundary";
+import { useTheme } from "./providers/ThemePorvider";
 
 import { Navbar } from "4widgets/Navbar";
 import { Sidebar } from "4widgets/Sidebar";
@@ -9,7 +9,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import "1app/styles/index.scss";
 import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 import { getUserInited, userActions } from "6entities/User";
-import { AppRouter } from "./porviders/router";
+import { AppRouter } from "./providers/router";
 import { useSelector } from "react-redux";
 
 export const App = memo(() => {

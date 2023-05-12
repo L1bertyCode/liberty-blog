@@ -1,4 +1,4 @@
-import { StateSchema } from "1app/porviders/StoreProvider";
+import { StateSchema } from "1app/providers/StoreProvider";
 import { Article, ArticleView } from "6entities/Article";
 import {
   PayloadAction,
@@ -72,7 +72,10 @@ const articlesPageSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
-    setType: (state, action: PayloadAction<ArticleType>) => {
+    setType: (
+      state,
+      action: PayloadAction<ArticleType>
+    ) => {
       state.type = action.payload;
     },
 

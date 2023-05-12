@@ -1,5 +1,5 @@
 import { getCounter } from "./getCounter";
-import { StateSchema } from "1app/porviders/StoreProvider";
+import { StateSchema } from "1app/providers/StoreProvider";
 
 describe("getCounter", () => {
   test("should return counter value", () => {

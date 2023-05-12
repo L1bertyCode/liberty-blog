@@ -6,7 +6,7 @@ import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 import {
   StateSchema,
   StoreProvider,
-} from "1app/porviders/StoreProvider";
+} from "1app/providers/StoreProvider";
 import { Currency } from "6entities/Currency";
 import { Country } from "6entities/Country";
 import avatar from "7shared/assets/tests/storybook.jpg";

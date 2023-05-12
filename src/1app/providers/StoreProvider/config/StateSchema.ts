@@ -14,10 +14,11 @@ import { ProfileSchema } from "6entities/Profile";
 import { AxiosInstance } from "axios";
 import { NavigateOptions } from "react-router";
 import { ArticleDetailsSchema } from "6entities/Article";
-import { ArticleDetailsCommentsSchema } from "3pages/ArticleDetailsPage";
+
 import { AddCommentFormSchema } from "5features/addCommentForm";
 import { ArticlesPageSchema } from "3pages/ArticlesPage";
 import { ScrollSaveSchema } from "5features/ScrollSave";
+import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } from "3pages/ArticleDetailsPage";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -29,6 +30,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  articleDetailsRecomendations?: ArticleDetailsRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
 }

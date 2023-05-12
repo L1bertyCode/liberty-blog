@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import LoginForm from "./LoginForm";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
-import { StoreProvider } from "1app/porviders/StoreProvider";
+import { StoreProvider } from "1app/providers/StoreProvider";
 import {
   DeepPartial,
   ReducersMapObject,
@@ -102,7 +102,6 @@ export const DarkError: Story = {
               password: "123",
               error: "For example error",
               isLoading: false,
-
             },
           }}
           asyncReducers={{ ...defaultAsyncReducers }}
