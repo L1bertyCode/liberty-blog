@@ -37,6 +37,7 @@ import { fetchArticleRecommendations } from "3pages/ArticleDetailsPage/model/ser
 import { getArticleRecommendations } from "3pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
 import { getArticleRecommendationsIsLoading } from "3pages/ArticleDetailsPage/model/selectors/recommendations";
 import { articleDetailsPageReducer } from "3pages/ArticleDetailsPage/model/slices";
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -57,11 +58,6 @@ const ArticleDetailsPage = memo(
     const commentsError = useSelector(
       getArticleCommentsError
     );
-
-    const navigate = useNavigate();
-    const onBackToList = useCallback(() => {
-      navigate(RoutePath.articles);
-    }, [navigate]);
 
     const comments = useSelector(
       getArticleComments.selectAll
@@ -109,11 +105,9 @@ const ArticleDetailsPage = memo(
             className,
           ])}
         >
-          <AppButton onClick={onBackToList}>
-            {t("Back to list")}
-          </AppButton>
-          <ArticleDetails id={id} />
+          <ArticleDetailsPageHeader />
 
+          <ArticleDetails id={id} />
           <AppText
             size={AppTextSize.L}
             title={t("Recommended")}

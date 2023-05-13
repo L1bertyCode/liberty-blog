@@ -14,6 +14,8 @@ export enum AppRoutes {
   PROFILE = "profile",
   ARTICLES = "articles",
   ARTICLE_DETAILS = "article_details",
+  // ARTICLES_CEATED = "articles_created",
+  // ARTICLES_EDIT = "articles_edit",
 
   // last
   NOT_FOUND = "not-found",
@@ -24,6 +26,8 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.PROFILE]: "/profile/", //+:id
   [AppRoutes.ARTICLES]: "/article",
   [AppRoutes.ARTICLE_DETAILS]: "/article/", //+:id
+  // [AppRoutes.ARTICLES_CEATED]: "articles_created/new",
+  // [AppRoutes.ARTICLES_EDIT]: "articles_edit/:id/edit",
   [AppRoutes.NOT_FOUND]: "*",
 };
 
