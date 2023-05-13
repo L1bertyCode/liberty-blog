@@ -1,0 +1,30 @@
+.appLink {
+  text-decoration: none;
+  transition: var(--transition-delay);
+  padding-bottom: 5px;
+  
+  &:hover {
+    transition: var(--transition-delay);
+    opacity: var(--opacity);
+  }
+}
+
+.primary {
+  color: var(--inverted-secondary-color);
+}
+
+.secondary {
+  color: var(--inverted-secondary-color);
+}
+
+.primary.active {
+  color: var(--inverted-secondary-color);
+}
+
+.secondary.active {
+  color: var(--inverted-secondary-color);
+}
+
+.appNavLink .red {
+  color: var(--red-dark);
+}

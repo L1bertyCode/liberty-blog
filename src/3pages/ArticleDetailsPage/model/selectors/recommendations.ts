@@ -4,12 +4,13 @@ export const getArticleRecommendationsIsLoading = (
   state: StateSchema
 ) => {
   return (
-    state.articleDetailsRecomendations?.isLoading || false
+    state.articleDetailsPage?.recomendations.isLoading ||
+    false
   );
 };
 
 export const getArticleRecommendationsError = (
   state: StateSchema
 ) => {
-  return state.articleDetailsRecomendations?.error;
+  return state.articleDetailsPage?.recomendations.error;
 };

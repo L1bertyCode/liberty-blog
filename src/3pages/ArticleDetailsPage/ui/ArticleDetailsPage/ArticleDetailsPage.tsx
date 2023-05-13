@@ -32,24 +32,17 @@ import { AppButton } from "7shared/ui/AppButton/AppButton";
 import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 import { Page } from "4widgets/Page/Page";
 
-import {
-  ArticleList,
-  ArticleView,
-} from "6entities/Article";
+import { ArticleList } from "6entities/Article";
 import { fetchArticleRecommendations } from "3pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations";
-import {
-  articleDetailsRecommendationsReducer,
-  getArticleRecommendations,
-} from "3pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
+import { getArticleRecommendations } from "3pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
 import { getArticleRecommendationsIsLoading } from "3pages/ArticleDetailsPage/model/selectors/recommendations";
+import { articleDetailsPageReducer } from "3pages/ArticleDetailsPage/model/slices";
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
-  articleDetailsRecomendations:
-    articleDetailsRecommendationsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = memo(
@@ -120,7 +113,7 @@ const ArticleDetailsPage = memo(
             {t("Back to list")}
           </AppButton>
           <ArticleDetails id={id} />
-          <AddCommentForm onSendComment={onSendComment} />
+
           <AppText
             size={AppTextSize.L}
             title={t("Recommended")}
@@ -130,12 +123,15 @@ const ArticleDetailsPage = memo(
             className={s.recommendations}
             articles={recomendations}
             isLoading={recomendationsIsLoading}
+            target={"_blank"}
           />
           <AppText
             size={AppTextSize.L}
             title={t("Comments")}
             className={s.commentTitle}
           />
+          <AddCommentForm onSendComment={onSendComment} />
+
           <CommentList
             isLoading={commentsIsLoading}
             comments={comments}

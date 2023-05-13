@@ -1,5 +1,6 @@
 import { StoreProvider } from "1app/providers/StoreProvider";
-import { articleDetailsCommentsReducer } from "3pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
+import { articleDetailsPageReducer } from "3pages/ArticleDetailsPage/model/slices";
+
 import { loginReducer } from "5features/AuthByUsername/model/slices/loginSlice";
 import { addCommentFormReducer } from "5features/addCommentForm/model/slices/addCommentFormSlice";
 import { articleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";
@@ -16,7 +17,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
     pofile: profileReducer,
     articleDFetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
   };
 
 export const StoreDecorator: Decorator = (
