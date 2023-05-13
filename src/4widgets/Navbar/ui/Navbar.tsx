@@ -24,6 +24,15 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { useAppDispatch } from "7shared/lib/hooks/useAppDispatch";
 import { userSlice } from "6entities/User/model/slices/userSlice";
+import { RoutePath } from "7shared/config/routesConfig/routesConfig";
+import {
+  AppLink,
+  AppLinkVariant,
+} from "7shared/ui/AppLink/AppLink";
+import {
+  AppText,
+  AppTextVariant,
+} from "7shared/ui/AppText/AppText";
 
 interface NavbarProps {
   className?: string;
@@ -51,9 +60,21 @@ export const Navbar = memo((props: NavbarProps) => {
       <header
         className={classNames(s.navbar, {}, [className])}
       >
-        <div className={s.logo}>{t("Logo")}</div>
+        <AppText
+          className={s.logo}
+          title={t("Logo")}
+          variant={AppTextVariant.INVERTED}
+        />
+        <AppLink
+          to={RoutePath.articles_created}
+          variant={AppLinkVariant.SECONDARY}
+          className={s.createBtn}
+        >
+          {t("Create article")}
+        </AppLink>
         <div className={s.modal}>
           <AppButton
+            className={s.btn}
             onClick={() => {
               onLogout();
             }}
@@ -75,8 +96,12 @@ export const Navbar = memo((props: NavbarProps) => {
       className={classNames(s.navbar, {}, [className])}
     >
       <div className={s.logo}>{t("Logo")}</div>
+      <AppLink to={RoutePath.articles_created}>
+        {t("Create article")}
+      </AppLink>
       <div className={s.modal}>
         <AppButton
+          className={s.btn}
           onClick={() => {
             onShowModal();
           }}

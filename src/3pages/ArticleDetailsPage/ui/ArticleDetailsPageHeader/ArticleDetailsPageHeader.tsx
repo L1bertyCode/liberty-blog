@@ -7,7 +7,6 @@ import { AppButton } from "7shared/ui/AppButton/AppButton";
 import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "6entities/User";
 import { getArticleDetailsData } from "6entities/Article";
 import { getCanEditArticle } from "3pages/ArticleDetailsPage/model/selectors/article";
 
@@ -19,12 +18,19 @@ export const ArticleDetailsPageHeader = memo(
   (props: ArticleDetailsPageHeaderProps) => {
     const { className } = props;
     const { t } = useTranslation();
+    const article = useSelector(getArticleDetailsData);
+
     const navigate = useNavigate();
 
     const canEdit = useSelector(getCanEditArticle);
     const onBackToList = useCallback(() => {
       navigate(RoutePath.articles);
     }, [navigate]);
+    const onEditArticle = useCallback(() => {
+      navigate(
+        RoutePath.article_details + article?.id + "/edit"
+      );
+    }, [article?.id, navigate]);
     return (
       <div
         className={classNames(
@@ -38,7 +44,7 @@ export const ArticleDetailsPageHeader = memo(
         </AppButton>
         {canEdit && (
           <AppButton
-            onClick={onBackToList}
+            onClick={onEditArticle}
             className={s.editBtn}
           >
             {t("Edit")}

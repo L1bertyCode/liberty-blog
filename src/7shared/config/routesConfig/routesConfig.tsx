@@ -7,6 +7,7 @@ import { ReactNode } from "react";
 import { ProfilePage } from "3pages/ProfilePage";
 import { ArticlesPage } from "3pages/ArticlesPage";
 import { ArticleDetailsPage } from "3pages/ArticleDetailsPage";
+import { ArticleEditPage } from "3pages/ArticleEditPage";
 
 export enum AppRoutes {
   MiAN = "main",
@@ -14,8 +15,8 @@ export enum AppRoutes {
   PROFILE = "profile",
   ARTICLES = "articles",
   ARTICLE_DETAILS = "article_details",
-  // ARTICLES_CEATED = "articles_created",
-  // ARTICLES_EDIT = "articles_edit",
+  ARTICLE_CEATED = "articles_created",
+  ARTICLE_EDIT = "articles_edit",
 
   // last
   NOT_FOUND = "not-found",
@@ -24,10 +25,10 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MiAN]: "/",
   [AppRoutes.ABOUT]: "/about",
   [AppRoutes.PROFILE]: "/profile/", //+:id
-  [AppRoutes.ARTICLES]: "/article",
+  [AppRoutes.ARTICLES]: "/articles",
   [AppRoutes.ARTICLE_DETAILS]: "/article/", //+:id
-  // [AppRoutes.ARTICLES_CEATED]: "articles_created/new",
-  // [AppRoutes.ARTICLES_EDIT]: "articles_edit/:id/edit",
+  [AppRoutes.ARTICLE_CEATED]: "article/new",
+  [AppRoutes.ARTICLE_EDIT]: "article/:id/edit",
   [AppRoutes.NOT_FOUND]: "*",
 };
 
@@ -63,6 +64,16 @@ export const routesConfig: Record<
   [AppRoutes.ARTICLE_DETAILS]: {
     path: `${RoutePath[AppRoutes.ARTICLE_DETAILS]}:id`,
     element: <ArticleDetailsPage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_CEATED]: {
+    path: RoutePath[AppRoutes.ARTICLE_CEATED],
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_EDIT]: {
+    path: RoutePath[AppRoutes.ARTICLE_EDIT],
+    element: <ArticleEditPage />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {

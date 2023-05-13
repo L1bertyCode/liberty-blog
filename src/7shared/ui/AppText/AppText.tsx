@@ -7,7 +7,8 @@ import {
 import s from "./AppText.module.scss";
 
 export enum AppTextVariant {
-  DEFAULT = "primary",
+  PRYMARY = "primary",
+  INVERTED = "inverted",
   ERROR = "error",
 }
 export enum AppTextAlign {
@@ -35,7 +36,7 @@ export const AppText = memo((props: AppTextProps) => {
     className,
     title,
     text,
-    variant = AppTextVariant.DEFAULT,
+    variant = AppTextVariant.PRYMARY,
     align = AppTextAlign.LEFT,
     size = AppTextSize.M,
   } = props;

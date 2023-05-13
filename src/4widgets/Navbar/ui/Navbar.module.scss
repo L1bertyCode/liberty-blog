@@ -3,11 +3,17 @@
   background: var(--inverted-bg-color);
   height: var(--navbar-height);
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0 20px;
 }
 
 .logo {
   color: var(--inverted-primary-color);
+  width: var(--sidebar-width);
+  margin-left: 15px;
+}
+
+.modal {
+  margin-left: auto;
+
 }

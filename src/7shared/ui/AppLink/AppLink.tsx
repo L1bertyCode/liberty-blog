@@ -26,12 +26,12 @@ export const AppLink = memo((props: AppLinkProps) => {
   } = props;
   return (
     <Link
+      {...otherProps}
       to={to}
-      className={classNames(``, {}, [
+      className={classNames("appLink", {}, [
         className,
         s[variant],
       ])}
-      {...otherProps}
     >
       {children}
     </Link>
