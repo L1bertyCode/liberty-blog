@@ -11,6 +11,8 @@ export interface BuildPaths {
   html: string;
   favicon: string;
   src: string;
+  locales: string;
+  buildLocales: string;
 }
 export interface BuildOptions {
   buildMode: BuildMode;

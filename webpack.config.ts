@@ -15,6 +15,8 @@ export default (env: BuildEnv) => {
       "favicon.ico"
     ),
     src: path.resolve(__dirname, "src"),
+    locales: path.resolve(__dirname, "public", "locales"),
+    buildLocales:  path.resolve(__dirname, "build-prod", "locales"),
   };
   const buildMode = env.mode || "development";
   const isDev = buildMode === "development";
