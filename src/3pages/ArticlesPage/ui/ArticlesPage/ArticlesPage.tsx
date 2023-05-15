@@ -3,17 +3,12 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./ArticlesPage.module.scss";
-import {
-  ArticleViewSelector,
-  ArticleList,
-  ArticleView,
-} from "6entities/Article";
+import { ArticleList } from "6entities/Article";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "7shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {
-  articlesPageActions,
   articlesPageReducer,
   getArticles,
 } from "3pages/ArticlesPage/model/slices/articlesPageSlice";
@@ -28,7 +23,6 @@ import {
 } from "../../model/selectors/articlePageSelectors";
 
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
-
 
 import { Page } from "4widgets/Page/Page";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";

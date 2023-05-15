@@ -24,6 +24,7 @@ interface PageProps {
   children: ReactNode;
   onScrollEnd?: () => void;
 }
+export const PAGE_ID = "PAGE_ID";
 
 export const Page = memo((props: PageProps) => {
   const { className, children, onScrollEnd } = props;
@@ -64,6 +65,7 @@ export const Page = memo((props: PageProps) => {
 
   return (
     <section
+      id={PAGE_ID}
       onScroll={onScroll}
       ref={wrapperRef}
       className={classNames(s.page, {}, [className])}
