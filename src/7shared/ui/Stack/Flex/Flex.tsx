@@ -33,7 +33,7 @@ const gapClasses: Record<FlexGap, string> = {
   "16": s.gap16,
   "32": s.gap32,
 };
-interface FlexProps {
+export interface FlexProps {
   className?: string;
   children: ReactNode;
   justify?: FlexJustify;

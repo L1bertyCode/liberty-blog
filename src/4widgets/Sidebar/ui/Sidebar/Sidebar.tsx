@@ -16,6 +16,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./Sidebar.module.scss";
 import { getSidebarItems } from "4widgets/Sidebar/model/selector/getSidebarItems";
 import { useSelector } from "react-redux";
+import { VStack } from "7shared/ui/Stack/VStack/VStack";
 
 interface SidebarProps {
   className?: string;
@@ -49,7 +50,7 @@ export const Sidebar = memo((props: SidebarProps) => {
         [className]
       )}
     >
-      <div className={s.links}>{itemListMemo}</div>
+      <VStack gap="8" className={s.links}>{itemListMemo}</VStack>
 
       <div className={s.switchers}>
         <ThemeSwitcher />
