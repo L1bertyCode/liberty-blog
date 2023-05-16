@@ -4,9 +4,11 @@ import { buildCssLoader } from "../build/loaders/buildCssLoader";
 import { Configuration, DefinePlugin } from "webpack";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 
-
 const config: StorybookConfig = {
-  stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../../src/**/*.mdx",
+    "../../src/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -29,6 +31,8 @@ const config: StorybookConfig = {
       favicon: "",
       entry: "",
       src: path.resolve(__dirname, "..", "..", "src"),
+      locales: "",
+      buildLocales: "",
     };
     config.resolve?.modules?.push(paths.src);
     config.resolve?.extensions?.push(".ts", ".tsx");
@@ -36,11 +40,16 @@ const config: StorybookConfig = {
     config.module?.rules?.push(buildCssLoader(true));
 
     if (config?.module?.rules) {
-      const imageRule = config.module?.rules?.find((rule) => {
-        if (typeof rule !== "string" && rule.test instanceof RegExp) {
-          return rule.test.test(".svg");
+      const imageRule = config.module?.rules?.find(
+        (rule) => {
+          if (
+            typeof rule !== "string" &&
+            rule.test instanceof RegExp
+          ) {
+            return rule.test.test(".svg");
+          }
         }
-      });
+      );
 
       if (imageRule && typeof imageRule !== "string") {
         imageRule.exclude = /\.svg$/;
