@@ -76,3 +76,35 @@ export const SizeLDark: Story = {
   },
   decorators: [ThemeDecoratorDark],
 };
+export const SizeM: Story = {
+  args: {
+    title: "Size M Title Light",
+    text: "Size M Text Light",
+    size: AppTextSize.M,
+  },
+};
+
+export const SizeMDark: Story = {
+  args: {
+    title: "Size M Dark Title",
+    text: "Size M Dark Text",
+    size: AppTextSize.M,
+  },
+  decorators: [ThemeDecoratorDark],
+};
+export const SizeS: Story = {
+  args: {
+    title: "Size S Title Light",
+    text: "Size S Text Light",
+    size: AppTextSize.S,
+  },
+};
+
+export const SizeSDark: Story = {
+  args: {
+    title: "Size S Dark Title",
+    text: "Size S Dark Text",
+    size: AppTextSize.S,
+  },
+  decorators: [ThemeDecoratorDark],
+};

@@ -1,13 +1,25 @@
 :root {
   --font-family-main: consolas, "Times New Roman", serif;
+
+  /* s */
+  --font-line-s: 20px;
+  --font-z-s: 12px;
+  --font-s: var(--font-z-s) / var(--font-line-s)
+    var(--font-family-main);
+
+  /* m */
   --font-line-m: 24px;
   --font-z-m: 16px;
   --font-m: var(--font-z-m) / var(--font-line-m)
     var(--font-family-main);
+
+  /* l */
   --font-line-l: 32px;
   --font-z-l: 24px;
   --font-l: var(--font-z-l) / var(--font-line-l)
     var(--font-family-main);
+
+  /* xl */
   --font-line-xl: 40px;
   --font-z-xl: 32px;
   --font-xl: var(--font-z-xl) / var(--font-line-xl)
@@ -18,7 +30,7 @@
 
   /* Opacity */
   --opacity: 0.7;
-  
+
   /* Sizes */
   --navbar-height: 50px;
   --sidebar-width: 300px;

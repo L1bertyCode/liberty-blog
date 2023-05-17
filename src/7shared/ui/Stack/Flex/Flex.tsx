@@ -1,4 +1,4 @@
-import { ReactNode, memo } from "react";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode, memo } from "react";
 import {
   Mods,
   classNames,
@@ -36,6 +36,10 @@ const gapClasses: Record<FlexGap, string> = {
   "16": s.gap16,
   "32": s.gap32,
 };
+// type DivProps = DetailedHTMLProps<
+//  HTMLAttributes<HTMLDivElement>,
+//   HTMLDivElement
+// >;
 export interface FlexProps {
   className?: string;
   children: ReactNode;
