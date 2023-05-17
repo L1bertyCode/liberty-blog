@@ -21,6 +21,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "7shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { HStack } from "7shared/ui/Stack";
 
 export interface AddCommentFormProps {
   className?: string;
@@ -50,7 +51,8 @@ const AddCommentForm = memo(
     }, [text, onSendComment, onCommentTextChange]);
     return (
       <DynamicModuleLoader reducers={reducers}>
-        <div
+        <HStack
+          max
           className={classNames(s.addCommentForm, {}, [
             className,
           ])}
@@ -64,7 +66,7 @@ const AddCommentForm = memo(
           <AppButton onClick={onSendHandler}>
             {"Send"}
           </AppButton>
-        </div>
+        </HStack>
       </DynamicModuleLoader>
     );
   }

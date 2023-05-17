@@ -9,6 +9,7 @@ import { AppText } from "7shared/ui/AppText/AppText";
 import { Skeleton } from "7shared/ui/Skeleton/Skeleton";
 import { AppNavLink } from "7shared/ui/AppNavLink/AppNavLink";
 import { RoutePath } from "7shared/config/routesConfig/routesConfig";
+import { VStack } from "7shared/ui/Stack";
 
 interface CommentCardProps {
   className?: string;
@@ -25,7 +26,7 @@ export const CommentCard = memo(
         <div
           className={classNames(s.commentCard, {}, [
             className,
-            s.loading
+            s.loading,
           ])}
         >
           <div className={s.header}>
@@ -48,7 +49,9 @@ export const CommentCard = memo(
       return null;
     }
     return (
-      <div
+      <VStack
+        gap="8"
+        max
         className={classNames(s.commentCard, {}, [
           className,
         ])}
@@ -66,7 +69,7 @@ export const CommentCard = memo(
           />
         </AppNavLink>
         <AppText text={comment?.text} className={s.text} />
-      </div>
+      </VStack>
     );
   }
 );

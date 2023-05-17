@@ -33,6 +33,7 @@ import { ValidateProfileError } from "6entities/Profile/model/types/profile";
 import { useInitialEffect } from "7shared/lib/hooks/useInitialEffect";
 import { useParams } from "react-router-dom";
 import { Page } from "4widgets/Page/Page";
+import { VStack } from "7shared/ui/Stack/VStack/VStack";
 
 interface ProfilePageProps {
   className?: string;
@@ -168,34 +169,35 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           className,
         ])}
       >
-        <div>{t("Profile")}</div>
-        <ProfilePageHeader />
+        <VStack gap={"16"} max>
+          <ProfilePageHeader />
 
-        {validateErrors?.length &&
-          validateErrors.map((err) => {
-            return (
-              <AppText
-                key={err}
-                variant={AppTextVariant.ERROR}
-                text={validateErrorTranslates[err]}
-              />
-            );
-          })}
+          {validateErrors?.length &&
+            validateErrors.map((err) => {
+              return (
+                <AppText
+                  key={err}
+                  variant={AppTextVariant.ERROR}
+                  text={validateErrorTranslates[err]}
+                />
+              );
+            })}
 
-        <ProfileCard
-          data={formData}
-          isLoading={isLoading}
-          error={error}
-          onChangeFirstname={onChangeFirstname}
-          onChangeCity={onChangeCity}
-          onChangeLastname={onChangeLastname}
-          onChangeAge={onChangeAge}
-          onChangeUsername={onChangeUsername}
-          onChangeAvatar={onChangeAvatar}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-          readOnly={readOnly}
-        />
+          <ProfileCard
+            data={formData}
+            isLoading={isLoading}
+            error={error}
+            onChangeFirstname={onChangeFirstname}
+            onChangeCity={onChangeCity}
+            onChangeLastname={onChangeLastname}
+            onChangeAge={onChangeAge}
+            onChangeUsername={onChangeUsername}
+            onChangeAvatar={onChangeAvatar}
+            onChangeCurrency={onChangeCurrency}
+            onChangeCountry={onChangeCountry}
+            readOnly={readOnly}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

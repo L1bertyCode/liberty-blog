@@ -2,7 +2,6 @@ import { memo, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import {
   getArticleDetailsData,
@@ -38,6 +37,7 @@ import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { articleDetailsReducer } from "6entities/Article/model/slices/ArticleDetailsSlice";
+import { HStack, VStack } from "7shared/ui/Stack";
 
 interface ArticleDetailsProps {
   id: string;
@@ -103,7 +103,7 @@ export const ArticleDetails = memo(
 
     if (isLoading) {
       content = (
-        <div>
+        <VStack gap="16" max>
           <Skeleton
             className={s.avatar}
             width={"200px"}
@@ -130,7 +130,7 @@ export const ArticleDetails = memo(
             width={"100%"}
             height={"200px"}
           />
-        </div>
+        </VStack>
       );
     } else if (error) {
       content = (
@@ -145,33 +145,34 @@ export const ArticleDetails = memo(
     } else
       content = (
         <>
-          <div className={s.avatarWrapper}>
+          <HStack justify="center" max>
             <Avatar
               alt="avatar"
               size={200}
               src={article?.img}
               className={s.avatar}
             />
-          </div>
-
-          <AppText
-            className={s.title}
-            title={article?.title}
-            text={article?.subtitle}
-            size={AppTextSize.L}
-          />
-          <div className={s.articleInfo}>
-            <AppIcon className={s.icon} Svg={EyeIcon} />
-            <AppText text={String(article?.views)} />
-          </div>
-
-          <div className={s.articleInfo}>
-            <AppIcon
-              className={s.icon}
-              Svg={CalendarIcon}
+          </HStack>
+          <VStack gap="8" max>
+            <AppText
+              className={s.title}
+              title={article?.title}
+              text={article?.subtitle}
+              size={AppTextSize.L}
             />
-            <AppText text={article?.createdAt} />
-          </div>
+            <HStack gap={"8"}>
+              <AppIcon className={s.icon} Svg={EyeIcon} />
+              <AppText text={String(article?.views)} />
+            </HStack>
+
+            <HStack gap={"8"}>
+              <AppIcon
+                className={s.icon}
+                Svg={CalendarIcon}
+              />
+              <AppText text={article?.createdAt} />
+            </HStack>
+          </VStack>
           {article?.blocks.map(renderBloack)}
         </>
       );
@@ -181,13 +182,15 @@ export const ArticleDetails = memo(
         reducers={reducers}
         removeAfterUnmount
       >
-        <div
+        <VStack
+          gap="16"
+          max
           className={classNames(s.articleDetails, {}, [
             className,
           ])}
         >
           {content}
-        </div>
+        </VStack>
       </DynamicModuleLoader>
     );
   }

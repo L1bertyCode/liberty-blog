@@ -6,7 +6,7 @@ import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 const meta = {
   title: "7shared/Flex",
   component: Flex,
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
   //argTypes: {},
   args: {},
 } satisfies Meta<typeof Flex>;
@@ -31,6 +31,39 @@ export const Column: Story = {
   args: {
     direction: "column",
     justify: "end",
+    children: (
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>third</div>
+        <div>fourth</div>
+      </>
+    ),
+  },
+  decorators: [ThemeDecoratorDark],
+};
+export const ColumnGap16: Story = {
+  args: {
+    gap: "16",
+    direction: "column",
+    justify: "end",
+    children: (
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>third</div>
+        <div>fourth</div>
+      </>
+    ),
+  },
+  decorators: [ThemeDecoratorDark],
+};
+
+export const ColumnAlignEnd: Story = {
+  args: {
+    direction: "column",
+    justify: "end",
+    align: "end",
     children: (
       <>
         <div>first</div>

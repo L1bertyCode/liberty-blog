@@ -2,13 +2,13 @@ import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "7shared/lib/classNames/classNames";
 
-import s from "./ArticleDetailsPageHeader.module.scss";
 import { AppButton } from "7shared/ui/AppButton/AppButton";
 import { RoutePath } from "7shared/config/routesConfig/routesConfig";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getArticleDetailsData } from "6entities/Article";
 import { getCanEditArticle } from "3pages/ArticleDetailsPage/model/selectors/article";
+import { HStack } from "7shared/ui/Stack";
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -32,25 +32,20 @@ export const ArticleDetailsPageHeader = memo(
       );
     }, [article?.id, navigate]);
     return (
-      <div
-        className={classNames(
-          s.articleDetailsPageHeader,
-          {},
-          [className]
-        )}
+      <HStack
+        justify="between"
+        max
+        className={classNames("", {}, [className])}
       >
         <AppButton onClick={onBackToList}>
           {t("Back to list")}
         </AppButton>
         {canEdit && (
-          <AppButton
-            onClick={onEditArticle}
-            className={s.editBtn}
-          >
+          <AppButton onClick={onEditArticle}>
             {t("Edit")}
           </AppButton>
         )}
-      </div>
+      </HStack>
     );
   }
 );

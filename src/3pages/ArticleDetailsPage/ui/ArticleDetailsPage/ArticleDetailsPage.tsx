@@ -38,6 +38,7 @@ import { getArticleRecommendations } from "3pages/ArticleDetailsPage/model/slice
 import { getArticleRecommendationsIsLoading } from "3pages/ArticleDetailsPage/model/selectors/recommendations";
 import { articleDetailsPageReducer } from "3pages/ArticleDetailsPage/model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
+import { VStack } from "7shared/ui/Stack";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -85,13 +86,17 @@ const ArticleDetailsPage = memo(
 
     if (!id) {
       return (
-        <div
+        <VStack
+          max
+          gap="16"
+          justify="center"
+          align="center"
           className={classNames(s.articleDetailsPage, {}, [
             className,
           ])}
         >
           {t("Article not found")}
-        </div>
+        </VStack>
       );
     }
 
@@ -105,31 +110,33 @@ const ArticleDetailsPage = memo(
             className,
           ])}
         >
-          <ArticleDetailsPageHeader />
+          <VStack gap="16">
+            <ArticleDetailsPageHeader />
 
-          <ArticleDetails id={id} />
-          <AppText
-            size={AppTextSize.L}
-            title={t("Recommended")}
-            className={s.commentTitle}
-          />
-          <ArticleList
-            className={s.recommendations}
-            articles={recomendations}
-            isLoading={recomendationsIsLoading}
-            target={"_blank"}
-          />
-          <AppText
-            size={AppTextSize.L}
-            title={t("Comments")}
-            className={s.commentTitle}
-          />
-          <AddCommentForm onSendComment={onSendComment} />
+            <ArticleDetails id={id} />
+            <AppText
+              size={AppTextSize.L}
+              title={t("Recommended")}
+              className={s.commentTitle}
+            />
+            <ArticleList
+              className={s.recommendations}
+              articles={recomendations}
+              isLoading={recomendationsIsLoading}
+              target={"_blank"}
+            />
+            <AppText
+              size={AppTextSize.L}
+              title={t("Comments")}
+              className={s.commentTitle}
+            />
+            <AddCommentForm onSendComment={onSendComment} />
 
-          <CommentList
-            isLoading={commentsIsLoading}
-            comments={comments}
-          />
+            <CommentList
+              isLoading={commentsIsLoading}
+              comments={comments}
+            />
+          </VStack>
         </Page>
       </DynamicModuleLoader>
     );
