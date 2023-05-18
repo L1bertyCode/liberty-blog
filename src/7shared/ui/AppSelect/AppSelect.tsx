@@ -1,5 +1,4 @@
 import { ChangeEvent, memo, useMemo } from "react";
-import { useTranslation } from "react-i18next";
 import {
   Mods,
   classNames,
@@ -31,8 +30,6 @@ export const AppSelect = memo((props: AppSelectProps) => {
     onChange,
     readOnly,
   } = props;
-
-  const { t } = useTranslation();
 
   const optionsList = useMemo(() => {
     return options?.map((optn) => (

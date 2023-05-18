@@ -38,7 +38,7 @@ interface AppInputProps extends HTMLAppInputProps {
 //   type?: string;
 //   placeholder?: string;
 //   autoFocus?: boolean;
-//   readonly?: boolean;
+//   readOnly?: boolean;
 //   onChange?: (value: string) => void;
 // }
 

@@ -5,6 +5,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./CountrySelect.module.scss";
 import { AppSelect } from "7shared/ui/AppSelect/AppSelect";
 import { Country } from "../../model/types/country";
+import { MyHListbox } from "7shared/ui/HListBox/ListBox";
 
 interface CountrySelectProps {
   className?: string;
@@ -37,15 +38,17 @@ export const CountrySelect = memo(
       onChange?.(value as Country);
     };
     return (
-      <AppSelect
+      <MyHListbox
         className={classNames(s.countrySelect, {}, [
           className,
         ])}
         label={t("Choose the country")}
-        options={options}
+        defaultValue={t("Choose the country")}
+        items={options}
         value={value}
         onChange={onChangeHandler}
         readOnly={readOnly}
+        direction={"top"}
       />
     );
   }

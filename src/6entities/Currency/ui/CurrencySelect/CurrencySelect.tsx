@@ -7,6 +7,7 @@ import { AppSelect } from "7shared/ui/AppSelect/AppSelect";
 import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./CurrencySelect.module.scss";
+import { MyHListbox } from "7shared/ui/HListBox/ListBox";
 
 interface CurrencySelectProps {
   className?: string;
@@ -38,15 +39,17 @@ export const CurrencySelect = memo(
       onChange?.(value as Currency);
     };
     return (
-      <AppSelect
+      <MyHListbox
         className={classNames(s.currensySelect, {}, [
           className,
         ])}
         label={t("Specify the currency")}
-        options={options}
+        defaultValue={t("Specify the currency")}
+        items={options}
         value={value}
         onChange={onChangeHandler}
         readOnly={readOnly}
+        direction={"top"}
       />
     );
   }

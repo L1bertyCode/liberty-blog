@@ -1,47 +1,80 @@
-import { useState } from "react";
+import { ReactNode } from "react";
 import { Listbox as HListbox } from "@headlessui/react";
-import { memo } from "react";
-import { useTranslation } from "react-i18next";
 import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./ListBox.module.scss";
 import {
   AppButton,
   AppButtonVariant,
 } from "../AppButton/AppButton";
+import { DefaultTFuncReturn } from "i18next";
 
-const people = [
-  { id: 1, name: "Durward Reynolds", unavailable: false },
-  { id: 2, name: "Kenton Towne", unavailable: false },
-  { id: 3, name: "Therese Wunsch", unavailable: false },
-  { id: 4, name: "Benedict Kessler", unavailable: true },
-  { id: 5, name: "Katelyn Rohan", unavailable: false },
-];
-interface ListBoxProps {
-  className?: string;
+type DropdownDirection = "top" | "bottom";
+
+export interface ListBoxItemProps {
+  value: string;
+  content: ReactNode;
+  disabled?: boolean;
 }
+interface ListBoxProps {
+  onChange: (value: string) => void;
+  items?: ListBoxItemProps[];
+  className?: string;
+  value?: string;
+  label?: string | DefaultTFuncReturn;
+  defaultValue?: string | DefaultTFuncReturn;
+  readOnly?: boolean;
+  direction?: DropdownDirection;
+}
+
+const mapDirectionClass: Record<DropdownDirection, string> =
+  {
+    bottom: s.optionListBottom,
+    top: s.optionListTop,
+  };
+
 export function MyHListbox(props: ListBoxProps) {
-  const [selectedPerson, setSelectedPerson] = useState(
-    people[0]
-  );
-  const { className } = props;
+  const {
+    className,
+    items,
+    value,
+    label,
+    defaultValue,
+    readOnly,
+    onChange,
+    direction = "bottom",
+  } = props;
+  const optionsClasses = [
+    className,
+    mapDirectionClass[direction],
+  ];
   return (
     <HListbox
       as={"div"}
-      className={classNames(s.listBox, {}, [className])}
-      value={selectedPerson}
-      onChange={setSelectedPerson}
+      className={classNames(
+        s.listBox,
+        {
+          [s.disabled]: readOnly,
+        },
+        optionsClasses
+      )}
+      value={value}
+      onChange={onChange}
+      disabled={readOnly}
     >
+      {label && (
+        <span className={s.label}>{`${label}>`}</span>
+      )}
       <HListbox.Button className={s.trigger}>
         <AppButton variant={AppButtonVariant.OUTLINE}>
-          {selectedPerson.name}
+          {value ?? defaultValue}
         </AppButton>
       </HListbox.Button>
       <HListbox.Options className={s.oprionList}>
-        {people.map((person) => (
+        {items?.map((item) => (
           <HListbox.Option
-            key={person.id}
-            value={person}
-            disabled={person.unavailable}
+            key={item?.value}
+            disabled={item?.disabled}
+            value={item.value}
           >
             {({ active, selected }) => (
               <li
@@ -50,11 +83,12 @@ export function MyHListbox(props: ListBoxProps) {
                   {
                     [s.active]: active,
                     [s.selected]: selected,
+                    [s.disabled]: item?.disabled,
                   },
                   []
                 )}
               >
-                {person.name}
+                {item?.content}
               </li>
             )}
           </HListbox.Option>

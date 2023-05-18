@@ -10,7 +10,20 @@ const MainPage = () => {
 
   return (
     <Page>
-      <MyHListbox />
+      <MyHListbox
+        defaultValue="Select value"
+        onChange={() => console.log("123")}
+        value={undefined}
+        items={[
+          { value: "123", content: "asd" },
+          {
+            value: "1234",
+            content: "asdf",
+            disabled: true,
+          },
+          { value: "1245", content: "asdfg" },
+        ]}
+      />
       <>{t("Main")}</>
     </Page>
   );

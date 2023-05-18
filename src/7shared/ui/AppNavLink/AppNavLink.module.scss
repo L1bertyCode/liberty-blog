@@ -2,10 +2,10 @@
   text-decoration: none;
   transition: var(--transition-delay);
   padding-bottom: 5px;
-  
+
   &:hover {
     transition: var(--transition-delay);
-    opacity: var(--opacity);
+    opacity: var(--opacity70);
   }
 }
 
