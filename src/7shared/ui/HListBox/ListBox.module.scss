@@ -1,0 +1,32 @@
+.listBox {
+  position: relative;
+}
+
+.trigger {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.oprionList {
+  background: var(--list-bg);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--list-bg);
+}
+
+.optionItem {
+  padding: 10px 20px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.active {
+  background: var(--inverted-primary-color);
+}
+
+.selected {
+  background: var(--code-bg);
+}
