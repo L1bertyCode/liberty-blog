@@ -1,16 +1,15 @@
-// });
 import type { Meta, StoryObj } from "@storybook/react";
-import { Listbox } from "./ListBox";
+import { Dropdown } from "./Dropdown";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "7shared/HListBox",
-  component: Listbox,
+  title: "7shared/Dropdown",
+  component: Dropdown,
   //tags: ["autodocs"],
   //argTypes: {},
   args: {},
-} satisfies Meta<typeof Listbox>;
+} satisfies Meta<typeof Dropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

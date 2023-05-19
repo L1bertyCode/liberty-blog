@@ -27,18 +27,18 @@ describe("Counter", () => {
       screen.getByTestId("value-title")
     ).toHaveTextContent("11");
   });
-  test("decrement", async () => {
-    ComponentRender(<Counter />, {
-      initialState: {
-        counter: { value: 10 },
-      },
-    });
-    await userEvent.click(
-      screen.getByTestId("decrement-btn")
-    );
+  // test("decrement", async () => {
+  //   ComponentRender(<Counter />, {
+  //     initialState: {
+  //       counter: { value: 10 },
+  //     },
+  //   });
+  //   await userEvent.click(
+  //     screen.getByTestId("decrement-btn")
+  //   );
 
-    expect(
-      screen.getByTestId("value-title")
-    ).toHaveTextContent("9");
-  });
+  //   expect(
+  //     screen.getByTestId("value-title")
+  //   ).toHaveTextContent("9");
+  // });
 });

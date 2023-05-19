@@ -1,6 +1,5 @@
-.ListBox {
+.listBox {
   position: relative;
-  width: fit-content;
 }
 
 .trigger {
@@ -12,15 +11,17 @@
 }
 
 .optionList {
-  background: var(--listbox-bg);
   position: absolute;
+  right: 0;
   z-index: 10000;
+  background: var(--list-bg);
   border-radius: 12px;
-  box-shadow: 4px 4px 8px var(--listbox-bg);
+  box-shadow: 4px 4px 8px var(--list-bg);
 }
 
 .optionItem {
   padding: 10px 20px;
+  border-radius: 12px;
 }
 
 .active {

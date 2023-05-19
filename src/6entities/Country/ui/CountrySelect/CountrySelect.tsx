@@ -5,7 +5,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./CountrySelect.module.scss";
 import { AppSelect } from "7shared/ui/AppSelect/AppSelect";
 import { Country } from "../../model/types/country";
-import { MyHListbox } from "7shared/ui/HListBox/ListBox";
+import { Listbox } from "7shared/ui/HListBox/ListBox";
 
 interface CountrySelectProps {
   className?: string;
@@ -38,7 +38,7 @@ export const CountrySelect = memo(
       onChange?.(value as Country);
     };
     return (
-      <MyHListbox
+      <Listbox
         className={classNames(s.countrySelect, {}, [
           className,
         ])}

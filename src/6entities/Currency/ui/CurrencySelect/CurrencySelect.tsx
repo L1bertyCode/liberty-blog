@@ -7,7 +7,7 @@ import { AppSelect } from "7shared/ui/AppSelect/AppSelect";
 import { classNames } from "7shared/lib/classNames/classNames";
 
 import s from "./CurrencySelect.module.scss";
-import { MyHListbox } from "7shared/ui/HListBox/ListBox";
+import { Listbox } from "7shared/ui/HListBox/ListBox";
 
 interface CurrencySelectProps {
   className?: string;
@@ -39,7 +39,7 @@ export const CurrencySelect = memo(
       onChange?.(value as Currency);
     };
     return (
-      <MyHListbox
+      <Listbox
         className={classNames(s.currensySelect, {}, [
           className,
         ])}

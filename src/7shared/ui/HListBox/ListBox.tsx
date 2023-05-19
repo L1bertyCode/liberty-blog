@@ -32,7 +32,7 @@ const mapDirectionClass: Record<DropdownDirection, string> =
     top: s.optionListTop,
   };
 
-export function MyHListbox(props: ListBoxProps) {
+export function Listbox(props: ListBoxProps) {
   const {
     className,
     items,
@@ -43,10 +43,7 @@ export function MyHListbox(props: ListBoxProps) {
     onChange,
     direction = "bottom",
   } = props;
-  const optionsClasses = [
-    className,
-    mapDirectionClass[direction],
-  ];
+  const optionsClasses = [mapDirectionClass[direction]];
   return (
     <HListbox
       as={"div"}
@@ -55,7 +52,7 @@ export function MyHListbox(props: ListBoxProps) {
         {
           [s.disabled]: readOnly,
         },
-        optionsClasses
+        [className]
       )}
       value={value}
       onChange={onChange}
@@ -64,14 +61,21 @@ export function MyHListbox(props: ListBoxProps) {
       {label && (
         <span className={s.label}>{`${label}>`}</span>
       )}
-      <HListbox.Button className={s.trigger}>
+      <HListbox.Button className={s.trigger} as="span">
         <AppButton variant={AppButtonVariant.OUTLINE}>
           {value ?? defaultValue}
         </AppButton>
       </HListbox.Button>
-      <HListbox.Options className={s.oprionList}>
+      <HListbox.Options
+        className={classNames(
+          s.optionList,
+          {},
+          optionsClasses
+        )}
+      >
         {items?.map((item) => (
           <HListbox.Option
+            as="span"
             key={item?.value}
             disabled={item?.disabled}
             value={item.value}
