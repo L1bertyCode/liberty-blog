@@ -8,25 +8,7 @@ import { Dropdown } from "7shared/ui/Dropdown/Dropdown";
 const MainPage = () => {
   const { t } = useTranslation();
 
-  return (
-    <Page>
-      <Dropdown
-        // defaultValue="Select value"
-        // onChange={() => console.log("123")}
-        // value={undefined}
-        // items={[
-        //   { value: "123", content: "asd" },
-        //   {
-        //     value: "1234",
-        //     content: "asdf",
-        //     disabled: true,
-        //   },
-        //   { value: "1245", content: "asdfg" },
-        // ]}
-      />
-      <>{t("Main")}</>
-    </Page>
-  );
+  return <Page>MainPage</Page>;
 };
 
 export default MainPage;

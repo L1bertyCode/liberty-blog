@@ -2,13 +2,22 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Dropdown } from "./Dropdown";
 
 import { ThemeDecoratorDark } from "7shared/config/storybook/ThemeDecorator";
+import { AppButton } from "../AppButton/AppButton";
 
 const meta = {
   title: "7shared/Dropdown",
   component: Dropdown,
   //tags: ["autodocs"],
   //argTypes: {},
-  args: {},
+  args: {
+    trigger: <AppButton>Open</AppButton>,
+    items: [
+      { content: "first" },
+      { content: "second" },
+      { content: "third" },
+      { content: "foutrh" },
+    ],
+  },
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;

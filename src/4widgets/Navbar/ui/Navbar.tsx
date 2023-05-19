@@ -33,6 +33,8 @@ import {
   AppText,
   AppTextVariant,
 } from "7shared/ui/AppText/AppText";
+import { Dropdown } from "7shared/ui/Dropdown/Dropdown";
+import { Avatar } from "7shared/ui/Avatar/Avatar";
 
 interface NavbarProps {
   className?: string;
@@ -73,7 +75,18 @@ export const Navbar = memo((props: NavbarProps) => {
           {t("Create article")}
         </AppLink>
         <div className={s.modal}>
-          <AppButton
+          <Dropdown
+            items={[
+              {
+                content: t("Logout") || "",
+                onClick: onLogout,
+              },
+            ]}
+            trigger={
+              <Avatar src={authData.avatar} size={30} />
+            }
+          />
+          {/* <AppButton
             className={s.btn}
             onClick={() => {
               onLogout();
@@ -81,8 +94,7 @@ export const Navbar = memo((props: NavbarProps) => {
             variant={AppButtonVariant.CLEAR_INVERTED}
           >
             {t("Logout")}
-          </AppButton>
-          {/* eslint-disable  */}
+          </AppButton> */}
           <LoginModal
             isOpen={isAuthModal}
             onClose={onCloseeModal}
