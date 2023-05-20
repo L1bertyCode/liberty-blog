@@ -76,7 +76,12 @@ export const Navbar = memo((props: NavbarProps) => {
         </AppLink>
         <div className={s.modal}>
           <Dropdown
+            direction="bottom left"
             items={[
+              {
+                content: t("Profile") || "",
+                href: RoutePath.profile + authData.id,
+              },
               {
                 content: t("Logout") || "",
                 onClick: onLogout,
