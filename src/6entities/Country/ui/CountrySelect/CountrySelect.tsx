@@ -5,7 +5,7 @@ import { classNames } from "7shared/lib/classNames/classNames";
 import s from "./CountrySelect.module.scss";
 import { AppSelect } from "7shared/ui/AppSelect/AppSelect";
 import { Country } from "../../model/types/country";
-import { Listbox } from "7shared/ui/HListBox/ListBox";
+import { Listbox } from "7shared/ui/ListBox/ListBox";
 
 interface CountrySelectProps {
   className?: string;
@@ -48,7 +48,7 @@ export const CountrySelect = memo(
         value={value}
         onChange={onChangeHandler}
         readOnly={readOnly}
-        direction={"top"}
+        direction={"top right"}
       />
     );
   }

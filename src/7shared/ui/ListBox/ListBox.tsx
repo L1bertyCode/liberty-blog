@@ -7,8 +7,7 @@ import {
   AppButtonVariant,
 } from "../AppButton/AppButton";
 import { DefaultTFuncReturn } from "i18next";
-
-type DropdownDirection = "top" | "bottom";
+import { DropdownDirection } from "7shared/types/ui";
 
 export interface ListBoxItemProps {
   value: string;
@@ -28,8 +27,10 @@ interface ListBoxProps {
 
 const mapDirectionClass: Record<DropdownDirection, string> =
   {
-    bottom: s.optionListBottom,
-    top: s.optionListTop,
+    "bottom left": s.optionListBottomLeft,
+    "bottom right": s.optionListBottomRight,
+    "top left": s.optionListTopLeft,
+    "top right": s.optionListTopRight,
   };
 
 export function Listbox(props: ListBoxProps) {
@@ -41,7 +42,7 @@ export function Listbox(props: ListBoxProps) {
     defaultValue,
     readOnly,
     onChange,
-    direction = "bottom",
+    direction = "bottom left",
   } = props;
   const optionsClasses = [mapDirectionClass[direction]];
   return (
@@ -101,21 +102,3 @@ export function Listbox(props: ListBoxProps) {
     </HListbox>
   );
 }
-// import { memo } from "react";
-// import { useTranslation } from "react-i18next";
-// import { classNames } from "7shared/lib/classNames/classNames";
-
-// import s from "./ListBox.module.scss";
-
-// interface ListBoxProps {
-//   className?: string;
-// }
-
-// export const ListBox = memo((props: ListBoxProps) => {
-//   const { className } = props;
-//   const { t } = useTranslation();
-//   return (
-//     <div className={classNames(s.listBox, {}, [className])}>
-//       <div>ListBox</div>
-//     </div>
-//   );
