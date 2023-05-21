@@ -25,6 +25,6 @@
     "./src/**/*.(ts|tsx}",
     "./src/**/*.ts",
     "./src/**/*.tsx",
-    "src/5features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername.ts"
+    "src/features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername.ts"
   ]
 }
