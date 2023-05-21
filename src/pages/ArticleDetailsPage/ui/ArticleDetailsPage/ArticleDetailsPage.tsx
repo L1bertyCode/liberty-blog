@@ -28,8 +28,6 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { AddCommentForm } from "features/addCommentForm";
 import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
-import { AppButton } from "shared/ui/AppButton/AppButton";
-import { RoutePath } from "shared/config/routesConfig/routesConfig";
 import { Page } from "widgets/Page/Page";
 
 import { ArticleList } from "entities/Article";
@@ -39,6 +37,7 @@ import { getArticleRecommendationsIsLoading } from "pages/ArticleDetailsPage/mod
 import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import { VStack } from "shared/ui/Stack";
+import { ArticleRecomendationList } from "features/articleRecomendationList";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -81,7 +80,6 @@ const ArticleDetailsPage = memo(
 
     useInitialEffect(() => {
       dispatch(fetchCommentsByArticleId(id));
-      dispatch(fetchArticleRecommendations());
     });
 
     if (!id) {
@@ -114,17 +112,7 @@ const ArticleDetailsPage = memo(
             <ArticleDetailsPageHeader />
 
             <ArticleDetails id={id} />
-            <AppText
-              size={AppTextSize.L}
-              title={t("Recommended")}
-              className={s.commentTitle}
-            />
-            <ArticleList
-              className={s.recommendations}
-              articles={recomendations}
-              isLoading={recomendationsIsLoading}
-              target={"_blank"}
-            />
+            <ArticleRecomendationList />
             <AppText
               size={AppTextSize.L}
               title={t("Comments")}
