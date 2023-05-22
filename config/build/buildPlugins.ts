@@ -42,7 +42,7 @@ export const buildPlugins = (
   ];
   if (isDev) {
     plugins.push(
-      new BundleAnalyzerPlugin({ openAnalyzer: true })
+      new BundleAnalyzerPlugin({ openAnalyzer: false })
     );
     plugins.push(new ReactRefreshWebpackPlugin());
 

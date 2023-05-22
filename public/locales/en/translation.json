@@ -54,5 +54,6 @@
   "Economy": "Economy",
   "Science": "Science",
   "Recommended": "Recommended",
-  "Create article": "Create article"
+  "Create article": "Create article",
+  "Error loading articles": "Error loading articles"
 }
