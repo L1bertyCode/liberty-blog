@@ -5,7 +5,7 @@ import {
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 
 export const rtkApi = createApi({
-  reducerPath: "pokemonApi",
+  reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: __API__,
     prepareHeaders: (headers) => {
@@ -20,4 +20,4 @@ export const rtkApi = createApi({
   endpoints: (builder) => ({}),
 });
 
-export const {} = rtkApi;
+// export const {} = rtkApi;

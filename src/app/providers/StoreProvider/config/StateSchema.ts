@@ -23,11 +23,13 @@ import { ScrollSaveSchema } from "features/ScrollSave";
 //   ArticleDetailsRecommendationsSchema,
 // } from "pages/ArticleDetailsPage";
 import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage/model/types";
+import { rtkApi } from "shared/api/rtkApi";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scrollSave: ScrollSaveSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;

@@ -12,6 +12,7 @@ import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
 import { $api } from "shared/api/api";
 import { scrollSaveReducer } from "features/ScrollSave";
+import { rtkApi } from "shared/api/rtkApi";
 
 export type AppDispatch = ReturnType<
   typeof createReduxStore
@@ -26,6 +27,7 @@ export const createReduxStore = (
     counter: counterReducer,
     user: userReducer,
     scrollSave: scrollSaveReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
   const reducerManager = createReducerManager(RootReducer);
 
@@ -44,7 +46,7 @@ export const createReduxStore = (
         thunk: {
           extraArgument: extraArg,
         },
-      }),
+      }).concat(rtkApi.middleware),
   });
 
   //@ts-ignore

@@ -74,7 +74,7 @@ export const ArticleList = memo(
       const fromIndex = index * itemsPerRow;
       const toIndex = Math.min(
         fromIndex + itemsPerRow,
-        articles.length
+        articles?.length
       );
 
       for (let i = fromIndex; i < toIndex; i += 1) {

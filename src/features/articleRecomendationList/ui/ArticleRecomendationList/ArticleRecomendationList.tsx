@@ -7,13 +7,11 @@ import {
   AppTextSize,
 } from "shared/ui/AppText/AppText";
 import { ArticleList } from "entities/Article";
-import { useSelector } from "react-redux";
-import { getArticleRecommendations } from "pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
-import { getArticleRecommendationsIsLoading } from "pages/ArticleDetailsPage/model/selectors/recommendations";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { fetchArticleRecommendations } from "pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations";
+
+
+
 import { VStack } from "shared/ui/Stack";
+import { useArticleRecommendationsList } from "../../api/articleRecommendationsApi";
 
 interface ArticleRecomendationListProps {
   className?: string;
@@ -23,16 +21,17 @@ export const ArticleRecomendationList = memo(
   (props: ArticleRecomendationListProps) => {
     const { className } = props;
     const { t } = useTranslation();
-    const dispatch = useAppDispatch();
-    const recomendations = useSelector(
-      getArticleRecommendations.selectAll
-    );
-    const recomendationsIsLoading = useSelector(
-      getArticleRecommendationsIsLoading
-    );
-    useInitialEffect(() => {
-      dispatch(fetchArticleRecommendations());
-    });
+
+    const {
+      isLoading,
+      data: articles,
+      error,
+    } = useArticleRecommendationsList(3);
+    console.log("data", articles);
+    if (isLoading || error) {
+      return <div>error</div>;
+    }
+
     return (
       <VStack
         gap="8"
@@ -43,8 +42,8 @@ export const ArticleRecomendationList = memo(
           title={t("Recommended")}
         />
         <ArticleList
-          articles={recomendations}
-          isLoading={recomendationsIsLoading}
+          articles={articles}
+          isLoading={isLoading}
           target={"_blank"}
         />
       </VStack>

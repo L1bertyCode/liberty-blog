@@ -42,11 +42,12 @@ export const buildPlugins = (
   ];
   if (isDev) {
     plugins.push(
-      new BundleAnalyzerPlugin({ openAnalyzer: false })
+      new BundleAnalyzerPlugin({ openAnalyzer: true })
     );
     plugins.push(new ReactRefreshWebpackPlugin());
 
     // plugins.push(new HotModuleReplacementPlugin());
   }
+
   return plugins;
 };
