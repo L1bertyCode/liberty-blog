@@ -4,12 +4,12 @@ import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slices
 import { loginReducer } from "features/AuthByUsername/model/slices/loginSlice";
 import { addCommentFormReducer } from "features/addCommentForm/model/slices/addCommentFormSlice";
 import { articleDetailsReducer } from "entities/Article/model/slices/ArticleDetailsSlice";
-import { profileReducer } from "entities/Profile";
 import {
   DeepPartial,
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { Decorator } from "@storybook/react";
+import { profileReducer } from "features/editableProfileCard/model/slice/profileSlice";
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
   {

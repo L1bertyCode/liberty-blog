@@ -10,11 +10,9 @@ import {
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import avatar from "shared/assets/tests/storybook.jpg";
-import {
-  ProfileSchema,
-  profileReducer,
-} from "entities/Profile";
+
 import { ReducersMapObject } from "@reduxjs/toolkit";
+import { profileReducer } from "features/editableProfileCard/model/slice/profileSlice";
 
 const meta = {
   title: "pages/ProfilePage",

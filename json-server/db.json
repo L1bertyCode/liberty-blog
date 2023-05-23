@@ -587,6 +587,12 @@
       "userId": "1",
       "text": "adfadsf",
       "id": "58ikwxq"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "first comment",
+      "id": "fMJgbHv"
     }
   ],
   "users": [
@@ -608,10 +614,10 @@
   "profile": [
     {
       "id": "1",
-      "firstname": "asdasdasd",
+      "firstname": "asadf",
       "lastname": "sdafasd",
-      "age": 18,
-      "currency": "EUR",
+      "age": 22,
+      "currency": "RUB",
       "country": "Germany",
       "city": "Moscowasdfs",
       "username": "admin",

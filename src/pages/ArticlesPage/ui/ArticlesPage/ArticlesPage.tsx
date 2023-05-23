@@ -7,13 +7,9 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {
-  articlesPageReducer,
-} from "pages/ArticlesPage/model/slices/articlesPageSlice";
+import { articlesPageReducer } from "pages/ArticlesPage/model/slices/articlesPageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
-
-
 
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
@@ -22,6 +18,7 @@ import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters"
 import { useSearchParams } from "react-router-dom";
 import { initArticlesPage } from "../../model/services/initeArticlesPage/initArticlesPage";
 import ArticleInfiniteList from "../ArticleInfiniteList/ArticleInfiniteList";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticlesPageProps {
   className?: string;
@@ -35,7 +32,6 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
@@ -57,8 +53,10 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
           className,
         ])}
       >
-        <ArticlesPageFilters />
-        <ArticleInfiniteList />
+        <VStack gap="16">
+          <ArticlesPageFilters />
+          <ArticleInfiniteList />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

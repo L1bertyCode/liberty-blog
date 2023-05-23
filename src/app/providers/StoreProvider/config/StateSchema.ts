@@ -10,9 +10,7 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { CombinedState } from "redux";
-import { ProfileSchema } from "entities/Profile";
 import { AxiosInstance } from "axios";
-import { NavigateOptions } from "react-router";
 import { ArticleDetailsSchema } from "entities/Article";
 
 import { AddCommentFormSchema } from "features/addCommentForm";
@@ -24,6 +22,7 @@ import { ScrollSaveSchema } from "features/ScrollSave";
 // } from "pages/ArticleDetailsPage";
 import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage/model/types";
 import { rtkApi } from "shared/api/rtkApi";
+import { ProfileSchema } from "features/editableProfileCard";
 
 export interface StateSchema {
   counter: CounterSchema;

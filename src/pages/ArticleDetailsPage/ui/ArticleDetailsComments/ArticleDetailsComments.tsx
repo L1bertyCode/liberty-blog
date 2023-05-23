@@ -19,6 +19,7 @@ import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/ad
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -53,7 +54,9 @@ const ArticleDetailsComments = memo(
       dispatch(fetchCommentsByArticleId(id));
     });
     return (
-      <div
+      <VStack
+        max
+        gap="16"
         className={classNames(
           s.articleDetailsComments,
           {},
@@ -71,7 +74,7 @@ const ArticleDetailsComments = memo(
           isLoading={commentsIsLoading}
           comments={comments}
         />
-      </div>
+      </VStack>
     );
   }
 );

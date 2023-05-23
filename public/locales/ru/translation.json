@@ -54,5 +54,6 @@
   "Science": "Наука",
   "Recommended": "Рекомендуем",
   "Create article": "Создать статью",
-  "Error loading articles": "Ошибка при загрузке статей"
+  "Error loading articles": "Ошибка при загрузке статей",
+  "Profile not found": "Профиль не найден"
 }

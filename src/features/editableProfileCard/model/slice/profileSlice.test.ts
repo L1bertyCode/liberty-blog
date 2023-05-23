@@ -3,13 +3,12 @@ import {
   profileReducer,
   profileSlice,
 } from "./profileSlice";
-import {
-  ProfileSchema,
-  ValidateProfileError,
-} from "../types/profile";
+
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
+import { ProfileSchema, ValidateProfileError } from "../types/editableProfileCardSchema";
+
 const data = {
   firstname: "S",
   lastname: "Code",
