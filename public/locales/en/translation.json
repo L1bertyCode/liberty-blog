@@ -56,5 +56,7 @@
   "Recommended": "Recommended",
   "Create article": "Create article",
   "Error loading articles": "Error loading articles",
-  "Profile not found": "Profile not found"
+  "Profile not found": "Profile not found",
+  "Admin panel": "Admin panel",
+  "Admin": "Admin"
 }

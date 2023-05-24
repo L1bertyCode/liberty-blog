@@ -55,5 +55,7 @@
   "Recommended": "Рекомендуем",
   "Create article": "Создать статью",
   "Error loading articles": "Ошибка при загрузке статей",
-  "Profile not found": "Профиль не найден"
+  "Profile not found": "Профиль не найден",
+  "Admin panel": "Админ панель",
+  "Admin": "Админ"
 }

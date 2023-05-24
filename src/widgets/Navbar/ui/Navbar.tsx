@@ -12,6 +12,8 @@ import { LoginModal } from "features/AuthByUsername";
 
 import {
   getUserAuthData,
+  isUserAdmin,
+  isUserManager,
   userActions,
 } from "entities/User";
 
@@ -23,7 +25,7 @@ import {
 import { classNames } from "shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { userSlice } from "entities/User/model/slices/userSlice";
+
 import { RoutePath } from "shared/config/routesConfig/routesConfig";
 import {
   AppLink,
@@ -44,6 +46,8 @@ export const Navbar = memo((props: NavbarProps) => {
   const dispatch = useAppDispatch();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const { t } = useTranslation();
 
@@ -56,6 +60,8 @@ export const Navbar = memo((props: NavbarProps) => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
+
+  const isAdminPanelAvalible = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -78,6 +84,14 @@ export const Navbar = memo((props: NavbarProps) => {
           <Dropdown
             direction="bottom left"
             items={[
+              ...(isAdminPanelAvalible
+                ? [
+                    {
+                      content: t("Admin") || "",
+                      href: RoutePath.admin_panel,
+                    },
+                  ]
+                : []),
               {
                 content: t("Profile") || "",
                 href: RoutePath.profile + authData.id,

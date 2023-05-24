@@ -4,7 +4,6 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { ReactNode } from "react";
 import { DropdownDirection } from "shared/types/ui";
 import { AppLink } from "../AppLink/AppLink";
-import { RoutePath } from "shared/config/routesConfig/routesConfig";
 
 export interface DropdownItmeProps {
   value?: string;
@@ -57,6 +56,7 @@ export function Dropdown(props: DropdownProps) {
             active: boolean;
           }) => (
             <button
+              key={index}
               disabled={item.disabled}
               type="button"
               onClick={item.onClick}
