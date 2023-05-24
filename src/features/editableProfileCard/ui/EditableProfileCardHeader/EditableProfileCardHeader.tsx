@@ -2,7 +2,6 @@ import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 
-import s from "./EditableProfileCardHeader.module.scss";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { getProfileReadOnly } from "features/editableProfileCard/model/selectors/getProfileReadOnly/getProfileReadOnly";
@@ -12,7 +11,10 @@ import { profileActions } from "features/editableProfileCard/model/slice/profile
 import { updateProfileData } from "features/editableProfileCard/model/services/updateProfileData/updateProfileData";
 import { HStack } from "shared/ui/Stack";
 import { AppText } from "shared/ui/AppText/AppText";
-import { AppButton, AppButtonVariant } from "shared/ui/AppButton/AppButton";
+import {
+  AppButton,
+  AppButtonVariant,
+} from "shared/ui/AppButton/AppButton";
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -41,11 +43,7 @@ export const EditableProfileCardHeader = memo(
     }, [dispatch]);
     return (
       <HStack
-        className={classNames(
-          s.editableProfileCardHeader,
-          {},
-          [className]
-        )}
+        className={classNames("", {}, [className])}
         max
         justify={"between"}
         gap="8"
@@ -57,6 +55,7 @@ export const EditableProfileCardHeader = memo(
             <>
               {readeOnly ? (
                 <AppButton
+                  data-testid="EditableProfileCardHeader.EditButton"
                   variant={AppButtonVariant.OUTLINE}
                   onClick={onEdit}
                 >
@@ -65,12 +64,14 @@ export const EditableProfileCardHeader = memo(
               ) : (
                 <HStack gap={"8"} max>
                   <AppButton
+                    data-testid="EditableProfileCardHeader.CancelButton"
                     variant={AppButtonVariant.OUTLINE_RED}
                     onClick={onCancelEdit}
                   >
                     {t("Cancel")}
                   </AppButton>
                   <AppButton
+                    data-testid="EditableProfileCardHeader.SaveButton"
                     variant={AppButtonVariant.OUTLINE}
                     onClick={onSave}
                   >

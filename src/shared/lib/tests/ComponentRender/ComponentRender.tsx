@@ -9,20 +9,40 @@ import {
   StoreProvider,
 } from "app/providers/StoreProvider";
 import i18nForTests from "shared/config/i18n/i18nForTests";
+import { ReducersMapObject } from "@reduxjs/toolkit";
 
-export interface ComponentRenderOptions {
+export interface componentRenderOptions {
   route?: string;
   initialState?: DeepPartial<StateSchema>;
+  asyncReducers?: DeepPartial<
+    ReducersMapObject<StateSchema>
+  >;
 }
 
-export function ComponentRender(
+export interface componentRenderOptions {
+  route?: string;
+  initialState?: DeepPartial<StateSchema>;
+  asyncReducers?: DeepPartial<
+    ReducersMapObject<StateSchema>
+  >;
+}
+
+export function componentRender(
   component: ReactNode,
-  options: ComponentRenderOptions = {}
+  options: componentRenderOptions = {}
 ) {
-  const { route = "/", initialState } = options;
+  const {
+    route = "/",
+    initialState,
+    asyncReducers,
+  } = options;
+
   return render(
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider
+        asyncReducers={
+          asyncReducers as ReducersMapObject<StateSchema>
+        }
         initialState={initialState as StateSchema}
       >
         <I18nextProvider i18n={i18nForTests}>

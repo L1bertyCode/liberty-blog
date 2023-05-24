@@ -1,10 +1,10 @@
 import { screen } from "@testing-library/react";
 import { Navbar } from "./Navbar";
 
-import { ComponentRender } from "shared/lib/tests/ComponentRender/ComponentRender";
+import { componentRender } from "shared/lib/tests/componentRender/componentRender";
 
 describe("Navbar", () => {
   test("should return", () => {
-    ComponentRender(<Navbar />);
+    componentRender(<Navbar />);
   });
 });

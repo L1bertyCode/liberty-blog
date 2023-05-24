@@ -30,6 +30,8 @@ export interface AppTextProps {
   variant?: AppTextVariant;
   align?: AppTextAlign;
   size?: AppTextSize;
+
+  "data-testid"?: string;
 }
 
 type HeaderTagType =
@@ -53,6 +55,7 @@ export const AppText = memo((props: AppTextProps) => {
     variant = AppTextVariant.PRYMARY,
     align = AppTextAlign.LEFT,
     size = AppTextSize.M,
+    "data-testid": dataTestId = "AppText",
   } = props;
   const HeaderTag = mapSizeToHeader[size];
   const mods: Mods = {};
@@ -66,9 +69,21 @@ export const AppText = memo((props: AppTextProps) => {
       ])}
     >
       {title && (
-        <HeaderTag className={s.title}>{title}</HeaderTag>
+        <HeaderTag
+          data-testid={`${dataTestId}.Header`}
+          className={s.title}
+        >
+          {title}
+        </HeaderTag>
       )}
-      {text && <p className={s.text}>{text}</p>}
+      {text && (
+        <p
+          data-testid={`${dataTestId}.Paragraph`}
+          className={s.text}
+        >
+          {text}
+        </p>
+      )}
     </div>
   );
 });

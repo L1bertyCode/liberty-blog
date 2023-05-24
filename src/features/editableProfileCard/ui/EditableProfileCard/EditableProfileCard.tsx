@@ -1,6 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
-import s from "./EditableProfileCard.module.scss";
 import { memo, useCallback } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
@@ -165,35 +164,31 @@ export const EditableProfileCard = memo(
         <VStack
           gap="8"
           max
-          className={classNames(s.editableProfileCard, {}, [
-            className,
-          ])}
+          className={classNames("", {}, [className])}
         >
           <EditableProfileCardHeader />
           {validateErrors?.length &&
-            validateErrors.map((err) => {
-              return (
-                <AppText
-                  key={err}
-                  variant={AppTextVariant.ERROR}
-                  text={validateErrorTranslates[err]}
-                />
-              );
-            })}
-
+            validateErrors.map((err) => (
+              <AppText
+                key={err}
+                variant={AppTextVariant.ERROR}
+                text={validateErrorTranslates[err]}
+                data-testid="EditableProfileCard.Error"
+              />
+            ))}
           <ProfileCard
             data={formData}
             isLoading={isLoading}
             error={error}
+            readOnly={readOnly}
             onChangeFirstname={onChangeFirstname}
-            onChangeCity={onChangeCity}
             onChangeLastname={onChangeLastname}
             onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
             onChangeUsername={onChangeUsername}
             onChangeAvatar={onChangeAvatar}
             onChangeCurrency={onChangeCurrency}
             onChangeCountry={onChangeCountry}
-            readOnly={readOnly}
           />
         </VStack>
       </DynamicModuleLoader>

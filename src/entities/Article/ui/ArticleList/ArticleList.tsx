@@ -20,7 +20,6 @@ import {
   AppTextSize,
 } from "shared/ui/AppText/AppText";
 import {
-  AutoSizer,
   List,
   ListRowProps,
   WindowScroller,
@@ -33,6 +32,7 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  virtualized?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -54,6 +54,7 @@ export const ArticleList = memo(
       view = ArticleView.SMALL,
       isLoading,
       target,
+      virtualized = true,
     } = props;
     const { t } = useTranslation();
 
@@ -134,18 +135,31 @@ export const ArticleList = memo(
               s[view],
             ])}
           >
-            {/* @ts-ignore */}
-            <List
-              height={height ?? 700}
-              rowCount={rowCount}
-              rowHeight={isBig ? 700 : 330}
-              rowRenderer={rowRender}
-              width={width ? width - 80 : 700}
-              autoHeight
-              onScroll={onChildScroll}
-              isScrolling={isScrolling}
-              scrollTop={scrollTop}
-            />
+            {virtualized ? (
+              // @ts-ignore
+              <List
+                height={height ?? 700}
+                rowCount={rowCount}
+                rowHeight={isBig ? 700 : 330}
+                rowRenderer={rowRender}
+                width={width ? width - 80 : 700}
+                autoHeight
+                onScroll={onChildScroll}
+                isScrolling={isScrolling}
+                scrollTop={scrollTop}
+              />
+            ) : (
+              articles.map((article) => (
+                <ArticleListItem
+                  article={article}
+                  view={view}
+                  target={target}
+                  key={article.id}
+                  className={s.card}
+                />
+              ))
+            )}
+
             {isLoading && getSkeletons(view)}
           </div>
         )}

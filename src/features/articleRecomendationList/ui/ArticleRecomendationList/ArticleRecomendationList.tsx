@@ -8,8 +8,6 @@ import {
 } from "shared/ui/AppText/AppText";
 import { ArticleList } from "entities/Article";
 
-
-
 import { VStack } from "shared/ui/Stack";
 import { useArticleRecommendationsList } from "../../api/articleRecommendationsApi";
 
@@ -28,7 +26,7 @@ export const ArticleRecomendationList = memo(
       error,
     } = useArticleRecommendationsList(3);
     console.log("data", articles);
-    if (isLoading || error) {
+    if (isLoading || error || !articles) {
       return <div>error</div>;
     }
 
@@ -42,6 +40,7 @@ export const ArticleRecomendationList = memo(
           title={t("Recommended")}
         />
         <ArticleList
+          virtualized={false}
           articles={articles}
           isLoading={isLoading}
           target={"_blank"}

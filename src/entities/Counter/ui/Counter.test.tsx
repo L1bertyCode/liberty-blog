@@ -1,11 +1,11 @@
-import { ComponentRender } from "shared/lib/tests/ComponentRender/ComponentRender";
+import { componentRender } from "shared/lib/tests/componentRender/componentRender";
 import { Counter } from "./Counter";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 describe("Counter", () => {
   test("test render", () => {
-    ComponentRender(<Counter />, {
+    componentRender(<Counter />, {
       initialState: { counter: { value: 10 } },
     });
     expect(
@@ -14,7 +14,7 @@ describe("Counter", () => {
   });
 
   test("increment", async () => {
-    ComponentRender(<Counter />, {
+    componentRender(<Counter />, {
       initialState: {
         counter: { value: 10 },
       },
@@ -28,7 +28,7 @@ describe("Counter", () => {
     ).toHaveTextContent("11");
   });
   // test("decrement", async () => {
-  //   ComponentRender(<Counter />, {
+  //   componentRender(<Counter />, {
   //     initialState: {
   //       counter: { value: 10 },
   //     },

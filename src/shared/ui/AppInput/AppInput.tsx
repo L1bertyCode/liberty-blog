@@ -20,7 +20,7 @@ interface AppInputProps extends HTMLAppInputProps {
   className?: string;
   type?: string;
   value?: string | number;
-  placholder?: string;
+  placeholder?: string;
   readOnly?: boolean;
 
   autoFocus?: boolean;
@@ -78,7 +78,7 @@ export const AppInput = memo((props: AppInputProps) => {
     >
       {placeholder && (
         <div
-          className={s.placholder}
+          className={s.placeholder}
         >{`${placeholder}>`}</div>
       )}
       <input

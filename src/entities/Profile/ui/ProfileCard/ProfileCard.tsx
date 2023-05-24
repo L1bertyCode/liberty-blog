@@ -119,6 +119,9 @@ export const ProfileCard = memo(
           className={s.input}
           readOnly={readOnly}
           onChange={onChangeFirstname}
+          data-testid={
+            "ProfileCard.firstname"
+          }
         />
         <AppInput
           value={data?.lastname}
@@ -126,6 +129,9 @@ export const ProfileCard = memo(
           className={s.input}
           readOnly={readOnly}
           onChange={onChangeLastname}
+          data-testid={
+            "ProfileCard.lastname"
+          }
         />
         <AppInput
           value={data?.age}
