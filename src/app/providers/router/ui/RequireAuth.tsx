@@ -17,9 +17,8 @@ export const RequireAuth = ({
   children,
   roles,
 }: RequireAuthProps) => {
+  const auth = useSelector(getUserAuthData);
   const location = useLocation();
-
-  let auth = useSelector(getUserAuthData);
   const userRoles = useSelector(getUserRoles);
 
   const hasRequiredRoles = useMemo(() => {
@@ -29,8 +28,6 @@ export const RequireAuth = ({
 
     return roles.some((requiredRole) => {
       const hasRole = userRoles?.includes(requiredRole);
-      console.log("hasRole", hasRole);
-
       return hasRole;
     });
   }, [roles, userRoles]);
@@ -48,12 +45,11 @@ export const RequireAuth = ({
   if (!hasRequiredRoles) {
     return (
       <Navigate
-        to={RoutePath.main}
+        to={RoutePath.forbidden}
         state={{ from: location }}
         replace
       />
     );
   }
-
   return <>{children}</>;
 };

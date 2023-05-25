@@ -58,5 +58,6 @@
   "Error loading articles": "Error loading articles",
   "Profile not found": "Profile not found",
   "Admin panel": "Admin panel",
-  "Admin": "Admin"
+  "Admin": "Admin",
+  "You do not have access to this page": "You do not have access to this page"
 }
