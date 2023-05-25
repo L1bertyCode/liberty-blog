@@ -23,7 +23,9 @@ export const CommentCard = memo(
     const { t } = useTranslation();
     if (isLoading) {
       return (
-        <div
+        <VStack
+          gap="8"
+          max
           className={classNames(s.commentCard, {}, [
             className,
             s.loading,
@@ -42,7 +44,7 @@ export const CommentCard = memo(
             />
           </div>
           <Skeleton className={s.text} />
-        </div>
+        </VStack>
       );
     }
     if (!comment) {

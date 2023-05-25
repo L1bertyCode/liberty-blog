@@ -7,6 +7,7 @@ import {
   ArticleBlockType,
   ArticleType,
 } from "entities/Article/model/types/article";
+import { StoreProvider } from "app/providers/StoreProvider";
 const article: Article = {
   id: "1",
   title: "Javascript news",
@@ -78,7 +79,7 @@ const article: Article = {
   ],
 };
 const meta = {
-  title: "pages/ArticleDetailsPage",
+  title: "pages/ArticleDetailsPage/ArticleDetailsPage",
   component: ArticleDetailsPage,
   //tags: ["autodocs"],
   //argTypes: {},
@@ -90,9 +91,43 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {},
+  decorators: [
+    (Story) => {
+      return (
+        <StoreProvider
+          initialState={{
+            articleDetails: {
+              data: article,
+              isLoading: false,
+              error: undefined,
+            },
+          }}
+        >
+          <Story />
+        </StoreProvider>
+      );
+    },
+  ],
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemeDecoratorDark],
+  decorators: [
+    ThemeDecoratorDark,
+    (Story) => {
+      return (
+        <StoreProvider
+          initialState={{
+            articleDetails: {
+              data: article,
+              isLoading: false,
+              error: undefined,
+            },
+          }}
+        >
+          <Story />
+        </StoreProvider>
+      );
+    },
+  ],
 };

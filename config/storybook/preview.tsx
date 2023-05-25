@@ -15,6 +15,17 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    // mockAddonConfigs: {
+    //   globalMockData: [
+    //     {
+    //       url: "http://localhost:0000",
+    //       method: "PUT",
+    //       status: 201,
+    //       response: {},
+    //     },
+    //   ],
+    //   refreshStoryOnUpdate: true,
+    // },
   },
   argTypes: {
     theme: {

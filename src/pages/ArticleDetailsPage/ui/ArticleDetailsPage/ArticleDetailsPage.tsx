@@ -47,21 +47,21 @@ const ArticleDetailsPage = memo(
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
 
-    if (!id) {
-      return (
-        <VStack
-          max
-          gap="16"
-          justify="center"
-          align="center"
-          className={classNames(s.articleDetailsPage, {}, [
-            className,
-          ])}
-        >
-          {t("Article not found")}
-        </VStack>
-      );
-    }
+    // if (!id) {
+    //   return (
+    //     <VStack
+    //       max
+    //       gap="16"
+    //       justify="center"
+    //       align="center"
+    //       className={classNames(s.articleDetailsPage, {}, [
+    //         className,
+    //       ])}
+    //     >
+    //       {t("Article not found")}
+    //     </VStack>
+    //   );
+    // }
 
     return (
       <DynamicModuleLoader

@@ -15,6 +15,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "storybook-addon-themes",
     "@etchteam/storybook-addon-css-variables-theme",
+    "storybook-addon-mock",
   ],
   framework: {
     name: "@storybook/react-webpack5",
@@ -63,7 +64,7 @@ const config: StorybookConfig = {
     config.plugins?.push(
       new DefinePlugin({
         __IS__DEV__: JSON.stringify(true),
-        __API__: JSON.stringify(""),
+        __API__: JSON.stringify("http://testapi.com"),
         __PROJECT__: JSON.stringify("storybook"),
       })
     );
