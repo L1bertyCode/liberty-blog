@@ -31,13 +31,13 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import { AppIcon } from "shared/ui/AppIcon/AppIcon";
 import {
   ArticleBlock,
-  ArticleBlockType,
 } from "../../model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { articleDetailsReducer } from "entities/Article/model/slices/ArticleDetailsSlice";
 import { HStack, VStack } from "shared/ui/Stack";
+import { ArticleBlockType } from "entities/Article/model/consts/consts";
 
 interface ArticleDetailsProps {
   id?: string;

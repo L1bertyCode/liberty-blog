@@ -6,12 +6,13 @@ import ListIcon from "shared/assets/icons/list-24-24.svg";
 import TiledIcon from "shared/assets/icons/tiled-24-24.svg";
 
 import s from "./ArticleViewSelector.module.scss";
-import { ArticleView } from "entities/Article/model/types/article";
+
 import {
   AppButton,
   AppButtonVariant,
 } from "shared/ui/AppButton/AppButton";
 import { AppIcon } from "shared/ui/AppIcon/AppIcon";
+import { ArticleView } from "entities/Article/model/consts/consts";
 
 interface ArticleViewSelectorProps {
   className?: string;

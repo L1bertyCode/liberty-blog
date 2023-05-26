@@ -7,7 +7,8 @@ import {
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
-import { ProfileSchema, ValidateProfileError } from "../types/editableProfileCardSchema";
+import { ProfileSchema } from "../types/editableProfileCardSchema";
+import { ValidateProfileError } from "../consts/const";
 
 const data = {
   firstname: "S",

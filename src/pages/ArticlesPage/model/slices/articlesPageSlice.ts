@@ -1,5 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { Article, ArticleView } from "entities/Article";
+import { Article, ArticleType, ArticleView, ArticlesSortField } from "entities/Article";
 import {
   PayloadAction,
   createEntityAdapter,
@@ -8,10 +8,7 @@ import {
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import { ARTCILE_VIEW_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
-import {
-  ArticleType,
-  ArticlesSortField,
-} from "entities/Article/model/types/article";
+
 import { SortOrder } from "shared/types";
 
 const articlesAdapter = createEntityAdapter<Article>({

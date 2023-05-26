@@ -22,7 +22,6 @@ import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
-import { ValidateProfileError } from "../../model/types/editableProfileCardSchema";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -31,6 +30,7 @@ import { ProfileCard } from "entities/Profile";
 
 import { VStack } from "shared/ui/Stack";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
+import { ValidateProfileError } from "features/editableProfileCard/model/consts/const";
 
 interface EditableProfileCardProps {
   className?: string;

@@ -2,12 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ArticleDetailsPage from "./ArticleDetailsPage";
 
 import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
-import {
-  Article,
-  ArticleBlockType,
-  ArticleType,
-} from "entities/Article/model/types/article";
+
 import { StoreProvider } from "app/providers/StoreProvider";
+import { Article, ArticleBlockType, ArticleType } from "entities/Article";
 const article: Article = {
   id: "1",
   title: "Javascript news",

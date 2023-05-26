@@ -7,9 +7,7 @@ import { useTranslation } from "react-i18next";
 
 import {
   Article,
-  ArticleBlockType,
   ArticleTextBlock,
-  ArticleView,
 } from "../../model/types/article";
 
 import { classNames } from "shared/lib/classNames/classNames";
@@ -34,6 +32,7 @@ import { RoutePath } from "shared/config/routesConfig/routesConfig";
 
 import s from "./ArticleListItem.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
+import { ArticleBlockType, ArticleView } from "entities/Article/model/consts/consts";
 
 interface ArticleListItemProps {
   className?: string;

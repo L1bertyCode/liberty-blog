@@ -2,17 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ArticleDetails } from "./ArticleDetails";
 
 import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
-import {
-  Article,
-  ArticleBlockType,
-  ArticleType,
-} from "entities/Article/model/types/article";
+import { Article } from "entities/Article/model/types/article";
 
 import { StoreProvider } from "app/providers/StoreProvider";
 
 import { ReducersMapObject } from "@reduxjs/toolkit";
 import { articleDetailsReducer } from "entities/Article/model/slices/ArticleDetailsSlice";
 import { ArticleDetailsSchema } from "entities/Article/model/types/articleDetailsSchema";
+import { ArticleBlockType, ArticleType } from "entities/Article/model/consts/consts";
 
 const article: Article = {
   id: "1",

@@ -7,8 +7,9 @@ import {
   AppSelect,
   SelectOption,
 } from "shared/ui/AppSelect/AppSelect";
-import { ArticlesSortField } from "entities/Article/model/types/article";
+
 import { SortOrder } from "shared/types";
+import { ArticlesSortField } from "entities/Article/model/consts/consts";
 
 interface ArticlesSortSelectorProps {
   className?: string;

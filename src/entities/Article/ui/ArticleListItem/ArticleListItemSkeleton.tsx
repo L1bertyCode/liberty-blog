@@ -2,12 +2,7 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 
-import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView,
-} from "../../model/types/article";
+
 import { AppText } from "shared/ui/AppText/AppText";
 
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
@@ -27,6 +22,8 @@ import {
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 
 import s from "./ArticleListItem.module.scss";
+import { Article, ArticleTextBlock } from "entities/Article/model/types/article";
+import { ArticleBlockType, ArticleView } from "entities/Article/model/consts/consts";
 
 interface ArticleListItemSkeletonProps {
   className?: string;

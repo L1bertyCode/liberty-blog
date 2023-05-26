@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ArticleImageBlockComponent } from "./ArticleImageBlockComponent";
 
 import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
-import { ArticleBlockType } from "../../model/types/article";
+import { ArticleBlockType } from "entities/Article/model/consts/consts";
+
 
 const meta = {
   title: "entities/ArticleImageBlockComponent",

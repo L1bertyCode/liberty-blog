@@ -3,7 +3,7 @@ export {
   isUserManager,
   getUserRoles,
 } from "./model/selectors/getUserRoles/getUserRoles";
-export { UserRole } from "./model/types/user";
+export { UserRole } from "./model/consts/consts";
 
 export { getUserInited } from "./model/selectors/getUserInited/getUserInited";
 
@@ -12,4 +12,4 @@ export {
   userReducer,
   userActions,
 } from "./model/slices/userSlice";
-export { User, UserSchema } from "./model/types/user";
+export type { User, UserSchema } from "./model/types/user";
