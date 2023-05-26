@@ -10,6 +10,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
+import CircularDependencyPlugin from "circular-dependency-plugin";
 
 export const buildPlugins = (
   buildOptions: BuildOptions
@@ -38,6 +39,10 @@ export const buildPlugins = (
           to: buildPaths.buildLocales,
         },
       ],
+    }),
+    new CircularDependencyPlugin({
+      exclude: /a\.js|node_modules/,
+      failOnError: true,
     }),
   ];
   if (isDev) {
