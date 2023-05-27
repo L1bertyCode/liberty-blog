@@ -32,7 +32,10 @@ import { RoutePath } from "shared/config/routesConfig/routesConfig";
 
 import s from "./ArticleListItem.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
-import { ArticleBlockType, ArticleView } from "entities/Article/model/consts/consts";
+import {
+  ArticleBlockType,
+  ArticleView,
+} from "entities/Article/model/consts/consts";
 
 interface ArticleListItemProps {
   className?: string;

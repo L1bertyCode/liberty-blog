@@ -10,12 +10,12 @@ export const buildLoaders = (
     test: /\.svg$/,
     use: ["@svgr/webpack"],
   };
-  const tsLoader = {
-    test: /\.tsx?$/,
-    use: "ts-loader",
-    exclude: /node_modules/,
-  };
-  const babelLoader = buildBabelLoader(buildOptions);
+  // const tsLoader = {
+  //   test: /\.tsx?$/,
+  //   use: "ts-loader",
+  //   exclude: /node_modules/,
+  // };
+  // const babelLoader = buildBabelLoader(buildOptions);
   const codeBabelLoader = buildBabelLoader({
     ...buildOptions,
     isTsx: false,
@@ -38,7 +38,7 @@ export const buildLoaders = (
     cssLoader,
     fileLoader,
     svgLoader,
-    babelLoader,
-    tsLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
   ];
 };
