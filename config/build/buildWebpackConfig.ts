@@ -23,7 +23,7 @@ export const buildWebpackConfig = (
     },
     plugins: buildPlugins(buildOptions),
     module: {
-      rules: buildLoaders(isDev),
+      rules: buildLoaders(buildOptions),
     },
     resolve: buildResolvers(buildPaths),
     devServer: isDev ? buildDevServer(port) : undefined,

@@ -1,6 +1,7 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { BuildOptions } from "../types/config";
 
-export const buildCssLoader = (isDev: boolean) => {
+export const buildCssLoader = ({ isDev }: BuildOptions) => {
   return {
     test: /\.s[ac]ss$/i,
     use: [
