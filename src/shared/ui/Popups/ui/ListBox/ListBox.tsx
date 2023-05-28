@@ -5,7 +5,7 @@ import s from "./ListBox.module.scss";
 import {
   AppButton,
   AppButtonVariant,
-} from "../AppButton/AppButton";
+} from "../../../AppButton/AppButton";
 import { DefaultTFuncReturn } from "i18next";
 import { DropdownDirection } from "shared/types/ui";
 

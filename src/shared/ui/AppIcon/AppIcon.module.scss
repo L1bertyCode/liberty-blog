@@ -1,8 +1,11 @@
-
 .clear {
   fill: none;
 }
 
 .primary {
   fill: var(--primary-color);
+}
+
+.inverted {
+  fill: var(--inverted-primary-color);
 }

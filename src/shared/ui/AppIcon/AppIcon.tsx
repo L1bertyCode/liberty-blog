@@ -5,6 +5,7 @@ import s from "./AppIcon.module.scss";
 export enum AppIconVarint {
   CLEAR = "clear",
   PRIMARY = "primary",
+  INVERTED = "inverted",
 }
 interface AppIconProps {
   className?: string;

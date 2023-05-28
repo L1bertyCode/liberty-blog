@@ -35,8 +35,14 @@ import {
   AppText,
   AppTextVariant,
 } from "shared/ui/AppText/AppText";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 import { Avatar } from "shared/ui/Avatar/Avatar";
+import { HStack } from "shared/ui/Stack";
+import {
+  AppIcon,
+  AppIconVarint,
+} from "shared/ui/AppIcon/AppIcon";
+import NotificationIcon from "shared/assets/icons/notification-20-20.svg";
+import { Dropdown } from "shared/ui/Popups";
 
 interface NavbarProps {
   className?: string;
@@ -80,31 +86,41 @@ export const Navbar = memo((props: NavbarProps) => {
         >
           {t("Create article")}
         </AppLink>
+
         <div className={s.modal}>
-          <Dropdown
-            direction="bottom left"
-            items={[
-              ...(isAdminPanelAvalible
-                ? [
-                    {
-                      content: t("Admin") || "",
-                      href: RoutePath.admin_panel,
-                    },
-                  ]
-                : []),
-              {
-                content: t("Profile") || "",
-                href: RoutePath.profile + authData.id,
-              },
-              {
-                content: t("Logout") || "",
-                onClick: onLogout,
-              },
-            ]}
-            trigger={
-              <Avatar src={authData.avatar} size={30} />
-            }
-          />
+          <HStack gap="16" className={s.actions}>
+            <AppButton variant={AppButtonVariant.CLEAR}>
+              <AppIcon
+                variant={AppIconVarint.INVERTED}
+                Svg={NotificationIcon}
+              />
+            </AppButton>
+            <Dropdown
+              direction="bottom left"
+              items={[
+                ...(isAdminPanelAvalible
+                  ? [
+                      {
+                        content: t("Admin") || "",
+                        href: RoutePath.admin_panel,
+                      },
+                    ]
+                  : []),
+                {
+                  content: t("Profile") || "",
+                  href: RoutePath.profile + authData.id,
+                },
+                {
+                  content: t("Logout") || "",
+                  onClick: onLogout,
+                },
+              ]}
+              trigger={
+                <Avatar src={authData.avatar} size={30} />
+              }
+            />
+          </HStack>
+
           {/* <AppButton
             className={s.btn}
             onClick={() => {
@@ -140,7 +156,6 @@ export const Navbar = memo((props: NavbarProps) => {
         >
           {t("Login")}
         </AppButton>
-        {/* eslint-disable  */}
         {isAuthModal && (
           <LoginModal
             isOpen={isAuthModal}

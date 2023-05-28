@@ -3,7 +3,7 @@ import s from "./Dropdown.module.scss";
 import { classNames } from "shared/lib/classNames/classNames";
 import { ReactNode } from "react";
 import { DropdownDirection } from "shared/types/ui";
-import { AppLink } from "../AppLink/AppLink";
+import { AppLink } from "../../../AppLink/AppLink";
 
 export interface DropdownItmeProps {
   value?: string;
@@ -41,7 +41,7 @@ export function Dropdown(props: DropdownProps) {
       as="div"
       className={classNames(s.dropdown, {}, [className])}
     >
-      <Menu.Button className={s.btn}>{trigger}</Menu.Button>
+      <Menu.Button className={s.trigger}>{trigger}</Menu.Button>
       <Menu.Items
         className={classNames(
           s.menuList,

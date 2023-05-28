@@ -7,7 +7,8 @@ import { AppSelect } from "shared/ui/AppSelect/AppSelect";
 import { classNames } from "shared/lib/classNames/classNames";
 
 import s from "./CurrencySelect.module.scss";
-import { Listbox } from "shared/ui/ListBox/ListBox";
+import { Listbox } from "shared/ui/Popups";
+
 
 interface CurrencySelectProps {
   className?: string;
@@ -49,7 +50,7 @@ export const CurrencySelect = memo(
         value={value}
         onChange={onChangeHandler}
         readOnly={readOnly}
-        direction={"top right"}
+        direction={"top left"}
       />
     );
   }
