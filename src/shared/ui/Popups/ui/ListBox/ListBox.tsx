@@ -8,7 +8,8 @@ import {
 } from "../../../AppButton/AppButton";
 import { DefaultTFuncReturn } from "i18next";
 import { DropdownDirection } from "shared/types/ui";
-
+import { mapDirectionClass } from "../../styles/consts";
+import commonS from "../../styles/popup.module.scss";
 export interface ListBoxItemProps {
   value: string;
   content: ReactNode;
@@ -24,14 +25,6 @@ interface ListBoxProps {
   readOnly?: boolean;
   direction?: DropdownDirection;
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> =
-  {
-    "bottom left": s.optionListBottomLeft,
-    "bottom right": s.optionListBottomRight,
-    "top left": s.optionListTopLeft,
-    "top right": s.optionListTopRight,
-  };
 
 export function Listbox(props: ListBoxProps) {
   const {
@@ -51,9 +44,9 @@ export function Listbox(props: ListBoxProps) {
       className={classNames(
         s.listBox,
         {
-          [s.disabled]: readOnly,
+          [commonS.disabled]: readOnly,
         },
-        [className]
+        [className, commonS.popup]
       )}
       value={value}
       onChange={onChange}
@@ -62,7 +55,10 @@ export function Listbox(props: ListBoxProps) {
       {label && (
         <span className={s.label}>{`${label}>`}</span>
       )}
-      <HListbox.Button className={s.trigger} as="span">
+      <HListbox.Button
+        className={commonS.trigger}
+        as="span"
+      >
         <AppButton variant={AppButtonVariant.OUTLINE}>
           {value ?? defaultValue}
         </AppButton>

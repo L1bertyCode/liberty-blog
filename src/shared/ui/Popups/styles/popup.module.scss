@@ -16,26 +16,26 @@
   background: var(--inverted-primary-color);
 }
 
+.optionsBottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.optionsBottomRight {
+  top: 100%;
+  left: 0;
+}
+
+.optionsTopRight {
+  bottom: 100%;
+  left: 0;
+}
+
+.optionsTopLeft {
+  right: 0;
+  bottom: 100%;
+}
+
 .disabled {
   opacity: 0.7;
-}
-
-.optionListTopLeft {
-  right: 0;
-  bottom: 100%;
-}
-
-.optionListTopRight {
-  left: 0;
-  bottom: 100%;
-}
-
-.optionListBottomLeft {
-  right: 0;
-  top: 100%;
-}
-
-.optionListBottomRight {
-  left: 0;
-  top: 100%;
 }

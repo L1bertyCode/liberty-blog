@@ -4,7 +4,8 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { ReactNode } from "react";
 import { DropdownDirection } from "shared/types/ui";
 import { AppLink } from "../../../AppLink/AppLink";
-
+import { mapDirectionClass } from "../../styles/consts";
+import commonS from "../../styles/popup.module.scss";
 export interface DropdownItmeProps {
   value?: string;
   content?: string;
@@ -19,14 +20,6 @@ interface DropdownProps {
   direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> =
-  {
-    "bottom left": s.menuListBottomLeft,
-    "bottom right": s.menuListBottomRight,
-    "top left": s.menuListTopLeft,
-    "top right": s.menuListTopRight,
-  };
-
 export function Dropdown(props: DropdownProps) {
   const {
     className,
@@ -39,9 +32,14 @@ export function Dropdown(props: DropdownProps) {
   return (
     <Menu
       as="div"
-      className={classNames(s.dropdown, {}, [className])}
+      className={classNames(s.dropdon, {}, [
+        className,
+        commonS.popup,
+      ])}
     >
-      <Menu.Button className={s.trigger}>{trigger}</Menu.Button>
+      <Menu.Button className={commonS.trigger}>
+        {trigger}
+      </Menu.Button>
       <Menu.Items
         className={classNames(
           s.menuList,

@@ -1,43 +1,44 @@
 import { ReactNode, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
-import { Popover } from "@headlessui/react";
+import { Popover as HPopover } from "@headlessui/react";
 import s from "./Popover.module.scss";
 import commonS from "../../styles/popup.module.scss";
 import { DropdownDirection } from "shared/types/ui";
-
+import { mapDirectionClass } from "../../styles/consts";
 interface PopoverProps {
   className?: string;
   trigger: ReactNode;
   direction?: DropdownDirection;
+  children: ReactNode;
 }
 
-const AppPopover = memo((props: PopoverProps) => {
+
+export const Popover = memo((props: PopoverProps) => {
   const {
     className,
     trigger,
-    direction = "bottom left",
+    children,
+    direction = "bottom right",
   } = props;
+  const menuListClasses = [mapDirectionClass[direction]];
   const { t } = useTranslation();
   return (
-    <Popover
-      className={classNames(commonS.popup, {}, [className])}
+    <HPopover
+      className={classNames(s.popover, {}, [
+        className,
+        commonS.popup,
+      ])}
     >
-      <Popover.Button className={commonS.btn}>
+      <HPopover.Button className={commonS.trigger}>
         {trigger}
-      </Popover.Button>
+      </HPopover.Button>
 
-      <Popover.Panel className="absolute z-10">
-        <div className="grid grid-cols-2">
-          <a href="/analytics">Analytics</a>
-          <a href="/engagement">Engagement</a>
-          <a href="/security">Security</a>
-          <a href="/integrations">Integrations</a>
-        </div>
-
-        <img src="/solutions.jpg" alt="" />
-      </Popover.Panel>
-    </Popover>
+      <HPopover.Panel
+        className={classNames(s.panel, {}, menuListClasses)}
+      >
+        {children}
+      </HPopover.Panel>
+    </HPopover>
   );
 });
-export default AppPopover;

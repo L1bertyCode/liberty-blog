@@ -42,7 +42,7 @@ import {
   AppIconVarint,
 } from "shared/ui/AppIcon/AppIcon";
 import NotificationIcon from "shared/assets/icons/notification-20-20.svg";
-import { Dropdown } from "shared/ui/Popups";
+import { Dropdown, Popover } from "shared/ui/Popups";
 
 interface NavbarProps {
   className?: string;
@@ -89,12 +89,19 @@ export const Navbar = memo((props: NavbarProps) => {
 
         <div className={s.modal}>
           <HStack gap="16" className={s.actions}>
-            <AppButton variant={AppButtonVariant.CLEAR}>
-              <AppIcon
-                variant={AppIconVarint.INVERTED}
-                Svg={NotificationIcon}
-              />
-            </AppButton>
+            <Popover
+              direction="bottom left"
+              trigger={
+                <AppButton variant={AppButtonVariant.CLEAR}>
+                  <AppIcon
+                    variant={AppIconVarint.INVERTED}
+                    Svg={NotificationIcon}
+                  />
+                </AppButton>
+              }
+            >
+              asfdafad
+            </Popover>
             <Dropdown
               direction="bottom left"
               items={[
