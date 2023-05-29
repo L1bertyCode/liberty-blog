@@ -43,6 +43,7 @@ import {
 } from "shared/ui/AppIcon/AppIcon";
 import NotificationIcon from "shared/assets/icons/notification-20-20.svg";
 import { Dropdown, Popover } from "shared/ui/Popups";
+import { NotificationList } from "entities/Notification";
 
 interface NavbarProps {
   className?: string;
@@ -100,7 +101,9 @@ export const Navbar = memo((props: NavbarProps) => {
                 </AppButton>
               }
             >
-              asfdafad
+              <NotificationList
+                className={s.notifications}
+              />
             </Popover>
             <Dropdown
               direction="bottom left"
