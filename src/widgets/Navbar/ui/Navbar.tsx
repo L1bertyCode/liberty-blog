@@ -1,21 +1,11 @@
-import {
-  memo,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { memo, useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { useTranslation } from "react-i18next";
 
 import { LoginModal } from "features/AuthByUsername";
 
-import {
-  getUserAuthData,
-  isUserAdmin,
-  isUserManager,
-  userActions,
-} from "entities/User";
+import { getUserAuthData } from "entities/User";
 
 import {
   AppButton,
@@ -24,7 +14,6 @@ import {
 
 import { classNames } from "shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 import { RoutePath } from "shared/config/routesConfig/routesConfig";
 import {
@@ -35,26 +24,18 @@ import {
   AppText,
   AppTextVariant,
 } from "shared/ui/AppText/AppText";
-import { Avatar } from "shared/ui/Avatar/Avatar";
 import { HStack } from "shared/ui/Stack";
-import {
-  AppIcon,
-  AppIconVarint,
-} from "shared/ui/AppIcon/AppIcon";
-import NotificationIcon from "shared/assets/icons/notification-20-20.svg";
-import { Dropdown, Popover } from "shared/ui/Popups";
-import { NotificationList } from "entities/Notification";
+
+import { NotificationButton } from "features/notificationButton";
+import { AvataDropdown } from "features/avataDropdown";
 
 interface NavbarProps {
   className?: string;
 }
 export const Navbar = memo((props: NavbarProps) => {
   const { className } = props;
-  const dispatch = useAppDispatch();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
 
   const { t } = useTranslation();
 
@@ -64,11 +45,6 @@ export const Navbar = memo((props: NavbarProps) => {
   const onShowModal = useCallback(() => {
     setIsAuthModal(true);
   }, []);
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-
-  const isAdminPanelAvalible = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -90,56 +66,10 @@ export const Navbar = memo((props: NavbarProps) => {
 
         <div className={s.modal}>
           <HStack gap="16" className={s.actions}>
-            <Popover
-              direction="bottom left"
-              trigger={
-                <AppButton variant={AppButtonVariant.CLEAR}>
-                  <AppIcon
-                    variant={AppIconVarint.INVERTED}
-                    Svg={NotificationIcon}
-                  />
-                </AppButton>
-              }
-            >
-              <NotificationList
-                className={s.notifications}
-              />
-            </Popover>
-            <Dropdown
-              direction="bottom left"
-              items={[
-                ...(isAdminPanelAvalible
-                  ? [
-                      {
-                        content: t("Admin") || "",
-                        href: RoutePath.admin_panel,
-                      },
-                    ]
-                  : []),
-                {
-                  content: t("Profile") || "",
-                  href: RoutePath.profile + authData.id,
-                },
-                {
-                  content: t("Logout") || "",
-                  onClick: onLogout,
-                },
-              ]}
-              trigger={
-                <Avatar src={authData.avatar} size={30} />
-              }
-            />
+            <NotificationButton />
+            <AvataDropdown />
           </HStack>
 
-          {/* <AppButton
-            className={s.btn}
-            onClick={() => {
-              onLogout();
-            }}
-            variant={AppButtonVariant.CLEAR_INVERTED}
-          >
-            {t("Logout")}
-          </AppButton> */}
           <LoginModal
             isOpen={isAuthModal}
             onClose={onCloseeModal}
