@@ -44,3 +44,9 @@
   z-index: -1;
   transition: 0.5s ease;
 }
+
+.isClosing {
+  .content {
+    transform: scale(0.2);
+  }
+}
