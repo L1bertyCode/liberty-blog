@@ -1,6 +1,6 @@
 import { memo, Suspense, useEffect } from "react";
 import { ErrorBoundary } from "./providers/ErrorBoundary";
-import { useTheme } from "./providers/ThemePorvider";
+import { useTheme } from "./providers/ThemeProvider";
 
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";

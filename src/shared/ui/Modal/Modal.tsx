@@ -13,7 +13,8 @@ import {
 
 import s from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
-import { useTheme } from "app/providers/ThemePorvider";
+import { useTheme } from "app/providers/ThemeProvider";
+import { Overlay } from "../Overlay/Overlay";
 
 interface ModalProps {
   className?: string;
@@ -49,9 +50,7 @@ export const Modal = (props: ModalProps) => {
       timerRef.current = setTimeout(() => {}, 300);
     }
   }, [onClose]);
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
+
   const onKeyDowwn = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -80,14 +79,8 @@ export const Modal = (props: ModalProps) => {
           theme,
         ])}
       >
-        <div className={s.overlay} onClick={closeHandler}>
-          <div
-            className={s.content}
-            onClick={onContentClick}
-          >
-            {children}
-          </div>
-        </div>
+        <Overlay onClick={closeHandler} />
+        <div className={s.content}>{children}</div>
       </div>
     </Portal>
   );

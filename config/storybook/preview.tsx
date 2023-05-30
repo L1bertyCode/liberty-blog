@@ -4,7 +4,7 @@ import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator
 import { I18nDecorator } from "../../src/shared/config/storybook/I18nDecorator";
 import { RouteDecoratar } from "../../src/shared/config/storybook/RouteDecoratar";
 import { StoreDecorator } from "../../src/shared/config/storybook/StoreDecorator";
-import { Theme } from "../../src/app/providers/ThemePorvider";
+import { Theme } from "../../src/app/providers/ThemeProvider";
 
 const preview: Preview = {
   parameters: {

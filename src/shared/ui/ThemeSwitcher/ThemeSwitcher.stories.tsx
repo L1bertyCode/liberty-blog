@@ -9,7 +9,7 @@ import {
   Theme,
   ThemeProvider,
   useTheme,
-} from "app/providers/ThemePorvider";
+} from "app/providers/ThemeProvider";
 
 const meta = {
   title: "shared/ThemeSwitcher",

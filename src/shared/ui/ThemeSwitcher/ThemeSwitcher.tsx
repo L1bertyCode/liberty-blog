@@ -2,7 +2,7 @@ import { memo } from "react";
 import {
   Theme,
   useTheme,
-} from "app/providers/ThemePorvider";
+} from "app/providers/ThemeProvider";
 
 import {
   AppButton,

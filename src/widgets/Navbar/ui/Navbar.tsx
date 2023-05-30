@@ -29,6 +29,7 @@ import { HStack } from "shared/ui/Stack";
 import { NotificationButton } from "features/notificationButton";
 import { AvataDropdown } from "features/avataDropdown";
 
+
 interface NavbarProps {
   className?: string;
 }
@@ -66,6 +67,8 @@ export const Navbar = memo((props: NavbarProps) => {
 
         <div className={s.modal}>
           <HStack gap="16" className={s.actions}>
+     
+    
             <NotificationButton />
             <AvataDropdown />
           </HStack>
