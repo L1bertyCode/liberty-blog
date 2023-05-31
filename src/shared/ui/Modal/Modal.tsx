@@ -10,6 +10,7 @@ import { Portal } from "../Portal/Portal";
 import s from "./Modal.module.scss";
 import { useModal } from "shared/lib/hooks/useModal";
 
+
 interface ModalProps {
   className?: string;
   children?: ReactNode;
