@@ -1,8 +1,8 @@
 import { To } from "react-router-dom";
 
-import { CounterSchema } from "entities/Counter";
-import { UserSchema } from "entities/User";
-import { LoginSchema } from "features/AuthByUsername";
+import { CounterSchema } from "@/entities/Counter";
+import { UserSchema } from "@/entities/User";
+import { LoginSchema } from "@/features/AuthByUsername";
 import {
   AnyAction,
   EnhancedStore,
@@ -11,18 +11,18 @@ import {
 } from "@reduxjs/toolkit";
 import { CombinedState } from "redux";
 import { AxiosInstance } from "axios";
-import { ArticleDetailsSchema } from "entities/Article";
+import { ArticleDetailsSchema } from "@/entities/Article";
 
-import { AddCommentFormSchema } from "features/addCommentForm";
-import { ArticlesPageSchema } from "pages/ArticlesPage";
-import { ScrollSaveSchema } from "features/ScrollSave";
+import { AddCommentFormSchema } from "@/features/addCommentForm";
+import { ArticlesPageSchema } from "@/pages/ArticlesPage";
+import { ScrollSaveSchema } from "@/features/ScrollSave";
 // import {
 //   ArticleDetailsCommentsSchema,
 //   ArticleDetailsRecommendationsSchema,
 // } from "pages/ArticleDetailsPage";
-import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage/model/types";
-import { rtkApi } from "shared/api/rtkApi";
-import { ProfileSchema } from "features/editableProfileCard";
+import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage/model/types";
+import { rtkApi } from "@/shared/api/rtkApi";
+import { ProfileSchema } from "@/features/editableProfileCard";
 
 export interface StateSchema {
   counter: CounterSchema;

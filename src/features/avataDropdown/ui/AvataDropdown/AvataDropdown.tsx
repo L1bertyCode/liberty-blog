@@ -1,19 +1,19 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./AvataDropdown.module.scss";
-import { Dropdown } from "shared/ui/Popups";
-import { RoutePath } from "shared/config/routesConfig/routesConfig";
+import { Dropdown } from "@/shared/ui/Popups";
+import { RoutePath } from "@/shared/config/routesConfig/routesConfig";
 import { useSelector } from "react-redux";
 import {
   getUserAuthData,
   isUserAdmin,
   isUserManager,
   userActions,
-} from "entities/User";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { Avatar } from "shared/ui/Avatar/Avatar";
+} from "@/entities/User";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
 
 interface AvataDropdownProps {
   className?: string;

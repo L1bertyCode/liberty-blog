@@ -3,7 +3,7 @@ import { memo } from "react";
 import {
   Mods,
   classNames,
-} from "shared/lib/classNames/classNames";
+} from "@/shared/lib/classNames/classNames";
 import s from "./AppText.module.scss";
 
 export enum AppTextVariant {

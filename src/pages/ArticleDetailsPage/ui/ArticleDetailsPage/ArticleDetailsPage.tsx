@@ -1,37 +1,37 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticleDetailsPage.module.scss";
-import { ArticleDetails } from "entities/Article/ui/ArticleDetails/ArticleDetails";
+import { ArticleDetails } from "@/entities/Article/ui/ArticleDetails/ArticleDetails";
 import { useParams } from "react-router-dom";
 import {
   AppText,
   AppTextSize,
-} from "shared/ui/AppText/AppText";
-import { CommentList } from "entities/Comment";
+} from "@/shared/ui/AppText/AppText";
+import { CommentList } from "@/entities/Comment";
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
 import { useSelector } from "react-redux";
 import {
   getArticleCommentsError,
   getArticleCommentsIsLoading,
 } from "../../model/selectors/comments";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { fetchCommentsByArticleId } from "@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 
-import { Page } from "widgets/Page/Page";
+import { Page } from "@/widgets/Page/Page";
 
-import { getArticleRecommendations } from "pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
-import { getArticleRecommendationsIsLoading } from "pages/ArticleDetailsPage/model/selectors/recommendations";
-import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slices";
+import { getArticleRecommendations } from "@/pages/ArticleDetailsPage/model/slices/articleDetailsPageRecomendationsSlice";
+import { getArticleRecommendationsIsLoading } from "@/pages/ArticleDetailsPage/model/selectors/recommendations";
+import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import { VStack } from "shared/ui/Stack";
-import { ArticleRecomendationList } from "features/articleRecomendationList";
+import { VStack } from "@/shared/ui/Stack";
+import { ArticleRecomendationList } from "@/features/articleRecomendationList";
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 
 interface ArticleDetailsPageProps {

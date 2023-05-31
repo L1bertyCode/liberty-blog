@@ -7,24 +7,24 @@ import {
   AppText,
   AppTextAlign,
   AppTextVariant,
-} from "shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText/AppText";
 
-import { AppInput } from "shared/ui/AppInput/AppInput";
+import { AppInput } from "@/shared/ui/AppInput/AppInput";
 
 import {
   Mods,
   classNames,
-} from "shared/lib/classNames/classNames";
+} from "@/shared/lib/classNames/classNames";
 import s from "./ProfileCard.module.scss";
-import { Loader } from "shared/ui/Loader/Loader";
-import { Avatar } from "shared/ui/Avatar/Avatar";
+import { Loader } from "@/shared/ui/Loader/Loader";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
 
 import {
   Currency,
   CurrencySelect,
-} from "entities/Currency";
-import { Country, CountrySelect } from "entities/Country";
-import { HStack, VStack } from "shared/ui/Stack";
+} from "@/entities/Currency";
+import { Country, CountrySelect } from "@/entities/Country";
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 interface ProfileCardProps {
   className?: string;

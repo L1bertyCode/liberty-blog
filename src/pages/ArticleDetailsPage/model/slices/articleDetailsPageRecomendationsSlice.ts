@@ -1,12 +1,12 @@
-import { StateSchema } from "app/providers/StoreProvider";
-import { Comment } from "entities/Comment";
+import { StateSchema } from "@/app/providers/StoreProvider";
+import { Comment } from "@/entities/Comment";
 import {
   createEntityAdapter,
   createSlice,
 } from "@reduxjs/toolkit";
 import { ArticleDetailsRecommendationsSchema } from "../types/ArticleDetailsRecommendationsSchema";
 
-import { Article } from "entities/Article";
+import { Article } from "@/entities/Article";
 import { fetchArticleRecommendations } from "../services/fetchArticleRecommendations/fetchArticleRecommendations";
 
 const recommendationsAdapter = createEntityAdapter<Article>(

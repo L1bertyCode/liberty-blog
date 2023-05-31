@@ -1,7 +1,7 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { getProfileErrorValidateErrors } from "../../model/selectors/getProfileErrorValidateErrors/getProfileErrorValidateErrors";
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
@@ -10,7 +10,7 @@ import { getProfileError } from "../../model/selectors/getProfileError/getProfil
 import {
   AppText,
   AppTextVariant,
-} from "shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText/AppText";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/getProfileReadOnly";
 
@@ -18,19 +18,19 @@ import {
   profileActions,
   profileReducer,
 } from "../../model/slice/profileSlice";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { ProfileCard } from "entities/Profile";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { ProfileCard } from "@/entities/Profile";
 
-import { VStack } from "shared/ui/Stack";
+import { VStack } from "@/shared/ui/Stack";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
-import { ValidateProfileError } from "features/editableProfileCard/model/consts/const";
+import { ValidateProfileError } from "@/features/editableProfileCard/model/consts/const";
 
 interface EditableProfileCardProps {
   className?: string;

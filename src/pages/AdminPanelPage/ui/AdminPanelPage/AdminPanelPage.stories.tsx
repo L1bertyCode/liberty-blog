@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import AdminPanelPage from "./AdminPanelPage";
 
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
   title: "pages/AdminPanelPage",

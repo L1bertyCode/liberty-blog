@@ -2,9 +2,9 @@ import {
   Theme,
   ThemeProvider,
   useTheme,
-} from "app/providers/ThemeProvider";
+} from "@/app/providers/ThemeProvider";
 import { Decorator } from "@storybook/react";
-import "app/styles/index.scss";
+import "@/app/styles/index.scss";
 export const ThemeDecorator: Decorator = (Story) => {
   const { theme } = useTheme();
   return (

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AppInput } from "./AppInput";
 
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
   title: "shared/AppInput",

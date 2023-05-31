@@ -3,31 +3,31 @@ import { useSelector } from "react-redux";
 
 import { useTranslation } from "react-i18next";
 
-import { LoginModal } from "features/AuthByUsername";
+import { LoginModal } from "@/features/AuthByUsername";
 
-import { getUserAuthData } from "entities/User";
+import { getUserAuthData } from "@/entities/User";
 
 import {
   AppButton,
   AppButtonVariant,
-} from "shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton/AppButton";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 
-import { RoutePath } from "shared/config/routesConfig/routesConfig";
+import { RoutePath } from "@/shared/config/routesConfig/routesConfig";
 import {
   AppLink,
   AppLinkVariant,
-} from "shared/ui/AppLink/AppLink";
+} from "@/shared/ui/AppLink/AppLink";
 import {
   AppText,
   AppTextVariant,
-} from "shared/ui/AppText/AppText";
-import { HStack } from "shared/ui/Stack";
+} from "@/shared/ui/AppText/AppText";
+import { HStack } from "@/shared/ui/Stack";
 
-import { NotificationButton } from "features/notificationButton";
-import { AvataDropdown } from "features/avataDropdown";
+import { NotificationButton } from "@/features/notificationButton";
+import { AvataDropdown } from "@/features/avataDropdown";
 
 
 interface NavbarProps {

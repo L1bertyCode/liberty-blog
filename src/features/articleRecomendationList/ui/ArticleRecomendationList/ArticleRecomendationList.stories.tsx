@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ArticleRecomendationList } from "./ArticleRecomendationList";
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
-import { Article } from "entities/Article";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
+import { Article } from "@/entities/Article";
 const article: Article = {
   id: "1",
   img: "",

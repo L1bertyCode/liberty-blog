@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 import { Listbox as HListbox } from "@headlessui/react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ListBox.module.scss";
 import {
   AppButton,
   AppButtonVariant,
 } from "../../../AppButton/AppButton";
 import { DefaultTFuncReturn } from "i18next";
-import { DropdownDirection } from "shared/types/ui";
+import { DropdownDirection } from "@/shared/types/ui";
 import { mapDirectionClass } from "../../styles/consts";
 import commonS from "../../styles/popup.module.scss";
 export interface ListBoxItemProps {

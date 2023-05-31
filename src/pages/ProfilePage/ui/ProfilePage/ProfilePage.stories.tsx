@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ProfilePage from "./ProfilePage";
 
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 import {
   StateSchema,
   StoreProvider,
-} from "app/providers/StoreProvider";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
-import avatar from "shared/assets/tests/storybook.jpg";
+} from "@/app/providers/StoreProvider";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
+import avatar from "@/shared/assets/tests/storybook.jpg";
 
 import { ReducersMapObject } from "@reduxjs/toolkit";
-import { profileReducer } from "features/editableProfileCard/model/slice/profileSlice";
+import { profileReducer } from "@/features/editableProfileCard/model/slice/profileSlice";
 
 const meta = {
   title: "pages/ProfilePage",

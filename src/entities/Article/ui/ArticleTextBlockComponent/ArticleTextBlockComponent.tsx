@@ -1,10 +1,10 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticleTextBlockComponent.module.scss";
 import { ArticleTextBlock } from "../../model/types/article";
-import { AppText } from "shared/ui/AppText/AppText";
+import { AppText } from "@/shared/ui/AppText/AppText";
 
 interface ArticleTextBlockComponentProps {
   className?: string;

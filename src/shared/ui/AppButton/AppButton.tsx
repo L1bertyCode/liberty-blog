@@ -6,7 +6,7 @@ import {
 import {
   Mods,
   classNames,
-} from "shared/lib/classNames/classNames";
+} from "@/shared/lib/classNames/classNames";
 
 export enum AppButtonVariant {
   CLEAR = "clear",

@@ -19,19 +19,19 @@ import {
   ArticleViewSelector,
   ArticlesSortField,
   ArticlesSortSelector,
-} from "entities/Article";
+} from "@/entities/Article";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import { Card } from "shared/ui/Card/Card";
-import { AppInput } from "shared/ui/AppInput/AppInput";
-import { SortOrder } from "shared/types";
+import { Card } from "@/shared/ui/Card/Card";
+import { AppInput } from "@/shared/ui/AppInput/AppInput";
+import { SortOrder } from "@/shared/types";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesPageFilters.module.scss";
-import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
-import { useDebounce } from "shared/lib/hooks/useDebounce";
-import { TabItem } from "shared/ui/Tabs/Tabs";
+import { fetchArticlesList } from "@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce";
+import { TabItem } from "@/shared/ui/Tabs/Tabs";
 
 
 interface ArticlesPageFiltersProps {

@@ -7,37 +7,37 @@ import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
-} from "entities/Article/model/selectors/ArticleDetails";
+} from "@/entities/Article/model/selectors/ArticleDetails";
 
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import EyeIcon from "shared/assets/icons/eye-20-20.svg";
-import CalendarIcon from "shared/assets/icons/calendar-20-20.svg";
+import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
+import CalendarIcon from "@/shared/assets/icons/calendar-20-20.svg";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleDetails.module.scss";
 import {
   AppText,
   AppTextAlign,
   AppTextSize,
-} from "shared/ui/AppText/AppText";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import { Avatar } from "shared/ui/Avatar/Avatar";
-import { AppIcon } from "shared/ui/AppIcon/AppIcon";
+} from "@/shared/ui/AppText/AppText";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { AppIcon } from "@/shared/ui/AppIcon/AppIcon";
 import {
   ArticleBlock,
 } from "../../model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { articleDetailsReducer } from "entities/Article/model/slices/ArticleDetailsSlice";
-import { HStack, VStack } from "shared/ui/Stack";
-import { ArticleBlockType } from "entities/Article/model/consts/consts";
+import { articleDetailsReducer } from "@/entities/Article/model/slices/ArticleDetailsSlice";
+import { HStack, VStack } from "@/shared/ui/Stack";
+import { ArticleBlockType } from "@/entities/Article/model/consts/consts";
 
 interface ArticleDetailsProps {
   id?: string;

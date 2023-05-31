@@ -5,8 +5,8 @@ import {
 } from "@testing-library/react";
 import { Sidebar } from "./Sidebar";
 import { BrowserRouter } from "react-router-dom";
-import { RenderWithTranslation } from "shared/lib/tests/renderWithTranslation/renderWithTranslation";
-import { StoreProvider } from "app/providers/StoreProvider";
+import { RenderWithTranslation } from "@/shared/lib/tests/renderWithTranslation/renderWithTranslation";
+import { StoreProvider } from "@/app/providers/StoreProvider";
 
 describe("Sidebar", () => {
   test("should return Sidebar", () => {

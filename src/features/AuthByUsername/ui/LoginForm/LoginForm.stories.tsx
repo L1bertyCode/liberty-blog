@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import LoginForm from "./LoginForm";
 
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
-import { StoreProvider } from "app/providers/StoreProvider";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
+import { StoreProvider } from "@/app/providers/StoreProvider";
 import {
   DeepPartial,
   ReducersMapObject,
 } from "@reduxjs/toolkit";
-import { loginReducer } from "features/AuthByUsername/model/slices/loginSlice";
+import { loginReducer } from "@/features/AuthByUsername/model/slices/loginSlice";
 
 const meta = {
   title: "features/LoginForm",

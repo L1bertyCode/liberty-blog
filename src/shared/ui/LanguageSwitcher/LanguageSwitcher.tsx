@@ -3,7 +3,7 @@ import {
   AppButton,
   AppButtonVariant,
 } from "../AppButton/AppButton";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { memo } from "react";
 
 // import s from "./LanguageSwitcher.module.scss";

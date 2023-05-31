@@ -4,12 +4,12 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import {
   ThemeDecoratorDark,
   ThemeDecorator,
-} from "shared/config/storybook/ThemeDecorator";
+} from "@/shared/config/storybook/ThemeDecorator";
 import {
   Theme,
   ThemeProvider,
   useTheme,
-} from "app/providers/ThemeProvider";
+} from "@/app/providers/ThemeProvider";
 
 const meta = {
   title: "shared/ThemeSwitcher",

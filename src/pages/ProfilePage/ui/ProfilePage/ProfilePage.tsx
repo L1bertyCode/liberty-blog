@@ -1,14 +1,14 @@
 import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ProfilePage.module.scss";
 
-import { Page } from "widgets/Page/Page";
-import { VStack } from "shared/ui/Stack/VStack/VStack";
-import { EditableProfileCard } from "features/editableProfileCard";
+import { Page } from "@/widgets/Page/Page";
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { EditableProfileCard } from "@/features/editableProfileCard";
 import { useParams } from "react-router-dom";
-import { AppText } from "shared/ui/AppText/AppText";
+import { AppText } from "@/shared/ui/AppText/AppText";
 
 interface ProfilePageProps {
   className?: string;

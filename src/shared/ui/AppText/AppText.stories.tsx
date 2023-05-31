@@ -5,7 +5,7 @@ import {
   AppTextVariant,
 } from "./AppText";
 
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
   title: "shared/AppText",

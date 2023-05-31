@@ -6,7 +6,7 @@ import {
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 import { ProfileSchema } from "../types/editableProfileCardSchema";
-import { Profile } from "entities/Profile";
+import { Profile } from "@/entities/Profile";
 
 
 

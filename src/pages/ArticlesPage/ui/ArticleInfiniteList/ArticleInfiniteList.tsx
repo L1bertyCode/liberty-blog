@@ -7,15 +7,15 @@ import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
-} from "pages/ArticlesPage/model/selectors/articlePageSelectors";
+} from "@/pages/ArticlesPage/model/selectors/articlePageSelectors";
 
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
-import { initArticlesPage } from "pages/ArticlesPage/model/services/initeArticlesPage/initArticlesPage";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
+import { initArticlesPage } from "@/pages/ArticlesPage/model/services/initeArticlesPage/initArticlesPage";
 import { useSearchParams } from "react-router-dom";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { ArticleList } from "entities/Article";
-import { getArticles } from "pages/ArticlesPage/model/slices/articlesPageSlice";
-import { AppText } from "shared/ui/AppText/AppText";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { ArticleList } from "@/entities/Article";
+import { getArticles } from "@/pages/ArticlesPage/model/slices/articlesPageSlice";
+import { AppText } from "@/shared/ui/AppText/AppText";
 
 interface ArticleInfiniteListProps {
   className?: string;

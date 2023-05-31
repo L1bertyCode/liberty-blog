@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { CommentList } from "./CommentList";
 
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
-import { StoreProvider } from "app/providers/StoreProvider";
-import { addCommentFormReducer } from "features/addCommentForm/model/slices/addCommentFormSlice";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
+import { StoreProvider } from "@/app/providers/StoreProvider";
+import { addCommentFormReducer } from "@/features/addCommentForm/model/slices/addCommentFormSlice";
 import { ReducersMapObject } from "@reduxjs/toolkit";
 
 const meta = {

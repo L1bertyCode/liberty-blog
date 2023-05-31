@@ -1,12 +1,12 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./NotificationItem.module.scss";
-import { Notification } from "entities/Notification/model/types/notifications";
-import { Card, CardVariant } from "shared/ui/Card/Card";
-import { AppText } from "shared/ui/AppText/AppText";
-import { AppLink } from "shared/ui/AppLink/AppLink";
+import { Notification } from "@/entities/Notification/model/types/notifications";
+import { Card, CardVariant } from "@/shared/ui/Card/Card";
+import { AppText } from "@/shared/ui/AppText/AppText";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
 
 interface NotificationItemProps {
   className?: string;

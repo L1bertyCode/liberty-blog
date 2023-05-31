@@ -2,7 +2,7 @@ import { ChangeEvent, memo, useMemo } from "react";
 import {
   Mods,
   classNames,
-} from "shared/lib/classNames/classNames";
+} from "@/shared/lib/classNames/classNames";
 
 import s from "./AppSelect.module.scss";
 import { DefaultTFuncReturn } from "i18next";

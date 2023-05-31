@@ -1,14 +1,15 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
-import { AppNavLink } from "shared/ui/AppNavLink/AppNavLink";
+
 
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "entities/User";
-import { SidebarItemInterface } from "widgets/Sidebar/model/types/sidebar";
+import { getUserAuthData } from "@/entities/User";
+import { SidebarItemInterface } from "@/widgets/Sidebar/model/types/sidebar";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./SidebarItem.module.scss";
+import { AppNavLink } from "@/shared/ui/AppNavLink/AppNavLink";
 
 interface SidebarItemProps {
   item: SidebarItemInterface;

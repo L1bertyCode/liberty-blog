@@ -1,18 +1,18 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
-import ListIcon from "shared/assets/icons/list-24-24.svg";
-import TiledIcon from "shared/assets/icons/tiled-24-24.svg";
+import ListIcon from "@/shared/assets/icons/list-24-24.svg";
+import TiledIcon from "@/shared/assets/icons/tiled-24-24.svg";
 
 import s from "./ArticleViewSelector.module.scss";
 
 import {
   AppButton,
   AppButtonVariant,
-} from "shared/ui/AppButton/AppButton";
-import { AppIcon } from "shared/ui/AppIcon/AppIcon";
-import { ArticleView } from "entities/Article/model/consts/consts";
+} from "@/shared/ui/AppButton/AppButton";
+import { AppIcon } from "@/shared/ui/AppIcon/AppIcon";
+import { ArticleView } from "@/entities/Article/model/consts/consts";
 
 interface ArticleViewSelectorProps {
   className?: string;

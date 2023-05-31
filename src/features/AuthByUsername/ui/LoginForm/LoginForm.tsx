@@ -1,25 +1,25 @@
 import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./LoginForm.module.scss";
 import {
   AppButton,
   AppButtonVariant,
-} from "shared/ui/AppButton/AppButton";
-import { AppInput } from "shared/ui/AppInput/AppInput";
+} from "@/shared/ui/AppButton/AppButton";
+import { AppInput } from "@/shared/ui/AppInput/AppInput";
 import { useSelector, useStore } from "react-redux";
 import {
   loginActions,
   loginReducer,
-} from "features/AuthByUsername/model/slices/loginSlice";
+} from "@/features/AuthByUsername/model/slices/loginSlice";
 
-import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername";
+import { loginByUsername } from "@/features/AuthByUsername/model/services/loginByUsername/loginByUsername";
 
 import {
   AppText,
   AppTextVariant,
-} from "shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText/AppText";
 
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
@@ -28,8 +28,8 @@ import { getLoginError } from "../../model/selectors/getLoginError/getLoginError
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 export interface LoginFormProps {
   className?: string;

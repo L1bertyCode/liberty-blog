@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 
-import { AppButton } from "shared/ui/AppButton/AppButton";
+import { AppButton } from "@/shared/ui/AppButton/AppButton";
 import { getCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
 interface CounterProps {}
 {
   /* eslint-disable  i18next/no-literal-string*/
 }
 import { counterActions } from "../model/slices/counterSlice";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 export const Counter = (props: CounterProps) => {
   const {} = props;

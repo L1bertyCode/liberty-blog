@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import "app/styles/variables.scss";
+import "@/app/styles/variables.scss";
 
 import {
   AppButton,
   AppButtonSize,
   AppButtonVariant,
 } from "./AppButton";
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
 
 const meta = {
   title: "shared/AppButton",

@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./AppIcon.module.scss";
 export enum AppIconVarint {

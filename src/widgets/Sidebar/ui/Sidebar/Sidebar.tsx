@@ -3,20 +3,20 @@ import { useTranslation } from "react-i18next";
 
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
-import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/ThemeSwitcher";
-import { LanguageSwitcher } from "shared/ui/LanguageSwitcher/LanguageSwitcher";
+import { ThemeSwitcher } from "@/shared/ui/ThemeSwitcher/ThemeSwitcher";
+import { LanguageSwitcher } from "@/shared/ui/LanguageSwitcher/LanguageSwitcher";
 
 import {
   AppButton,
   AppButtonSize,
   AppButtonVariant,
-} from "shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton/AppButton";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Sidebar.module.scss";
-import { getSidebarItems } from "widgets/Sidebar/model/selector/getSidebarItems";
+import { getSidebarItems } from "@/widgets/Sidebar/model/selector/getSidebarItems";
 import { useSelector } from "react-redux";
-import { VStack } from "shared/ui/Stack/VStack/VStack";
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 
 interface SidebarProps {
   className?: string;

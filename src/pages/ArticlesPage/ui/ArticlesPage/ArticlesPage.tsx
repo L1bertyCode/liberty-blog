@@ -1,24 +1,24 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticlesPage.module.scss";
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articlesPageReducer } from "pages/ArticlesPage/model/slices/articlesPageSlice";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { articlesPageReducer } from "@/pages/ArticlesPage/model/slices/articlesPageSlice";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
-import { Page } from "widgets/Page/Page";
+import { Page } from "@/widgets/Page/Page";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
 import { initArticlesPage } from "../../model/services/initeArticlesPage/initArticlesPage";
 import ArticleInfiniteList from "../ArticleInfiniteList/ArticleInfiniteList";
-import { VStack } from "shared/ui/Stack";
+import { VStack } from "@/shared/ui/Stack";
 
 interface ArticlesPageProps {
   className?: string;

@@ -1,4 +1,4 @@
-import { AppButton } from "shared/ui/AppButton/AppButton";
+import { AppButton } from "@/shared/ui/AppButton/AppButton";
 import { useTranslation } from "react-i18next";
 
 interface PageErrorProps {

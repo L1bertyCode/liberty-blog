@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { Card, CardVariant } from "../Card/Card";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./Tabs.module.scss";
 

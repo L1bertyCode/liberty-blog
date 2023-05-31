@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 import s from "./MainPage.module.scss";
-import { Page } from "widgets/Page/Page";
+import { Page } from "@/widgets/Page/Page";
 
 const MainPage = () => {
   const { t } = useTranslation();

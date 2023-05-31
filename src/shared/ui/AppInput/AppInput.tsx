@@ -9,7 +9,7 @@ import {
 import {
   Mods,
   classNames,
-} from "shared/lib/classNames/classNames";
+} from "@/shared/lib/classNames/classNames";
 import s from "./AppInput.module.scss";
 
 type HTMLAppInputProps = Omit<

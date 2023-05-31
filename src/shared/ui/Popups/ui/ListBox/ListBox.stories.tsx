@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Listbox } from "./ListBox";
 
-import { ThemeDecoratorDark } from "shared/config/storybook/ThemeDecorator";
+import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
   title: "shared/Listbox",
