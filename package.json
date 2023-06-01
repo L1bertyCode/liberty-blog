@@ -130,5 +130,9 @@
         "preset": "iPhone 7"
       }
     }
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ]
 }
