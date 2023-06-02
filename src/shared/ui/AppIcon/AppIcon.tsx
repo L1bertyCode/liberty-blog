@@ -7,7 +7,7 @@ export enum AppIconVarint {
   PRIMARY = "primary",
   INVERTED = "inverted",
 }
-interface AppIconProps {
+interface AppIconProps extends React.SVGProps<SVGAElement> {
   className?: string;
   Svg: React.FunctionComponent<React.SVGProps<SVGElement>>;
   variant?: AppIconVarint;
@@ -18,6 +18,7 @@ export const AppIcon = memo((props: AppIconProps) => {
     className,
     Svg,
     variant = AppIconVarint.PRIMARY,
+    ...otherProps
   } = props;
   return (
     <Svg
@@ -25,6 +26,7 @@ export const AppIcon = memo((props: AppIconProps) => {
         className,
         s[variant],
       ])}
+      {...otherProps}
     />
   );
 });

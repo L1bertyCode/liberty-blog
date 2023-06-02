@@ -13,7 +13,6 @@ interface PopoverProps {
   children: ReactNode;
 }
 
-
 export const Popover = memo((props: PopoverProps) => {
   const {
     className,
@@ -30,7 +29,10 @@ export const Popover = memo((props: PopoverProps) => {
         commonS.popup,
       ])}
     >
-      <HPopover.Button className={commonS.trigger}>
+      <HPopover.Button
+        as={"div"}
+        className={commonS.trigger}
+      >
         {trigger}
       </HPopover.Button>
 
