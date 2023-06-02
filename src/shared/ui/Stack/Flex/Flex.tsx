@@ -1,6 +1,5 @@
 import {
-  DetailedHTMLProps,
-  HTMLAttributes,
+
   ReactNode,
   memo,
 } from "react";

@@ -31,6 +31,7 @@ interface AppButtonProps
   size?: AppButtonSize;
   square?: boolean;
   disabled?: boolean;
+  fullWidth?: boolean;
 }
 
 import s from "./AppButton.module.scss";
@@ -44,11 +45,13 @@ export const AppButton = memo(
       size = AppButtonSize.M,
       square,
       disabled,
+      fullWidth,
       ...otherProps
     } = props;
     const mods: Mods = {
       [s.square]: square,
       [s.disabled]: disabled,
+      [s.fullWidth]: fullWidth,
     };
     return (
       <button

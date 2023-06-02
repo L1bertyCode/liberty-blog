@@ -9,7 +9,7 @@ import StarIcon from "@/shared/assets/icons/star.svg";
 
 interface StarRatingProps {
   className?: string;
-  onSelect?: () => void;
+  onSelect?: (starsCount: number) => void;
   size?: number;
   selectedStars?: number;
 }
@@ -40,6 +40,14 @@ export const StarRating = memo((props: StarRatingProps) => {
       setCurrentStarsCount(0);
     }
   };
+
+  const onClick = (starsCount: number) => () => {
+    if (!isSelected) {
+      onSelect?.(starsCount);
+      setCurrentStarsCount(starsCount);
+      setIsSelected(true);
+    }
+  };
   return (
     <div
       className={classNames(s.starRating, {}, [className])}
@@ -47,17 +55,22 @@ export const StarRating = memo((props: StarRatingProps) => {
       {stars.map((starNumber) => {
         return (
           <AppIcon
-            className={classNames(s.starIcon, {}, [
-              currentStarsCount >= starNumber
-                ? s.hovered
-                : s.normal,
-            ])}
+            className={classNames(
+              s.starIcon,
+              { [s.selected]: isSelected },
+              [
+                currentStarsCount >= starNumber
+                  ? s.hovered
+                  : s.normal,
+              ]
+            )}
             key={starNumber}
             Svg={StarIcon}
             width={size}
             height={size}
             onMouseLeave={onLeave}
             onMouseEnter={onHover(starNumber)}
+            onClick={onClick(starNumber)}
           />
         );
       })}
