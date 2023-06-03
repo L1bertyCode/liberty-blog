@@ -65,7 +65,7 @@ export const ProfileCard = memo(
       return (
         <HStack
           justify="center"
-          max
+          fullWidth
           gap={"8"}
           className={classNames(s.profileCard, {}, [
             className,
@@ -81,7 +81,7 @@ export const ProfileCard = memo(
         <HStack
           justify="center"
           align="center"
-          max
+          fullWidth
           gap={"8"}
           className={classNames(s.profileCard, {}, [
             className,
@@ -102,14 +102,14 @@ export const ProfileCard = memo(
     };
     return (
       <VStack
-        max
+        fullWidth
         gap={"16"}
         className={classNames(s.profileCard, mods, [
           className,
         ])}
       >
         {data?.avatar && (
-          <HStack justify="center" max>
+          <HStack justify="center" fullWidth>
             <Avatar src={data?.avatar} />
           </HStack>
         )}
@@ -119,9 +119,7 @@ export const ProfileCard = memo(
           className={s.input}
           readOnly={readOnly}
           onChange={onChangeFirstname}
-          data-testid={
-            "ProfileCard.firstname"
-          }
+          data-testid={"ProfileCard.firstname"}
         />
         <AppInput
           value={data?.lastname}
@@ -129,9 +127,7 @@ export const ProfileCard = memo(
           className={s.input}
           readOnly={readOnly}
           onChange={onChangeLastname}
-          data-testid={
-            "ProfileCard.lastname"
-          }
+          data-testid={"ProfileCard.lastname"}
         />
         <AppInput
           value={data?.age}

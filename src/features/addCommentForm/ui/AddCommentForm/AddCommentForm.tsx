@@ -52,7 +52,7 @@ const AddCommentForm = memo(
     return (
       <DynamicModuleLoader reducers={reducers}>
         <HStack
-          max
+          fullWidth
           className={classNames(s.addCommentForm, {}, [
             className,
           ])}

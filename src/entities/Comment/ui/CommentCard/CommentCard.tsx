@@ -25,7 +25,7 @@ export const CommentCard = memo(
       return (
         <VStack
           gap="8"
-          max
+          fullWidth
           className={classNames(s.commentCard, {}, [
             className,
             s.loading,
@@ -53,7 +53,7 @@ export const CommentCard = memo(
     return (
       <VStack
         gap="8"
-        max
+        fullWidth
         className={classNames(s.commentCard, {}, [
           className,
         ])}

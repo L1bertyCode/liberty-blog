@@ -22,7 +22,7 @@ export const CommentList = memo(
       return (
         <VStack
           gap="16"
-          max
+          fullWidth
           className={classNames("", {}, [className])}
         >
           <CommentCard isLoading />
@@ -34,7 +34,7 @@ export const CommentList = memo(
     return (
       <VStack
         gap="16"
-        max
+        fullWidth
         className={classNames("", {}, [className])}
       >
         {comments?.length ? (

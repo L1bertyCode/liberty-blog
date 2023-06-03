@@ -55,7 +55,7 @@ const ArticleDetailsComments = memo(
     });
     return (
       <VStack
-        max
+      fullWidth
         gap="16"
         className={classNames(
           s.articleDetailsComments,

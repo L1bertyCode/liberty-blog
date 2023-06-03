@@ -29,9 +29,7 @@ import {
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { AppIcon } from "@/shared/ui/AppIcon/AppIcon";
-import {
-  ArticleBlock,
-} from "../../model/types/article";
+import { ArticleBlock } from "../../model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
@@ -103,7 +101,7 @@ export const ArticleDetails = memo(
 
     if (isLoading) {
       content = (
-        <VStack gap="16" max>
+        <VStack gap="16" fullWidth>
           <Skeleton
             className={s.avatar}
             width={"200px"}
@@ -145,7 +143,7 @@ export const ArticleDetails = memo(
     } else
       content = (
         <>
-          <HStack justify="center" max>
+          <HStack justify="center" fullWidth>
             <Avatar
               alt="avatar"
               size={200}
@@ -153,7 +151,7 @@ export const ArticleDetails = memo(
               className={s.avatar}
             />
           </HStack>
-          <VStack gap="8" max>
+          <VStack gap="8" fullWidth>
             <AppText
               className={s.title}
               title={article?.title}
@@ -184,7 +182,7 @@ export const ArticleDetails = memo(
       >
         <VStack
           gap="16"
-          max
+          fullWidth
           className={classNames(s.articleDetails, {}, [
             className,
           ])}

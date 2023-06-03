@@ -1,8 +1,4 @@
-import {
-
-  ReactNode,
-  memo,
-} from "react";
+import { ReactNode, memo } from "react";
 import {
   Mods,
   classNames,
@@ -51,7 +47,7 @@ export interface FlexProps {
   align?: FlexAlign;
   direction?: FlexDirection;
   gap?: FlexGap;
-  max?: boolean;
+  fullWidth?: boolean;
 }
 export const Flex = memo((props: FlexProps) => {
   const {
@@ -61,7 +57,7 @@ export const Flex = memo((props: FlexProps) => {
     align = "center",
     direction = "row",
     gap,
-    max,
+    fullWidth,
   } = props;
   const classes = [
     className,
@@ -71,7 +67,7 @@ export const Flex = memo((props: FlexProps) => {
     gap && gapClasses[gap],
   ];
   const mods: Mods = {
-    [s.max]: max,
+    [s.fullWidth]: fullWidth,
   };
   return (
     <div className={classNames(s.flex, mods, classes)}>

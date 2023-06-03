@@ -34,7 +34,7 @@ export const ArticleDetailsPageHeader = memo(
     return (
       <HStack
         justify="between"
-        max
+        fullWidth
         className={classNames("", {}, [className])}
       >
         <AppButton onClick={onBackToList}>

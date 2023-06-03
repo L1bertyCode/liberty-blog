@@ -22,7 +22,7 @@ export const NotificationList = memo(
     if (isLoading) {
       return (
         <VStack
-          max
+        fullWidth
           gap="16"
           className={classNames(s.notificationList, {}, [
             className,
@@ -48,7 +48,7 @@ export const NotificationList = memo(
     }
     return (
       <VStack
-        max
+      fullWidth
         gap="16"
         className={classNames(s.notificationList, {}, [
           className,

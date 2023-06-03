@@ -11,12 +11,12 @@ const MainPage = () => {
   return (
     <Page>
       MainPage
-      <RatingCard
+      {/* <RatingCard
         title={t("How do you like the article?")}
         feedbackTitle={t(
           "Leave feedback about the article"
         )}
-      />
+      /> */}
       {/* <StarRating size={50} /> */}
     </Page>
   );

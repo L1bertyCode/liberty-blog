@@ -44,7 +44,7 @@ export const EditableProfileCardHeader = memo(
     return (
       <HStack
         className={classNames("", {}, [className])}
-        max
+        fullWidth
         justify={"between"}
         gap="8"
       >
@@ -62,7 +62,7 @@ export const EditableProfileCardHeader = memo(
                   {t("Edit")}
                 </AppButton>
               ) : (
-                <HStack gap={"8"} max>
+                <HStack gap={"8"} fullWidth>
                   <AppButton
                     data-testid="EditableProfileCardHeader.CancelButton"
                     variant={AppButtonVariant.OUTLINE_RED}
