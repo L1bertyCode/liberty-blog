@@ -32,7 +32,7 @@ export const buildLoaders = (
       },
     ],
   };
-  const cssLoader = buildCssLoader(buildOptions);
+  const cssLoader = buildCssLoader(buildOptions.isDev);
 
   return [
     cssLoader,

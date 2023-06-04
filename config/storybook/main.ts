@@ -39,6 +39,10 @@ const config: StorybookConfig = {
     config.resolve?.extensions?.push(".ts", ".tsx");
     config.resolve?.extensions?.push(".ts", ".tsx");
     config.module?.rules?.push(buildCssLoader(true));
+    config!.resolve!.alias = {
+      ...config!.resolve!.alias,
+      "@": paths.src,
+    };
 
     if (config?.module?.rules) {
       const imageRule = config.module?.rules?.find(
