@@ -25,7 +25,6 @@ export const ArticleRecomendationList = memo(
       data: articles,
       error,
     } = useArticleRecommendationsList(3);
-    console.log("data", articles);
     if (isLoading || error || !articles) {
       return <div>error</div>;
     }

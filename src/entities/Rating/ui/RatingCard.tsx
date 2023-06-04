@@ -86,8 +86,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
       fullWidth
     >
       <VStack align="center" gap="8">
-        <AppText title={title} />
-        <StarRating size={50} onSelect={onSelectStars} />
+        <AppText title={starsCount?t("Thank you for rating") :title} />
+        <StarRating
+          selectedStars={starsCount}
+          size={50}
+          onSelect={onSelectStars}
+        />
       </VStack>
       <BrowserView>
         <Modal isOpen={isModalOpen} lazy>

@@ -25,7 +25,7 @@ export const StarRating = memo((props: StarRatingProps) => {
   } = props;
   const { t } = useTranslation();
   const [currentStarsCount, setCurrentStarsCount] =
-    useState(0);
+    useState(selectedStars);
   const [isSelected, setIsSelected] = useState(
     Boolean(selectedStars)
   );
