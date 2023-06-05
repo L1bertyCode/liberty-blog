@@ -1,17 +1,15 @@
 import { memo } from "react";
-import {
-  Theme,
-  useTheme,
-} from "@/app/providers/ThemeProvider";
+import { useTheme } from "@/app/providers/ThemeProvider";
 
 import {
   AppButton,
   AppButtonVariant,
-} from "../AppButton/AppButton";
+} from "../../shared/ui/AppButton/AppButton";
 
 import ThemeIcon from "@/shared/assets/icons/theme-icon.svg";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ThemeSwitcher.module.scss";
+import { Theme } from "@/shared/const/theme";
 
 interface ThemeSwitcherProps {
   className?: string;

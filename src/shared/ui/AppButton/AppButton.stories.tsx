@@ -7,7 +7,8 @@ import {
   AppButtonVariant,
 } from "./AppButton";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { Theme } from "@/shared/const/theme";
+
 
 const meta = {
   title: "shared/AppButton",

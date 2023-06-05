@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
-import { ThemeSwitcher } from "@/shared/ui/ThemeSwitcher/ThemeSwitcher";
-import { LanguageSwitcher } from "@/shared/ui/LanguageSwitcher/LanguageSwitcher";
+import { ThemeSwitcher } from "@/features/ThemeSwitcher/ThemeSwitcher";
+import { LanguageSwitcher } from "@/features/LanguageSwitcher/LanguageSwitcher";
 
 import {
   AppButton,

@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import {
   routesConfig,
-} from "@/app/config/routesConfig/routesConfig";
+} from "@/shared/config/routesConfig/routesConfig";
 import { PageLoader } from "@/widgets/PageLoader";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";

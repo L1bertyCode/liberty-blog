@@ -1,3 +1,3 @@
-export { ThemeContext, Theme } from "./lib/ThemeContext";
-export { useTheme } from "./lib/useTheme";
+
+export { useTheme } from "../../../shared/lib/hooks/useTheme";
 export { default as ThemeProvider } from "./ui/ThemeProvider";
