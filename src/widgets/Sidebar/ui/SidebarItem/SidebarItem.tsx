@@ -9,7 +9,7 @@ import { SidebarItemInterface } from "@/widgets/Sidebar/model/types/sidebar";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./SidebarItem.module.scss";
-import { AppNavLink } from "@/shared/ui/AppNavLink/AppNavLink";
+import { AppNavLink } from "@/shared/ui/AppNavLink";
 
 interface SidebarItemProps {
   item: SidebarItemInterface;

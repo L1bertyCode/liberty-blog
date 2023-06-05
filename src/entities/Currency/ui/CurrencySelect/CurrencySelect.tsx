@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { Currency } from "../../model/types/currency";
 
-import { AppSelect } from "@/shared/ui/AppSelect/AppSelect";
+import { AppSelect } from "@/shared/ui/AppSelect";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./CurrencySelect.module.scss";

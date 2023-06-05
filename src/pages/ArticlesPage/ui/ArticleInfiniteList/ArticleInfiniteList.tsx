@@ -15,7 +15,7 @@ import { useSearchParams } from "react-router-dom";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { ArticleList } from "@/entities/Article";
 import { getArticles } from "@/pages/ArticlesPage/model/slices/articlesPageSlice";
-import { AppText } from "@/shared/ui/AppText/AppText";
+import { AppText } from "@/shared/ui/AppText";
 
 interface ArticleInfiniteListProps {
   className?: string;

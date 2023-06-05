@@ -14,24 +14,24 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 
-import { AppText } from "@/shared/ui/AppText/AppText";
+import { AppText } from "@/shared/ui/AppText";
 import {
   AppIcon,
   AppIconVarint,
-} from "@/shared/ui/AppIcon/AppIcon";
-import { Card } from "@/shared/ui/Card/Card";
+} from "@/shared/ui/AppIcon";
+import { Card } from "@/shared/ui/Card";
 import { useHover } from "@/shared/lib/hooks/useHover";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Avatar } from "@/shared/ui/Avatar";
 import {
   AppButton,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useNavigate } from "react-router-dom";
 
 
 import s from "./ArticleListItem.module.scss";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { AppLink } from "@/shared/ui/AppLink";
 import {
   ArticleBlockType,
   ArticleView,

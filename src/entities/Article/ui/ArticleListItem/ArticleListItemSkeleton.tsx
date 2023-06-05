@@ -3,23 +3,23 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 
-import { AppText } from "@/shared/ui/AppText/AppText";
+import { AppText } from "@/shared/ui/AppText";
 
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import {
   AppIcon,
   AppIconVarint,
-} from "@/shared/ui/AppIcon/AppIcon";
+} from "@/shared/ui/AppIcon";
 
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
-import { Card } from "@/shared/ui/Card/Card";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Card } from "@/shared/ui/Card";
+import { Avatar } from "@/shared/ui/Avatar";
 
 import {
   AppButton,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+} from "@/shared/ui/AppButton";
+import { Skeleton } from "@/shared/ui/Skeleton";
 
 import s from "./ArticleListItem.module.scss";
 import { Article, ArticleTextBlock } from "@/entities/Article/model/types/article";

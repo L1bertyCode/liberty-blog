@@ -6,7 +6,7 @@ import s from "./ArticleDetailsComments.module.scss";
 import {
   AppText,
   AppTextSize,
-} from "@/shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText";
 import { AddCommentForm } from "@/features/addCommentForm";
 import { CommentList } from "@/entities/Comment";
 import { useSelector } from "react-redux";

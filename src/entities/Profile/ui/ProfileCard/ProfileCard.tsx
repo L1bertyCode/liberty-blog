@@ -7,17 +7,17 @@ import {
   AppText,
   AppTextAlign,
   AppTextVariant,
-} from "@/shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText";
 
-import { AppInput } from "@/shared/ui/AppInput/AppInput";
+import { AppInput } from "@/shared/ui/AppInput";
 
 import {
   Mods,
   classNames,
 } from "@/shared/lib/classNames/classNames";
 import s from "./ProfileCard.module.scss";
-import { Loader } from "@/shared/ui/Loader/Loader";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Loader } from "@/shared/ui/Loader";
+import { Avatar } from "@/shared/ui/Avatar";
 
 import {
   Currency,

@@ -5,11 +5,11 @@ import s from "./Code.module.scss";
 import {
   AppButton,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton";
 import {
   AppIcon,
   AppIconVarint,
-} from "@/shared/ui/AppIcon/AppIcon";
+} from "@/shared/ui/AppIcon";
 import CopyIcon from "@/shared/assets/icons/copy-20-20.svg";
 
 interface CodeProps {

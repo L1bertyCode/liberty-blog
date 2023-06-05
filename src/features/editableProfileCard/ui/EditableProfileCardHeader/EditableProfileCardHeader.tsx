@@ -10,11 +10,11 @@ import { getProfileData } from "@/features/editableProfileCard/model/selectors/g
 import { profileActions } from "@/features/editableProfileCard/model/slice/profileSlice";
 import { updateProfileData } from "@/features/editableProfileCard/model/services/updateProfileData/updateProfileData";
 import { HStack } from "@/shared/ui/Stack";
-import { AppText } from "@/shared/ui/AppText/AppText";
+import { AppText } from "@/shared/ui/AppText";
 import {
   AppButton,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton";
 
 interface EditableProfileCardHeaderProps {
   className?: string;

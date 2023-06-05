@@ -4,16 +4,16 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import {
   AppButton,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton";
 import {
   AppIcon,
   AppIconVarint,
-} from "@/shared/ui/AppIcon/AppIcon";
+} from "@/shared/ui/AppIcon";
 import { Popover } from "@/shared/ui/Popups";
 import NotificationIcon from "@/shared/assets/icons/notification-20-20.svg";
 
 import s from "./NotificationButton.module.scss";
-import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import { Drawer } from "@/shared/ui/Drawer";
 import {
   BrowserView,
   MobileView,

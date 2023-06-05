@@ -6,7 +6,7 @@ import s from "./ArticlesSortSelector.module.scss";
 import {
   AppSelect,
   SelectOption,
-} from "@/shared/ui/AppSelect/AppSelect";
+} from "@/shared/ui/AppSelect";
 
 import { SortOrder } from "@/shared/types";
 import { ArticlesSortField } from "@/entities/Article/model/consts/consts";

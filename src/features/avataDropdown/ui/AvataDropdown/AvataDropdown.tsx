@@ -13,7 +13,7 @@ import {
   userActions,
 } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Avatar } from "@/shared/ui/Avatar";
 import { RoutePath } from "@/shared/const/router";
 
 interface AvataDropdownProps {

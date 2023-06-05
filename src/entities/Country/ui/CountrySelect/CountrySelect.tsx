@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./CountrySelect.module.scss";
-import { AppSelect } from "@/shared/ui/AppSelect/AppSelect";
+import { AppSelect } from "@/shared/ui/AppSelect";
 import { Country } from "../../model/types/country";
 
 import { Listbox } from "@/shared/ui/Popups";

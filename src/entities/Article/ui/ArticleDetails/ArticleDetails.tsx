@@ -25,10 +25,10 @@ import {
   AppText,
   AppTextAlign,
   AppTextSize,
-} from "@/shared/ui/AppText/AppText";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { AppIcon } from "@/shared/ui/AppIcon/AppIcon";
+} from "@/shared/ui/AppText";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { Avatar } from "@/shared/ui/Avatar";
+import { AppIcon } from "@/shared/ui/AppIcon";
 import { ArticleBlock } from "../../model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";

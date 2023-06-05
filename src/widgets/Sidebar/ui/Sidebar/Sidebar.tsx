@@ -10,13 +10,13 @@ import {
   AppButton,
   AppButtonSize,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Sidebar.module.scss";
 import { getSidebarItems } from "@/widgets/Sidebar/model/selector/getSidebarItems";
 import { useSelector } from "react-redux";
-import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { VStack } from "@/shared/ui/Stack";
 
 interface SidebarProps {
   className?: string;

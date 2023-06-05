@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import s from "./MainPage.module.scss";
 import { Page } from "@/widgets/Page/Page";
-import { StarRating } from "@/shared/ui/StarRating/StarRating";
+import { StarRating } from "@/shared/ui/StarRating";
 import { RatingCard } from "@/entities/Rating";
 
 const MainPage = () => {

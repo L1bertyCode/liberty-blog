@@ -23,8 +23,8 @@ import {
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import { Card } from "@/shared/ui/Card/Card";
-import { AppInput } from "@/shared/ui/AppInput/AppInput";
+import { Card } from "@/shared/ui/Card";
+import { AppInput } from "@/shared/ui/AppInput";
 import { SortOrder } from "@/shared/types";
 
 import { classNames } from "@/shared/lib/classNames/classNames";

@@ -5,7 +5,7 @@ import { memo } from "react";
 import {
   AppText,
   AppTextSize,
-} from "@/shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText";
 import { ArticleList } from "@/entities/Article";
 
 import { VStack } from "@/shared/ui/Stack";

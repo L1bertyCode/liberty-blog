@@ -6,8 +6,8 @@ import s from "./LoginForm.module.scss";
 import {
   AppButton,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
-import { AppInput } from "@/shared/ui/AppInput/AppInput";
+} from "@/shared/ui/AppButton";
+import { AppInput } from "@/shared/ui/AppInput";
 import { useSelector, useStore } from "react-redux";
 import {
   loginActions,
@@ -19,7 +19,7 @@ import { loginByUsername } from "@/features/AuthByUsername/model/services/loginB
 import {
   AppText,
   AppTextVariant,
-} from "@/shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText";
 
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";

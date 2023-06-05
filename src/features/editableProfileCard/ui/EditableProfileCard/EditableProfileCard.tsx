@@ -10,7 +10,7 @@ import { getProfileError } from "../../model/selectors/getProfileError/getProfil
 import {
   AppText,
   AppTextVariant,
-} from "@/shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/getProfileReadOnly";
 

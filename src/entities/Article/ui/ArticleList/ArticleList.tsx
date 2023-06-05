@@ -15,7 +15,7 @@ import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkele
 import {
   AppText,
   AppTextSize,
-} from "@/shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText";
 
 import { PAGE_ID } from "@/widgets/Page/Page";
 import { ArticleView } from "@/entities/Article/model/consts/consts";

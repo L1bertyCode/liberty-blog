@@ -4,10 +4,10 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./CommentCard.module.scss";
 import { Comment } from "@/entities/Comment/model/types/comment";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { AppText } from "@/shared/ui/AppText/AppText";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
-import { AppNavLink } from "@/shared/ui/AppNavLink/AppNavLink";
+import { Avatar } from "@/shared/ui/Avatar";
+import { AppText } from "@/shared/ui/AppText";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { AppNavLink } from "@/shared/ui/AppNavLink";
 
 import { VStack } from "@/shared/ui/Stack";
 import { RoutePath } from "@/shared/const/router";

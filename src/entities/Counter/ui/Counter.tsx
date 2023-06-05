@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { AppButton } from "@/shared/ui/AppButton/AppButton";
+import { AppButton } from "@/shared/ui/AppButton";
 import { getCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
 interface CounterProps {}
 {

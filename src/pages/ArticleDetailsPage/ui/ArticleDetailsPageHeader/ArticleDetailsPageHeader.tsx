@@ -2,7 +2,7 @@ import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { AppButton } from "@/shared/ui/AppButton/AppButton";
+import { AppButton } from "@/shared/ui/AppButton";
 
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";

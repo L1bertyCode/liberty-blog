@@ -11,8 +11,8 @@ import {
   addCommentFormReducer,
 } from "../../model/slices/addCommentFormSlice";
 
-import { AppInput } from "@/shared/ui/AppInput/AppInput";
-import { AppButton } from "@/shared/ui/AppButton/AppButton";
+import { AppInput } from "@/shared/ui/AppInput";
+import { AppButton } from "@/shared/ui/AppButton";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./AddCommentForm.module.scss";

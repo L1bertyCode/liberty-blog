@@ -7,7 +7,7 @@ import { ArticleImageBlock } from "../../model/types/article";
 import {
   AppText,
   AppTextAlign,
-} from "@/shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText";
 
 interface ArticleImageBlockComponentProps {
   className?: string;

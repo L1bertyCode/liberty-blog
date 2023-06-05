@@ -10,7 +10,7 @@ import { getUserAuthData } from "@/entities/User";
 import {
   AppButton,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
@@ -19,11 +19,11 @@ import s from "./Navbar.module.scss";
 import {
   AppLink,
   AppLinkVariant,
-} from "@/shared/ui/AppLink/AppLink";
+} from "@/shared/ui/AppLink";
 import {
   AppText,
   AppTextVariant,
-} from "@/shared/ui/AppText/AppText";
+} from "@/shared/ui/AppText";
 import { HStack } from "@/shared/ui/Stack";
 
 import { NotificationButton } from "@/features/notificationButton";

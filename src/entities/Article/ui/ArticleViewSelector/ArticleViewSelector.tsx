@@ -10,8 +10,8 @@ import s from "./ArticleViewSelector.module.scss";
 import {
   AppButton,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
-import { AppIcon } from "@/shared/ui/AppIcon/AppIcon";
+} from "@/shared/ui/AppButton";
+import { AppIcon } from "@/shared/ui/AppIcon";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
 
 interface ArticleViewSelectorProps {

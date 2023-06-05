@@ -3,23 +3,23 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./RatingCard.module.scss";
-import { Card } from "@/shared/ui/Card/Card";
+import { Card } from "@/shared/ui/Card";
 import { HStack, VStack } from "@/shared/ui/Stack";
-import { AppText } from "@/shared/ui/AppText/AppText";
-import { StarRating } from "@/shared/ui/StarRating/StarRating";
-import { Modal } from "@/shared/ui/Modal/Modal";
-import { AppInput } from "@/shared/ui/AppInput/AppInput";
+import { AppText } from "@/shared/ui/AppText";
+import { StarRating } from "@/shared/ui/StarRating";
+import { Modal } from "@/shared/ui/Modal";
+import { AppInput } from "@/shared/ui/AppInput";
 import { DefaultTFuncReturn } from "i18next";
 import {
   AppButton,
   AppButtonSize,
   AppButtonVariant,
-} from "@/shared/ui/AppButton/AppButton";
+} from "@/shared/ui/AppButton";
 import {
   BrowserView,
   MobileView,
 } from "react-device-detect";
-import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import { Drawer } from "@/shared/ui/Drawer";
 
 interface RatingCardProps {
   className?: string;
