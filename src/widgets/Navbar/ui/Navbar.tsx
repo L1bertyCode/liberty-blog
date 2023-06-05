@@ -15,7 +15,7 @@ import {
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 
-import { RoutePath } from "@/shared/config/routesConfig/routesConfig";
+
 import {
   AppLink,
   AppLinkVariant,
@@ -28,7 +28,7 @@ import { HStack } from "@/shared/ui/Stack";
 
 import { NotificationButton } from "@/features/notificationButton";
 import { AvataDropdown } from "@/features/avataDropdown";
-
+import { RoutePath } from "@/shared/const/router";
 
 interface NavbarProps {
   className?: string;
@@ -67,8 +67,6 @@ export const Navbar = memo((props: NavbarProps) => {
 
         <div className={s.modal}>
           <HStack gap="16" className={s.actions}>
-     
-    
             <NotificationButton />
             <AvataDropdown />
           </HStack>

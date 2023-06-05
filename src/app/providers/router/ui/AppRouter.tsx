@@ -2,13 +2,13 @@ import { Suspense, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import {
-  AppRouteProps,
   routesConfig,
-} from "@/shared/config/routesConfig/routesConfig";
+} from "@/app/config/routesConfig/routesConfig";
 import { PageLoader } from "@/widgets/PageLoader";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { RequireAuth } from "./RequireAuth";
+import { AppRouteProps } from "@/shared/types/router";
 export const AppRouter = () => {
   const isAuth = useSelector(getUserAuthData);
 

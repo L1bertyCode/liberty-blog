@@ -8,8 +8,9 @@ import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { AppText } from "@/shared/ui/AppText/AppText";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import { AppNavLink } from "@/shared/ui/AppNavLink/AppNavLink";
-import { RoutePath } from "@/shared/config/routesConfig/routesConfig";
+
 import { VStack } from "@/shared/ui/Stack";
+import { RoutePath } from "@/shared/const/router";
 
 interface CommentCardProps {
   className?: string;

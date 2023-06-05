@@ -4,7 +4,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./AvataDropdown.module.scss";
 import { Dropdown } from "@/shared/ui/Popups";
-import { RoutePath } from "@/shared/config/routesConfig/routesConfig";
+
 import { useSelector } from "react-redux";
 import {
   getUserAuthData,
@@ -14,6 +14,7 @@ import {
 } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { RoutePath } from "@/shared/const/router";
 
 interface AvataDropdownProps {
   className?: string;

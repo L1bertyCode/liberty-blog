@@ -3,7 +3,8 @@ import {
   getUserAuthData,
   getUserRoles,
 } from "@/entities/User";
-import { RoutePath } from "@/shared/config/routesConfig/routesConfig";
+import { RoutePath } from "@/shared/const/router";
+
 import { ReactNode, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";

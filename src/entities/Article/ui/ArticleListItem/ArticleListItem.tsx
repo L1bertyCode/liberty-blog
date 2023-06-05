@@ -28,7 +28,7 @@ import {
 } from "@/shared/ui/AppButton/AppButton";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "@/shared/config/routesConfig/routesConfig";
+
 
 import s from "./ArticleListItem.module.scss";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
@@ -36,6 +36,7 @@ import {
   ArticleBlockType,
   ArticleView,
 } from "@/entities/Article/model/consts/consts";
+import { RoutePath } from "@/shared/const/router";
 
 interface ArticleListItemProps {
   className?: string;

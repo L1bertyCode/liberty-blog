@@ -5,9 +5,10 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleEditPage.module.scss";
 import { Page } from "@/widgets/Page/Page";
 import { useNavigate, useParams } from "react-router-dom";
-import { RoutePath } from "@/shared/config/routesConfig/routesConfig";
+
 import { useSelector } from "react-redux";
 import { getArticleDetailsData } from "@/entities/Article";
+import { RoutePath } from "@/shared/const/router";
 
 interface ArticleEditPageProps {
   className?: string;
