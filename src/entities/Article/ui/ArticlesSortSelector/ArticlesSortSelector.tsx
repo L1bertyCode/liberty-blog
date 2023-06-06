@@ -29,7 +29,7 @@ export const ArticlesSortSelector = memo(
       onChangsSort,
     } = props;
     const { t } = useTranslation();
-    const orderOprions = useMemo<SelectOption[]>(
+    const orderOprions = useMemo<SelectOption<SortOrder>[]>(
       () => [
         { value: "asc", content: t("ascending") },
         { value: "desc", content: t("descending") },
@@ -37,7 +37,9 @@ export const ArticlesSortSelector = memo(
       [t]
     );
 
-    const sortFieldOprions = useMemo<SelectOption[]>(
+    const sortFieldOprions = useMemo<
+      SelectOption<ArticlesSortField>[]
+    >(
       () => [
         {
           value: ArticlesSortField.CREATED,
@@ -54,18 +56,7 @@ export const ArticlesSortSelector = memo(
       ],
       [t]
     );
-    const changeSortHandler = useCallback(
-      (newSort: string) => {
-        onChangsSort(newSort as ArticlesSortField);
-      },
-      [onChangsSort]
-    );
-    const changeOrderHandler = useCallback(
-      (newOrder: string) => {
-        onChangeOrder(newOrder as SortOrder);
-      },
-      [onChangeOrder]
-    );
+
     return (
       <div
         className={classNames(s.articlesSortSelector, {}, [
@@ -76,14 +67,14 @@ export const ArticlesSortSelector = memo(
           label={t("Sort by")}
           options={sortFieldOprions}
           value={sort}
-          onChange={changeSortHandler}
+          onChange={onChangsSort}
         />
         <AppSelect
           className={s.order}
           label={t("by")}
           options={orderOprions}
           value={order}
-          onChange={changeOrderHandler}
+          onChange={onChangeOrder}
         />
       </div>
     );

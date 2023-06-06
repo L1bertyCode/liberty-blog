@@ -1,10 +1,10 @@
-import type { Preview } from "@storybook/react";
 import { StyleDecorator } from "../../src/shared/config/storybook/StyleDecorator";
 import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator";
 import { I18nDecorator } from "../../src/shared/config/storybook/I18nDecorator";
 import { RouteDecoratar } from "../../src/shared/config/storybook/RouteDecoratar";
 import { StoreDecorator } from "../../src/shared/config/storybook/StoreDecorator";
-import { Theme } from "../../src/app/providers/ThemeProvider";
+import { Theme } from "../../src/shared/const/theme";
+import { Preview } from "@storybook/react/dist";
 
 const preview: Preview = {
   parameters: {
@@ -15,6 +15,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    // layout: "fullscreen",
     // mockAddonConfigs: {
     //   globalMockData: [
     //     {
@@ -25,8 +26,30 @@ const preview: Preview = {
     //     },
     //   ],
     //   refreshStoryOnUpdate: true,
-    // },
+    // },\
+
+    themes: {
+      default: "light",
+      list: [
+        {
+          name: "light",
+          class: Theme.LIGHT,
+          color: "#ffffff",
+        },
+        {
+          name: "dark",
+          class: Theme.DARK,
+          color: "#000000",
+        },
+        {
+          name: "orange",
+          class: Theme.ORANGE,
+          color: "#ffb005",
+        },
+      ],
+    },
   },
+
   argTypes: {
     theme: {
       control: "select",

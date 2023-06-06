@@ -7,21 +7,23 @@ import {
 import s from "./AppSelect.module.scss";
 import { DefaultTFuncReturn } from "i18next";
 
-export interface SelectOption {
-  value: string;
+export interface SelectOption<T extends string> {
+  value: T;
   content: string;
 }
 
-interface AppSelectProps {
+interface AppSelectProps<T extends string> {
   className?: string;
   label?: string | DefaultTFuncReturn;
-  options?: SelectOption[];
-  value?: string;
-  onChange?: (value: string) => void;
+  options?: SelectOption<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
   readOnly?: boolean;
 }
 
-export const AppSelect = memo((props: AppSelectProps) => {
+export const AppSelect = <T extends string>(
+  props: AppSelectProps<T>
+) => {
   const {
     className,
     label,
@@ -46,7 +48,7 @@ export const AppSelect = memo((props: AppSelectProps) => {
   const onChangeHandler = (
     e: ChangeEvent<HTMLSelectElement>
   ) => {
-    onChange?.(e?.target?.value);
+    onChange?.(e?.target?.value as T);
   };
   const mods: Mods = {
     [s.readOnly]: readOnly,
@@ -72,4 +74,4 @@ export const AppSelect = memo((props: AppSelectProps) => {
       </select>
     </div>
   );
-});
+};
