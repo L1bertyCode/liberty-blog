@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { getArticleDetailsData } from "@/entities/Article";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticles } from "@/shared/const/router";
 
 interface ArticleEditPageProps {
   className?: string;
@@ -24,7 +24,7 @@ const ArticleEditPage = memo(
 
     const navigate = useNavigate();
     const onBackToList = useCallback(() => {
-      navigate(RoutePath.articles);
+      navigate(getRouteArticles());
     }, [navigate]);
 
     return (

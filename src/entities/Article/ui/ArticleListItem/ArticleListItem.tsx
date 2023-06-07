@@ -29,18 +29,17 @@ import {
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useNavigate } from "react-router-dom";
 
-
 import s from "./ArticleListItem.module.scss";
 import { AppLink } from "@/shared/ui/AppLink";
 import {
   ArticleBlockType,
   ArticleView,
 } from "@/entities/Article/model/consts/consts";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticleDetails } from "@/shared/const/router";
 
 interface ArticleListItemProps {
   className?: string;
-  article?: Article;
+  article: Article;
   view?: ArticleView;
   isLoading?: boolean;
   target?: HTMLAttributeAnchorTarget;
@@ -60,7 +59,7 @@ export const ArticleListItem = memo(
     // console.log(isHover);
     const navigate = useNavigate();
     const onOpenArticle = useCallback(() => {
-      navigate(RoutePath.article_details + article?.id);
+      navigate(getRouteArticleDetails(article.id));
     }, [article?.id, navigate]);
 
     const types = (
@@ -128,7 +127,7 @@ export const ArticleListItem = memo(
             <div className={s.footer}>
               <AppLink
                 target={target}
-                to={RoutePath.article_details + article?.id}
+                to={getRouteArticleDetails(article.id)}
               >
                 <AppButton
                   onClick={onOpenArticle}
@@ -146,7 +145,7 @@ export const ArticleListItem = memo(
     return (
       <AppLink
         target={target}
-        to={RoutePath.article_details + article?.id}
+        to={getRouteArticleDetails(article.id)}
         {...bindHover}
         className={classNames(s.articleListItem, {}, [
           className,

@@ -10,7 +10,7 @@ import { Skeleton } from "@/shared/ui/Skeleton";
 import { AppNavLink } from "@/shared/ui/AppNavLink";
 
 import { VStack } from "@/shared/ui/Stack";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteProfile } from "@/shared/const/router";
 
 interface CommentCardProps {
   className?: string;
@@ -60,7 +60,7 @@ export const CommentCard = memo(
         ])}
       >
         <AppNavLink
-          to={`${RoutePath.profile}${comment?.user.id}`}
+          to={getRouteProfile(comment?.user.id)}
           className={s.header}
         >
           {comment?.user?.avatar ? (

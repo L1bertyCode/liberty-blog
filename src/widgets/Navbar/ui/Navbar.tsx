@@ -15,7 +15,6 @@ import {
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 
-
 import {
   AppLink,
   AppLinkVariant,
@@ -28,7 +27,7 @@ import { HStack } from "@/shared/ui/Stack";
 
 import { NotificationButton } from "@/features/notificationButton";
 import { AvataDropdown } from "@/features/avataDropdown";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticleCreate } from "@/shared/const/router";
 
 interface NavbarProps {
   className?: string;
@@ -58,7 +57,7 @@ export const Navbar = memo((props: NavbarProps) => {
           variant={AppTextVariant.INVERTED}
         />
         <AppLink
-          to={RoutePath.articles_created}
+          to={getRouteArticleCreate()}
           variant={AppLinkVariant.SECONDARY}
           className={s.createBtn}
         >
@@ -84,7 +83,7 @@ export const Navbar = memo((props: NavbarProps) => {
       className={classNames(s.navbar, {}, [className])}
     >
       <div className={s.logo}>{t("Logo")}</div>
-      <AppLink to={RoutePath.articles_created}>
+      <AppLink to={getRouteArticleCreate()}>
         {t("Create article")}
       </AppLink>
       <div className={s.modal}>

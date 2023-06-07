@@ -14,7 +14,10 @@ import {
 } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { Avatar } from "@/shared/ui/Avatar";
-import { RoutePath } from "@/shared/const/router";
+import {
+  getRouteAdmin,
+  getRouteProfile,
+} from "@/shared/const/router";
 
 interface AvataDropdownProps {
   className?: string;
@@ -49,13 +52,13 @@ export const AvataDropdown = memo(
             ? [
                 {
                   content: t("Admin") || "",
-                  href: RoutePath.admin_panel,
+                  href: getRouteAdmin(),
                 },
               ]
             : []),
           {
             content: t("Profile") || "",
-            href: RoutePath.profile + authData.id,
+            href: getRouteProfile(authData.id),
           },
           {
             content: t("Logout") || "",
