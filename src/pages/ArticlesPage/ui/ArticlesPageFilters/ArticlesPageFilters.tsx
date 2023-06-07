@@ -14,11 +14,8 @@ import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 
 import {
   ArticleType,
-  ArticleTypeTabs,
   ArticleView,
-  ArticleViewSelector,
   ArticlesSortField,
-  ArticlesSortSelector,
 } from "@/entities/Article";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
@@ -32,6 +29,9 @@ import s from "./ArticlesPageFilters.module.scss";
 import { fetchArticlesList } from "@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";
 import { TabItem } from "@/shared/ui/Tabs/Tabs";
+import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
+import { ArticleViewSelector } from "@/features/ArticleViewSelector";
+import { ArticlesSortSelector } from "@/features/ArticlesSortSelector";
 
 
 interface ArticlesPageFiltersProps {

@@ -4,6 +4,7 @@ import { BuildOptions } from "../types/config";
 export const buildCssLoader = (isDev: boolean) => {
   return {
     test: /\.s[ac]ss$/i,
+    exclude: /node_modules/,
     use: [
       isDev ? "style-loader" : MiniCssExtractPlugin.loader,
       {

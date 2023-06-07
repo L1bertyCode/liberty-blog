@@ -17,29 +17,20 @@ export const buildPlugins = (
 ): WebpackPluginInstance[] => {
   const { buildPaths, isDev, apiUrl, project } =
     buildOptions;
+  const isProd = !isDev;
   const plugins = [
     new HtmlWebpackPlugin({
       template: buildPaths.html,
       favicon: buildPaths.favicon,
     }),
     new ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "css/[name].[contenthash:8].css",
-      chunkFilename: "css/[name].[contenthash:8].css",
-    }),
+
     new DefinePlugin({
       __IS__DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: buildPaths.locales,
-          to: buildPaths.buildLocales,
-        },
-      ],
-    }),
+
     new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/,
       failOnError: true,
@@ -62,6 +53,23 @@ export const buildPlugins = (
 
     // plugins.push(new HotModuleReplacementPlugin());
   }
-
+  if (isProd) {
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: "css/[name].[contenthash:8].css",
+        chunkFilename: "css/[name].[contenthash:8].css",
+      })
+    );
+    plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: buildPaths.locales,
+            to: buildPaths.buildLocales,
+          },
+        ],
+      })
+    );
+  }
   return plugins;
 };

@@ -27,6 +27,8 @@ export const buildWebpackConfig = (
     },
     resolve: buildResolvers(buildPaths),
     devServer: isDev ? buildDevServer(port) : undefined,
-    devtool: isDev ? "inline-source-map" : undefined,
+    devtool: isDev
+      ? "eval-cheap-module-source-map"
+      : undefined,
   };
 };
