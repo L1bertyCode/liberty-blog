@@ -36,6 +36,8 @@ import {
   ArticleView,
 } from "@/entities/Article/model/consts/consts";
 import { getRouteArticleDetails } from "@/shared/const/router";
+import { AppImage } from "@/shared/ui/AppImage";
+import { Skeleton } from "@/shared/ui/Skeleton";
 
 interface ArticleListItemProps {
   className?: string;
@@ -113,7 +115,10 @@ export const ArticleListItem = memo(
               className={s.title}
             />
             {types}
-            <img
+            <AppImage
+              fallback={
+                <Skeleton width={"100%"} height={"250px"} />
+              }
               src={article?.img}
               alt={article?.title}
               className={s.img}
@@ -154,7 +159,13 @@ export const ArticleListItem = memo(
       >
         <Card className={s.card}>
           <div className={s.imageWrapper}>
-            <img
+            <AppImage
+              fallback={
+                <Skeleton
+                  width={"200px"}
+                  height={"200px"}
+                />
+              }
               src={article?.img}
               alt={article?.title}
               className={s.img}
