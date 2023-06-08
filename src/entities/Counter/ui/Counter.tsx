@@ -1,24 +1,35 @@
 import { useSelector } from "react-redux";
 
 import { AppButton } from "@/shared/ui/AppButton";
-import { getCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
+import {
+  getCounterValue,
+  useCounterValue,
+} from "../model/selectors/getCounterValue/getCounterValue";
 interface CounterProps {}
 {
   /* eslint-disable  i18next/no-literal-string*/
 }
-import { counterActions } from "../model/slices/counterSlice";
+import {
+  counterActions,
+  useCounterActions,
+} from "../model/slices/counterSlice";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 export const Counter = (props: CounterProps) => {
   const {} = props;
-  const counterValue = useSelector(getCounterValue);
+  const counterValue = useCounterValue();
+  const { addSome, decrement, increment } =
+    useCounterActions();
 
   const dispatch = useAppDispatch();
   const incrementCounter = () => {
-    dispatch(counterActions.increment());
+    increment();
   };
   const decrementCounter = () => {
-    dispatch(counterActions.decrement());
+    decrement();
+  };
+  const addSomeCounter = () => {
+    addSome(5);
   };
   return (
     <div>
@@ -36,6 +47,12 @@ export const Counter = (props: CounterProps) => {
         onClick={decrementCounter}
       >
         decrement
+      </AppButton>{" "}
+      <AppButton
+        data-testid="addSomeCounter-btn"
+        onClick={addSomeCounter}
+      >
+        addSome
       </AppButton>
     </div>
   );
