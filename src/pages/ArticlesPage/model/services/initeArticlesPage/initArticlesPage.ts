@@ -3,7 +3,7 @@ import { ThunkConfig } from "@/app/providers/StoreProvider/config/StateSchema";
 import { getArticlesPageInited } from "../../selectors/articlePageSelectors";
 import { articlesPageActions } from "../../slices/articlesPageSlice";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
-import { SortOrder } from "@/shared/types";
+import { SortOrder } from "@/shared/types/sort";
 import {
   ArticleType,
   ArticlesSortField,

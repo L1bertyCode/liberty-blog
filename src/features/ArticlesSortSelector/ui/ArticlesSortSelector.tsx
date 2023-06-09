@@ -8,7 +8,7 @@ import {
   SelectOption,
 } from "@/shared/ui/AppSelect";
 
-import { SortOrder } from "@/shared/types";
+import { SortOrder } from "@/shared/types/sort";
 import { ArticlesSortField } from "@/entities/Article/model/consts/consts";
 
 interface ArticlesSortSelectorProps {

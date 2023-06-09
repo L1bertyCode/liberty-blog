@@ -23,65 +23,63 @@ interface EditableProfileCardHeaderProps {
 export const EditableProfileCardHeader = memo(
   (props: EditableProfileCardHeaderProps) => {
     const { className } = props;
-    const { t } = useTranslation();
 
-    const dispatch = useAppDispatch();
-
-    const readeOnly = useSelector(getProfileReadOnly);
+    const { t } = useTranslation("profile");
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
+    const readonly = useSelector(getProfileReadOnly);
+    const dispatch = useAppDispatch();
 
     const onEdit = useCallback(() => {
       dispatch(profileActions.setReadOnly(false));
     }, [dispatch]);
+
     const onCancelEdit = useCallback(() => {
       dispatch(profileActions.cancelEdit());
     }, [dispatch]);
+
     const onSave = useCallback(() => {
       dispatch(updateProfileData());
     }, [dispatch]);
+
     return (
       <HStack
-        className={classNames("", {}, [className])}
         fullWidth
-        justify={"between"}
-        gap="8"
+        justify="between"
+        className={classNames("", {}, [className])}
       >
-        <AppText title={t("Profile")} />
-
-        <div>
-          {canEdit && (
-            <>
-              {readeOnly ? (
+        <AppText title={t("Профиль")} />
+        {canEdit && (
+          <div>
+            {readonly ? (
+              <AppButton
+                variant={AppButtonVariant.OUTLINE}
+                onClick={onEdit}
+                data-testid="EditableProfileCardHeader.EditButton"
+              >
+                {t("Редактировать")}
+              </AppButton>
+            ) : (
+              <HStack gap="8">
                 <AppButton
-                  data-testid="EditableProfileCardHeader.EditButton"
-                  variant={AppButtonVariant.OUTLINE}
-                  onClick={onEdit}
+                  variant={AppButtonVariant.OUTLINE_RED}
+                  onClick={onCancelEdit}
+                  data-testid="EditableProfileCardHeader.CancelButton"
                 >
-                  {t("Edit")}
+                  {t("Отменить")}
                 </AppButton>
-              ) : (
-                <HStack gap={"8"} fullWidth>
-                  <AppButton
-                    data-testid="EditableProfileCardHeader.CancelButton"
-                    variant={AppButtonVariant.OUTLINE_RED}
-                    onClick={onCancelEdit}
-                  >
-                    {t("Cancel")}
-                  </AppButton>
-                  <AppButton
-                    data-testid="EditableProfileCardHeader.SaveButton"
-                    variant={AppButtonVariant.OUTLINE}
-                    onClick={onSave}
-                  >
-                    {t("Save")}
-                  </AppButton>
-                </HStack>
-              )}
-            </>
-          )}
-        </div>
+                <AppButton
+                  variant={AppButtonVariant.OUTLINE}
+                  onClick={onSave}
+                  data-testid="EditableProfileCardHeader.SaveButton"
+                >
+                  {t("Сохранить")}
+                </AppButton>
+              </HStack>
+            )}
+          </div>
+        )}
       </HStack>
     );
   }

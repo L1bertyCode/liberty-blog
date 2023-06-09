@@ -18,8 +18,10 @@ import { useSelector } from "react-redux";
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle";
+import { extname } from "path";
+import { TestProps } from "@/shared/types/tests";
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
@@ -69,6 +71,7 @@ export const Page = memo((props: PageProps) => {
       onScroll={onScroll}
       ref={wrapperRef}
       className={classNames(s.page, {}, [className])}
+      data-testid={props["data-testid"] ?? "Page"}
     >
       {children}
       {onScrollEnd ? (

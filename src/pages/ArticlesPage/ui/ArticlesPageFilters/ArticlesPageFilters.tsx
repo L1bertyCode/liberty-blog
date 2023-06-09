@@ -22,7 +22,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 import { Card } from "@/shared/ui/Card";
 import { AppInput } from "@/shared/ui/AppInput";
-import { SortOrder } from "@/shared/types";
+import { SortOrder } from "@/shared/types/sort";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesPageFilters.module.scss";
@@ -32,7 +32,6 @@ import { TabItem } from "@/shared/ui/Tabs/Tabs";
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
 import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 import { ArticlesSortSelector } from "@/features/ArticlesSortSelector";
-
 
 interface ArticlesPageFiltersProps {
   className?: string;

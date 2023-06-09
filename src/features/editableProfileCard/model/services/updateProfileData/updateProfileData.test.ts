@@ -6,9 +6,6 @@ import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
 import { ValidateProfileError } from "../../consts/const";
 
-
-
-
 jest.mock("axios");
 const mockedAxios = jest.mocked(axios);
 const data = {
@@ -29,11 +26,11 @@ describe("updateProfileData.test", () => {
         form: data,
       },
     });
+
     thunk.api.put.mockReturnValue(
-      Promise.resolve({
-        data: data,
-      })
+      Promise.resolve({ data })
     );
+
     const result = await thunk.callThunk();
 
     expect(thunk.api.put).toHaveBeenCalled();

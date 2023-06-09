@@ -1,17 +1,11 @@
-import { Suspense, useCallback } from "react";
+import { Suspense, memo, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import {
-  routesConfig,
-} from "@/shared/config/routesConfig/routesConfig";
+import { routesConfig } from "@/shared/config/routesConfig/routesConfig";
 import { PageLoader } from "@/widgets/PageLoader";
-import { useSelector } from "react-redux";
-import { getUserAuthData } from "@/entities/User";
 import { RequireAuth } from "./RequireAuth";
 import { AppRouteProps } from "@/shared/types/router";
-export const AppRouter = () => {
-  const isAuth = useSelector(getUserAuthData);
-
+const AppRouter = () => {
   const renderWithWrapper = useCallback(
     (route: AppRouteProps) => {
       const element = (
@@ -22,23 +16,28 @@ export const AppRouter = () => {
 
       return (
         <Route
+          key={route.path}
           path={route.path}
           element={
             route.authOnly ? (
-              <RequireAuth>{element}</RequireAuth>
+              <RequireAuth roles={route.roles}>
+                {element}
+              </RequireAuth>
             ) : (
               element
             )
           }
-          key={route.path}
         />
       );
     },
     []
   );
+
   return (
     <Routes>
       {Object.values(routesConfig).map(renderWithWrapper)}
     </Routes>
   );
 };
+
+export default memo(AppRouter);

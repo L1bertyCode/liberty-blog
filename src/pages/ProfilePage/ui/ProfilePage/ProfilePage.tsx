@@ -24,6 +24,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   }
   return (
     <Page
+    data-testid={"ProfilePage"}
       className={classNames(s.profilePage, {}, [className])}
     >
       <VStack gap={"16"} fullWidth>
