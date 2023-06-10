@@ -29,6 +29,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+
   webpackFinal: async (config: Configuration) => {
     const paths: BuildPaths = {
       buildDev: "",
