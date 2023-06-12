@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ArticleRecomendationList } from "./ArticleRecomendationList";
+import { ArticleRecommendationList } from "./ArticleRecommendationList";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 import { Article } from "@/entities/Article";
 const article: Article = {
@@ -14,8 +14,8 @@ const article: Article = {
   subtitle: "asfsa",
 };
 const meta = {
-  title: "features/ArticleRecomendationList",
-  component: ArticleRecomendationList,
+  title: "features/ArticleRecommendationList",
+  component: ArticleRecommendationList,
   //tags: ["autodocs"],
   //argTypes: {},
   args: {},
@@ -33,7 +33,7 @@ const meta = {
       },
     ],
   },
-} satisfies Meta<typeof ArticleRecomendationList>;
+} satisfies Meta<typeof ArticleRecommendationList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

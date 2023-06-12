@@ -1,4 +1,9 @@
-import { ReactNode, memo } from "react";
+import {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  ReactNode,
+  memo,
+} from "react";
 import {
   Mods,
   classNames,
@@ -36,11 +41,12 @@ const gapClasses: Record<FlexGap, string> = {
   "16": s.gap16,
   "32": s.gap32,
 };
-// type DivProps = DetailedHTMLProps<
-//  HTMLAttributes<HTMLDivElement>,
-//   HTMLDivElement
-// >;
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+  
+>;
+export interface FlexProps extends DivProps {
   className?: string;
   children: ReactNode;
   justify?: FlexJustify;
@@ -58,6 +64,7 @@ export const Flex = memo((props: FlexProps) => {
     direction = "row",
     gap,
     fullWidth,
+    ...otherProps
   } = props;
   const classes = [
     className,
@@ -70,7 +77,10 @@ export const Flex = memo((props: FlexProps) => {
     [s.fullWidth]: fullWidth,
   };
   return (
-    <div className={classNames(s.flex, mods, classes)}>
+    <div
+      className={classNames(s.flex, mods, classes)}
+      {...otherProps}
+    >
       {children}
     </div>
   );

@@ -2,21 +2,18 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 
 import { memo } from "react";
-import {
-  AppText,
-  AppTextSize,
-} from "@/shared/ui/AppText";
+import { AppText, AppTextSize } from "@/shared/ui/AppText";
 import { ArticleList } from "@/entities/Article";
 
 import { VStack } from "@/shared/ui/Stack";
 import { useArticleRecommendationsList } from "../../api/articleRecommendationsApi";
 
-interface ArticleRecomendationListProps {
+interface ArticleRecommendationListProps {
   className?: string;
 }
 
-export const ArticleRecomendationList = memo(
-  (props: ArticleRecomendationListProps) => {
+export const ArticleRecommendationList = memo(
+  (props: ArticleRecommendationListProps) => {
     const { className } = props;
     const { t } = useTranslation();
 
@@ -31,6 +28,7 @@ export const ArticleRecomendationList = memo(
 
     return (
       <VStack
+        data-testid={"ArticleRecommendationList"}
         gap="8"
         className={classNames("", {}, [className])}
       >

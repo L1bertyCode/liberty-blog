@@ -16,7 +16,7 @@ import { Page } from "@/widgets/Page/Page";
 import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import { VStack } from "@/shared/ui/Stack";
-import { ArticleRecomendationList } from "@/features/articleRecomendationList";
+import { ArticleRecommendationList } from "@/features/articleRecomendationList";
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticlesSortField } from "@/entities/Article";
 import { ArticleRating } from "@/features/articleRating";
@@ -66,7 +66,7 @@ const ArticleDetailsPage = memo(
             <ArticleDetailsPageHeader />
             <ArticleDetails id={id} />
             <ArticleRating articleId={id} />
-            <ArticleRecomendationList />
+            <ArticleRecommendationList />
             <ArticleDetailsComments id={id} />
           </VStack>
         </Page>

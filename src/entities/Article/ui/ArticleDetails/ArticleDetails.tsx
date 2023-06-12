@@ -151,7 +151,7 @@ export const ArticleDetails = memo(
               className={s.avatar}
             />
           </HStack>
-          <VStack gap="8" fullWidth>
+          <VStack data-testid={"ArticleDetails.Content"} gap="8" fullWidth>
             <AppText
               className={s.title}
               title={article?.title}

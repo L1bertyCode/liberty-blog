@@ -25,6 +25,7 @@ export const CommentCard = memo(
     if (isLoading) {
       return (
         <VStack
+          data-testid={"CommentCard.Loading"}
           gap="8"
           fullWidth
           className={classNames(s.commentCard, {}, [
@@ -53,6 +54,7 @@ export const CommentCard = memo(
     }
     return (
       <VStack
+        data-testid={"CommentCard.Content"}
         gap="8"
         fullWidth
         className={classNames(s.commentCard, {}, [
