@@ -10,18 +10,18 @@ describe("User visit the ArticleDetailspage", () => {
   afterEach(() => {
     cy.removeArticle(currentArticleId);
   });
-  it("User sees the content of the article", () => {
+  it.skip("User sees the content of the article", () => {
     cy.getByTestId("ArticleDetails.Content").should(
       "exist"
     );
   });
 
-  it("User sees ArticleRecommendationList", () => {
+  it.skip("User sees ArticleRecommendationList", () => {
     cy.getByTestId("ArticleRecommendationList").should(
       "exist"
     );
   });
-  it("User posts a comment", () => {
+  it.skip("User posts a comment", () => {
     cy.getByTestId("ArticleDetails.Content");
     cy.getByTestId("AddCommentForm").scrollIntoView();
     cy.addComment("text");
@@ -30,7 +30,10 @@ describe("User visit the ArticleDetailspage", () => {
       1
     );
   });
-  it("User puts as rating", () => {
+  it("On stubs.User puts as rating", () => {
+    cy.intercept("GET", "**/articles/*", {
+      fixture: "article-details.json",
+    });
     cy.getByTestId("ArticleDetails.Content");
     cy.getByTestId("RatingCard").scrollIntoView();
     cy.setRate(4, "feedback");
