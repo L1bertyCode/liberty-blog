@@ -90,6 +90,7 @@ export const ArticleListItem = memo(
       ) as ArticleTextBlock;
       return (
         <div
+          data-testid={"ArticleListItem"}
           className={classNames(s.articleListItem, {}, [
             className,
             s[view],
@@ -149,6 +150,7 @@ export const ArticleListItem = memo(
     }
     return (
       <AppLink
+        data-testid={"ArticleListItem"}
         target={target}
         to={getRouteArticleDetails(article.id)}
         {...bindHover}

@@ -35,7 +35,7 @@ declare global {
       ): Chainable<User>;
       getByTestId(
         testId: string
-      ): ReturnType<typeof cy.get>;
+      ): Chainable<JQuery<HTMLElement>>;
     }
   }
 }

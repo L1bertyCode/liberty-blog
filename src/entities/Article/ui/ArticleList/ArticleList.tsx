@@ -12,10 +12,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticleList.module.scss";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
-import {
-  AppText,
-  AppTextSize,
-} from "@/shared/ui/AppText";
+import { AppText, AppTextSize } from "@/shared/ui/AppText";
 
 import { PAGE_ID } from "@/widgets/Page/Page";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
@@ -50,9 +47,6 @@ export const ArticleList = memo(
     } = props;
     const { t } = useTranslation();
 
-
-
-
     if (!isLoading && !articles?.length) {
       return (
         <div
@@ -71,6 +65,7 @@ export const ArticleList = memo(
 
     return (
       <div
+        data-testid={"ArticleList"}
         className={classNames(s.ArticleList, {}, [
           className,
           s[view],

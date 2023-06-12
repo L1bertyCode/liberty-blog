@@ -1,36 +1,47 @@
-import { USER_LOCALSTORAGE_KEY } from "../../../src/shared/const/localstorage";
-import { User } from "../../../src/entities/User";
-import { selectByTestId } from "cypress/helpers/selectByTestId";
-
-export const login = (
-  username: string = "testuser",
-  password: string = "123"
+export const updateProfile = (
+  firstname: string,
+  lastname: string
 ) => {
-  return cy
-    .request({
-      method: "POST",
-      url: `http://localhost:8000/login`,
-      body: {
-        username,
-        password,
-      },
-    })
-    .then(({ body }) => {
-      window.localStorage.setItem(
-        USER_LOCALSTORAGE_KEY,
-        JSON.stringify(body)
-      );
-      return body;
-    });
+  cy.getByTestId(
+    "EditableProfileCardHeader.EditButton"
+  ).click();
+  cy.getByTestId("ProfileCard.firstname")
+    .clear()
+    .type(firstname);
+  cy.getByTestId("ProfileCard.lastname")
+    .clear()
+    .type(lastname);
+  cy.getByTestId(
+    "EditableProfileCardHeader.SaveButton"
+  ).click();
 };
-export const getByTestId = (testId: string) => {
-  return cy.get(selectByTestId(testId));
+export const resetProfile = (profileId: string) => {
+  return cy.request({
+    method: "PUT",
+    url: `http://localhost:8000/profile/${profileId}`,
+    headers: { Authorization: "asasf" },
+    body: {
+      id: "4",
+      firstname: "testuser",
+      lastname: "testuser",
+      age: 18,
+      currency: "EUR",
+      country: "USA",
+      city: "Moscowasdfs",
+      username: "testuser",
+      avatar:
+        "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/master/w_2560%2Cc_limit/security_hacker_names.jpg",
+    },
+  });
 };
 declare global {
   namespace Cypress {
     interface Chainable {
-      updateProfile(): Chainable<void>;
-      resetProfile(): Chainable<void>;
+      updateProfile(
+        firstname: string,
+        lastname: string
+      ): Chainable<void>;
+      resetProfile(profileId: string): Chainable<void>;
     }
   }
 }
