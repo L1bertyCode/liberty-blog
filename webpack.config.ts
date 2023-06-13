@@ -16,12 +16,16 @@ export default (env: BuildEnv) => {
     ),
     src: path.resolve(__dirname, "src"),
     locales: path.resolve(__dirname, "public", "locales"),
-    buildLocales:  path.resolve(__dirname, "build-prod", "locales"),
+    buildLocales: path.resolve(
+      __dirname,
+      "build-prod",
+      "locales"
+    ),
   };
-  const buildMode = env.mode || "development";
+  const buildMode = env?.mode || "development";
   const isDev = buildMode === "development";
-  const PORT = env.port || 3300;
-  const apiUrl = env.apiUrl || "http://localhost:8000";
+  const PORT = env?.port || 3300;
+  const apiUrl = env?.apiUrl || "http://localhost:8000";
 
   const config = buildWebpackConfig({
     buildMode,
