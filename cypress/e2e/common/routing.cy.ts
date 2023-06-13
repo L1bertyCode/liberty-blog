@@ -12,9 +12,7 @@ describe("Routing", () => {
     });
     it("Non-existend route", () => {
       cy.visit("/adfadsfdas");
-      cy.get(selectByTestId("NotFoundPage")).should(
-        "exist"
-      );
+      cy.get(selectByTestId("NotFoundPage")).should("exist");
     });
   });
   describe("User is Auth", () => {
@@ -28,9 +26,7 @@ describe("Routing", () => {
     });
     it("Article list", () => {
       cy.visit("/articles");
-      cy.get(selectByTestId("ArticlesPage")).should(
-        "exist"
-      );
+      cy.get(selectByTestId("ArticlesPage")).should("exist");
     });
   });
 });

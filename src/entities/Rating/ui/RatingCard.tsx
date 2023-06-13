@@ -15,10 +15,7 @@ import {
   AppButtonSize,
   AppButtonVariant,
 } from "@/shared/ui/AppButton";
-import {
-  BrowserView,
-  MobileView,
-} from "react-device-detect";
+import { BrowserView, MobileView } from "react-device-detect";
 import { Drawer } from "@/shared/ui/Drawer";
 
 interface RatingCardProps {
@@ -58,7 +55,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
         onAccept?.(selectedStarsCount);
       }
     },
-    [hasFeedback, onAccept]
+    [hasFeedback, onAccept],
   );
   const acceptHandle = useCallback(() => {
     setIsModalOpen(false);
@@ -85,14 +82,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
     <Card
       data-testid={"RatingCard"}
       className={classNames(s.ratingCard, {}, [className])}
-      fullWidth
-    >
-      <VStack align="center" gap="8">
-        <AppText
-          title={
-            starsCount ? t("Thank you for rating") : title
-          }
-        />
+      fullWidth>
+      <VStack
+        align="center"
+        gap="8">
+        <AppText title={starsCount ? t("Thank you for rating") : title} />
         <StarRating
           selectedStars={starsCount}
           size={50}
@@ -100,21 +94,26 @@ export const RatingCard = memo((props: RatingCardProps) => {
         />
       </VStack>
       <BrowserView>
-        <Modal isOpen={isModalOpen} lazy>
-          <VStack gap="32" fullWidth>
+        <Modal
+          isOpen={isModalOpen}
+          lazy>
+          <VStack
+            gap="32"
+            fullWidth>
             {modalContent}
-            <HStack gap="16" justify={"end"} fullWidth>
+            <HStack
+              gap="16"
+              justify={"end"}
+              fullWidth>
               <AppButton
                 data-testid={"RatingCard.Close"}
                 onClick={cancelHandle}
-                variant={AppButtonVariant.OUTLINE_RED}
-              >
+                variant={AppButtonVariant.OUTLINE_RED}>
                 {t("Close")}
               </AppButton>
               <AppButton
                 data-testid={"RatingCard.Send"}
-                onClick={acceptHandle}
-              >
+                onClick={acceptHandle}>
                 {t("Send")}
               </AppButton>
             </HStack>
@@ -125,15 +124,15 @@ export const RatingCard = memo((props: RatingCardProps) => {
         <Drawer
           isOpen={isModalOpen}
           lazy
-          onClose={cancelHandle}
-        >
-          <VStack gap="32" justify="end">
+          onClose={cancelHandle}>
+          <VStack
+            gap="32"
+            justify="end">
             {modalContent}
             <AppButton
               onClick={acceptHandle}
               size={AppButtonSize.L}
-              fullWidth
-            >
+              fullWidth>
               {t("Send")}
             </AppButton>
           </VStack>

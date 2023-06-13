@@ -8,14 +8,10 @@ describe("getProfileError", () => {
         error: "error",
       },
     };
-    expect(getProfileError(state as StateSchema)).toEqual(
-      "error"
-    );
+    expect(getProfileError(state as StateSchema)).toEqual("error");
   });
   test("should work with emprty state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getProfileError(state as StateSchema)).toEqual(
-      undefined
-    );
+    expect(getProfileError(state as StateSchema)).toEqual(undefined);
   });
 });

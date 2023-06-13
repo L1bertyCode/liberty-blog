@@ -16,10 +16,9 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
-  {
-    addCommentForm: addCommentFormReducer,
-  };
+const defaultAsyncReducers: DeepPartial<ReducersMapObject> = {
+  addCommentForm: addCommentFormReducer,
+};
 export const Light: Story = {
   args: {},
   decorators: [
@@ -31,8 +30,7 @@ export const Light: Story = {
               text: "sdfa",
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );
@@ -52,8 +50,7 @@ export const Dark: Story = {
               text: "sdfa",
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );

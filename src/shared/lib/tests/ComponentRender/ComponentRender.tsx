@@ -4,10 +4,7 @@ import { render } from "@testing-library/react";
 
 import { I18nextProvider } from "react-i18next";
 
-import {
-  StateSchema,
-  StoreProvider,
-} from "@/app/providers/StoreProvider";
+import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import i18nForTests from "@/shared/config/i18n/i18nForTests";
 import { ReducersMapObject } from "@reduxjs/toolkit";
 import { ThemeProvider } from "@/app/providers/ThemeProvider";
@@ -16,17 +13,13 @@ import { Theme } from "@/shared/const/theme";
 export interface componentRenderOptions {
   route?: string;
   initialState?: DeepPartial<StateSchema>;
-  asyncReducers?: DeepPartial<
-    ReducersMapObject<StateSchema>
-  >;
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
 export interface componentRenderOptions {
   route?: string;
   initialState?: DeepPartial<StateSchema>;
-  asyncReducers?: DeepPartial<
-    ReducersMapObject<StateSchema>
-  >;
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
   theme?: Theme;
 }
 
@@ -50,8 +43,7 @@ export function TestProvider(props: TestProviderProps) {
         //@ts-ignore
         asyncReducers={asyncReducers}
         //@ts-ignore
-        initialState={initialState}
-      >
+        initialState={initialState}>
         <I18nextProvider i18n={i18nForTests}>
           <ThemeProvider initialTheme={theme}>
             <div className={`app ${theme}`}>{children}</div>
@@ -64,11 +56,7 @@ export function TestProvider(props: TestProviderProps) {
 
 export function componentRender(
   component: ReactNode,
-  options: componentRenderOptions = {}
+  options: componentRenderOptions = {},
 ) {
-  return render(
-    <TestProvider options={options}>
-      {component}
-    </TestProvider>
-  );
+  return render(<TestProvider options={options}>{component}</TestProvider>);
 }

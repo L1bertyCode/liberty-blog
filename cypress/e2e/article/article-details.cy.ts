@@ -11,24 +11,17 @@ describe("User visit the ArticleDetailspage", () => {
     cy.removeArticle(currentArticleId);
   });
   it.skip("User sees the content of the article", () => {
-    cy.getByTestId("ArticleDetails.Content").should(
-      "exist"
-    );
+    cy.getByTestId("ArticleDetails.Content").should("exist");
   });
 
   it.skip("User sees ArticleRecommendationList", () => {
-    cy.getByTestId("ArticleRecommendationList").should(
-      "exist"
-    );
+    cy.getByTestId("ArticleRecommendationList").should("exist");
   });
   it.skip("User posts a comment", () => {
     cy.getByTestId("ArticleDetails.Content");
     cy.getByTestId("AddCommentForm").scrollIntoView();
     cy.addComment("text");
-    cy.getByTestId("CommentCard.Content").should(
-      "have.length",
-      1
-    );
+    cy.getByTestId("CommentCard.Content").should("have.length", 1);
   });
   it("On stubs.User puts as rating", () => {
     cy.intercept("GET", "**/articles/*", {

@@ -11,10 +11,7 @@ import { profileActions } from "@/features/editableProfileCard/model/slice/profi
 import { updateProfileData } from "@/features/editableProfileCard/model/services/updateProfileData/updateProfileData";
 import { HStack } from "@/shared/ui/Stack";
 import { AppText } from "@/shared/ui/AppText";
-import {
-  AppButton,
-  AppButtonVariant,
-} from "@/shared/ui/AppButton";
+import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -47,8 +44,7 @@ export const EditableProfileCardHeader = memo(
       <HStack
         fullWidth
         justify="between"
-        className={classNames("", {}, [className])}
-      >
+        className={classNames("", {}, [className])}>
         <AppText title={t("Профиль")} />
         {canEdit && (
           <div>
@@ -56,8 +52,7 @@ export const EditableProfileCardHeader = memo(
               <AppButton
                 variant={AppButtonVariant.OUTLINE}
                 onClick={onEdit}
-                data-testid="EditableProfileCardHeader.EditButton"
-              >
+                data-testid="EditableProfileCardHeader.EditButton">
                 {t("Редактировать")}
               </AppButton>
             ) : (
@@ -65,15 +60,13 @@ export const EditableProfileCardHeader = memo(
                 <AppButton
                   variant={AppButtonVariant.OUTLINE_RED}
                   onClick={onCancelEdit}
-                  data-testid="EditableProfileCardHeader.CancelButton"
-                >
+                  data-testid="EditableProfileCardHeader.CancelButton">
                   {t("Отменить")}
                 </AppButton>
                 <AppButton
                   variant={AppButtonVariant.OUTLINE}
                   onClick={onSave}
-                  data-testid="EditableProfileCardHeader.SaveButton"
-                >
+                  data-testid="EditableProfileCardHeader.SaveButton">
                   {t("Сохранить")}
                 </AppButton>
               </HStack>
@@ -82,5 +75,5 @@ export const EditableProfileCardHeader = memo(
         )}
       </HStack>
     );
-  }
+  },
 );

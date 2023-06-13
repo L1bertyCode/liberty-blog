@@ -8,16 +8,12 @@ describe("getLoginPassword", () => {
         password: "123",
       },
     };
-    expect(getLoginPassword(state as StateSchema)).toEqual(
-      "123"
-    );
+    expect(getLoginPassword(state as StateSchema)).toEqual("123");
   });
 });
 describe("getLoginError", () => {
   test("should work with empt state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getLoginPassword(state as StateSchema)).toEqual(
-      ""
-    );
+    expect(getLoginPassword(state as StateSchema)).toEqual("");
   });
 });

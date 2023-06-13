@@ -1,9 +1,6 @@
 import { memo } from "react";
 
-import {
-  Mods,
-  classNames,
-} from "@/shared/lib/classNames/classNames";
+import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 import s from "./AppText.module.scss";
 
 export enum AppTextVariant {
@@ -34,19 +31,12 @@ export interface AppTextProps {
   "data-testid"?: string;
 }
 
-type HeaderTagType =
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6";
-const mapSizeToHeader: Record<AppTextSize, HeaderTagType> =
-  {
-    [AppTextSize.S]: "h3",
-    [AppTextSize.M]: "h2",
-    [AppTextSize.L]: "h1",
-  };
+type HeaderTagType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+const mapSizeToHeader: Record<AppTextSize, HeaderTagType> = {
+  [AppTextSize.S]: "h3",
+  [AppTextSize.M]: "h2",
+  [AppTextSize.L]: "h1",
+};
 export const AppText = memo((props: AppTextProps) => {
   const {
     className,
@@ -66,21 +56,18 @@ export const AppText = memo((props: AppTextProps) => {
         s[variant],
         s[align],
         s[size],
-      ])}
-    >
+      ])}>
       {title && (
         <HeaderTag
           data-testid={`${dataTestId}.Header`}
-          className={s.title}
-        >
+          className={s.title}>
           {title}
         </HeaderTag>
       )}
       {text && (
         <p
           data-testid={`${dataTestId}.Paragraph`}
-          className={s.text}
-        >
+          className={s.text}>
           {text}
         </p>
       )}

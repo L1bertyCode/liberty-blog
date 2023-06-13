@@ -1,20 +1,8 @@
-import {
-  DetailedHTMLProps,
-  HTMLAttributes,
-  ReactNode,
-  memo,
-} from "react";
-import {
-  Mods,
-  classNames,
-} from "@/shared/lib/classNames/classNames";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode, memo } from "react";
+import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Flex.module.scss";
 
-export type FlexJustify =
-  | "start"
-  | "center"
-  | "end"
-  | "between";
+export type FlexJustify = "start" | "center" | "end" | "between";
 export type FlexAlign = "start" | "center" | "end";
 export type FlexDirection = "row" | "column";
 export type FlexGap = "4" | "8" | "16" | "32";
@@ -44,7 +32,6 @@ const gapClasses: Record<FlexGap, string> = {
 type DivProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
-  
 >;
 export interface FlexProps extends DivProps {
   className?: string;
@@ -79,8 +66,7 @@ export const Flex = memo((props: FlexProps) => {
   return (
     <div
       className={classNames(s.flex, mods, classes)}
-      {...otherProps}
-    >
+      {...otherProps}>
       {children}
     </div>
   );

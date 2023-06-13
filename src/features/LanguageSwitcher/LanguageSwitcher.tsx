@@ -12,18 +12,15 @@ interface LanguageSwitcherProps {
   className?: string;
   short?: boolean;
 }
-export const LanguageSwitcher = memo(
-  (props: LanguageSwitcherProps) => {
-    const { className, short } = props;
-    const { t, i18n } = useTranslation();
-    const toggleLanguage = () => {
-      i18n.changeLanguage(
-        i18n.language === "ru" ? "en" : "ru"
-      );
-    };
-    return (
-      <div>
-        {/* <select name={t("Langauge")}>
+export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
+  const { className, short } = props;
+  const { t, i18n } = useTranslation();
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
+  };
+  return (
+    <div>
+      {/* <select name={t("Langauge")}>
           <option>
             <AppButton
               variant={AppButtonVariant.CLEAR}
@@ -35,16 +32,12 @@ export const LanguageSwitcher = memo(
           <option>EN</option>
         </select> */}
 
-        <AppButton
-          className={classNames("languageSwitcher", {}, [
-            className,
-          ])}
-          variant={AppButtonVariant.CLEAR_INVERTED}
-          onClick={toggleLanguage}
-        >
-          {short ? t("ShortLangauge") : t("Langauge")}
-        </AppButton>
-      </div>
-    );
-  }
-);
+      <AppButton
+        className={classNames("languageSwitcher", {}, [className])}
+        variant={AppButtonVariant.CLEAR_INVERTED}
+        onClick={toggleLanguage}>
+        {short ? t("ShortLangauge") : t("Langauge")}
+      </AppButton>
+    </div>
+  );
+});

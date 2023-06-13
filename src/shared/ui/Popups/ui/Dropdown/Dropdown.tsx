@@ -21,49 +21,23 @@ interface DropdownProps {
 }
 
 export function Dropdown(props: DropdownProps) {
-  const {
-    className,
-    trigger,
-    items,
-    direction = "bottom left",
-  } = props;
+  const { className, trigger, items, direction = "bottom left" } = props;
   const menuListClasses = [mapDirectionClass[direction]];
 
   return (
     <Menu
       as="div"
-      className={classNames(s.dropdon, {}, [
-        className,
-        commonS.popup,
-      ])}
-    >
-      <Menu.Button className={commonS.trigger}>
-        {trigger}
-      </Menu.Button>
-      <Menu.Items
-        className={classNames(
-          s.menuList,
-          {},
-          menuListClasses
-        )}
-      >
+      className={classNames(s.dropdon, {}, [className, commonS.popup])}>
+      <Menu.Button className={commonS.trigger}>{trigger}</Menu.Button>
+      <Menu.Items className={classNames(s.menuList, {}, menuListClasses)}>
         {items?.map((item, index) => {
-          const content = ({
-            active,
-          }: {
-            active: boolean;
-          }) => (
+          const content = ({ active }: { active: boolean }) => (
             <button
               key={index}
               disabled={item.disabled}
               type="button"
               onClick={item.onClick}
-              className={classNames(
-                s.menuItem,
-                { [s.active]: active },
-                []
-              )}
-            >
+              className={classNames(s.menuItem, { [s.active]: active }, [])}>
               {item.content}
             </button>
           );
@@ -74,8 +48,7 @@ export function Dropdown(props: DropdownProps) {
                 key={"dropdown-key" + index}
                 as={AppLink}
                 to={item.href}
-                disabled={item.disabled}
-              >
+                disabled={item.disabled}>
                 {content}
               </Menu.Item>
             );
@@ -84,8 +57,7 @@ export function Dropdown(props: DropdownProps) {
             <Menu.Item
               as={"div"}
               disabled={item.disabled}
-              key={"dropdown-key" + index}
-            >
+              key={"dropdown-key" + index}>
               {content}
             </Menu.Item>
           );

@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  AppNavLink,
-  AppNavLinkVariant,
-} from "./AppNavLink";
+import { AppNavLink, AppNavLinkVariant } from "./AppNavLink";
 
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 

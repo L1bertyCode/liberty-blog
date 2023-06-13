@@ -8,9 +8,7 @@ describe("getProfileIsLoading", () => {
         isLoading: true,
       },
     };
-    expect(
-      getProfileIsLoading(state as StateSchema)
-    ).toEqual(true);
+    expect(getProfileIsLoading(state as StateSchema)).toEqual(true);
   });
   test("should return false", () => {
     const state: DeepPartial<StateSchema> = {
@@ -18,14 +16,10 @@ describe("getProfileIsLoading", () => {
         isLoading: false,
       },
     };
-    expect(
-      getProfileIsLoading(state as StateSchema)
-    ).toEqual(false);
+    expect(getProfileIsLoading(state as StateSchema)).toEqual(false);
   });
   test("should work with emprty state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(
-      getProfileIsLoading(state as StateSchema)
-    ).toEqual(undefined);
+    expect(getProfileIsLoading(state as StateSchema)).toEqual(undefined);
   });
 });

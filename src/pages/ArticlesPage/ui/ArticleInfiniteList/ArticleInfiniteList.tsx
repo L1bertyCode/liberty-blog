@@ -21,35 +21,31 @@ interface ArticleInfiniteListProps {
   className?: string;
 }
 
-const ArticleInfiniteList = memo(
-  (props: ArticleInfiniteListProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    const dispatch = useAppDispatch();
+const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
+  const { className } = props;
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const view = useSelector(getArticlesPageView);
-    const error = useSelector(getArticlesPageError);
+  const articles = useSelector(getArticles.selectAll);
+  const isLoading = useSelector(getArticlesPageIsLoading);
+  const view = useSelector(getArticlesPageView);
+  const error = useSelector(getArticlesPageError);
 
-    let [searchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
 
-    useInitialEffect(() => {
-      dispatch(initArticlesPage(searchParams));
-    });
-    if (error) {
-      return (
-        <AppText text={t("Error loading articles") || ""} />
-      );
-    }
-    return (
-      <ArticleList
-        isLoading={isLoading}
-        view={view}
-        articles={articles}
-        className={s.list}
-      />
-    );
+  useInitialEffect(() => {
+    dispatch(initArticlesPage(searchParams));
+  });
+  if (error) {
+    return <AppText text={t("Error loading articles") || ""} />;
   }
-);
+  return (
+    <ArticleList
+      isLoading={isLoading}
+      view={view}
+      articles={articles}
+      className={s.list}
+    />
+  );
+});
 export default ArticleInfiniteList;

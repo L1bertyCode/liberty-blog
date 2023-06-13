@@ -1,6 +1,1 @@
-export {
-  AppText,
-  AppTextVariant,
-  AppTextSize,
-  AppTextAlign,
-} from "./AppText";
+export { AppText, AppTextVariant, AppTextSize, AppTextAlign } from "./AppText";

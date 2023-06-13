@@ -9,24 +9,17 @@ export type ThemeProviderProps = {
   initialTheme?: Theme;
 };
 
-const ThemeProvider = ({
-  children,
-  initialTheme,
-}: ThemeProviderProps) => {
+const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
   const defaultTheme =
-    (localStorage.getItem(
-      LOCAL_STORAGE_THEME_KEY
-    ) as Theme) || Theme.LIGHT;
-  const [theme, setTheme] = useState<Theme>(
-    initialTheme || defaultTheme
-  );
+    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
   const defaultProps = useMemo(
     () => ({
       theme: theme,
       setTheme: setTheme,
     }),
-    [theme]
+    [theme],
   );
 
   return (

@@ -9,7 +9,10 @@ import { StoreProvider } from "@/app/providers/StoreProvider";
 import { ReducersMapObject } from "@reduxjs/toolkit";
 import { articleDetailsReducer } from "@/entities/Article/model/slices/ArticleDetailsSlice";
 import { ArticleDetailsSchema } from "@/entities/Article/model/types/articleDetailsSchema";
-import { ArticleBlockType, ArticleType } from "@/entities/Article/model/consts/consts";
+import {
+  ArticleBlockType,
+  ArticleType,
+} from "@/entities/Article/model/consts/consts";
 
 const article: Article = {
   id: "1",
@@ -94,8 +97,9 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
-  { articleDetails: articleDetailsReducer };
+const defaultAsyncReducers: DeepPartial<ReducersMapObject> = {
+  articleDetails: articleDetailsReducer,
+};
 export const Light: Story = {
   args: {},
   decorators: [
@@ -109,8 +113,7 @@ export const Light: Story = {
               error: undefined,
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );
@@ -132,8 +135,7 @@ export const Dark: Story = {
               error: undefined,
             } as ArticleDetailsSchema,
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );

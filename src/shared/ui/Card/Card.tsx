@@ -25,13 +25,11 @@ export const Card = (props: CardProps) => {
   } = props;
   return (
     <div
-      className={classNames(
-        s.card,
-        { [s.fullWidth]: fullWidth },
-        [className, s[variant]]
-      )}
-      {...otherProps}
-    >
+      className={classNames(s.card, { [s.fullWidth]: fullWidth }, [
+        className,
+        s[variant],
+      ])}
+      {...otherProps}>
       {children}
     </div>
   );

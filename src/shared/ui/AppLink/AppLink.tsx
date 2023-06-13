@@ -28,11 +28,7 @@ export const AppLink = memo((props: AppLinkProps) => {
     <Link
       {...otherProps}
       to={to}
-      className={classNames("appLink", {}, [
-        className,
-        s[variant],
-      ])}
-    >
+      className={classNames("appLink", {}, [className, s[variant]])}>
       {children}
     </Link>
   );

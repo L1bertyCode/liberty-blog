@@ -17,26 +17,46 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    children: <AppText text={"Text"} title={"Title"} />,
+    children: (
+      <AppText
+        text={"Text"}
+        title={"Title"}
+      />
+    ),
   },
 };
 
 export const Dark: Story = {
   args: {
-    children: <AppText text={"Text"} title={"Title"} />,
+    children: (
+      <AppText
+        text={"Text"}
+        title={"Title"}
+      />
+    ),
   },
   decorators: [ThemeDecoratorDark],
 };
 export const LightOutlined: Story = {
   args: {
-    children: <AppText text={"Text"} title={"Title"} />,
+    children: (
+      <AppText
+        text={"Text"}
+        title={"Title"}
+      />
+    ),
     variant: CardVariant.OUTLINED,
   },
 };
 
 export const DarkOutlined: Story = {
   args: {
-    children: <AppText text={"Text"} title={"Title"} />,
+    children: (
+      <AppText
+        text={"Text"}
+        title={"Title"}
+      />
+    ),
     variant: CardVariant.OUTLINED,
   },
   decorators: [ThemeDecoratorDark],

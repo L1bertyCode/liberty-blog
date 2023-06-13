@@ -12,9 +12,7 @@ interface PageLoaderProps {
 export const PageLoader = memo((props: PageLoaderProps) => {
   const { className } = props;
   return (
-    <Page
-      className={classNames(s.pageLoader, {}, [className])}
-    >
+    <Page className={classNames(s.pageLoader, {}, [className])}>
       <Loader />
     </Page>
   );

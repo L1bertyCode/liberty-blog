@@ -27,9 +27,7 @@ export const App = memo(() => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <ErrorBoundary>
-            {inited && <AppRouter />}
-          </ErrorBoundary>
+          <ErrorBoundary>{inited && <AppRouter />}</ErrorBoundary>
         </div>
       </div>
     </Suspense>

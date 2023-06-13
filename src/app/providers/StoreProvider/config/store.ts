@@ -14,13 +14,11 @@ import { $api } from "@/shared/api/api";
 import { scrollSaveReducer } from "@/features/ScrollSave";
 import { rtkApi } from "@/shared/api/rtkApi";
 
-export type AppDispatch = ReturnType<
-  typeof createReduxStore
->["dispatch"];
+export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];
 
 export const createReduxStore = (
   initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>
+  asyncReducers?: ReducersMapObject<StateSchema>,
 ) => {
   const RootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -37,9 +35,7 @@ export const createReduxStore = (
 
   const store = configureStore({
     preloadedState: initialState,
-    reducer: reducerManager.reduce as Reducer<
-      CombinedState<StateSchema>
-    >,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS__DEV__,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({

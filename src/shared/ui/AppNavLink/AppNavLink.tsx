@@ -27,14 +27,12 @@ export const AppNavLink = memo((props: AppNavLinkProps) => {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        classNames(
-          `${s.appNavLink} ${isActive ? s.active : ""}`,
-          {},
-          [className, s[variant]]
-        )
+        classNames(`${s.appNavLink} ${isActive ? s.active : ""}`, {}, [
+          className,
+          s[variant],
+        ])
       }
-      {...otherProps}
-    >
+      {...otherProps}>
       {children}
     </NavLink>
   );

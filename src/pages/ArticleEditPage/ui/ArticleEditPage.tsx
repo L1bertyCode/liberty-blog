@@ -14,32 +14,22 @@ interface ArticleEditPageProps {
   className?: string;
 }
 
-const ArticleEditPage = memo(
-  (props: ArticleEditPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
+const ArticleEditPage = memo((props: ArticleEditPageProps) => {
+  const { className } = props;
+  const { t } = useTranslation();
 
-    const { id } = useParams<{ id: string }>();
-    const isEdit = Boolean(id);
+  const { id } = useParams<{ id: string }>();
+  const isEdit = Boolean(id);
 
-    const navigate = useNavigate();
-    const onBackToList = useCallback(() => {
-      navigate(getRouteArticles());
-    }, [navigate]);
+  const navigate = useNavigate();
+  const onBackToList = useCallback(() => {
+    navigate(getRouteArticles());
+  }, [navigate]);
 
-    return (
-      <Page
-        className={classNames(s.articleEditPage, {}, [
-          className,
-        ])}
-      >
-        {isEdit ? (
-          <div>ArticleEditPage</div>
-        ) : (
-          <div>ArticleCreatedPage</div>
-        )}
-      </Page>
-    );
-  }
-);
+  return (
+    <Page className={classNames(s.articleEditPage, {}, [className])}>
+      {isEdit ? <div>ArticleEditPage</div> : <div>ArticleCreatedPage</div>}
+    </Page>
+  );
+});
 export default ArticleEditPage;

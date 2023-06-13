@@ -11,9 +11,7 @@ import { StoreProvider } from "@/app/providers/StoreProvider";
 const container = document.getElementById("root");
 
 if (!container) {
-  throw new Error(
-    "Container root not found. Failed to mount react app"
-  );
+  throw new Error("Container root not found. Failed to mount react app");
 }
 
 const root = ReactDOM.createRoot(container);
@@ -25,5 +23,5 @@ root.render(
         <App />
       </ThemeProvider>
     </StoreProvider>
-  </BrowserRouter>
+  </BrowserRouter>,
 );

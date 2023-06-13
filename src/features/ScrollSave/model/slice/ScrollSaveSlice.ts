@@ -1,7 +1,4 @@
-import {
-  PayloadAction,
-  createSlice,
-} from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { ScrollSaveSchema } from "../types/ScrollSaveSchema";
 
 const initialState: ScrollSaveSchema = {
@@ -19,16 +16,12 @@ export const ScrollSaveSlice = createSlice({
       }: PayloadAction<{
         parh: string;
         position: number;
-      }>
+      }>,
     ) => {
       state.scroll[payload.parh] = payload.position;
     },
   },
 });
 
-export const { actions: scrollSaveActions } =
-  ScrollSaveSlice;
-export const { reducer: scrollSaveReducer } =
-  ScrollSaveSlice;
-
-
+export const { actions: scrollSaveActions } = ScrollSaveSlice;
+export const { reducer: scrollSaveReducer } = ScrollSaveSlice;

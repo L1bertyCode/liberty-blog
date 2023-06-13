@@ -21,9 +21,7 @@ const meta = {
   decorators: [
     (Story) => {
       return (
-        <div
-          style={{ padding: 200, boxSizing: "border-box" }}
-        >
+        <div style={{ padding: 200, boxSizing: "border-box" }}>
           <Story />
         </div>
       );

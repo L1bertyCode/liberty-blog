@@ -30,27 +30,23 @@ const options = [
   },
 ];
 
-export const CountrySelect = memo(
-  (props: CountrySelectProps) => {
-    const { value, onChange, readOnly, className } = props;
-    const { t } = useTranslation();
+export const CountrySelect = memo((props: CountrySelectProps) => {
+  const { value, onChange, readOnly, className } = props;
+  const { t } = useTranslation();
 
-    const onChangeHandler = (value: string) => {
-      onChange?.(value as Country);
-    };
-    return (
-      <Listbox
-        className={classNames(s.countrySelect, {}, [
-          className,
-        ])}
-        label={t("Choose the country")}
-        defaultValue={t("Choose the country")}
-        items={options}
-        value={value}
-        onChange={onChangeHandler}
-        readOnly={readOnly}
-        direction={"top left"}
-      />
-    );
-  }
-);
+  const onChangeHandler = (value: string) => {
+    onChange?.(value as Country);
+  };
+  return (
+    <Listbox
+      className={classNames(s.countrySelect, {}, [className])}
+      label={t("Choose the country")}
+      defaultValue={t("Choose the country")}
+      items={options}
+      value={value}
+      onChange={onChangeHandler}
+      readOnly={readOnly}
+      direction={"top left"}
+    />
+  );
+});

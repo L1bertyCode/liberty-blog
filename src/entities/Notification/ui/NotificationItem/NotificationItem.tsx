@@ -13,35 +13,29 @@ interface NotificationItemProps {
   item: Notification;
 }
 
-export const NotificationItem = memo(
-  (props: NotificationItemProps) => {
-    const { className, item } = props;
-    const { t } = useTranslation();
+export const NotificationItem = memo((props: NotificationItemProps) => {
+  const { className, item } = props;
+  const { t } = useTranslation();
 
-    const content = (
-      <Card
-        variant={CardVariant.OUTLINED}
-        className={classNames(s.notificationItem, {}, [
-          className,
-        ])}
-      >
-        <AppText
-          title={item.title}
-          text={item.description}
-        />
-      </Card>
+  const content = (
+    <Card
+      variant={CardVariant.OUTLINED}
+      className={classNames(s.notificationItem, {}, [className])}>
+      <AppText
+        title={item.title}
+        text={item.description}
+      />
+    </Card>
+  );
+  if (item.href) {
+    return (
+      <AppLink
+        className={s.link}
+        to={item.href}
+        target="_blank">
+        {content}
+      </AppLink>
     );
-    if (item.href) {
-      return (
-        <AppLink
-          className={s.link}
-          to={item.href}
-          target="_blank"
-        >
-          {content}
-        </AppLink>
-      );
-    }
-    return content;
   }
-);
+  return content;
+});

@@ -18,63 +18,59 @@ interface CommentCardProps {
   isLoading?: boolean;
 }
 
-export const CommentCard = memo(
-  (props: CommentCardProps) => {
-    const { className, comment, isLoading } = props;
-    const { t } = useTranslation();
-    if (isLoading) {
-      return (
-        <VStack
-          data-testid={"CommentCard.Loading"}
-          gap="8"
-          fullWidth
-          className={classNames(s.commentCard, {}, [
-            className,
-            s.loading,
-          ])}
-        >
-          <div className={s.header}>
-            <Skeleton
-              border={"50%"}
-              width={"30px"}
-              height={"30px"}
-            />
-            <Skeleton
-              className={s.username}
-              width={"120px"}
-              height={"22px"}
-            />
-          </div>
-          <Skeleton className={s.text} />
-        </VStack>
-      );
-    }
-    if (!comment) {
-      return null;
-    }
+export const CommentCard = memo((props: CommentCardProps) => {
+  const { className, comment, isLoading } = props;
+  const { t } = useTranslation();
+  if (isLoading) {
     return (
       <VStack
-        data-testid={"CommentCard.Content"}
+        data-testid={"CommentCard.Loading"}
         gap="8"
         fullWidth
-        className={classNames(s.commentCard, {}, [
-          className,
-        ])}
-      >
-        <AppNavLink
-          to={getRouteProfile(comment?.user.id)}
-          className={s.header}
-        >
-          {comment?.user?.avatar ? (
-            <Avatar size={30} src={comment?.user.avatar} />
-          ) : null}
-          <AppText
-            className={s.username}
-            title={comment?.user?.username}
+        className={classNames(s.commentCard, {}, [className, s.loading])}>
+        <div className={s.header}>
+          <Skeleton
+            border={"50%"}
+            width={"30px"}
+            height={"30px"}
           />
-        </AppNavLink>
-        <AppText text={comment?.text} className={s.text} />
+          <Skeleton
+            className={s.username}
+            width={"120px"}
+            height={"22px"}
+          />
+        </div>
+        <Skeleton className={s.text} />
       </VStack>
     );
   }
-);
+  if (!comment) {
+    return null;
+  }
+  return (
+    <VStack
+      data-testid={"CommentCard.Content"}
+      gap="8"
+      fullWidth
+      className={classNames(s.commentCard, {}, [className])}>
+      <AppNavLink
+        to={getRouteProfile(comment?.user.id)}
+        className={s.header}>
+        {comment?.user?.avatar ? (
+          <Avatar
+            size={30}
+            src={comment?.user.avatar}
+          />
+        ) : null}
+        <AppText
+          className={s.username}
+          title={comment?.user?.username}
+        />
+      </AppNavLink>
+      <AppText
+        text={comment?.text}
+        className={s.text}
+      />
+    </VStack>
+  );
+});

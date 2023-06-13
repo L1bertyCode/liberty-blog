@@ -3,10 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticleDetailsComments.module.scss";
-import {
-  AppText,
-  AppTextSize,
-} from "@/shared/ui/AppText";
+import { AppText, AppTextSize } from "@/shared/ui/AppText";
 import { AddCommentForm } from "@/features/addCommentForm";
 import { CommentList } from "@/entities/Comment";
 import { useSelector } from "react-redux";
@@ -26,56 +23,43 @@ interface ArticleDetailsCommentsProps {
   id?: string;
 }
 
-const ArticleDetailsComments = memo(
-  (props: ArticleDetailsCommentsProps) => {
-    const { id, className } = props;
-    const { t } = useTranslation();
-    const dispatch = useAppDispatch();
+const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
+  const { id, className } = props;
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
-    const commentsIsLoading = useSelector(
-      getArticleCommentsIsLoading
-    );
-    const commentsError = useSelector(
-      getArticleCommentsError
-    );
+  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+  const commentsError = useSelector(getArticleCommentsError);
 
-    const comments = useSelector(
-      getArticleComments.selectAll
-    );
+  const comments = useSelector(getArticleComments.selectAll);
 
-    const onSendComment = useCallback(
-      (text: string) => {
-        dispatch(addCommentForArticle(text));
-      },
-      [dispatch]
-    );
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
 
-    useInitialEffect(() => {
-      dispatch(fetchCommentsByArticleId(id));
-    });
-    return (
-      <VStack
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  });
+  return (
+    <VStack
       fullWidth
-        gap="16"
-        className={classNames(
-          s.articleDetailsComments,
-          {},
-          [className]
-        )}
-      >
-        <AppText
-          size={AppTextSize.L}
-          title={t("Comments")}
-          className={s.commentTitle}
-        />
-        <AddCommentForm onSendComment={onSendComment} />
+      gap="16"
+      className={classNames(s.articleDetailsComments, {}, [className])}>
+      <AppText
+        size={AppTextSize.L}
+        title={t("Comments")}
+        className={s.commentTitle}
+      />
+      <AddCommentForm onSendComment={onSendComment} />
 
-        <CommentList
-          isLoading={commentsIsLoading}
-          comments={comments}
-        />
-      </VStack>
-    );
-  }
-);
+      <CommentList
+        isLoading={commentsIsLoading}
+        comments={comments}
+      />
+    </VStack>
+  );
+});
 export default ArticleDetailsComments;

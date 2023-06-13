@@ -4,7 +4,6 @@ import { ArticleTextBlockComponent } from "./ArticleTextBlockComponent";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 import { ArticleBlockType } from "@/entities/Article/model/consts/consts";
 
-
 const meta = {
   title: "entities/ArticleTextBlockComponent",
   component: ArticleTextBlockComponent,

@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  AppText,
-  AppTextSize,
-  AppTextVariant,
-} from "./AppText";
+import { AppText, AppTextSize, AppTextVariant } from "./AppText";
 
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 

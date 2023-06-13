@@ -31,8 +31,7 @@ export const LightAuth: Story = {
             user: {
               authData: { id: "", username: "user" },
             },
-          }}
-        >
+          }}>
           <Story />
         </StoreProvider>
       );
@@ -51,8 +50,7 @@ export const DarkAuth: Story = {
             user: {
               authData: { id: "", username: "user" },
             },
-          }}
-        >
+          }}>
           <Story />
         </StoreProvider>
       );

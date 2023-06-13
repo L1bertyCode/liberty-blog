@@ -3,10 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./LoginForm.module.scss";
-import {
-  AppButton,
-  AppButtonVariant,
-} from "@/shared/ui/AppButton";
+import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
 import { AppInput } from "@/shared/ui/AppInput";
 import { useSelector, useStore } from "react-redux";
 import {
@@ -16,10 +13,7 @@ import {
 
 import { loginByUsername } from "@/features/AuthByUsername/model/services/loginByUsername/loginByUsername";
 
-import {
-  AppText,
-  AppTextVariant,
-} from "@/shared/ui/AppText";
+import { AppText, AppTextVariant } from "@/shared/ui/AppText";
 
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
@@ -55,19 +49,17 @@ const LoginForm = memo((props: LoginFormProps) => {
     (value: string) => {
       dispatch(loginActions.setUsername(value));
     },
-    [dispatch]
+    [dispatch],
   );
   const onChangePassword = useCallback(
     (value: string) => {
       dispatch(loginActions.setPassword(value));
     },
-    [dispatch]
+    [dispatch],
   );
   const onLoginClick = useCallback(async () => {
     dispatch(loginByUsername({ username, password }));
-    const result = await dispatch(
-      loginByUsername({ username, password })
-    );
+    const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === "fulfilled") {
       onSuccess();
     }
@@ -75,17 +67,12 @@ const LoginForm = memo((props: LoginFormProps) => {
   return (
     <DynamicModuleLoader
       reducers={initialReducers}
-      removeAfterUnmount={true}
-    >
-      <div
-        className={classNames(s.loginForm, {}, [className])}
-      >
+      removeAfterUnmount={true}>
+      <div className={classNames(s.loginForm, {}, [className])}>
         <AppText title={t("Authorization form")} />
         {error && (
           <AppText
-            text={t(
-              "You entered an incorrect username or password"
-            )}
+            text={t("You entered an incorrect username or password")}
             variant={AppTextVariant.ERROR}
           />
         )}
@@ -108,8 +95,7 @@ const LoginForm = memo((props: LoginFormProps) => {
           disabled={isLoading}
           onClick={onLoginClick}
           className={s.loginBtn}
-          variant={AppButtonVariant.OUTLINE}
-        >
+          variant={AppButtonVariant.OUTLINE}>
           {t("Login")}
         </AppButton>
       </div>

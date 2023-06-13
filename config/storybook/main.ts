@@ -5,10 +5,7 @@ import { Configuration, DefinePlugin } from "webpack";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
-  stories: [
-    "../../src/**/*.mdx",
-    "../../src/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
+  stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     {
@@ -51,16 +48,11 @@ const config: StorybookConfig = {
     };
 
     if (config?.module?.rules) {
-      const imageRule = config.module?.rules?.find(
-        (rule) => {
-          if (
-            typeof rule !== "string" &&
-            rule.test instanceof RegExp
-          ) {
-            return rule.test.test(".svg");
-          }
+      const imageRule = config.module?.rules?.find((rule) => {
+        if (typeof rule !== "string" && rule.test instanceof RegExp) {
+          return rule.test.test(".svg");
         }
-      );
+      });
 
       if (imageRule && typeof imageRule !== "string") {
         imageRule.exclude = /\.svg$/;
@@ -76,7 +68,7 @@ const config: StorybookConfig = {
         __IS__DEV__: JSON.stringify(true),
         __API__: JSON.stringify("http://testapi.com"),
         __PROJECT__: JSON.stringify("storybook"),
-      })
+      }),
     );
     return config;
   },

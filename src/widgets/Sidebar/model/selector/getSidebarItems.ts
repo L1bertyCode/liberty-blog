@@ -13,37 +13,34 @@ import {
   getRouteProfile,
 } from "@/shared/const/router";
 
-export const getSidebarItems = createSelector(
-  getUserAuthData,
-  (userData) => {
-    const sidebatItemsList: SidebarItemInterface[] = [
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+  const sidebatItemsList: SidebarItemInterface[] = [
+    {
+      path: getRouteMain(),
+      text: "Main",
+      Icon: MainIcon,
+    },
+    {
+      path: getRouteAbout(),
+      text: "About",
+      Icon: AboutIcon,
+    },
+  ];
+  if (userData) {
+    sidebatItemsList.push(
       {
-        path: getRouteMain(),
-        text: "Main",
-        Icon: MainIcon,
+        path: getRouteProfile(userData?.id),
+        text: "Profile",
+        Icon: ProfileIcon,
+        authOnly: true,
       },
       {
-        path: getRouteAbout(),
-        text: "About",
-        Icon: AboutIcon,
+        path: getRouteArticles(),
+        text: "Articles",
+        Icon: ArticlesIcon,
+        authOnly: true,
       },
-    ];
-    if (userData) {
-      sidebatItemsList.push(
-        {
-          path: getRouteProfile(userData?.id),
-          text: "Profile",
-          Icon: ProfileIcon,
-          authOnly: true,
-        },
-        {
-          path: getRouteArticles(),
-          text: "Articles",
-          Icon: ArticlesIcon,
-          authOnly: true,
-        }
-      );
-    }
-    return sidebatItemsList;
+    );
   }
-);
+  return sidebatItemsList;
+});

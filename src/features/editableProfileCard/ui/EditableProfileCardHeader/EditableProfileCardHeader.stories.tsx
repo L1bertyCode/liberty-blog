@@ -4,8 +4,7 @@ import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 import { EditableProfileCardHeader } from "./EditableProfileCardHeader";
 
 const meta = {
-  title:
-    "features/EditableProfileCard/EditableProfileCardHeader",
+  title: "features/EditableProfileCard/EditableProfileCardHeader",
   component: EditableProfileCardHeader,
   //tags: ["autodocs"],
   //argTypes: {},

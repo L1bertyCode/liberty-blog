@@ -14,12 +14,7 @@ interface AvatarProps {
 }
 
 export const Avatar = memo((props: AvatarProps) => {
-  const {
-    className,
-    src,
-    size = "100px",
-    alt = "img",
-  } = props;
+  const { className, src, size = "100px", alt = "img" } = props;
   const style = useMemo<CSSProperties>(() => {
     return {
       width: size,
@@ -28,11 +23,19 @@ export const Avatar = memo((props: AvatarProps) => {
   }, [size]);
   const errorFallback = (
     <div>
-      <AppIcon width={size} height={size} Svg={UserIcon} />
+      <AppIcon
+        width={size}
+        height={size}
+        Svg={UserIcon}
+      />
     </div>
   );
   const fallback = (
-    <Skeleton width={size} height={size} border={"50%"} />
+    <Skeleton
+      width={size}
+      height={size}
+      border={"50%"}
+    />
   );
   return (
     <AppImage

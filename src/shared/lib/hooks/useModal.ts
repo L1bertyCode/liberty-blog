@@ -6,23 +6,16 @@ import {
   useState,
 } from "react";
 
-
 interface UseModalProps {
   onClose?: () => void;
   isOpen?: boolean;
   animationDelay: number;
 }
 
-export function useModal({
-  animationDelay,
-  isOpen,
-  onClose,
-}: UseModalProps) {
+export function useModal({ animationDelay, isOpen, onClose }: UseModalProps) {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timerRef = useRef() as MutableRefObject<
-    ReturnType<typeof setTimeout>
-  >;
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   useEffect(() => {
     if (isOpen) {
@@ -47,7 +40,7 @@ export function useModal({
         close();
       }
     },
-    [close]
+    [close],
   );
 
   useEffect(() => {

@@ -18,8 +18,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 export const Counter = (props: CounterProps) => {
   const {} = props;
   const counterValue = useCounterValue();
-  const { addSome, decrement, increment } =
-    useCounterActions();
+  const { addSome, decrement, increment } = useCounterActions();
 
   const dispatch = useAppDispatch();
   const incrementCounter = () => {
@@ -33,25 +32,20 @@ export const Counter = (props: CounterProps) => {
   };
   return (
     <div>
-      <h1 data-testid="value-title">
-        value={counterValue}
-      </h1>
+      <h1 data-testid="value-title">value={counterValue}</h1>
       <AppButton
         data-testid="increment-btn"
-        onClick={incrementCounter}
-      >
+        onClick={incrementCounter}>
         increment
       </AppButton>
       <AppButton
         data-testid="decrement-btn"
-        onClick={decrementCounter}
-      >
+        onClick={decrementCounter}>
         decrement
       </AppButton>{" "}
       <AppButton
         data-testid="addSomeCounter-btn"
-        onClick={addSomeCounter}
-      >
+        onClick={addSomeCounter}>
         addSome
       </AppButton>
     </div>

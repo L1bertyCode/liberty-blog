@@ -4,10 +4,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticleImageBlockComponent.module.scss";
 import { ArticleImageBlock } from "../../model/types/article";
-import {
-  AppText,
-  AppTextAlign,
-} from "@/shared/ui/AppText";
+import { AppText, AppTextAlign } from "@/shared/ui/AppText";
 
 interface ArticleImageBlockComponentProps {
   className?: string;
@@ -20,12 +17,7 @@ export const ArticleImageBlockComponent = memo(
     const { t } = useTranslation();
     return (
       <div
-        className={classNames(
-          s.articleImageBlockComponent,
-          {},
-          [className]
-        )}
-      >
+        className={classNames(s.articleImageBlockComponent, {}, [className])}>
         <img
           src={block.src}
           alt={block.title}
@@ -39,5 +31,5 @@ export const ArticleImageBlockComponent = memo(
         )}
       </div>
     );
-  }
+  },
 );

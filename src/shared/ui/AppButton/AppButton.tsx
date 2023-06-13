@@ -1,12 +1,5 @@
-import {
-  ButtonHTMLAttributes,
-  ReactNode,
-  memo,
-} from "react";
-import {
-  Mods,
-  classNames,
-} from "@/shared/lib/classNames/classNames";
+import { ButtonHTMLAttributes, ReactNode, memo } from "react";
+import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 
 export enum AppButtonVariant {
   CLEAR = "clear",
@@ -23,8 +16,7 @@ export enum AppButtonSize {
   L = "l",
   XL = "xl",
 }
-interface AppButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   className?: string;
   variant?: AppButtonVariant;
@@ -36,35 +28,32 @@ interface AppButtonProps
 
 import s from "./AppButton.module.scss";
 
-export const AppButton = memo(
-  (props: AppButtonProps): ReturnType<React.FC> => {
-    const {
-      className,
-      children,
-      variant = AppButtonVariant.OUTLINE,
-      size = AppButtonSize.M,
-      square,
-      disabled,
-      fullWidth,
-      ...otherProps
-    } = props;
-    const mods: Mods = {
-      [s.square]: square,
-      [s.disabled]: disabled,
-      [s.fullWidth]: fullWidth,
-    };
-    return (
-      <button
-        disabled={disabled}
-        className={classNames(s.appButton, mods, [
-          className,
-          s[variant],
-          s[size],
-        ])}
-        {...otherProps}
-      >
-        {children}
-      </button>
-    );
-  }
-);
+export const AppButton = memo((props: AppButtonProps): ReturnType<React.FC> => {
+  const {
+    className,
+    children,
+    variant = AppButtonVariant.OUTLINE,
+    size = AppButtonSize.M,
+    square,
+    disabled,
+    fullWidth,
+    ...otherProps
+  } = props;
+  const mods: Mods = {
+    [s.square]: square,
+    [s.disabled]: disabled,
+    [s.fullWidth]: fullWidth,
+  };
+  return (
+    <button
+      disabled={disabled}
+      className={classNames(s.appButton, mods, [
+        className,
+        s[variant],
+        s[size],
+      ])}
+      {...otherProps}>
+      {children}
+    </button>
+  );
+});

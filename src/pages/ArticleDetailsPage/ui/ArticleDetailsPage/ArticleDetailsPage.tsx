@@ -28,50 +28,43 @@ const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
 
-const ArticleDetailsPage = memo(
-  (props: ArticleDetailsPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    const { id } = useParams<{ id: string }>();
+const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
+  const { className } = props;
+  const { t } = useTranslation();
+  const { id } = useParams<{ id: string }>();
 
-    // if (!id) {
-    //   return (
-    //     <VStack
-    //       fullWidth
-    //       gap="16"
-    //       justify="center"
-    //       align="center"
-    //       className={classNames(s.articleDetailsPage, {}, [
-    //         className,
-    //       ])}
-    //     >
-    //       {t("Article not found")}
-    //     </VStack>
-    //   );
-    // }
-    if (!id) {
-      return null;
-    }
-    return (
-      <DynamicModuleLoader
-        reducers={reducers}
-        removeAfterUnmount
-      >
-        <Page
-          className={classNames(s.articleDetailsPage, {}, [
-            className,
-          ])}
-        >
-          <VStack gap="16">
-            <ArticleDetailsPageHeader />
-            <ArticleDetails id={id} />
-            <ArticleRating articleId={id} />
-            <ArticleRecommendationList />
-            <ArticleDetailsComments id={id} />
-          </VStack>
-        </Page>
-      </DynamicModuleLoader>
-    );
+  // if (!id) {
+  //   return (
+  //     <VStack
+  //       fullWidth
+  //       gap="16"
+  //       justify="center"
+  //       align="center"
+  //       className={classNames(s.articleDetailsPage, {}, [
+  //         className,
+  //       ])}
+  //     >
+  //       {t("Article not found")}
+  //     </VStack>
+  //   );
+  // }
+  if (!id) {
+    return null;
   }
-);
+  return (
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount>
+      <Page className={classNames(s.articleDetailsPage, {}, [className])}>
+        <VStack gap="16">
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id} />
+          <ArticleRating articleId={id} />
+          <ArticleRecommendationList />
+          <ArticleDetailsComments id={id} />
+        </VStack>
+      </Page>
+    </DynamicModuleLoader>
+  );
+});
 export default ArticleDetailsPage;

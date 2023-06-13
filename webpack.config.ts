@@ -9,18 +9,10 @@ export default (env: BuildEnv) => {
     buildDev: path.resolve(__dirname, "build-dev"),
     buildProd: path.resolve(__dirname, "build-prod"),
     html: path.resolve(__dirname, "public", "index.html"),
-    favicon: path.resolve(
-      __dirname,
-      "public",
-      "favicon.ico"
-    ),
+    favicon: path.resolve(__dirname, "public", "favicon.ico"),
     src: path.resolve(__dirname, "src"),
     locales: path.resolve(__dirname, "public", "locales"),
-    buildLocales: path.resolve(
-      __dirname,
-      "build-prod",
-      "locales"
-    ),
+    buildLocales: path.resolve(__dirname, "build-prod", "locales"),
   };
   const buildMode = env?.mode || "development";
   const isDev = buildMode === "development";

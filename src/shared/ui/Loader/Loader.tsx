@@ -10,11 +10,7 @@ interface LoaderProps {
 export const Loader = memo((props: LoaderProps) => {
   const { className } = props;
   return (
-    <div
-      className={classNames(s["lds-ellipsis"], {}, [
-        className,
-      ])}
-    >
+    <div className={classNames(s["lds-ellipsis"], {}, [className])}>
       <div />
       <div />
       <div />

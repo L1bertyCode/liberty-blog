@@ -9,19 +9,14 @@ interface NotFoundPageProps {
   className?: string;
 }
 
-export const NotFoundPage = memo(
-  (props: NotFoundPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    return (
-      <Page
-        data-testid={"NotFoundPage"}
-        className={classNames(s.notFoundPage, {}, [
-          className,
-        ])}
-      >
-        <div>{t("Not Found Page")}</div>
-      </Page>
-    );
-  }
-);
+export const NotFoundPage = memo((props: NotFoundPageProps) => {
+  const { className } = props;
+  const { t } = useTranslation();
+  return (
+    <Page
+      data-testid={"NotFoundPage"}
+      className={classNames(s.notFoundPage, {}, [className])}>
+      <div>{t("Not Found Page")}</div>
+    </Page>
+  );
+});

@@ -25,10 +25,7 @@ import {
 } from "@/shared/const/router";
 import { ExtendsRouteProps } from "@/shared/types/router";
 
-export const routesConfig: Record<
-  AppRoutes,
-  ExtendsRouteProps
-> = {
+export const routesConfig: Record<AppRoutes, ExtendsRouteProps> = {
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
     element: <MainPage />,

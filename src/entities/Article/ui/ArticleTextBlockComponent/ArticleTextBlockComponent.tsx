@@ -16,13 +16,7 @@ export const ArticleTextBlockComponent = memo(
     const { className, block } = props;
     const { t } = useTranslation();
     return (
-      <div
-        className={classNames(
-          s.articleTextBlockComponent,
-          {},
-          [className]
-        )}
-      >
+      <div className={classNames(s.articleTextBlockComponent, {}, [className])}>
         {block.title && (
           <AppText
             title={block.title}
@@ -40,5 +34,5 @@ export const ArticleTextBlockComponent = memo(
         })}
       </div>
     );
-  }
+  },
 );

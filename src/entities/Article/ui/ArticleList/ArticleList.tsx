@@ -1,8 +1,4 @@
-import {
-  HTMLAttributeAnchorTarget,
-  LegacyRef,
-  memo,
-} from "react";
+import { HTMLAttributeAnchorTarget, LegacyRef, memo } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Article } from "../../model/types/article";
@@ -26,63 +22,50 @@ interface ArticleListProps {
 }
 
 const getSkeletons = (view: ArticleView) =>
-  new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0)
-    .map((item, index) => (
-      <ArticleListItemSkeleton
-        className={s.card}
-        key={index}
-        view={view}
-      />
-    ));
+  new Array(view === ArticleView.SMALL ? 9 : 3).fill(0).map((item, index) => (
+    <ArticleListItemSkeleton
+      className={s.card}
+      key={index}
+      view={view}
+    />
+  ));
 
-export const ArticleList = memo(
-  (props: ArticleListProps) => {
-    const {
-      className,
-      articles,
-      view = ArticleView.SMALL,
-      isLoading,
-      target,
-    } = props;
-    const { t } = useTranslation();
+export const ArticleList = memo((props: ArticleListProps) => {
+  const {
+    className,
+    articles,
+    view = ArticleView.SMALL,
+    isLoading,
+    target,
+  } = props;
+  const { t } = useTranslation();
 
-    if (!isLoading && !articles?.length) {
-      return (
-        <div
-          className={classNames(s.ArticleList, {}, [
-            className,
-            s[view],
-          ])}
-        >
-          <AppText
-            size={AppTextSize.L}
-            title={t("Статьи не найдены")}
-          />
-        </div>
-      );
-    }
-
+  if (!isLoading && !articles?.length) {
     return (
-      <div
-        data-testid={"ArticleList"}
-        className={classNames(s.ArticleList, {}, [
-          className,
-          s[view],
-        ])}
-      >
-        {articles.map((article) => (
-          <ArticleListItem
-            article={article}
-            view={view}
-            target={target}
-            key={article.id}
-            className={s.card}
-          />
-        ))}
-
-        {isLoading && getSkeletons(view)}
+      <div className={classNames(s.ArticleList, {}, [className, s[view]])}>
+        <AppText
+          size={AppTextSize.L}
+          title={t("Статьи не найдены")}
+        />
       </div>
     );
   }
-);
+
+  return (
+    <div
+      data-testid={"ArticleList"}
+      className={classNames(s.ArticleList, {}, [className, s[view]])}>
+      {articles.map((article) => (
+        <ArticleListItem
+          article={article}
+          view={view}
+          target={target}
+          key={article.id}
+          className={s.card}
+        />
+      ))}
+
+      {isLoading && getSkeletons(view)}
+    </div>
+  );
+});

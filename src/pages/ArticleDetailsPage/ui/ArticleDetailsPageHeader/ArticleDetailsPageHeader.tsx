@@ -9,10 +9,7 @@ import { useSelector } from "react-redux";
 import { getArticleDetailsData } from "@/entities/Article";
 import { getCanEditArticle } from "@/pages/ArticleDetailsPage/model/selectors/article";
 import { HStack } from "@/shared/ui/Stack";
-import {
-  getRouteArticleEdit,
-  getRouteArticles,
-} from "@/shared/const/router";
+import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router";
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -39,17 +36,10 @@ export const ArticleDetailsPageHeader = memo(
       <HStack
         justify="between"
         fullWidth
-        className={classNames("", {}, [className])}
-      >
-        <AppButton onClick={onBackToList}>
-          {t("Back to list")}
-        </AppButton>
-        {canEdit && (
-          <AppButton onClick={onEditArticle}>
-            {t("Edit")}
-          </AppButton>
-        )}
+        className={classNames("", {}, [className])}>
+        <AppButton onClick={onBackToList}>{t("Back to list")}</AppButton>
+        {canEdit && <AppButton onClick={onEditArticle}>{t("Edit")}</AppButton>}
       </HStack>
     );
-  }
+  },
 );

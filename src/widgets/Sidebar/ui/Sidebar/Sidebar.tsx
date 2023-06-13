@@ -44,13 +44,12 @@ export const Sidebar = memo((props: SidebarProps) => {
   return (
     <aside
       data-testid="sidebar"
-      className={classNames(
-        s.sidebar,
-        { [s.collapsed]: collapsed },
-        [className]
-      )}
-    >
-      <VStack gap="8" className={s.links}>
+      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [
+        className,
+      ])}>
+      <VStack
+        gap="8"
+        className={s.links}>
         {itemListMemo}
       </VStack>
 
@@ -64,8 +63,7 @@ export const Sidebar = memo((props: SidebarProps) => {
         className={s.collapseBtn}
         variant={AppButtonVariant.BACKGROUND}
         size={AppButtonSize.M}
-        square={true}
-      >
+        square={true}>
         {collapsed ? ">" : "<"}
       </AppButton>
     </aside>

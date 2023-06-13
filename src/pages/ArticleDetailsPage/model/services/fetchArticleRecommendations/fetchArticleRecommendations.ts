@@ -12,14 +12,11 @@ export const fetchArticleRecommendations = createAsyncThunk<
     const { extra, rejectWithValue } = ThunkApi;
 
     try {
-      const response = await extra.api.get<Article[]>(
-        "/articles",
-        {
-          params: {
-            _limit: 4,
-          },
-        }
-      );
+      const response = await extra.api.get<Article[]>("/articles", {
+        params: {
+          _limit: 4,
+        },
+      });
       if (!response.data) {
         throw new Error();
       }
@@ -27,5 +24,5 @@ export const fetchArticleRecommendations = createAsyncThunk<
     } catch (error) {
       return rejectWithValue("error");
     }
-  }
+  },
 );

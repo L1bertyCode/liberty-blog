@@ -1,8 +1,4 @@
-import {
-  profileActions,
-  profileReducer,
-  profileSlice,
-} from "./profileSlice";
+import { profileActions, profileReducer, profileSlice } from "./profileSlice";
 
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
@@ -25,10 +21,7 @@ describe("profileSlice", () => {
       readOnly: false,
     };
     expect(
-      profileReducer(
-        state as ProfileSchema,
-        profileActions.setReadOnly(true)
-      )
+      profileReducer(state as ProfileSchema, profileActions.setReadOnly(true)),
     ).toEqual({ readOnly: true });
   });
   test("test cancel edit", () => {
@@ -37,10 +30,7 @@ describe("profileSlice", () => {
       form: { username: "" },
     };
     expect(
-      profileReducer(
-        state as ProfileSchema,
-        profileActions.cancelEdit()
-      )
+      profileReducer(state as ProfileSchema, profileActions.cancelEdit()),
     ).toEqual({
       readOnly: true,
       validateError: undefined,
@@ -56,8 +46,8 @@ describe("profileSlice", () => {
     expect(
       profileReducer(
         state as ProfileSchema,
-        profileActions.updateProfile({ username: "test" })
-      )
+        profileActions.updateProfile({ username: "test" }),
+      ),
     ).toEqual({
       form: { username: "test" },
     });
@@ -69,10 +59,7 @@ describe("profileSlice", () => {
       validateError: [ValidateProfileError.SERVER_ERROR],
     };
     expect(
-      profileReducer(
-        state as ProfileSchema,
-        updateProfileData.pending
-      )
+      profileReducer(state as ProfileSchema, updateProfileData.pending),
     ).toEqual({
       isLoading: true,
       validateError: undefined,
@@ -86,8 +73,8 @@ describe("profileSlice", () => {
     expect(
       profileReducer(
         state as ProfileSchema,
-        updateProfileData.fulfilled(data, "")
-      )
+        updateProfileData.fulfilled(data, ""),
+      ),
     ).toEqual({
       isLoading: false,
       data: data,

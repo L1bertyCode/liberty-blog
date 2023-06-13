@@ -20,8 +20,7 @@ export const LoginModal = memo((props: LoginModalProps) => {
       className={classNames(s.loginModal, {}, [className])}
       isOpen={isOpen}
       onClose={onClose}
-      lazy={true}
-    >
+      lazy={true}>
       <Suspense fallback={<Loader />}>
         <LoginFormAsync onSuccess={onClose} />
       </Suspense>

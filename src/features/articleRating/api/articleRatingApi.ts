@@ -14,10 +14,7 @@ interface RateArticleArg {
 }
 const articleRatingApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
-    getArticleRating: build.query<
-      Rating[],
-      GetArticleRatingArg
-    >({
+    getArticleRating: build.query<Rating[], GetArticleRatingArg>({
       query: ({ articleId, userId }) => ({
         url: "/article-ratings",
         params: {
@@ -36,8 +33,6 @@ const articleRatingApi = rtkApi.injectEndpoints({
   }),
 });
 
-export const useGetArticleRating =
-  articleRatingApi.useGetArticleRatingQuery;
+export const useGetArticleRating = articleRatingApi.useGetArticleRatingQuery;
 
-export const useRateArticle =
-  articleRatingApi.useRateArticleMutation;
+export const useRateArticle = articleRatingApi.useRateArticleMutation;

@@ -15,19 +15,13 @@ export const loginByUsername = createAsyncThunk<
 >("login/loginByUsername", async (authData, ThunkApi) => {
   const { extra, dispatch, rejectWithValue } = ThunkApi;
   try {
-    const response = await extra.api.post<User>(
-      "/login",
-      authData
-    );
+    const response = await extra.api.post<User>("/login", authData);
 
     if (!response.data) {
       throw new Error();
     }
 
-    localStorage.setItem(
-      USER_LOCALSTORAGE_KEY,
-      JSON.stringify(response.data)
-    );
+    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
     dispatch(userActions.setAuthData(response.data));
     // extra.navigate("/about");
 

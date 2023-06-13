@@ -15,15 +15,9 @@ export const ArticleCodeBlockComponent = memo(
   (props: ArticleCodeBlockComponentProps) => {
     const { className, block } = props;
     return (
-      <div
-        className={classNames(
-          s.articleCodeBlockComponent,
-          {},
-          [className]
-        )}
-      >
+      <div className={classNames(s.articleCodeBlockComponent, {}, [className])}>
         <Code text={block.code} />
       </div>
     );
-  }
+  },
 );

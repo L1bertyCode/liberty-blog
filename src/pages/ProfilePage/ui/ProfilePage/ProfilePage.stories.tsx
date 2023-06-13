@@ -3,10 +3,7 @@ import ProfilePage from "./ProfilePage";
 
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
-import {
-  StateSchema,
-  StoreProvider,
-} from "@/app/providers/StoreProvider";
+import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
 import avatar from "@/shared/assets/tests/storybook.jpg";
@@ -24,8 +21,9 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
-  { profile: profileReducer };
+const defaultAsyncReducers: DeepPartial<ReducersMapObject> = {
+  profile: profileReducer,
+};
 export const Light: Story = {
   args: {},
   decorators: [
@@ -46,8 +44,7 @@ export const Light: Story = {
               },
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );
@@ -76,8 +73,7 @@ export const Dark: Story = {
               },
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );

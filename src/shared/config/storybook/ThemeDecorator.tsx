@@ -1,7 +1,4 @@
-import {
-  ThemeProvider,
-  useTheme,
-} from "@/app/providers/ThemeProvider";
+import { ThemeProvider, useTheme } from "@/app/providers/ThemeProvider";
 import { Decorator } from "@storybook/react";
 import "@/app/styles/index.scss";
 import { Theme } from "@/shared/const/theme";

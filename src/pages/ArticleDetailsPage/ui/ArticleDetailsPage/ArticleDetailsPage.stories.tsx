@@ -98,8 +98,7 @@ export const Light: Story = {
               isLoading: false,
               error: undefined,
             },
-          }}
-        >
+          }}>
           <Story />
         </StoreProvider>
       );
@@ -120,8 +119,7 @@ export const Dark: Story = {
               isLoading: false,
               error: undefined,
             },
-          }}
-        >
+          }}>
           <Story />
         </StoreProvider>
       );

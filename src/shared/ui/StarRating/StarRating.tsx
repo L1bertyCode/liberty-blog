@@ -17,18 +17,10 @@ interface StarRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
-  const {
-    className,
-    onSelect,
-    size = 30,
-    selectedStars = 0,
-  } = props;
+  const { className, onSelect, size = 30, selectedStars = 0 } = props;
   const { t } = useTranslation();
-  const [currentStarsCount, setCurrentStarsCount] =
-    useState(selectedStars);
-  const [isSelected, setIsSelected] = useState(
-    Boolean(selectedStars)
-  );
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
+  const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
   const onHover = (starsCount: number) => () => {
     if (!isSelected) {
       setCurrentStarsCount(starsCount);
@@ -49,21 +41,13 @@ export const StarRating = memo((props: StarRatingProps) => {
     }
   };
   return (
-    <div
-      className={classNames(s.starRating, {}, [className])}
-    >
+    <div className={classNames(s.starRating, {}, [className])}>
       {stars.map((starNumber) => {
         return (
           <AppIcon
-            className={classNames(
-              s.starIcon,
-              { [s.selected]: isSelected },
-              [
-                currentStarsCount >= starNumber
-                  ? s.hovered
-                  : s.normal,
-              ]
-            )}
+            className={classNames(s.starIcon, { [s.selected]: isSelected }, [
+              currentStarsCount >= starNumber ? s.hovered : s.normal,
+            ])}
             key={starNumber}
             Svg={StarIcon}
             width={size}

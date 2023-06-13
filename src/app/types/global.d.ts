@@ -19,18 +19,13 @@ declare module "*.jpeg";
 // }
 declare module "*.svg" {
   import React from "react";
-  const SVG: React.FunctionComponent<
-    React.SVGProps<SVGElement>
-  >;
+  const SVG: React.FunctionComponent<React.SVGProps<SVGElement>>;
   export default SVG;
 }
 
 declare const __IS__DEV__: boolean;
 declare const __API__: string;
-declare const __PROJECT__:
-  | "storybook"
-  | "jest"
-  | "frontend";
+declare const __PROJECT__: "storybook" | "jest" | "frontend";
 
 type DeepPartial<T> = T extends object
   ? {

@@ -8,9 +8,7 @@ describe("getLoginError", () => {
         error: "error",
       },
     };
-    expect(getLoginError(state as StateSchema)).toEqual(
-      "error"
-    );
+    expect(getLoginError(state as StateSchema)).toEqual("error");
   });
 });
 describe("getLoginError", () => {

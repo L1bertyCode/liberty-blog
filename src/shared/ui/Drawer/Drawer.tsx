@@ -1,10 +1,5 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
-import {
-  memo,
-  ReactNode,
-  useCallback,
-  useEffect,
-} from "react";
+import { memo, ReactNode, useCallback, useEffect } from "react";
 import { useTheme } from "@/app/providers/ThemeProvider";
 import {
   AnimationProvider,
@@ -30,8 +25,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     y: height,
   }));
   const { theme } = useTheme();
-  const { className, children, onClose, isOpen, lazy } =
-    props;
+  const { className, children, onClose, isOpen, lazy } = props;
 
   const openDrawer = useCallback(() => {
     api.start({ y: 0, immediate: false });
@@ -77,26 +71,19 @@ export const DrawerContent = memo((props: DrawerProps) => {
       filterTaps: true,
       bounds: { top: 0 },
       rubberband: true,
-    }
+    },
   );
 
   if (!isOpen) {
     return null;
   }
 
-  const display = y.to((py) =>
-    py < height ? "block" : "none"
-  );
+  const display = y.to((py) => (py < height ? "block" : "none"));
 
   return (
     <Portal>
       <div
-        className={classNames(s.drawer, {}, [
-          className,
-          theme,
-          "app_drawer",
-        ])}
-      >
+        className={classNames(s.drawer, {}, [className, theme, "app_drawer"])}>
         <Overlay onClick={close} />
         <Spring.a.div
           className={s.sheet}
@@ -105,8 +92,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
             bottom: `calc(-100vh + ${height - 100}px)`,
             y,
           }}
-          {...bind()}
-        >
+          {...bind()}>
           {children}
         </Spring.a.div>
       </div>

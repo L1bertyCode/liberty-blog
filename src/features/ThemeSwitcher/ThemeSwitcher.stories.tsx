@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Theme } from "@/shared/const/theme";
 
-
 const meta = {
   title: "shared/ThemeSwitcher",
   component: ThemeSwitcher,

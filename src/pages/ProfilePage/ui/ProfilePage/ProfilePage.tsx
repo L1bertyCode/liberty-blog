@@ -24,10 +24,11 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   }
   return (
     <Page
-    data-testid={"ProfilePage"}
-      className={classNames(s.profilePage, {}, [className])}
-    >
-      <VStack gap={"16"} fullWidth>
+      data-testid={"ProfilePage"}
+      className={classNames(s.profilePage, {}, [className])}>
+      <VStack
+        gap={"16"}
+        fullWidth>
         <EditableProfileCard id={id} />
       </VStack>
     </Page>

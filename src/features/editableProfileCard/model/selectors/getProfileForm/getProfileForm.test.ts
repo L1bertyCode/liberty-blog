@@ -19,14 +19,10 @@ describe("getProfileForm", () => {
         form: form,
       },
     };
-    expect(getProfileForm(state as StateSchema)).toEqual(
-      form
-    );
+    expect(getProfileForm(state as StateSchema)).toEqual(form);
   });
   test("should work with emprty state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getProfileForm(state as StateSchema)).toEqual(
-      undefined
-    );
+    expect(getProfileForm(state as StateSchema)).toEqual(undefined);
   });
 });

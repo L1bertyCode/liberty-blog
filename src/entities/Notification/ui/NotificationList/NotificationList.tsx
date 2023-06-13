@@ -12,54 +12,49 @@ interface NotificationListProps {
   className?: string;
 }
 
-export const NotificationList = memo(
-  (props: NotificationListProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    const { data, isLoading } = useNotifications(null, {
-      pollingInterval: 10000,
-    });
-    if (isLoading) {
-      return (
-        <VStack
-        fullWidth
-          gap="16"
-          className={classNames(s.notificationList, {}, [
-            className,
-          ])}
-        >
-          <Skeleton
-            width={"100%"}
-            border={"8px"}
-            height={"85px"}
-          />
-          <Skeleton
-            width={"100%"}
-            border={"8px"}
-            height={"85px"}
-          />
-          <Skeleton
-            width={"100%"}
-            border={"8px"}
-            height={"85px"}
-          />
-        </VStack>
-      );
-    }
+export const NotificationList = memo((props: NotificationListProps) => {
+  const { className } = props;
+  const { t } = useTranslation();
+  const { data, isLoading } = useNotifications(null, {
+    pollingInterval: 10000,
+  });
+  if (isLoading) {
     return (
       <VStack
-      fullWidth
+        fullWidth
         gap="16"
-        className={classNames(s.notificationList, {}, [
-          className,
-        ])}
-      >
-        {data?.map((item) => {
-          return (
-            <NotificationItem key={item?.id} item={item} />
-          );
-        })}
+        className={classNames(s.notificationList, {}, [className])}>
+        <Skeleton
+          width={"100%"}
+          border={"8px"}
+          height={"85px"}
+        />
+        <Skeleton
+          width={"100%"}
+          border={"8px"}
+          height={"85px"}
+        />
+        <Skeleton
+          width={"100%"}
+          border={"8px"}
+          height={"85px"}
+        />
       </VStack>
     );
   }
-);
+  return (
+    <VStack
+      fullWidth
+      gap="16"
+      className={classNames(s.notificationList, {}, [className])}>
+      {data?.map((item) => {
+        return (
+          <NotificationItem
+            key={item?.id}
+            item={item}
+          />
+        );
+      })}
+    </VStack>
+  );
+});

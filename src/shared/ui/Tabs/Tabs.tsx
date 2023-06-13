@@ -34,11 +34,8 @@ export const Tabs = memo((props: TabsProps) => {
           className={s.tab}
           key={tab.value}
           variant={
-            tab.value === value
-              ? CardVariant.NORMAL
-              : CardVariant.OUTLINED
-          }
-        >
+            tab.value === value ? CardVariant.NORMAL : CardVariant.OUTLINED
+          }>
           {tab.content}
         </Card>
       ))}

@@ -6,10 +6,7 @@ import {
   useRef,
 } from "react";
 
-import {
-  Mods,
-  classNames,
-} from "@/shared/lib/classNames/classNames";
+import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 import s from "./AppInput.module.scss";
 
 type HTMLAppInputProps = Omit<
@@ -53,14 +50,11 @@ export const AppInput = memo((props: AppInputProps) => {
     readOnly,
     ...otherProps
   } = props;
-  const onChangeHandler = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
   };
 
-  const inputRef =
-    useRef() as MutableRefObject<HTMLInputElement>;
+  const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
     if (autoFocus) {
@@ -71,16 +65,8 @@ export const AppInput = memo((props: AppInputProps) => {
     [s.readOnly]: readOnly,
   };
   return (
-    <div
-      className={classNames(s.appInputWrapper, mods, [
-        className,
-      ])}
-    >
-      {placeholder && (
-        <div
-          className={s.placeholder}
-        >{`${placeholder}>`}</div>
-      )}
+    <div className={classNames(s.appInputWrapper, mods, [className])}>
+      {placeholder && <div className={s.placeholder}>{`${placeholder}>`}</div>}
       <input
         ref={inputRef}
         type={type}

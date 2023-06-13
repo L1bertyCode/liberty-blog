@@ -8,16 +8,12 @@ describe("getLoginUsername", () => {
         username: "admin",
       },
     };
-    expect(getLoginUsername(state as StateSchema)).toEqual(
-      "admin"
-    );
+    expect(getLoginUsername(state as StateSchema)).toEqual("admin");
   });
 });
 describe("getLoginError", () => {
   test("should work with empt state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getLoginUsername(state as StateSchema)).toEqual(
-      ""
-    );
+    expect(getLoginUsername(state as StateSchema)).toEqual("");
   });
 });

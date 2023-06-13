@@ -9,6 +9,7 @@ module.exports = [
       "eslint:recommended",
       "plugin:react/recommended",
       "plugin:storybook/recommended",
+      "prettier",
     ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
@@ -26,11 +27,8 @@ module.exports = [
       "unused-imports",
     ],
     rules: {
-      semi: [2, "always"],
-      "react/jsx-indent": [2, 2],
       "unused-imports/no-unused-imports": "error",
-      "react/jsx-indent-props": [2, 2],
-      indent: [2, 2],
+
       "react/jsx-filename-extension": [
         2,
         {

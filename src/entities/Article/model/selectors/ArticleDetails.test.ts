@@ -17,16 +17,12 @@ describe("ArticleDetails", () => {
       },
     };
 
-    expect(
-      getArticleDetailsData(state as StateSchema)
-    ).toEqual(data);
+    expect(getArticleDetailsData(state as StateSchema)).toEqual(data);
   });
 
   test("should work wity empty state data", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(
-      getArticleDetailsData(state as StateSchema)
-    ).toEqual(undefined);
+    expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined);
   });
 
   test("should return isLoading", () => {
@@ -36,9 +32,7 @@ describe("ArticleDetails", () => {
       },
     };
 
-    expect(
-      getArticleDetailsIsLoading(state as StateSchema)
-    ).toEqual(true);
+    expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true);
   });
 
   test("should return isLoading", () => {
@@ -48,17 +42,13 @@ describe("ArticleDetails", () => {
       },
     };
 
-    expect(
-      getArticleDetailsIsLoading(state as StateSchema)
-    ).toEqual(false);
+    expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(false);
   });
 
   test("should work wity empty state isLoading", () => {
     const state: DeepPartial<StateSchema> = {};
 
-    expect(
-      getArticleDetailsIsLoading(state as StateSchema)
-    ).toEqual(false);
+    expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(false);
   });
 
   test("should return error", () => {
@@ -68,16 +58,12 @@ describe("ArticleDetails", () => {
       },
     };
 
-    expect(
-      getArticleDetailsError(state as StateSchema)
-    ).toEqual("error");
+    expect(getArticleDetailsError(state as StateSchema)).toEqual("error");
   });
 
   test("should work wity empty state error", () => {
     const state: DeepPartial<StateSchema> = {};
 
-    expect(
-      getArticleDetailsError(state as StateSchema)
-    ).toEqual(undefined);
+    expect(getArticleDetailsError(state as StateSchema)).toEqual(undefined);
   });
 });

@@ -3,10 +3,7 @@ import LoginForm from "./LoginForm";
 
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 import { StoreProvider } from "@/app/providers/StoreProvider";
-import {
-  DeepPartial,
-  ReducersMapObject,
-} from "@reduxjs/toolkit";
+import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
 import { loginReducer } from "@/features/AuthByUsername/model/slices/loginSlice";
 
 const meta = {
@@ -19,8 +16,9 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
-  { loginForm: loginReducer };
+const defaultAsyncReducers: DeepPartial<ReducersMapObject> = {
+  loginForm: loginReducer,
+};
 export const Light: Story = {
   args: {},
   decorators: [
@@ -34,8 +32,7 @@ export const Light: Story = {
               isLoading: false,
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );
@@ -57,8 +54,7 @@ export const Dark: Story = {
               isLoading: false,
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );
@@ -80,8 +76,7 @@ export const LightError: Story = {
               isLoading: false,
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );
@@ -104,8 +99,7 @@ export const DarkError: Story = {
               isLoading: false,
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );
@@ -125,8 +119,7 @@ export const LightIsLoading: Story = {
               isLoading: true,
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );
@@ -148,8 +141,7 @@ export const DarkIsLoading: Story = {
               isLoading: true,
             },
           }}
-          asyncReducers={{ ...defaultAsyncReducers }}
-        >
+          asyncReducers={{ ...defaultAsyncReducers }}>
           <Story />
         </StoreProvider>
       );

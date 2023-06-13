@@ -9,7 +9,6 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./CurrencySelect.module.scss";
 import { Listbox } from "@/shared/ui/Popups";
 
-
 interface CurrencySelectProps {
   className?: string;
   value?: Currency;
@@ -31,27 +30,23 @@ const options = [
   },
 ];
 
-export const CurrencySelect = memo(
-  (props: CurrencySelectProps) => {
-    const { value, onChange, readOnly, className } = props;
-    const { t } = useTranslation();
+export const CurrencySelect = memo((props: CurrencySelectProps) => {
+  const { value, onChange, readOnly, className } = props;
+  const { t } = useTranslation();
 
-    const onChangeHandler = (value: string) => {
-      onChange?.(value as Currency);
-    };
-    return (
-      <Listbox
-        className={classNames(s.currensySelect, {}, [
-          className,
-        ])}
-        label={t("Specify the currency")}
-        defaultValue={t("Specify the currency")}
-        items={options}
-        value={value}
-        onChange={onChangeHandler}
-        readOnly={readOnly}
-        direction={"top left"}
-      />
-    );
-  }
-);
+  const onChangeHandler = (value: string) => {
+    onChange?.(value as Currency);
+  };
+  return (
+    <Listbox
+      className={classNames(s.currensySelect, {}, [className])}
+      label={t("Specify the currency")}
+      defaultValue={t("Specify the currency")}
+      items={options}
+      value={value}
+      onChange={onChangeHandler}
+      readOnly={readOnly}
+      direction={"top left"}
+    />
+  );
+});

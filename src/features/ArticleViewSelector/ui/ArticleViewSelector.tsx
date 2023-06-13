@@ -7,10 +7,7 @@ import TiledIcon from "@/shared/assets/icons/tiled-24-24.svg";
 
 import s from "./ArticleViewSelector.module.scss";
 
-import {
-  AppButton,
-  AppButtonVariant,
-} from "@/shared/ui/AppButton";
+import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
 import { AppIcon } from "@/shared/ui/AppIcon";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
 
@@ -30,35 +27,28 @@ const viewTypes = [
   },
 ];
 
-export const ArticleViewSelector = memo(
-  (props: ArticleViewSelectorProps) => {
-    const { className, onViewClick, view } = props;
-    const { t } = useTranslation();
+export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
+  const { className, onViewClick, view } = props;
+  const { t } = useTranslation();
 
-    const onClick = (newView: ArticleView) => () => {
-      onViewClick?.(newView);
-    };
-    return (
-      <div
-        className={classNames(s.artcileViewSelector, {}, [
-          className,
-        ])}
-      >
-        {viewTypes.map((viewType, index) => (
-          <AppButton
-            key={index}
-            onClick={onClick(viewType.view)}
-            variant={AppButtonVariant.CLEAR}
-          >
-            <AppIcon
-              Svg={viewType.icon}
-              className={classNames("", {
-                [s.notSelected]: viewType.view !== view,
-              })}
-            />
-          </AppButton>
-        ))}
-      </div>
-    );
-  }
-);
+  const onClick = (newView: ArticleView) => () => {
+    onViewClick?.(newView);
+  };
+  return (
+    <div className={classNames(s.artcileViewSelector, {}, [className])}>
+      {viewTypes.map((viewType, index) => (
+        <AppButton
+          key={index}
+          onClick={onClick(viewType.view)}
+          variant={AppButtonVariant.CLEAR}>
+          <AppIcon
+            Svg={viewType.icon}
+            className={classNames("", {
+              [s.notSelected]: viewType.view !== view,
+            })}
+          />
+        </AppButton>
+      ))}
+    </div>
+  );
+});

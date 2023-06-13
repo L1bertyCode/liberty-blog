@@ -19,24 +19,22 @@ const meta = {
             user: {
               authData: { id: "1", username: "admin" },
             },
-          }}
-        >
+          }}>
           <Story />
         </StoreProvider>
       );
     },
   ],
-    parameters: {
-      mockData: [
-        {
-          url:
-            __API__ + "/article-ratings?userId=1&articleId=1",
-          method: "GET",
-          status: 200,
-          response: [{ rate: 4 }],
-        },
-      ],
-    },
+  parameters: {
+    mockData: [
+      {
+        url: __API__ + "/article-ratings?userId=1&articleId=1",
+        method: "GET",
+        status: 200,
+        response: [{ rate: 4 }],
+      },
+    ],
+  },
 } satisfies Meta<typeof ArticleRating>;
 
 export default meta;

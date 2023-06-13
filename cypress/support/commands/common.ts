@@ -4,7 +4,7 @@ import { selectByTestId } from "../../helpers/selectByTestId";
 
 export const login = (
   username: string = "testuser",
-  password: string = "123"
+  password: string = "123",
 ) => {
   return cy
     .request({
@@ -16,10 +16,7 @@ export const login = (
       },
     })
     .then(({ body }) => {
-      window.localStorage.setItem(
-        USER_LOCALSTORAGE_KEY,
-        JSON.stringify(body)
-      );
+      window.localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body));
       return body;
     });
 };
@@ -29,13 +26,8 @@ export const getByTestId = (testId: string) => {
 declare global {
   namespace Cypress {
     interface Chainable {
-      login(
-        email?: string,
-        password?: string
-      ): Chainable<User>;
-      getByTestId(
-        testId: string
-      ): Chainable<JQuery<HTMLElement>>;
+      login(email?: string, password?: string): Chainable<User>;
+      getByTestId(testId: string): Chainable<JQuery<HTMLElement>>;
     }
   }
 }

@@ -5,9 +5,6 @@ import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
 import { ValidateProfileError } from "../../consts/const";
 
-
-
-
 jest.mock("axios");
 const mockedAxios = jest.mocked(axios);
 const data = {
@@ -33,9 +30,7 @@ describe("validateProfileData", () => {
       lastname: "",
     });
 
-    expect(result).toEqual([
-      ValidateProfileError.INCORRECT_USER_DATA,
-    ]);
+    expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
   });
 
   test("incorrect age", async () => {
@@ -44,9 +39,7 @@ describe("validateProfileData", () => {
       age: undefined,
     });
 
-    expect(result).toEqual([
-      ValidateProfileError.INCORRECT_AGE,
-    ]);
+    expect(result).toEqual([ValidateProfileError.INCORRECT_AGE]);
   });
 
   test("incorrect country", async () => {
@@ -55,9 +48,7 @@ describe("validateProfileData", () => {
       country: undefined,
     });
 
-    expect(result).toEqual([
-      ValidateProfileError.INCORRECT_COUNTRY,
-    ]);
+    expect(result).toEqual([ValidateProfileError.INCORRECT_COUNTRY]);
   });
 
   test("incorrect all", async () => {

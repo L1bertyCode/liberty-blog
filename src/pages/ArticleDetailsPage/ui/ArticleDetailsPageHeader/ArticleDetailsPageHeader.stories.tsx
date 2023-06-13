@@ -4,8 +4,7 @@ import { ArticleDetailsPageHeader } from "./ArticleDetailsPageHeader";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title:
-    "pages/ArticleDetailsPage/ArticleDetailsPageHeader",
+  title: "pages/ArticleDetailsPage/ArticleDetailsPageHeader",
   component: ArticleDetailsPageHeader,
   //tags: ["autodocs"],
   //argTypes: {},

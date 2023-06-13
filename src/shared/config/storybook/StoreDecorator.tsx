@@ -4,34 +4,26 @@ import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/model/slic
 import { loginReducer } from "@/features/AuthByUsername/model/slices/loginSlice";
 import { addCommentFormReducer } from "@/features/addCommentForm/model/slices/addCommentFormSlice";
 import { articleDetailsReducer } from "@/entities/Article/model/slices/ArticleDetailsSlice";
-import {
-  DeepPartial,
-  ReducersMapObject,
-} from "@reduxjs/toolkit";
+import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
 import { Decorator } from "@storybook/react";
 import { profileReducer } from "@/features/editableProfileCard/model/slice/profileSlice";
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject> =
-  {
-    loginForm: loginReducer,
-    pofile: profileReducer,
-    articleDFetails: articleDetailsReducer,
-    addCommentForm: addCommentFormReducer,
-    articleDetailsPage: articleDetailsPageReducer,
-  };
+const defaultAsyncReducers: DeepPartial<ReducersMapObject> = {
+  loginForm: loginReducer,
+  pofile: profileReducer,
+  articleDFetails: articleDetailsReducer,
+  addCommentForm: addCommentFormReducer,
+  articleDetailsPage: articleDetailsPageReducer,
+};
 
-export const StoreDecorator: Decorator = (
-  Story,
-  { state, asyncReducers }
-) => {
+export const StoreDecorator: Decorator = (Story, { state, asyncReducers }) => {
   return (
     <StoreProvider
       initialState={state ? state : {}}
       asyncReducers={{
         ...defaultAsyncReducers,
         ...asyncReducers,
-      }}
-    >
+      }}>
       <Story />
     </StoreProvider>
   );

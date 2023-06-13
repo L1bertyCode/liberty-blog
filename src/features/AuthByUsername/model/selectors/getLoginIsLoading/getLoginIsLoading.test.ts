@@ -8,16 +8,12 @@ describe("getLoginIsLoading", () => {
         isLoading: true,
       },
     };
-    expect(getLoginIsLoading(state as StateSchema)).toEqual(
-      true
-    );
+    expect(getLoginIsLoading(state as StateSchema)).toEqual(true);
   });
 });
 describe("getLoginError", () => {
   test("should work with empt state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getLoginIsLoading(state as StateSchema)).toEqual(
-      false
-    );
+    expect(getLoginIsLoading(state as StateSchema)).toEqual(false);
   });
 });

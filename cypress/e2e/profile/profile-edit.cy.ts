@@ -17,18 +17,12 @@ describe("User moved to profile page ", () => {
   it("Profile load success", () => {
     cy.get(selectByTestId("ProfileCard.firstname")).should(
       "have.value",
-      "testuser"
+      "testuser",
     );
   });
   it("And edit profile page", () => {
     cy.updateProfile(newFirstName, newLastName);
-    cy.getByTestId("ProfileCard.firstname").should(
-      "have.value",
-      newFirstName
-    );
-    cy.getByTestId("ProfileCard.lastname").should(
-      "have.value",
-      newLastName
-    );
+    cy.getByTestId("ProfileCard.firstname").should("have.value", newFirstName);
+    cy.getByTestId("ProfileCard.lastname").should("have.value", newLastName);
   });
 });

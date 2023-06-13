@@ -45,15 +45,11 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   return (
     <DynamicModuleLoader
       reducers={reducers}
-      removeAfterUnmount={false}
-    >
+      removeAfterUnmount={false}>
       <Page
-      data-testid={"ArticlesPage"}
+        data-testid={"ArticlesPage"}
         onScrollEnd={onLoadNextPart}
-        className={classNames(s.ArticlesPage, {}, [
-          className,
-        ])}
-      >
+        className={classNames(s.ArticlesPage, {}, [className])}>
         <VStack gap="16">
           <ArticlesPageFilters />
           <ArticleInfiniteList />

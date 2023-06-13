@@ -2,28 +2,27 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
-
 import { AppText } from "@/shared/ui/AppText";
 
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import {
-  AppIcon,
-  AppIconVarint,
-} from "@/shared/ui/AppIcon";
+import { AppIcon, AppIconVarint } from "@/shared/ui/AppIcon";
 
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 import { Card } from "@/shared/ui/Card";
 import { Avatar } from "@/shared/ui/Avatar";
 
-import {
-  AppButton,
-  AppButtonVariant,
-} from "@/shared/ui/AppButton";
+import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
 import { Skeleton } from "@/shared/ui/Skeleton";
 
 import s from "./ArticleListItem.module.scss";
-import { Article, ArticleTextBlock } from "@/entities/Article/model/types/article";
-import { ArticleBlockType, ArticleView } from "@/entities/Article/model/consts/consts";
+import {
+  Article,
+  ArticleTextBlock,
+} from "@/entities/Article/model/types/article";
+import {
+  ArticleBlockType,
+  ArticleView,
+} from "@/entities/Article/model/consts/consts";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -34,11 +33,7 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton = memo(
   (props: ArticleListItemSkeletonProps) => {
-    const {
-      className,
-      article,
-      view = ArticleView.SMALL,
-    } = props;
+    const { className, article, view = ArticleView.SMALL } = props;
     const { t } = useTranslation();
 
     const views = (
@@ -56,15 +51,11 @@ export const ArticleListItemSkeleton = memo(
 
     if (view === ArticleView.BIG) {
       const textBlock = article?.blocks.find(
-        (block) => block.type === ArticleBlockType.TEXT
+        (block) => block.type === ArticleBlockType.TEXT,
       ) as ArticleTextBlock;
       return (
         <div
-          className={classNames(s.articleListItem, {}, [
-            className,
-            s[view],
-          ])}
-        >
+          className={classNames(s.articleListItem, {}, [className, s[view]])}>
           <Card>
             <div className={s.header}>
               <Skeleton
@@ -98,19 +89,17 @@ export const ArticleListItemSkeleton = memo(
               <Skeleton className={s.textBlock} />
             )} */}
             <div className={s.footer}>
-              <Skeleton width={"200px"} height={"36px"} />
+              <Skeleton
+                width={"200px"}
+                height={"36px"}
+              />
             </div>
           </Card>
         </div>
       );
     }
     return (
-      <div
-        className={classNames(s.articleListItem, {}, [
-          className,
-          s[view],
-        ])}
-      >
+      <div className={classNames(s.articleListItem, {}, [className, s[view]])}>
         <Card className={s.card}>
           <div className={s.imageWrapper}>
             <Skeleton
@@ -135,5 +124,5 @@ export const ArticleListItemSkeleton = memo(
         </Card>
       </div>
     );
-  }
+  },
 );

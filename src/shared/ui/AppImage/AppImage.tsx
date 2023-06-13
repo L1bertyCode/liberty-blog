@@ -9,8 +9,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./AppImage.module.scss";
 
-interface AppImageProps
-  extends ImgHTMLAttributes<HTMLImageElement> {
+interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   fallback?: ReactElement;
   errorFallback?: ReactElement;

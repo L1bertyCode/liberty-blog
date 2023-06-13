@@ -32,48 +32,42 @@ const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm = memo(
-  (props: AddCommentFormProps) => {
-    const { className, onSendComment } = props;
-    const { t } = useTranslation();
-    const text = useSelector(getAddCommentFormText);
-    const error = useSelector(getAddCommentFormError);
-    const dispatch = useAppDispatch();
-    const onCommentTextChange = useCallback(
-      (value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-      },
-      [dispatch]
-    );
-    const onSendHandler = useCallback(() => {
-      onSendComment(text || "");
-      onCommentTextChange("");
-    }, [text, onSendComment, onCommentTextChange]);
-    return (
-      <DynamicModuleLoader reducers={reducers}>
-        <HStack
-          data-testid={"AddCommentForm"}
-          fullWidth
-          className={classNames(s.addCommentForm, {}, [
-            className,
-          ])}
-        >
-          <AppInput
-            data-testid={"AddCommentForm.Input"}
-            className={s.input}
-            placeholder={t("Enter comment text") || ""}
-            value={text}
-            onChange={onCommentTextChange}
-          />
-          <AppButton
-            data-testid={"AddCommentForm.Button"}
-            onClick={onSendHandler}
-          >
-            {"Send"}
-          </AppButton>
-        </HStack>
-      </DynamicModuleLoader>
-    );
-  }
-);
+const AddCommentForm = memo((props: AddCommentFormProps) => {
+  const { className, onSendComment } = props;
+  const { t } = useTranslation();
+  const text = useSelector(getAddCommentFormText);
+  const error = useSelector(getAddCommentFormError);
+  const dispatch = useAppDispatch();
+  const onCommentTextChange = useCallback(
+    (value: string) => {
+      dispatch(addCommentFormActions.setText(value));
+    },
+    [dispatch],
+  );
+  const onSendHandler = useCallback(() => {
+    onSendComment(text || "");
+    onCommentTextChange("");
+  }, [text, onSendComment, onCommentTextChange]);
+  return (
+    <DynamicModuleLoader reducers={reducers}>
+      <HStack
+        data-testid={"AddCommentForm"}
+        fullWidth
+        className={classNames(s.addCommentForm, {}, [className])}>
+        <AppInput
+          data-testid={"AddCommentForm.Input"}
+          className={s.input}
+          placeholder={t("Enter comment text") || ""}
+          value={text}
+          onChange={onCommentTextChange}
+        />
+        <AppButton
+          data-testid={"AddCommentForm.Button"}
+          onClick={onSendHandler}>
+          {"Send"}
+        </AppButton>
+      </HStack>
+    </DynamicModuleLoader>
+  );
+});
 export default AddCommentForm;

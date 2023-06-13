@@ -41,36 +41,39 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
         console.log(error);
       }
     },
-    [articleId, rateArticleMutation, userData?.id]
+    [articleId, rateArticleMutation, userData?.id],
   );
   const onCancel = useCallback(
     (starsCount: number) => {
       handleRateArticle(starsCount);
     },
-    [handleRateArticle]
+    [handleRateArticle],
   );
   const onAccept = useCallback(
     (starsCount: number, feedback?: string) => {
       handleRateArticle(starsCount, feedback);
     },
-    [handleRateArticle]
+    [handleRateArticle],
   );
 
   if (isLoading) {
-    return <Skeleton width={"100%"} height={"120px"} />;
+    return (
+      <Skeleton
+        width={"100%"}
+        height={"120px"}
+      />
+    );
   }
 
   return (
     <RatingCard
       onCancel={onCancel}
       onAccept={onAccept}
-      className={classNames(s.articleRating, {}, [
-        className,
-      ])}
+      className={classNames(s.articleRating, {}, [className])}
       rate={rating?.rate}
       title={t("Rate the article")}
       feedbackTitle={t(
-        "Leave your feedback about the article, it will help improve the quality"
+        "Leave your feedback about the article, it will help improve the quality",
       )}
     />
   );

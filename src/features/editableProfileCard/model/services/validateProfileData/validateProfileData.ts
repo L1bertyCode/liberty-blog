@@ -1,9 +1,6 @@
 import { Profile } from "@/entities/Profile";
 import { ValidateProfileError } from "../../consts/const";
 
-
-
-
 export const validateProfileData = (profile?: Profile) => {
   if (!profile) {
     return [ValidateProfileError.NO_DATA];

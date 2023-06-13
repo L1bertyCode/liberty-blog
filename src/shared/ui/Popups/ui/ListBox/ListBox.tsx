@@ -2,10 +2,7 @@ import { ReactNode } from "react";
 import { Listbox as HListbox } from "@headlessui/react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ListBox.module.scss";
-import {
-  AppButton,
-  AppButtonVariant,
-} from "../../../AppButton/AppButton";
+import { AppButton, AppButtonVariant } from "../../../AppButton/AppButton";
 import { DefaultTFuncReturn } from "i18next";
 import { DropdownDirection } from "@/shared/types/ui";
 import { mapDirectionClass } from "../../styles/consts";
@@ -46,37 +43,27 @@ export function Listbox(props: ListBoxProps) {
         {
           [commonS.disabled]: readOnly,
         },
-        [className, commonS.popup]
+        [className, commonS.popup],
       )}
       value={value}
       onChange={onChange}
-      disabled={readOnly}
-    >
-      {label && (
-        <span className={s.label}>{`${label}>`}</span>
-      )}
+      disabled={readOnly}>
+      {label && <span className={s.label}>{`${label}>`}</span>}
       <HListbox.Button
         className={commonS.trigger}
-        as="span"
-      >
+        as="span">
         <AppButton variant={AppButtonVariant.OUTLINE}>
           {value ?? defaultValue}
         </AppButton>
       </HListbox.Button>
       <HListbox.Options
-        className={classNames(
-          s.optionList,
-          {},
-          optionsClasses
-        )}
-      >
+        className={classNames(s.optionList, {}, optionsClasses)}>
         {items?.map((item) => (
           <HListbox.Option
             as="span"
             key={item?.value}
             disabled={item?.disabled}
-            value={item.value}
-          >
+            value={item.value}>
             {({ active, selected }) => (
               <li
                 className={classNames(
@@ -86,9 +73,8 @@ export function Listbox(props: ListBoxProps) {
                     [s.selected]: selected,
                     [s.disabled]: item?.disabled,
                   },
-                  []
-                )}
-              >
+                  [],
+                )}>
                 {item?.content}
               </li>
             )}
