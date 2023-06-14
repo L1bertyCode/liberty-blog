@@ -34,6 +34,7 @@ export const createReduxStore = (
   };
 
   const store = configureStore({
+    
     preloadedState: initialState,
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS__DEV__,

@@ -19,6 +19,7 @@ import { useSearchParams } from "react-router-dom";
 import { initArticlesPage } from "../../model/services/initeArticlesPage/initArticlesPage";
 import ArticleInfiniteList from "../ArticleInfiniteList/ArticleInfiniteList";
 import { VStack } from "@/shared/ui/Stack";
+import { useArticleItemById } from "../../model/selectors/articlePageSelectors";
 
 interface ArticlesPageProps {
   className?: string;
@@ -36,6 +37,8 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
+  const data = useArticleItemById("2");
+  console.log("data", data);
 
   let [searchParams] = useSearchParams();
 
