@@ -20,8 +20,9 @@ import { ArticleRecommendationList } from "@/features/articleRecomendationList";
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 
 import { ArticleRating } from "@/features/articleRating";
-import { getFeatureFlag } from "@/shared/lib/features";
+import { getFeatureFlag, toggleFeatures } from "@/shared/lib/features";
 import { Counter } from "@/entities/Counter";
+import { Card } from "@/shared/ui/Card";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -30,12 +31,16 @@ const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
 
+const Counter2 = () => {
+  return <div>Counter2</div>;
+};
+
 const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const isArticleRatingEnabled = getFeatureFlag("isArticleRatingEnabled");
-
+  const isCounterEnabled = getFeatureFlag("isCounterEnabled");
   // if (!id) {
   //   return (
   //     <VStack
@@ -54,6 +59,17 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   if (!id) {
     return null;
   }
+  const articleRatingCard = toggleFeatures({
+    name: "isArticleRatingEnabled",
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>{t("Оценка статей скоро появится!")}</Card>,
+  });
+  const counter = toggleFeatures({
+    name: "isCounterEnabled",
+    on: () => <Counter2 />,
+    off: () => <Counter />,
+  });
+
   return (
     <DynamicModuleLoader
       reducers={reducers}
@@ -62,7 +78,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         <VStack gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+          articleRatingCard          {counter}
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />
         </VStack>
