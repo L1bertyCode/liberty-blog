@@ -18,8 +18,10 @@ import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDet
 import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecommendationList } from "@/features/articleRecomendationList";
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
-import { ArticlesSortField } from "@/entities/Article";
+
 import { ArticleRating } from "@/features/articleRating";
+import { getFeatureFlag } from "@/shared/lib/features";
+import { Counter } from "@/entities/Counter";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -32,6 +34,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeatureFlag("isArticleRatingEnabled");
 
   // if (!id) {
   //   return (
@@ -59,7 +62,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         <VStack gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          <ArticleRating articleId={id} />
+          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />
         </VStack>
