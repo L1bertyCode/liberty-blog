@@ -13,16 +13,14 @@ export type ThemeProviderProps = {
 const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
   const [isThemeInited, setThemeInited] = useState(false);
 
-  const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
-  // const defaultTheme ||
-  // ||
-  // (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme)
-  // Theme.LIGHT;
+  const { theme: defaultTheme } = useJsonSettings();
 
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const [theme, setTheme] = useState<Theme>(
+    initialTheme || defaultTheme || Theme.LIGHT,
+  );
 
   useEffect(() => {
-    if (!isThemeInited) {
+    if (!isThemeInited && defaultTheme) {
       setTheme(defaultTheme);
       setThemeInited(true);
     }

@@ -8,9 +8,10 @@ import { Sidebar } from "@/widgets/Sidebar";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import "@/app/styles/index.scss";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { getUserInited, userActions } from "@/entities/User";
+import { getUserInited, initAuthData, userActions } from "@/entities/User";
 import { AppRouter } from "./providers/router";
 import { useSelector } from "react-redux";
+import { PageLoader } from "@/widgets/PageLoader";
 
 export const App = memo(() => {
   const { theme } = useTheme();
@@ -18,9 +19,11 @@ export const App = memo(() => {
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
-
+  if (!inited) {
+    return <PageLoader />;
+  }
   return (
     <Suspense fallback="">
       <div className={classNames("app", {}, [theme])}>
