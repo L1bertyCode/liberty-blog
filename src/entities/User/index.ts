@@ -1,3 +1,7 @@
+export { saveJsonSettings } from "./model/services/saveJsonSettings";
+
+export { useJsonSettings } from "./model/selectors/jsonSetings";
+
 export {
   isUserAdmin,
   isUserManager,
