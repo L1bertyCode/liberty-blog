@@ -20,7 +20,11 @@ import { ArticleRecommendationList } from "@/features/articleRecomendationList";
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 
 import { ArticleRating } from "@/features/articleRating";
-import { getFeatureFlag, toggleFeatures } from "@/shared/lib/features";
+import {
+  ToggleFeatures,
+  getFeatureFlag,
+  toggleFeatures,
+} from "@/shared/lib/features";
 import { Counter } from "@/entities/Counter";
 import { Card } from "@/shared/ui/Card";
 
@@ -59,16 +63,11 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
   if (!id) {
     return null;
   }
-  const articleRatingCard = toggleFeatures({
-    name: "isArticleRatingEnabled",
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t("Оценка статей скоро появится!")}</Card>,
-  });
-  const counter = toggleFeatures({
-    name: "isCounterEnabled",
-    on: () => <Counter2 />,
-    off: () => <Counter />,
-  });
+  // const articleRatingCard = toggleFeatures({
+  //   name: "isArticleRatingEnabled",
+  //   on: () => <ArticleRating articleId={id} />,
+  //   off: () => <Card>{t("Оценка статей скоро появится!")}</Card>,
+  // });
 
   return (
     <DynamicModuleLoader
@@ -78,7 +77,11 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         <VStack gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          articleRatingCard          {counter}
+          <ToggleFeatures
+            feature={"isArticleRatingEnabled"}
+            on={<ArticleRating articleId={id} />}
+            off={<Card>{t("Оценка статей скоро появится!")}</Card>}
+          />
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />
         </VStack>

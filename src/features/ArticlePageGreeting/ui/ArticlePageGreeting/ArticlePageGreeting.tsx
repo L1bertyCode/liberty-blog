@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
-import s from "./ArticlePageGreeting.module.scss";
 import { memo, useEffect, useState } from "react";
-import { classNames } from "@/shared/lib/classNames/classNames";
+
 import { Modal } from "@/shared/ui/Modal";
 import { AppText } from "@/shared/ui/AppText";
 import { saveJsonSettings, useJsonSettings } from "@/entities/User";
