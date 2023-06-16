@@ -20,6 +20,7 @@ import { initArticlesPage } from "../../model/services/initeArticlesPage/initArt
 import ArticleInfiniteList from "../ArticleInfiniteList/ArticleInfiniteList";
 import { VStack } from "@/shared/ui/Stack";
 import { useArticleItemById } from "../../model/selectors/articlePageSelectors";
+import { ArticlePageGreeting } from "@/features/ArticlePageGreeting";
 
 interface ArticlesPageProps {
   className?: string;
@@ -56,6 +57,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
         <VStack gap="16">
           <ArticlesPageFilters />
           <ArticleInfiniteList />
+          <ArticlePageGreeting/>
         </VStack>
       </Page>
     </DynamicModuleLoader>
