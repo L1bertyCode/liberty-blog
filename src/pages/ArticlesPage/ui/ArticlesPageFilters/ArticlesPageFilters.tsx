@@ -20,18 +20,18 @@ import {
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import { Card } from "@/shared/ui/Card";
-import { AppInput } from "@/shared/ui/AppInput";
 import { SortOrder } from "@/shared/types/sort";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesPageFilters.module.scss";
 import { fetchArticlesList } from "@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";
-import { TabItem } from "@/shared/ui/Tabs/Tabs";
+import { TabItem } from "@/shared/ui/deprecated/Tabs/Tabs";
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
 import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 import { ArticlesSortSelector } from "@/features/ArticlesSortSelector";
+import { Card } from "@/shared/ui/deprecated/Card";
+import { AppInput } from "@/shared/ui/deprecated/AppInput";
 
 interface ArticlesPageFiltersProps {
   className?: string;

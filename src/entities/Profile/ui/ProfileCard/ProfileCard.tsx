@@ -3,18 +3,22 @@ import { useTranslation } from "react-i18next";
 
 import { Profile } from "../../model/types/profile";
 
-import { AppText, AppTextAlign, AppTextVariant } from "@/shared/ui/AppText";
+import {
+  AppText,
+  AppTextAlign,
+  AppTextVariant,
+} from "@/shared/ui/deprecated/AppText";
 
-import { AppInput } from "@/shared/ui/AppInput";
+import { AppInput } from "@/shared/ui/deprecated/AppInput";
 
 import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ProfileCard.module.scss";
-import { Loader } from "@/shared/ui/Loader";
-import { Avatar } from "@/shared/ui/Avatar";
+import { Loader } from "@/shared/ui/deprecated/Loader";
+import { Avatar } from "@/shared/ui/deprecated/Avatar";
 
 import { Currency, CurrencySelect } from "@/entities/Currency";
 import { Country, CountrySelect } from "@/entities/Country";
-import { HStack, VStack } from "@/shared/ui/Stack";
+import { HStack, VStack } from "@/shared/ui/deprecated/Stack";
 
 interface ProfileCardProps {
   className?: string;

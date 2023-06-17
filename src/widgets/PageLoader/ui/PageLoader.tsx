@@ -2,7 +2,7 @@ import { memo } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./PageLoader.module.scss";
-import { Loader } from "@/shared/ui/Loader";
+import { Loader } from "@/shared/ui/deprecated/Loader";
 import { Page } from "@/widgets/Page/Page";
 
 interface PageLoaderProps {

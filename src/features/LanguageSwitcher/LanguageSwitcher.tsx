@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import {
   AppButton,
   AppButtonVariant,
-} from "../../shared/ui/AppButton/AppButton";
+} from "../../shared/ui/deprecated/AppButton/AppButton";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { memo } from "react";
 

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { AppButton } from "@/shared/ui/AppButton";
+import { AppButton } from "@/shared/ui/deprecated/AppButton";
 import {
   getCounterValue,
   useCounterValue,

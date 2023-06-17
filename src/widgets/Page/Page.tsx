@@ -59,7 +59,7 @@ export const Page = memo((props: PageProps) => {
       className={classNames(toggleFeatures({
         name: 'isAppRedesigned',
         on: () => s.pageRedesigned,
-        off: () => s.Page,
+        off: () => s.page,
     }), {}, [className])}
       data-testid={props["data-testid"] ?? "Page"}>
       {children}

@@ -10,15 +10,15 @@ import {
   AppButton,
   AppButtonSize,
   AppButtonVariant,
-} from "@/shared/ui/AppButton";
+} from "@/shared/ui/deprecated/AppButton";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Sidebar.module.scss";
 import { getSidebarItems } from "@/widgets/Sidebar/model/selector/getSidebarItems";
 import { useSelector } from "react-redux";
-import { VStack } from "@/shared/ui/Stack";
 import { ToggleFeatures } from "@/shared/lib/features";
-import { AppLogo } from "@/shared/ui/AppLogo";
+import { AppLogo } from "@/shared/ui/deprecated/AppLogo";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 
 interface SidebarProps {
   className?: string;

@@ -4,7 +4,7 @@ import { useTheme } from "@/app/providers/ThemeProvider";
 import {
   AppButton,
   AppButtonVariant,
-} from "../../shared/ui/AppButton/AppButton";
+} from "../../shared/ui/deprecated/AppButton/AppButton";
 
 import ThemeIcon from "@/shared/assets/icons/theme-icon.svg";
 import { classNames } from "@/shared/lib/classNames/classNames";
@@ -13,6 +13,7 @@ import { Theme } from "@/shared/const/theme";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { saveJsonSettings } from "@/entities/User";
+import { AppIcon, AppIconVarint } from "@/shared/ui/deprecated/AppIcon";
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -33,8 +34,12 @@ export const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
       onClick={onToggleTheme}
       className={classNames(s.themeSwitcher, {}, [className])}>
       {/* {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />} */}
-
-      <ThemeIcon className={s.themeIcon} />
+      <AppIcon
+        Svg={ThemeIcon}
+        width={"40px"}
+        height={"40px"}
+        variant={AppIconVarint.INVERTED}
+      />
     </AppButton>
   );
 });

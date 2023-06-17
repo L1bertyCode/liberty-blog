@@ -7,7 +7,7 @@ import { getProfileErrorValidateErrors } from "../../model/selectors/getProfileE
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 
-import { AppText, AppTextVariant } from "@/shared/ui/AppText";
+import { AppText, AppTextVariant } from "@/shared/ui/deprecated/AppText";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/getProfileReadOnly";
 
@@ -22,7 +22,7 @@ import {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { ProfileCard } from "@/entities/Profile";
 
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
 import { ValidateProfileError } from "@/features/editableProfileCard/model/consts/const";
 

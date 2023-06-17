@@ -8,7 +8,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticleList.module.scss";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
-import { AppText, AppTextSize } from "@/shared/ui/AppText";
+import { AppText, AppTextSize } from "@/shared/ui/deprecated/AppText";
 
 import { PAGE_ID } from "@/widgets/Page/Page";
 import { ArticleView } from "@/entities/Article/model/consts/consts";

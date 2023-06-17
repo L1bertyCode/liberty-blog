@@ -1,11 +1,11 @@
 import { Suspense, memo } from "react";
 
-import { Modal } from "@/shared/ui/Modal";
+import { Modal } from "@/shared/ui/deprecated/Modal";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./LoginModal.module.scss";
 import { LoginFormAsync } from "../LoginForm/LoginForm.async";
-import { Loader } from "@/shared/ui/Loader";
+import { Loader } from "@/shared/ui/deprecated/Loader";
 
 interface LoginModalProps {
   className?: string;

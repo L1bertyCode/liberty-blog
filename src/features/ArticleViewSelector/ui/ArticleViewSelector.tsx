@@ -7,8 +7,8 @@ import TiledIcon from "@/shared/assets/icons/tiled-24-24.svg";
 
 import s from "./ArticleViewSelector.module.scss";
 
-import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
-import { AppIcon } from "@/shared/ui/AppIcon";
+import { AppButton, AppButtonVariant } from "@/shared/ui/deprecated/AppButton";
+import { AppIcon } from "@/shared/ui/deprecated/AppIcon";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
 
 interface ArticleViewSelectorProps {
@@ -43,6 +43,8 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
           variant={AppButtonVariant.CLEAR}>
           <AppIcon
             Svg={viewType.icon}
+            width={"32px"}
+            height={"32px"}
             className={classNames("", {
               [s.notSelected]: viewType.view !== view,
             })}

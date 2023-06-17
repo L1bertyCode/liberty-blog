@@ -7,14 +7,14 @@ import { LoginModal } from "@/features/AuthByUsername";
 
 import { getUserAuthData } from "@/entities/User";
 
-import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
+import { AppButton, AppButtonVariant } from "@/shared/ui/deprecated/AppButton";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 
-import { AppLink, AppLinkVariant } from "@/shared/ui/AppLink";
-import { AppText, AppTextVariant } from "@/shared/ui/AppText";
-import { HStack } from "@/shared/ui/Stack";
+import { AppLink, AppLinkVariant } from "@/shared/ui/deprecated/AppLink";
+import { AppText, AppTextVariant } from "@/shared/ui/deprecated/AppText";
+import { HStack } from "@/shared/ui/deprecated/Stack";
 
 import { NotificationButton } from "@/features/notificationButton";
 import { AvataDropdown } from "@/features/avataDropdown";

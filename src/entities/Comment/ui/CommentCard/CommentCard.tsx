@@ -4,12 +4,12 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./CommentCard.module.scss";
 import { Comment } from "@/entities/Comment/model/types/comment";
-import { Avatar } from "@/shared/ui/Avatar";
-import { AppText } from "@/shared/ui/AppText";
-import { Skeleton } from "@/shared/ui/Skeleton";
-import { AppNavLink } from "@/shared/ui/AppNavLink";
+import { Avatar } from "@/shared/ui/deprecated/Avatar";
+import { AppText } from "@/shared/ui/deprecated/AppText";
+import { Skeleton } from "@/shared/ui/deprecated/Skeleton";
+import { AppNavLink } from "@/shared/ui/deprecated/AppNavLink";
 
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { getRouteProfile } from "@/shared/const/router";
 
 interface CommentCardProps {

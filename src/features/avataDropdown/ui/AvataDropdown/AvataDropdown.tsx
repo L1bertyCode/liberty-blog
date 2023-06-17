@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./AvataDropdown.module.scss";
-import { Dropdown } from "@/shared/ui/Popups";
+import { Dropdown } from "@/shared/ui/deprecated/Popups";
 
 import { useSelector } from "react-redux";
 import {
@@ -13,7 +13,7 @@ import {
   userActions,
 } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { Avatar } from "@/shared/ui/Avatar";
+import { Avatar } from "@/shared/ui/deprecated/Avatar";
 import { getRouteAdmin, getRouteProfile } from "@/shared/const/router";
 
 interface AvataDropdownProps {

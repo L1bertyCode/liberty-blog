@@ -7,24 +7,24 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 
-import { AppText } from "@/shared/ui/AppText";
-import { AppIcon, AppIconVarint } from "@/shared/ui/AppIcon";
-import { Card } from "@/shared/ui/Card";
+import { AppText } from "@/shared/ui/deprecated/AppText";
+import { AppIcon, AppIconVarint } from "@/shared/ui/deprecated/AppIcon";
+import { Card } from "@/shared/ui/deprecated/Card";
 import { useHover } from "@/shared/lib/hooks/useHover";
-import { Avatar } from "@/shared/ui/Avatar";
-import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
+import { Avatar } from "@/shared/ui/deprecated/Avatar";
+import { AppButton, AppButtonVariant } from "@/shared/ui/deprecated/AppButton";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useNavigate } from "react-router-dom";
 
 import s from "./ArticleListItem.module.scss";
-import { AppLink } from "@/shared/ui/AppLink";
+import { AppLink } from "@/shared/ui/deprecated/AppLink";
 import {
   ArticleBlockType,
   ArticleView,
 } from "@/entities/Article/model/consts/consts";
 import { getRouteArticleDetails } from "@/shared/const/router";
-import { AppImage } from "@/shared/ui/AppImage";
-import { Skeleton } from "@/shared/ui/Skeleton";
+import { AppImage } from "@/shared/ui/deprecated/AppImage";
+import { Skeleton } from "@/shared/ui/deprecated/Skeleton";
 
 interface ArticleListItemProps {
   className?: string;

@@ -9,9 +9,9 @@ import { getUserAuthData } from "@/entities/User";
 import { getProfileData } from "@/features/editableProfileCard/model/selectors/getProfileData/getProfileData";
 import { profileActions } from "@/features/editableProfileCard/model/slice/profileSlice";
 import { updateProfileData } from "@/features/editableProfileCard/model/services/updateProfileData/updateProfileData";
-import { HStack } from "@/shared/ui/Stack";
-import { AppText } from "@/shared/ui/AppText";
-import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
+import { HStack } from "@/shared/ui/deprecated/Stack";
+import { AppText } from "@/shared/ui/deprecated/AppText";
+import { AppButton, AppButtonVariant } from "@/shared/ui/deprecated/AppButton";
 
 interface EditableProfileCardHeaderProps {
   className?: string;

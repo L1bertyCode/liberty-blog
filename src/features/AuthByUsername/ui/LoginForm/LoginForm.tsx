@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./LoginForm.module.scss";
-import { AppButton, AppButtonVariant } from "@/shared/ui/AppButton";
-import { AppInput } from "@/shared/ui/AppInput";
+import { AppButton, AppButtonVariant } from "@/shared/ui/deprecated/AppButton";
+import { AppInput } from "@/shared/ui/deprecated/AppInput";
 import { useSelector, useStore } from "react-redux";
 import {
   loginActions,
@@ -13,7 +13,7 @@ import {
 
 import { loginByUsername } from "@/features/AuthByUsername/model/services/loginByUsername/loginByUsername";
 
-import { AppText, AppTextVariant } from "@/shared/ui/AppText";
+import { AppText, AppTextVariant } from "@/shared/ui/deprecated/AppText";
 
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";

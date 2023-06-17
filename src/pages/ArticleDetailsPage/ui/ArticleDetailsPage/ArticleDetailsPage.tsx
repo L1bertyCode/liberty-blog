@@ -15,7 +15,7 @@ import { Page } from "@/widgets/Page/Page";
 
 import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { ArticleRecommendationList } from "@/features/articleRecomendationList";
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 
@@ -26,7 +26,7 @@ import {
   toggleFeatures,
 } from "@/shared/lib/features";
 import { Counter } from "@/entities/Counter";
-import { Card } from "@/shared/ui/Card";
+import { Card } from "@/shared/ui/deprecated/Card";
 
 interface ArticleDetailsPageProps {
   className?: string;

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticleDetailsComments.module.scss";
-import { AppText, AppTextSize } from "@/shared/ui/AppText";
+import { AppText, AppTextSize } from "@/shared/ui/deprecated/AppText";
 import { AddCommentForm } from "@/features/addCommentForm";
 import { CommentList } from "@/entities/Comment";
 import { useSelector } from "react-redux";
@@ -16,7 +16,7 @@ import { addCommentForArticle } from "@/pages/ArticleDetailsPage/model/services/
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { fetchCommentsByArticleId } from "@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 
 interface ArticleDetailsCommentsProps {
   className?: string;

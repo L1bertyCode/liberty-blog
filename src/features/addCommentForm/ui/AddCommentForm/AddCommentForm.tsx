@@ -11,8 +11,8 @@ import {
   addCommentFormReducer,
 } from "../../model/slices/addCommentFormSlice";
 
-import { AppInput } from "@/shared/ui/AppInput";
-import { AppButton } from "@/shared/ui/AppButton";
+import { AppInput } from "@/shared/ui/deprecated/AppInput";
+import { AppButton } from "@/shared/ui/deprecated/AppButton";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./AddCommentForm.module.scss";
@@ -21,7 +21,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { HStack } from "@/shared/ui/Stack";
+import { HStack } from "@/shared/ui/deprecated/Stack";
 
 export interface AddCommentFormProps {
   className?: string;

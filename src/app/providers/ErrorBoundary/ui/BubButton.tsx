@@ -1,4 +1,4 @@
-import { AppButton } from "@/shared/ui/AppButton";
+import { AppButton } from "@/shared/ui/deprecated/AppButton";
 import React, { useEffect, useState } from "react";
 
 import s from "./BugButton.module.scss";

@@ -21,16 +21,20 @@ import CalendarIcon from "@/shared/assets/icons/calendar-20-20.svg";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleDetails.module.scss";
-import { AppText, AppTextAlign, AppTextSize } from "@/shared/ui/AppText";
-import { Skeleton } from "@/shared/ui/Skeleton";
-import { Avatar } from "@/shared/ui/Avatar";
-import { AppIcon } from "@/shared/ui/AppIcon";
+import {
+  AppText,
+  AppTextAlign,
+  AppTextSize,
+} from "@/shared/ui/deprecated/AppText";
+import { Skeleton } from "@/shared/ui/deprecated/Skeleton";
+import { Avatar } from "@/shared/ui/deprecated/Avatar";
+import { AppIcon } from "@/shared/ui/deprecated/AppIcon";
 import { ArticleBlock } from "../../model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { articleDetailsReducer } from "@/entities/Article/model/slices/ArticleDetailsSlice";
-import { HStack, VStack } from "@/shared/ui/Stack";
+import { HStack, VStack } from "@/shared/ui/deprecated/Stack";
 import { ArticleBlockType } from "@/entities/Article/model/consts/consts";
 
 interface ArticleDetailsProps {
