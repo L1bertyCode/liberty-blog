@@ -19,6 +19,7 @@ import { HStack } from "@/shared/ui/Stack";
 import { NotificationButton } from "@/features/notificationButton";
 import { AvataDropdown } from "@/features/avataDropdown";
 import { getRouteArticleCreate } from "@/shared/const/router";
+import { ToggleFeatures } from "@/shared/lib/features";
 
 interface NavbarProps {
   className?: string;
@@ -39,55 +40,117 @@ export const Navbar = memo((props: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(s.navbar, {}, [className])}>
-        <AppText
+      <ToggleFeatures
+        feature={"isAppRedesigned"}
+        on={
+          <header className={classNames(s.navbarRedesigned, {}, [className])}>
+            {/* <AppText
           className={s.logo}
           title={t("Logo")}
           variant={AppTextVariant.INVERTED}
-        />
-        <AppLink
-          to={getRouteArticleCreate()}
-          variant={AppLinkVariant.SECONDARY}
-          className={s.createBtn}>
-          {t("Create article")}
-        </AppLink>
+        /> */}
+            {/* <AppLink
+              to={getRouteArticleCreate()}
+              variant={AppLinkVariant.SECONDARY}
+              className={s.createBtn}>
+              {t("Create article")}
+            </AppLink> */}
 
-        <div className={s.modal}>
-          <HStack
-            gap="16"
-            className={s.actions}>
-            <NotificationButton />
-            <AvataDropdown />
-          </HStack>
+            <div className={s.modal}>
+              <HStack
+                gap="16"
+                className={s.actions}>
+                <NotificationButton />
+                <AvataDropdown />
+              </HStack>
 
-          <LoginModal
-            isOpen={isAuthModal}
-            onClose={onCloseeModal}
-          />
-        </div>
-      </header>
+              <LoginModal
+                isOpen={isAuthModal}
+                onClose={onCloseeModal}
+              />
+            </div>
+          </header>
+        }
+        off={
+          <header className={classNames(s.navbar, {}, [className])}>
+            <AppText
+              className={s.logo}
+              title={t("Logo")}
+              variant={AppTextVariant.INVERTED}
+            />
+            <AppLink
+              to={getRouteArticleCreate()}
+              variant={AppLinkVariant.SECONDARY}
+              className={s.createBtn}>
+              {t("Create article")}
+            </AppLink>
+
+            <div className={s.modal}>
+              <HStack
+                gap="16"
+                className={s.actions}>
+                <NotificationButton />
+                <AvataDropdown />
+              </HStack>
+
+              <LoginModal
+                isOpen={isAuthModal}
+                onClose={onCloseeModal}
+              />
+            </div>
+          </header>
+        }
+      />
     );
   }
+
   return (
-    <header className={classNames(s.navbar, {}, [className])}>
-      <div className={s.logo}>{t("Logo")}</div>
-      <AppLink to={getRouteArticleCreate()}>{t("Create article")}</AppLink>
-      <div className={s.modal}>
-        <AppButton
-          className={s.btn}
-          onClick={() => {
-            onShowModal();
-          }}
-          variant={AppButtonVariant.CLEAR_INVERTED}>
-          {t("Login")}
-        </AppButton>
-        {isAuthModal && (
-          <LoginModal
-            isOpen={isAuthModal}
-            onClose={onCloseeModal}
-          />
-        )}
-      </div>
-    </header>
+    <ToggleFeatures
+      feature={"isAppRedesigned"}
+      on={
+        <header className={classNames(s.navbarRedesigned, {}, [className])}>
+          {/* <div className={s.logo}>{t("Logo")}</div> */}
+          {/* <AppLink to={getRouteArticleCreate()}>{t("Create article")}</AppLink> */}
+          <div className={s.modal}>
+            <AppButton
+              className={s.btn}
+              onClick={() => {
+                onShowModal();
+              }}
+              variant={AppButtonVariant.CLEAR_INVERTED}>
+              {t("Login")}
+            </AppButton>
+            {isAuthModal && (
+              <LoginModal
+                isOpen={isAuthModal}
+                onClose={onCloseeModal}
+              />
+            )}
+          </div>
+        </header>
+      }
+      off={
+        <header className={classNames(s.navbar, {}, [className])}>
+          <div className={s.logo}>{t("Logo")}</div>
+          <AppLink to={getRouteArticleCreate()}>{t("Create article")}</AppLink>
+          <div className={s.modal}>
+            <AppButton
+              className={s.btn}
+              onClick={() => {
+                onShowModal();
+              }}
+              variant={AppButtonVariant.CLEAR_INVERTED}>
+              {t("Login")}
+            </AppButton>
+            {isAuthModal && (
+              <LoginModal
+                isOpen={isAuthModal}
+                onClose={onCloseeModal}
+              />
+            )}
+          </div>
+        </header>
+      }
+    />
   );
 });

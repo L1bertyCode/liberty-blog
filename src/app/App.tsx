@@ -12,6 +12,8 @@ import { getUserInited, initAuthData, userActions } from "@/entities/User";
 import { AppRouter } from "./providers/router";
 import { useSelector } from "react-redux";
 import { PageLoader } from "@/widgets/PageLoader";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { MainLayout } from "@/shared/layouts/MainLayout";
 
 export const App = memo(() => {
   const { theme } = useTheme();
@@ -24,15 +26,43 @@ export const App = memo(() => {
   if (!inited) {
     return <PageLoader />;
   }
+  // return (
+  //   <Suspense fallback="">
+  //     <div className={classNames("app", {}, [theme])}>
+  //       <Navbar />
+  //       <div className="content-page">
+  //         <Sidebar />
+  //         <ErrorBoundary>{inited && <AppRouter />}</ErrorBoundary>
+  //       </div>
+  //     </div>
+  //   </Suspense>
+  // );
   return (
-    <Suspense fallback="">
-      <div className={classNames("app", {}, [theme])}>
-        <Navbar />
-        <div className="content-page">
-          <Sidebar />
-          <ErrorBoundary>{inited && <AppRouter />}</ErrorBoundary>
+    <ToggleFeatures
+      feature={"isAppRedesigned"}
+      off={
+        <div className={classNames("app", {}, [theme])}>
+          <Suspense fallback="">
+            <Navbar />
+            <div className="content-page">
+              <Sidebar />
+              <ErrorBoundary>{inited && <AppRouter />}</ErrorBoundary>
+            </div>
+          </Suspense>
         </div>
-      </div>
-    </Suspense>
+      }
+      on={
+        <div className={classNames("app_redesigned", {}, [theme])}>
+          <Suspense fallback="">
+            <MainLayout
+              header={<Navbar />}
+              content={<AppRouter />}
+              sidebar={<Sidebar />}
+              toolbar={<div>adfadsf</div>}
+            />
+          </Suspense>
+        </div>
+      }
+    />
   );
 });

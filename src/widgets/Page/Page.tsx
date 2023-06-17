@@ -11,6 +11,7 @@ import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle";
 import { extname } from "path";
 import { TestProps } from "@/shared/types/tests";
+import { toggleFeatures } from "@/shared/lib/features";
 
 interface PageProps extends TestProps {
   className?: string;
@@ -50,13 +51,16 @@ export const Page = memo((props: PageProps) => {
     wrapperRef,
     callback: onScrollEnd,
   });
-
   return (
     <section
       id={PAGE_ID}
       onScroll={onScroll}
       ref={wrapperRef}
-      className={classNames(s.page, {}, [className])}
+      className={classNames(toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => s.pageRedesigned,
+        off: () => s.Page,
+    }), {}, [className])}
       data-testid={props["data-testid"] ?? "Page"}>
       {children}
       {onScrollEnd ? (

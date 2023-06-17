@@ -17,6 +17,8 @@ import s from "./Sidebar.module.scss";
 import { getSidebarItems } from "@/widgets/Sidebar/model/selector/getSidebarItems";
 import { useSelector } from "react-redux";
 import { VStack } from "@/shared/ui/Stack";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { AppLogo } from "@/shared/ui/AppLogo";
 
 interface SidebarProps {
   className?: string;
@@ -42,30 +44,46 @@ export const Sidebar = memo((props: SidebarProps) => {
   }, [collapsed, sidebatItemsList]);
 
   return (
-    <aside
-      data-testid="sidebar"
-      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [
-        className,
-      ])}>
-      <VStack
-        gap="8"
-        className={s.links}>
-        {itemListMemo}
-      </VStack>
+    <ToggleFeatures
+      feature={"isAppRedesigned"}
+      on={
+        <aside
+          data-testid="sidebar"
+          className={classNames(
+            s.sidebarRedesigned,
+            { [s.collapsed]: collapsed },
+            [className],
+          )}>
+          <AppLogo className={s.appLogo} />
+        </aside>
+      }
+      off={
+        <aside
+          data-testid="sidebar"
+          className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [
+            className,
+          ])}>
+          <VStack
+            gap="8"
+            className={s.links}>
+            {itemListMemo}
+          </VStack>
 
-      <div className={s.switchers}>
-        <ThemeSwitcher />
-        <LanguageSwitcher short={collapsed} />
-      </div>
-      <AppButton
-        data-testid="sidebar-toggle"
-        onClick={() => setCollapsed((prev) => !prev)}
-        className={s.collapseBtn}
-        variant={AppButtonVariant.BACKGROUND}
-        size={AppButtonSize.M}
-        square={true}>
-        {collapsed ? ">" : "<"}
-      </AppButton>
-    </aside>
+          <div className={s.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher short={collapsed} />
+          </div>
+          <AppButton
+            data-testid="sidebar-toggle"
+            onClick={() => setCollapsed((prev) => !prev)}
+            className={s.collapseBtn}
+            variant={AppButtonVariant.BACKGROUND}
+            size={AppButtonSize.M}
+            square={true}>
+            {collapsed ? ">" : "<"}
+          </AppButton>
+        </aside>
+      }
+    />
   );
 });
