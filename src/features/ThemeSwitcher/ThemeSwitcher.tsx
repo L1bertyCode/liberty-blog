@@ -6,20 +6,26 @@ import {
   AppButtonVariant,
 } from "../../shared/ui/deprecated/AppButton/AppButton";
 
-import ThemeIcon from "@/shared/assets/icons/theme-icon.svg";
+import ThemeIconDeprecated from "@/shared/assets/icons/theme-icon.svg";
+import ThemeIcon from "@/shared/assets/icons/theme.svg";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ThemeSwitcher.module.scss";
 import { Theme } from "@/shared/const/theme";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { saveJsonSettings } from "@/entities/User";
-import { AppIcon, AppIconVarint } from "@/shared/ui/deprecated/AppIcon";
+import {
+  AppIcon as AppIconDeprecated,
+  AppIconVarint,
+} from "@/shared/ui/deprecated/AppIcon";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { AppIcon } from "@/shared/ui/redesigned/AppIcon";
 
 interface ThemeSwitcherProps {
   className?: string;
 }
 export const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
-  const { theme = Theme.LIGHT, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   const { className } = props;
   const dispatch = useAppDispatch();
   const onToggleTheme = useCallback(() => {
@@ -29,17 +35,31 @@ export const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
     });
   }, [toggleTheme]);
   return (
-    <AppButton
-      variant={AppButtonVariant.CLEAR}
-      onClick={onToggleTheme}
-      className={classNames(s.themeSwitcher, {}, [className])}>
-      {/* {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />} */}
-      <AppIcon
-        Svg={ThemeIcon}
-        width={"40px"}
-        height={"40px"}
-        variant={AppIconVarint.INVERTED}
-      />
-    </AppButton>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <AppIcon
+          clickable
+          onClick={onToggleTheme}
+          Svg={ThemeIcon}
+          width={"40px"}
+          height={"40px"}
+        />
+      }
+      off={
+        <AppButton
+          variant={AppButtonVariant.CLEAR}
+          onClick={onToggleTheme}
+          className={classNames(s.themeSwitcher, {}, [className])}>
+          {/* {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />} */}
+          <AppIconDeprecated
+            Svg={ThemeIconDeprecated}
+            width={"40px"}
+            height={"40px"}
+            variant={AppIconVarint.INVERTED}
+          />
+        </AppButton>
+      }
+    />
   );
 });

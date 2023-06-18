@@ -3,7 +3,7 @@
   display: grid;
   grid-template-areas:
             'sidebar content rightbar';
-  grid-template-columns: 284px 1fr 176px;
+  grid-template-columns: 284px 1fr 100px;
   
 }
 
@@ -19,6 +19,7 @@
   justify-self: center;
   padding: 32px;
   margin-left: 32px;
+  width: 100%;
 }
 
 .rightbar {

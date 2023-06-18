@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import "@/app/styles/variables.scss";
 
-import { AppButton, AppButtonSize, AppButtonVariant } from "./AppButton";
+import { AppButton } from "./AppButton";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 import { Theme } from "@/shared/const/theme";
 
@@ -20,12 +20,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Clear: Story = {
   args: {
-    variant: AppButtonVariant.CLEAR,
+    variant: "clear",
   },
 };
 export const ClearInverted: Story = {
   args: {
-    variant: AppButtonVariant.CLEAR_INVERTED,
+    variant: "outline",
   },
   decorators: [
     (Story) => (
@@ -39,53 +39,53 @@ export const ClearInverted: Story = {
 };
 export const Outline: Story = {
   args: {
-    variant: AppButtonVariant.OUTLINE,
+    variant: "outline",
   },
 };
 export const OutlineDark: Story = {
   args: {
-    variant: AppButtonVariant.OUTLINE,
+    variant: "outline",
   },
   decorators: [ThemeDecoratorDark],
 };
 
 export const Background: Story = {
   args: {
-    variant: AppButtonVariant.BACKGROUND,
+    variant: "outline",
   },
 };
 export const BackgroundInverted: Story = {
   args: {
-    variant: AppButtonVariant.BACKGROUND_INVERTED,
+    variant: "outline",
   },
 };
 
 export const Square: Story = {
   args: {
-    variant: AppButtonVariant.BACKGROUND_INVERTED,
+    variant: "outline",
     children: ">",
     square: true,
   },
 };
 export const SquareL: Story = {
   args: {
-    variant: AppButtonVariant.BACKGROUND_INVERTED,
+    variant: "outline",
     children: ">",
     square: true,
-    size: AppButtonSize.L,
+    size: "l",
   },
 };
 export const SquareXL: Story = {
   args: {
-    variant: AppButtonVariant.BACKGROUND_INVERTED,
+    variant: "outline",
     children: ">",
     square: true,
-    size: AppButtonSize.XL,
+    size: "xl",
   },
 };
 export const Disabled: Story = {
   args: {
-    variant: AppButtonVariant.OUTLINE,
+    variant: "outline",
     children: ">",
     disabled: true,
   },

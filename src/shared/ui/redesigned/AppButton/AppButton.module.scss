@@ -1,54 +1,28 @@
 .appButton {
+  color: var(--text-redesigned);
   cursor: pointer;
   padding: 6px 15px;
   transition: 0.2s linear;
   width: fit-content;
 
   &:hover {
-    transition: 0.2s linear;
-    opacity: var(--opacity70);
-    fill-opacity: var(--opacity70);
-    stroke-opacity: var(--opacity70);
+  color: var(--accent-redesigned);
   }
 }
 
-.clear,
-.clearInverted {
+.clear {
   padding: 0;
   border: none;
   background: none;
   outline: none;
-  color: var(--primary-color);
+  color: var(--text-redesigned);
 }
 
-.clearInverted {
-  color: var(--inverted-primary-color);
-}
 
 .outline {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background: none;
-}
-
-.outline_red {
-  border: 1px solid var(--red-dark);
-  color: var(--red-dark);
-  background: none;
-}
-
-.background {
-  background: var(--bg-color);
-  color: var(--primary-color);
-  border: none;
-  outline: none;
-}
-
-.backgroundInverted {
-  background: var(--inverted-bg-color);
-  color: var(--inverted-secondary-color);
-  border: none;
-  outline: none;
 }
 
 .square {
@@ -58,19 +32,19 @@
 .square.m {
   height: var(--font-line-m);
   width: var(--font-line-m);
-  font: var(--font-m);
+  font: var(--font-m-redesigned);
 }
 
 .square.l {
   height: var(--font-line-l);
   width: var(--font-line-l);
-  font: var(--font-l);
+  font: var(--font-l-redesigned);
 }
 
 .square.xl {
   height: var(--font-line-xl);
   width: var(--font-line-xl);
-  font: var(--font-xl);
+  font: var(--font-xl-redesigned);
 }
 
 .disabled {

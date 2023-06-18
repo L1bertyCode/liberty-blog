@@ -7,7 +7,7 @@ describe("AppButton", () => {
     expect(screen.getByText("test")).toBeInTheDocument();
   });
   test("should return test clear", () => {
-    render(<AppButton variant={AppButtonVariant.CLEAR}>test</AppButton>);
+    render(<AppButton variant={"clear"}>test</AppButton>);
     expect(screen.getByText("test")).toHaveClass("clear");
     screen.debug();
   });

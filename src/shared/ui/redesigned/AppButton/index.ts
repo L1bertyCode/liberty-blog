@@ -1,1 +1,1 @@
-export { AppButton, AppButtonSize, AppButtonVariant } from "./AppButton";
+export { AppButton } from "./AppButton";

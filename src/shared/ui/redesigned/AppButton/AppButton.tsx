@@ -1,21 +1,10 @@
 import { ButtonHTMLAttributes, ReactNode, memo } from "react";
 import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 
-export enum AppButtonVariant {
-  CLEAR = "clear",
-  CLEAR_INVERTED = "clearInverted",
-  OUTLINE = "outline",
-  OUTLINE_RED = "outline_red",
+export type AppButtonVariant = "clear" | "outline";
 
-  BACKGROUND = "background",
-  BACKGROUND_INVERTED = "backgroundInverted",
-}
+export type AppButtonSize = "m" | "l" | "xl";
 
-export enum AppButtonSize {
-  M = "m",
-  L = "l",
-  XL = "xl",
-}
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   className?: string;
@@ -27,15 +16,13 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 import s from "./AppButton.module.scss";
-/**
- * @deprecated
- */
+
 export const AppButton = memo((props: AppButtonProps): ReturnType<React.FC> => {
   const {
     className,
     children,
-    variant = AppButtonVariant.OUTLINE,
-    size = AppButtonSize.M,
+    variant = "outline",
+    size = "m",
     square,
     disabled,
     fullWidth,

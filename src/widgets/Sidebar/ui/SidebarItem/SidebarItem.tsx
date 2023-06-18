@@ -22,6 +22,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
   const { item, collapsed, className } = props;
   const { t } = useTranslation();
 
+
   const isAuth = useSelector(getUserAuthData);
   if (item.authOnly && !isAuth) {
     return <></>;
@@ -32,9 +33,13 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
       on={
         <AppNavLink
           to={item.path}
-          className={classNames(s.itemRedesigned, {
-            [s.collapsedRedesigned]: collapsed,
-          })}>
+          className={classNames(
+            s.itemRedesigned,
+            {
+              [s.collapsedRedesigned]: collapsed,
+            },
+            [className],
+          )}>
           <AppIcon
             Svg={item.Icon}
             className={s.icon}
