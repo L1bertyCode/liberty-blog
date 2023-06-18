@@ -5,7 +5,7 @@ import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 import { AppText } from "../AppText/AppText";
 
 const meta = {
-  title: "shared/Card",
+  title: "shared/deprecated/Card",
   component: Card,
   //tags: ["autodocs"],
   //argTypes: {},

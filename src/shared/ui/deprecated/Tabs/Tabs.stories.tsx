@@ -5,7 +5,7 @@ import { Tabs } from "./Tabs";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "shared/Tabs",
+  title: "shared/deprecated/Tabs",
   component: Tabs,
   //tags: ["autodocs"],
   //argTypes: {},

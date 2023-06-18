@@ -5,7 +5,7 @@ import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 import { AppButton } from "@/shared/ui/deprecated//AppButton";
 
 const meta = {
-  title: "shared/Dropdown",
+  title: "shared/deprecated/Dropdown",
   component: Dropdown,
   //tags: ["autodocs"],
   //argTypes: {},

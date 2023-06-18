@@ -4,7 +4,7 @@ import { AppText, AppTextSize, AppTextVariant } from "./AppText";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "shared/AppText",
+  title: "shared/deprecated/AppText",
   component: AppText,
   //tags: ["autodocs"],
   //argTypes: {},

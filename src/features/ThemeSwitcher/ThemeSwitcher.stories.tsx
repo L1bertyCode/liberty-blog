@@ -3,7 +3,7 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Theme } from "@/shared/const/theme";
 
 const meta = {
-  title: "shared/ThemeSwitcher",
+  title: "shared/deprecated/ThemeSwitcher",
   component: ThemeSwitcher,
   //tags: ["autodocs"],
   //argTypes: {},

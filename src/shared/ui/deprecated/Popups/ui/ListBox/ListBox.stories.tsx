@@ -5,7 +5,7 @@ import { Listbox } from "./ListBox";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "shared/Listbox",
+  title: "shared/deprecated/Listbox",
   component: Listbox,
   //tags: ["autodocs"],
   //argTypes: {},

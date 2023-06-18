@@ -8,12 +8,11 @@ import s from "./AppLogo.module.scss";
 
 interface AppLogoProps {
   className?: string;
+  size?: number;
 }
-/**
- * @deprecated
- */
+
 export const AppLogo = memo((props: AppLogoProps) => {
-  const { className } = props;
+  const { className, size = 80 } = props;
   const { t } = useTranslation();
   return (
     <HStack
@@ -22,7 +21,12 @@ export const AppLogo = memo((props: AppLogoProps) => {
       className={classNames(s.appLogo, {}, [className])}>
       <div className={s.gradientBig} />
       <div className={s.gradientSmall} />
-      <AppSvg className={s.appSvg} />
+      <AppSvg
+        width={size}
+        height={size}
+        // color="black"
+        className={s.appSvg}
+      />
     </HStack>
   );
 });

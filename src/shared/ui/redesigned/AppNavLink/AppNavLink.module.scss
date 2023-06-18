@@ -1,0 +1,43 @@
+.appNavLink {
+  padding: 0;
+  margin: 0;
+  color: var(--text-redesigned);
+
+  &:hover {
+    color: var(--accent-redesigned);
+
+  }
+}
+
+.red {
+  color: var(--cancel-redesigned);
+
+  &:hover {
+    opacity: var(--opacity70);
+  }
+}
+
+a {
+  margin: 0;
+   padding: 0;
+}
+
+// .primary {
+//   color: var(--inverted-secondary-color);
+// }
+
+// .secondary {
+//   color: var(--inverted-secondary-color);
+// }
+
+// .primary.active {
+//   color: var(--inverted-secondary-color);
+// }
+
+// .secondary.active {
+//   color: var(--inverted-secondary-color);
+// }
+
+// .appNavLink .red {
+//   color: var(--red-dark);
+// }

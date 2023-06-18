@@ -4,7 +4,7 @@ import { Code } from "./Code";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "shared/Code",
+  title: "shared/deprecated/Code",
   component: Code,
   //tags: ["autodocs"],
   //argTypes: {},

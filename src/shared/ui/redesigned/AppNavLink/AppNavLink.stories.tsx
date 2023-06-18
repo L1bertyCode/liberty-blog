@@ -1,51 +1,51 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AppLink, AppLinkVariant } from "./AppLink";
+import { AppNavLink } from "./AppNavLink";
 
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "shared/deprecated/AppLink",
-  component: AppLink,
+  title: "shared/redesigned/AppNavLink",
+  component: AppNavLink,
   //tags: ["autodocs"],
   argTypes: {},
   args: { to: "/", children: "Link" },
-} satisfies Meta<typeof AppLink>;
+} satisfies Meta<typeof AppNavLink>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    variant: AppLinkVariant.PRIMARY,
+    variant: "primary",
   },
 };
 
 export const Red: Story = {
   args: {
-    variant: AppLinkVariant.RED,
+    variant: "red",
   },
 };
 export const Secondary: Story = {
   args: {
-    variant: AppLinkVariant.SECONDARY,
+    variant: "secondary",
   },
 };
 export const Dark: Story = {
   args: {
-    variant: AppLinkVariant.PRIMARY,
+    variant: "primary",
   },
   decorators: [ThemeDecoratorDark],
 };
 
 export const RedDark: Story = {
   args: {
-    variant: AppLinkVariant.RED,
+    variant: "red",
   },
   decorators: [ThemeDecoratorDark],
 };
 export const SecondaryDark: Story = {
   args: {
-    variant: AppLinkVariant.SECONDARY,
+    variant: "secondary",
   },
   decorators: [ThemeDecoratorDark],
 };

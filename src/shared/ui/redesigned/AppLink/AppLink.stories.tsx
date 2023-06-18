@@ -4,7 +4,7 @@ import { AppLink, AppLinkVariant } from "./AppLink";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "shared/deprecated/AppLink",
+  title: "shared/redesigned/AppLink",
   component: AppLink,
   //tags: ["autodocs"],
   argTypes: {},

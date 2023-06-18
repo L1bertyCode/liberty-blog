@@ -4,7 +4,7 @@ import { AppInput } from "./AppInput";
 import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 
 const meta = {
-  title: "shared/AppInput",
+  title: "shared/deprecated/AppInput",
   component: AppInput,
   //tags: ["autodocs"],
   //argTypes: {},

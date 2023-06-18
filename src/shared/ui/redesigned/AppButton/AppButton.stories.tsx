@@ -6,7 +6,7 @@ import { ThemeDecoratorDark } from "@/shared/config/storybook/ThemeDecorator";
 import { Theme } from "@/shared/const/theme";
 
 const meta = {
-  title: "shared/deprecated/AppButton",
+  title: "shared/redesigned/AppButton",
   component: AppButton,
   // tags: ["autodocs"],
   argTypes: {},

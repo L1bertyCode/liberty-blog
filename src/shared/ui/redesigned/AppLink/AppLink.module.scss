@@ -1,0 +1,31 @@
+.appLink {
+  text-decoration: none;
+  transition: var(--transition-delay);
+
+  &:hover {
+    transition: var(--transition-delay);
+    opacity: var(--opacity70);
+  }
+}
+
+.primary {
+  color: var(--inverted-primary-color);
+}
+
+.secondary {
+  color: var(--inverted-secondary-color);
+}
+
+.appLink .red {
+  color: var(--red-dark);
+}
+
+a {
+  text-decoration: none;
+  transition: var(--transition-delay);
+
+  &:hover {
+    transition: var(--transition-delay);
+    opacity: var(--opacity70);
+  }
+}
