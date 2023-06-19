@@ -4,7 +4,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./RatingCard.module.scss";
 import { Card } from "@/shared/ui/deprecated/Card";
-import { HStack, VStack } from "@/shared/ui/deprecated/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { AppText } from "@/shared/ui/deprecated/AppText";
 import { StarRating } from "@/shared/ui/deprecated/StarRating";
 import { Modal } from "@/shared/ui/deprecated/Modal";

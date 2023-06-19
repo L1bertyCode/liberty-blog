@@ -9,7 +9,7 @@ import { AppText } from "@/shared/ui/deprecated/AppText";
 import { Skeleton } from "@/shared/ui/deprecated/Skeleton";
 import { AppNavLink } from "@/shared/ui/deprecated/AppNavLink";
 
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { getRouteProfile } from "@/shared/const/router";
 
 interface CommentCardProps {

@@ -5,7 +5,7 @@ import { memo } from "react";
 import { AppText, AppTextSize } from "@/shared/ui/deprecated/AppText";
 import { ArticleList } from "@/entities/Article";
 
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { useArticleRecommendationsList } from "../../api/articleRecommendationsApi";
 
 interface ArticleRecommendationListProps {

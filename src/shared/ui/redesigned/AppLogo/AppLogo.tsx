@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { HStack } from "@/shared/ui/deprecated//Stack";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 import AppSvg from "@/shared/assets/icons/liberty.svg";
 
 import s from "./AppLogo.module.scss";

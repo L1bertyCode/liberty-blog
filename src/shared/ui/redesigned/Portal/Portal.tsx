@@ -5,9 +5,7 @@ interface PortalProps {
   children: ReactNode;
   element?: HTMLElement;
 }
-/**
- * @deprecated
- */
+
 export const Portal = memo((props: PortalProps) => {
   const { children, element = document.body } = props;
   return createPortal(children, element);

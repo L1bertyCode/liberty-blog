@@ -16,7 +16,7 @@ import { addCommentForArticle } from "@/pages/ArticleDetailsPage/model/services/
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { fetchCommentsByArticleId } from "@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 
 interface ArticleDetailsCommentsProps {
   className?: string;

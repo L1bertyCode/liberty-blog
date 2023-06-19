@@ -1,0 +1,59 @@
+.dropdown {
+  position: relative;
+  width: fit-content;
+}
+
+.trigger {
+  background: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.menuList {
+  position: absolute;
+  background: var(--card-bg);
+  z-index: 10000;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItem,
+button {
+  border-radius: 8px;
+  padding: 10px 25px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.active {
+  background: var(--inverted-primary-color);
+}
+
+.menuListBottomLeft {
+  right: 0;
+  top: 100%;
+}
+
+.menuListBottomRight {
+  left: 0;
+  top: 100%;
+}
+
+.menuListTopLeft {
+  right: 0;
+  bottom: 100%;
+}
+
+.menuListTopRight {
+  left: 0;
+  bottom: 100%;
+}

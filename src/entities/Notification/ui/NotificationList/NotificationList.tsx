@@ -4,7 +4,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./NotificationList.module.scss";
 import { useNotifications } from "@/entities/Notification/api/notificationApi";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
 import { Skeleton } from "@/shared/ui/deprecated/Skeleton";
 

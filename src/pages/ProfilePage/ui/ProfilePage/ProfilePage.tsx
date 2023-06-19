@@ -5,7 +5,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ProfilePage.module.scss";
 
 import { Page } from "@/widgets/Page/Page";
-import { VStack } from "@/shared/ui/deprecated//Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { EditableProfileCard } from "@/features/editableProfileCard";
 import { useParams } from "react-router-dom";
 import { AppText } from "@/shared/ui/deprecated/AppText";

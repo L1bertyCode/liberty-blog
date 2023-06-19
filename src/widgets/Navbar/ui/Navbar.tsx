@@ -14,7 +14,7 @@ import s from "./Navbar.module.scss";
 
 import { AppLink, AppLinkVariant } from "@/shared/ui/deprecated/AppLink";
 import { AppText, AppTextVariant } from "@/shared/ui/deprecated/AppText";
-import { HStack } from "@/shared/ui/deprecated/Stack";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 
 import { NotificationButton } from "@/features/notificationButton";
 import { AvataDropdown } from "@/features/avataDropdown";

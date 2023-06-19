@@ -1,0 +1,13 @@
+.popover {
+  position: relative;
+}
+
+.panel {
+  background: var(--card-bg);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 8px;
+  padding: 16px;
+
+  //   border: 1px solid var(--primary-color);
+}

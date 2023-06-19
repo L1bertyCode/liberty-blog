@@ -18,9 +18,10 @@ import { getSidebarItems } from "@/widgets/Sidebar/model/selector/getSidebarItem
 import { useSelector } from "react-redux";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { AppLogo } from "@/shared/ui/redesigned/AppLogo";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+
 import { AppIcon } from "@/shared/ui/redesigned/AppIcon";
 import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 
 interface SidebarProps {
   className?: string;

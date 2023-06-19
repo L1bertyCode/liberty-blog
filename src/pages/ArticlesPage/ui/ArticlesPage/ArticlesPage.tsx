@@ -18,7 +18,7 @@ import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters"
 import { useSearchParams } from "react-router-dom";
 import { initArticlesPage } from "../../model/services/initeArticlesPage/initArticlesPage";
 import ArticleInfiniteList from "../ArticleInfiniteList/ArticleInfiniteList";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { useArticleItemById } from "../../model/selectors/articlePageSelectors";
 import { ArticlePageGreeting } from "@/features/ArticlePageGreeting";
 
