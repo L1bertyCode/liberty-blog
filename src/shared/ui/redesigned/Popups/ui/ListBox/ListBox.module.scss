@@ -15,7 +15,7 @@
   width: fit-content;
   position: absolute;
   z-index: 10000;
-  background: var(--list-bg);
+  background: var(--dark-bg-redesigned);
   border-radius: 12px;
   box-shadow: 4px 4px 8px var(--list-bg);
 }
@@ -26,7 +26,7 @@
 }
 
 .active {
-  background: var(--inverted-primary-color);
+  background: var(--light-bg-redesigned);
 }
 
 .disabled {

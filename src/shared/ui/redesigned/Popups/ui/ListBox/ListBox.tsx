@@ -34,7 +34,7 @@ export function Listbox(props: ListBoxProps) {
     onChange,
     direction = "bottom left",
   } = props;
-  const optionsClasses = [mapDirectionClass[direction]];
+  const optionsClasses = [mapDirectionClass[direction], commonS.menuList];
   return (
     <HListbox
       as={"div"}
@@ -69,7 +69,7 @@ export function Listbox(props: ListBoxProps) {
                 className={classNames(
                   s.optionItem,
                   {
-                    [s.active]: active,
+                    [commonS.active]: active,
                     [s.selected]: selected,
                     [s.disabled]: item?.disabled,
                   },

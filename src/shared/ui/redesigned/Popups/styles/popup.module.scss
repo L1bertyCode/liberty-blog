@@ -3,6 +3,12 @@
   width: fit-content;
 }
 
+.menuList {
+  border-radius: 18px;
+  border: 1px solid var(--accent-redesigned);
+  overflow: hidden;
+}
+
 .trigger {
   background: none;
   outline: none;
@@ -13,7 +19,7 @@
 }
 
 .active {
-  background: var(--inverted-primary-color);
+  background: var(--light-bg-redesigned);
 }
 
 .optionsBottomLeft {

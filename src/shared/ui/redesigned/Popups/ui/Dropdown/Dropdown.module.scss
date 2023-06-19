@@ -14,10 +14,10 @@
 
 .menuList {
   position: absolute;
-  background: var(--card-bg);
+  background: var(--dark-bg-redesigned);
   z-index: 10000;
-  border-radius: 8px;
-  border: 1px solid var(--primary-color);
+  border-radius: 18px;
+  border: 1px solid var(--accent-redesigned);
   display: flex;
   flex-direction: column;
 }
@@ -30,12 +30,12 @@ button {
   border: none;
   background: none;
   outline: none;
-  color: var(--primary-color);
+  color: var(--text-redesigned);
   cursor: pointer;
 }
 
 .active {
-  background: var(--inverted-primary-color);
+  background: var(--light-bg-redesigned);
 }
 
 .menuListBottomLeft {
