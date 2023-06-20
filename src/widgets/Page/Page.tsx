@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle";
-import { extname } from "path";
 import { TestProps } from "@/shared/types/tests";
 import { toggleFeatures } from "@/shared/lib/features";
 
@@ -48,7 +47,11 @@ export const Page = memo((props: PageProps) => {
 
   useInfiniteScroll({
     triggerRef,
-    wrapperRef,
+    wrapperRef: toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => undefined,
+      off: () => wrapperRef,
+    }),
     callback: onScrollEnd,
   });
   return (
@@ -56,11 +59,15 @@ export const Page = memo((props: PageProps) => {
       id={PAGE_ID}
       onScroll={onScroll}
       ref={wrapperRef}
-      className={classNames(toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => s.pageRedesigned,
-        off: () => s.page,
-    }), {}, [className])}
+      className={classNames(
+        toggleFeatures({
+          name: "isAppRedesigned",
+          on: () => s.pageRedesigned,
+          off: () => s.page,
+        }),
+        {},
+        [className],
+      )}
       data-testid={props["data-testid"] ?? "Page"}>
       {children}
       {onScrollEnd ? (

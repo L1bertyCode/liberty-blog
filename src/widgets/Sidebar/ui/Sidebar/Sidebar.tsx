@@ -87,7 +87,6 @@ export const Sidebar = memo((props: SidebarProps) => {
           className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [
             className,
           ])}>
-          <AppLogo className={s.appLogo} />
 
           <VStack
             gap="8"

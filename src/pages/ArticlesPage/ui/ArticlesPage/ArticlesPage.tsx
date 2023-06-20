@@ -21,6 +21,8 @@ import ArticleInfiniteList from "../ArticleInfiniteList/ArticleInfiniteList";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { useArticleItemById } from "../../model/selectors/articlePageSelectors";
 import { ArticlePageGreeting } from "@/features/ArticlePageGreeting";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { StickyLayout } from "@/shared/layouts/StickyLayout";
 
 interface ArticlesPageProps {
   className?: string;
@@ -46,20 +48,47 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
   });
+  const content = (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <StickyLayout
+          left={<div>left</div>}
+          content={
+            <Page
+              data-testid={"ArticlesPage"}
+              onScrollEnd={onLoadNextPart}
+              className={classNames(s.articlesPageRedesigned, {}, [className])}>
+              <VStack gap="16">
+                {/* <ArticlesPageFilters /> */}
+                <ArticleInfiniteList />
+                <ArticlePageGreeting />
+              </VStack>
+            </Page>
+          }
+          right={<div>right</div>}
+
+        />
+      }
+      off={
+        <Page
+          data-testid={"ArticlesPage"}
+          onScrollEnd={onLoadNextPart}
+          className={classNames(s.ArticlesPage, {}, [className])}>
+          <VStack gap="16">
+            <ArticlesPageFilters />
+            <ArticleInfiniteList />
+            <ArticlePageGreeting />
+          </VStack>
+        </Page>
+      }
+    />
+  );
   return (
     <DynamicModuleLoader
       reducers={reducers}
       removeAfterUnmount={false}>
-      <Page
-        data-testid={"ArticlesPage"}
-        onScrollEnd={onLoadNextPart}
-        className={classNames(s.ArticlesPage, {}, [className])}>
-        <VStack gap="16">
-          <ArticlesPageFilters />
-          <ArticleInfiniteList />
-          <ArticlePageGreeting/>
-        </VStack>
-      </Page>
+      {content}
     </DynamicModuleLoader>
   );
 });
