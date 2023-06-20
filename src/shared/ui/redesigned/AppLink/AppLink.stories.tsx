@@ -16,36 +16,26 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    variant: AppLinkVariant.PRIMARY,
+    variant: "primary",
   },
 };
 
 export const Red: Story = {
   args: {
-    variant: AppLinkVariant.RED,
+    variant: "red",
   },
 };
-export const Secondary: Story = {
-  args: {
-    variant: AppLinkVariant.SECONDARY,
-  },
-};
+
 export const Dark: Story = {
   args: {
-    variant: AppLinkVariant.PRIMARY,
+    variant: "primary",
   },
   decorators: [ThemeDecoratorDark],
 };
 
 export const RedDark: Story = {
   args: {
-    variant: AppLinkVariant.RED,
-  },
-  decorators: [ThemeDecoratorDark],
-};
-export const SecondaryDark: Story = {
-  args: {
-    variant: AppLinkVariant.SECONDARY,
+    variant: "red",
   },
   decorators: [ThemeDecoratorDark],
 };

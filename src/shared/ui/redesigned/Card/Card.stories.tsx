@@ -45,7 +45,7 @@ export const LightOutlined: Story = {
         title={"Title"}
       />
     ),
-    variant: CardVariant.OUTLINED,
+    variant: "outlined",
   },
 };
 
@@ -57,7 +57,7 @@ export const DarkOutlined: Story = {
         title={"Title"}
       />
     ),
-    variant: CardVariant.OUTLINED,
+    variant: "outlined",
   },
   decorators: [ThemeDecoratorDark],
 };
