@@ -6,24 +6,26 @@ import { DefaultTFuncReturn } from "i18next";
 import { DropdownDirection } from "@/shared/types/ui";
 import { mapDirectionClass } from "../../styles/consts";
 import commonS from "../../styles/popup.module.scss";
-import { AppButton, AppButtonVariant } from "@/shared/ui/deprecated/AppButton";
-export interface ListBoxItemProps {
+import { AppButton } from "@/shared/ui/redesigned/AppButton";
+
+export interface ListBoxItemProps<T extends string> {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
-interface ListBoxProps {
-  onChange: (value: string) => void;
-  items?: ListBoxItemProps[];
+interface ListBoxProps<T extends string> {
   className?: string;
-  value?: string;
+  items?: ListBoxItemProps<T>[];
+  value?: T;
+
+  onChange?: (value: T) => void;
   label?: string | DefaultTFuncReturn;
   defaultValue?: string | DefaultTFuncReturn;
   readOnly?: boolean;
   direction?: DropdownDirection;
 }
 
-export function Listbox(props: ListBoxProps) {
+export function Listbox<T extends string>(props: ListBoxProps<T>) {
   const {
     className,
     items,
@@ -52,9 +54,7 @@ export function Listbox(props: ListBoxProps) {
       <HListbox.Button
         className={commonS.trigger}
         as="span">
-        <AppButton variant={AppButtonVariant.OUTLINE}>
-          {value ?? defaultValue}
-        </AppButton>
+        <AppButton variant={"filled"}>{value ?? defaultValue}</AppButton>
       </HListbox.Button>
       <HListbox.Options
         className={classNames(s.optionList, {}, optionsClasses)}>
@@ -70,11 +70,12 @@ export function Listbox(props: ListBoxProps) {
                   s.optionItem,
                   {
                     [commonS.active]: active,
-                    [s.selected]: selected,
+                    // [s.selected]: selected,
                     [s.disabled]: item?.disabled,
                   },
                   [],
                 )}>
+                {selected}
                 {item?.content}
               </li>
             )}

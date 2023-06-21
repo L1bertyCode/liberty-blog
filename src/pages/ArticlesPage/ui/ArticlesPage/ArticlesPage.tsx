@@ -24,6 +24,9 @@ import { ArticlePageGreeting } from "@/features/ArticlePageGreeting";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { StickyLayout } from "@/shared/layouts/StickyLayout";
 import ViewSelectorContainer from "../ViewSelectorContainer/ViewSelectorContainer";
+import { FilterContainer } from "../FilterContainer/FilterContainer";
+import { useArticleFilters } from "../../lib/hooks/useArticleFilters";
+import { ArticlesFilters } from "@/widgets/ArticlesFilters";
 
 interface ArticlesPageProps {
   className?: string;
@@ -38,11 +41,19 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
+  const {
+    order,
+    sort,
+    search,
+    type,
+    onChangeSort,
+    onChangeOrder,
+    onChangeSearch,
+    onChangeType,
+  } = useArticleFilters();
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
-  const data = useArticleItemById("2");
-  console.log("data", data);
 
   let [searchParams] = useSearchParams();
 
@@ -65,13 +76,12 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
               onScrollEnd={onLoadNextPart}
               className={classNames(s.articlesPageRedesigned, {}, [className])}>
               <VStack gap="16">
-                {/* <ArticlesPageFilters /> */}
                 <ArticleInfiniteList />
                 <ArticlePageGreeting />
               </VStack>
             </Page>
           }
-          right={<div>right</div>}
+          right={<FilterContainer />}
         />
       }
       off={

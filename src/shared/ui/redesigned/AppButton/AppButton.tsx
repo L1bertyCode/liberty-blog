@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, ReactNode, memo } from "react";
 import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 
-export type AppButtonVariant = "clear" | "outline";
+export type AppButtonVariant = "clear" | "outline" | "filled";
 
 export type AppButtonSize = "m" | "l" | "xl";
 

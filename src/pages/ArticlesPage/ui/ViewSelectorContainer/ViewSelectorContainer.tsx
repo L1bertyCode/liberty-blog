@@ -9,6 +9,7 @@ import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 
 import s from "./ViewSelectorContainer.module.scss";
+import { useArticleFilters } from "../../lib/hooks/useArticleFilters";
 
 interface ViewSelectorContainerProps {
   className?: string;
@@ -16,14 +17,7 @@ interface ViewSelectorContainerProps {
 
 const ViewSelectorContainer = memo((props: ViewSelectorContainerProps) => {
   const { className } = props;
-  const dispatch = useAppDispatch();
-  const view = useSelector(getArticlesPageView);
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch],
-  );
+  const { view, onChangeView } = useArticleFilters();
 
   return (
     <div className={classNames(s.viewSelectorContainer, {}, [className])}>

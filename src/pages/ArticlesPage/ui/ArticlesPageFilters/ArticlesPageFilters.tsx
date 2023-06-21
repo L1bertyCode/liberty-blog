@@ -32,6 +32,7 @@ import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 import { ArticlesSortSelector } from "@/features/ArticlesSortSelector";
 import { Card } from "@/shared/ui/deprecated/Card";
 import { AppInput } from "@/shared/ui/deprecated/AppInput";
+import { useArticleFilters } from "../../lib/hooks/useArticleFilters";
 
 interface ArticlesPageFiltersProps {
   className?: string;
@@ -41,62 +42,19 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   const { className } = props;
   const { t } = useTranslation();
 
-  const dispatch = useAppDispatch();
-  const view = useSelector(getArticlesPageView);
+  const {
+    view,
+    order,
+    sort,
+    search,
+    type,
+    onChangeView,
+    onChangeSort,
+    onChangeOrder,
+    onChangeSearch,
+    onChangeType,
+  } = useArticleFilters();
 
-  const order = useSelector(getArticlesPageOrder);
-  const sort = useSelector(getArticlesPageSort);
-  const search = useSelector(getArticlesPageSearch);
-  const type = useSelector(getArticlesPageType);
-
-  const fetchData = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: true }));
-  }, [dispatch]);
-
-  const debouncedFetchData = useDebounce(fetchData, 500);
-
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch],
-  );
-
-  const onChangeSort = useCallback(
-    (newSort: ArticlesSortField) => {
-      dispatch(articlesPageActions.setSort(newSort));
-      dispatch(articlesPageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch, fetchData],
-  );
-
-  const onChangeOrder = useCallback(
-    (newOrder: SortOrder) => {
-      dispatch(articlesPageActions.setOrder(newOrder));
-      dispatch(articlesPageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch, fetchData],
-  );
-
-  const onChangeSearch = useCallback(
-    (search: string) => {
-      dispatch(articlesPageActions.setSearch(search));
-      dispatch(articlesPageActions.setPage(1));
-      debouncedFetchData();
-    },
-    [dispatch, debouncedFetchData],
-  );
-
-  const onChangeType = useCallback(
-    (value: ArticleType) => {
-      dispatch(articlesPageActions.setType(value));
-      dispatch(articlesPageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch, fetchData],
-  );
   const typeTabs = useMemo<TabItem[]>(
     () => [
       { value: ArticleType.ALL, content: t("All") },
@@ -119,7 +77,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         <ArticlesSortSelector
           order={order}
           sort={sort}
-          onChangsSort={onChangeSort}
+          onChangeSort={onChangeSort}
           onChangeOrder={onChangeOrder}
         />
         <ArticleViewSelector
