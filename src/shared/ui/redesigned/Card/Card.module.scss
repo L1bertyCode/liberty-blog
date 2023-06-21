@@ -1,6 +1,6 @@
 .card {
   padding: 24px;
-  border-radius: 12px;
+
 }
 
 .normal {
@@ -29,6 +29,10 @@
   padding: 16px;
 }
 
-.gap_24 {
-  padding: 24px;
+.normal {
+  border-radius: 12px;
+}
+
+.round {
+  border-radius: 40px;
 }

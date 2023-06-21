@@ -23,6 +23,7 @@ import { useArticleItemById } from "../../model/selectors/articlePageSelectors";
 import { ArticlePageGreeting } from "@/features/ArticlePageGreeting";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { StickyLayout } from "@/shared/layouts/StickyLayout";
+import ViewSelectorContainer from "../ViewSelectorContainer/ViewSelectorContainer";
 
 interface ArticlesPageProps {
   className?: string;
@@ -53,7 +54,11 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
       feature="isAppRedesigned"
       on={
         <StickyLayout
-          left={<div>left</div>}
+          left={
+            <div>
+              <ViewSelectorContainer />
+            </div>
+          }
           content={
             <Page
               data-testid={"ArticlesPage"}
@@ -67,7 +72,6 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
             </Page>
           }
           right={<div>right</div>}
-
         />
       }
       off={
