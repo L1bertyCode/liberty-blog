@@ -9,7 +9,9 @@ import { ArticlesSortSelector } from "@/features/ArticlesSortSelector";
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
 import { ArticleType, ArticlesSortField } from "@/entities/Article";
 import { SortOrder } from "@/shared/types/sort";
-import { AppInput } from "@/shared/ui/deprecated/AppInput";
+import { AppInput } from "@/shared/ui/redesigned/AppInput";
+import SearchIcon from "@/shared/assets/icons/search.svg";
+import { AppIcon } from "@/shared/ui/redesigned/AppIcon";
 
 interface ArticlesFiltersProps {
   className?: string;
@@ -45,6 +47,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
           placeholder={t("Search") || ""}
           value={search}
           onChange={onChangeSearch}
+          addonLeft={<AppIcon Svg={SearchIcon} />}
         />
 
         <ArticleTypeTabs

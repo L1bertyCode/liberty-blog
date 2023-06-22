@@ -1,13 +1,35 @@
+
+
+
+.addonLeft, .addonRight {
+  display: flex;
+}
+
+.addonRight svg, .addonLeft svg {
+  color: var(--hint-redesigned);
+}
+
 .appButton {
   color: var(--text-redesigned);
   cursor: pointer;
   padding: 6px 15px;
   transition: 0.2s linear;
   width: fit-content;
+  display: flex;
+  align-items: center;
+
 
   &:hover {
-  color: var(--accent-redesigned);
-  }
+    color: var(--accent-redesigned);
+
+    .addonLeft svg, .addonRight svg {
+        color: var(--accent-redesigned);
+    }
+}
+}
+
+.withAddon {
+  padding: 0 16px;
 }
 
 .clear {
@@ -29,7 +51,6 @@
   border: none;
   outline: none;
   background: var(--light-bg-redesigned);
-  padding: 8px 16px;
   border-radius: 34px;
 }
 

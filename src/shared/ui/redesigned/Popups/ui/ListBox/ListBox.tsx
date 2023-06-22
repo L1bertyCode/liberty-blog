@@ -7,6 +7,8 @@ import { DropdownDirection } from "@/shared/types/ui";
 import { mapDirectionClass } from "../../styles/consts";
 import commonS from "../../styles/popup.module.scss";
 import { AppButton } from "@/shared/ui/redesigned/AppButton";
+import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
+import { AppIcon } from "@/shared/ui/redesigned/AppIcon";
 
 export interface ListBoxItemProps<T extends string> {
   value: string;
@@ -58,7 +60,9 @@ export function Listbox<T extends string>(props: ListBoxProps<T>) {
       <HListbox.Button
         className={commonS.trigger}
         as="span">
-        <AppButton variant={"filled"}>
+        <AppButton
+          variant={"filled"}
+          addonRight={<AppIcon Svg={ArrowIcon} />}>
           {selectedItem?.content ?? defaultValue}
         </AppButton>
       </HListbox.Button>

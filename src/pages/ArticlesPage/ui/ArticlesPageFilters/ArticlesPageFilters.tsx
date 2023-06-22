@@ -2,36 +2,25 @@ import { memo, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import {
-  getArticlesPageOrder,
-  getArticlesPageSearch,
-  getArticlesPageSort,
-  getArticlesPageType,
-  getArticlesPageView,
-} from "../../model/selectors/articlePageSelectors";
 
-import { articlesPageActions } from "../../model/slices/articlesPageSlice";
+
+
 
 import {
   ArticleType,
-  ArticleView,
-  ArticlesSortField,
+
 } from "@/entities/Article";
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-
-import { SortOrder } from "@/shared/types/sort";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesPageFilters.module.scss";
-import { fetchArticlesList } from "@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
-import { useDebounce } from "@/shared/lib/hooks/useDebounce";
+
 import { TabItem } from "@/shared/ui/deprecated/Tabs/Tabs";
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
 import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 import { ArticlesSortSelector } from "@/features/ArticlesSortSelector";
-import { Card } from "@/shared/ui/deprecated/Card";
-import { AppInput } from "@/shared/ui/deprecated/AppInput";
+import { Card } from "@/shared/ui/redesigned/Card";
+import { AppInput } from "@/shared/ui/redesigned/AppInput";
 import { useArticleFilters } from "../../lib/hooks/useArticleFilters";
 
 interface ArticlesPageFiltersProps {

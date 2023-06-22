@@ -13,6 +13,8 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 import s from "./AppButton.module.scss";
@@ -26,12 +28,16 @@ export const AppButton = memo((props: AppButtonProps): ReturnType<React.FC> => {
     square,
     disabled,
     fullWidth,
+    addonLeft,
+    addonRight,
+
     ...otherProps
   } = props;
   const mods: Mods = {
     [s.square]: square,
     [s.disabled]: disabled,
     [s.fullWidth]: fullWidth,
+    [s.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
   };
   return (
     <button
@@ -42,7 +48,9 @@ export const AppButton = memo((props: AppButtonProps): ReturnType<React.FC> => {
         s[size],
       ])}
       {...otherProps}>
+      <div className={s.addonLeft}>{addonLeft}</div>
       {children}
+      <div className={s.addonRight}>{addonRight}</div>
     </button>
   );
 });
