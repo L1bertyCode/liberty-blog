@@ -1,0 +1,10 @@
+.tabs {
+  cursor: pointer;
+  transition: linear var(--transition-delay);
+}
+
+.selected {
+  padding: 8px 12px;
+  transition: linear var(--transition-delay);
+
+}

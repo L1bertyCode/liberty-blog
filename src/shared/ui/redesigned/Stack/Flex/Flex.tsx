@@ -23,7 +23,7 @@ const directionClasses: Record<FlexDirection, string> = {
   row: s.directionRow,
   column: s.directionColumn,
 };
-const gapClasses: Record<FlexGap, string> = {
+ const gapClasses: Record<FlexGap, string> = {
   "4": s.gap4,
   "8": s.gap8,
   "16": s.gap16,

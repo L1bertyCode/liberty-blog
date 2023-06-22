@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 import { Listbox as HListbox } from "@headlessui/react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ListBox.module.scss";
@@ -37,6 +37,10 @@ export function Listbox<T extends string>(props: ListBoxProps<T>) {
     direction = "bottom left",
   } = props;
   const optionsClasses = [mapDirectionClass[direction], commonS.menuList];
+
+  const selectedItem = useMemo(() => {
+    return items?.find((item) => item.value === value);
+  }, [items, value]);
   return (
     <HListbox
       as={"div"}
@@ -54,7 +58,9 @@ export function Listbox<T extends string>(props: ListBoxProps<T>) {
       <HListbox.Button
         className={commonS.trigger}
         as="span">
-        <AppButton variant={"filled"}>{value ?? defaultValue}</AppButton>
+        <AppButton variant={"filled"}>
+          {selectedItem?.content ?? defaultValue}
+        </AppButton>
       </HListbox.Button>
       <HListbox.Options
         className={classNames(s.optionList, {}, optionsClasses)}>
@@ -70,7 +76,7 @@ export function Listbox<T extends string>(props: ListBoxProps<T>) {
                   s.optionItem,
                   {
                     [commonS.active]: active,
-                    // [s.selected]: selected,
+                    [s.selected]: selected,
                     [s.disabled]: item?.disabled,
                   },
                   [],
