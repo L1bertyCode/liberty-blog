@@ -7,7 +7,9 @@ import { AppSelect } from "@/shared/ui/deprecated/AppSelect";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./CurrencySelect.module.scss";
-import { Listbox } from "@/shared/ui/deprecated/Popups";
+import { Listbox as ListboxDeprecated } from "@/shared/ui/deprecated/Popups";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { Listbox } from "@/shared/ui/redesigned/Popups";
 
 interface CurrencySelectProps {
   className?: string;
@@ -38,15 +40,32 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     onChange?.(value as Currency);
   };
   return (
-    <Listbox
-      className={classNames(s.currensySelect, {}, [className])}
-      label={t("Specify the currency")}
-      defaultValue={t("Specify the currency")}
-      items={options}
-      value={value}
-      onChange={onChangeHandler}
-      readOnly={readOnly}
-      direction={"top left"}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Listbox
+          className={classNames(s.currensySelectRedesigned, {}, [className])}
+          label={t("Specify the currency")}
+          defaultValue={t("Specify the currency")}
+          items={options}
+          value={value}
+          onChange={onChangeHandler}
+          readOnly={readOnly}
+          direction={"top left"}
+        />
+      }
+      off={
+        <ListboxDeprecated
+          className={classNames(s.currensySelect, {}, [className])}
+          label={t("Specify the currency")}
+          defaultValue={t("Specify the currency")}
+          items={options}
+          value={value}
+          onChange={onChangeHandler}
+          readOnly={readOnly}
+          direction={"top left"}
+        />
+      }
     />
   );
 });

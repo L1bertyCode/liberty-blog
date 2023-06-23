@@ -10,11 +10,15 @@ import {
 
 import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 import s from "./AppInput.module.scss";
+import { HStack } from "../Stack";
+import { AppText } from "../AppText";
 
 type HTMLAppInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   "value" | "onChange" | "readOnly"
 >;
+type AppInputSise = "s" | "m" | "l";
+
 interface AppInputProps extends HTMLAppInputProps {
   className?: string;
   type?: string;
@@ -24,6 +28,8 @@ interface AppInputProps extends HTMLAppInputProps {
   autoFocus?: boolean;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
+  label?: string;
+  hieght?: AppInputSise;
 
   onChange?: (value: string) => void;
 }
@@ -39,6 +45,8 @@ export const AppInput = memo((props: AppInputProps) => {
     readOnly,
     addonLeft,
     addonRight,
+    label,
+    hieght = "m",
     ...otherProps
   } = props;
 
@@ -64,14 +72,13 @@ export const AppInput = memo((props: AppInputProps) => {
   };
 
   const mods: Mods = {
-    [s.readonly]: readOnly,
+    [s.readOnly]: readOnly,
     [s.focused]: isFocused,
     [s.withAddonLeft]: Boolean(addonLeft),
     [s.withAddonRight]: Boolean(addonRight),
   };
-
-  return (
-    <div className={classNames(s.appInputWrapper, mods, [className])}>
+  const input = (
+    <div className={classNames(s.appInputWrapper, mods, [className, s[hieght]])}>
       <div className={s.addonLeft}>{addonLeft}</div>
       <input
         ref={inputRef}
@@ -89,4 +96,18 @@ export const AppInput = memo((props: AppInputProps) => {
       <div className={s.addonRight}>{addonRight}</div>
     </div>
   );
+  if (label) {
+    return (
+      <HStack
+        fullWidth
+        gap="8">
+        <AppText
+          className={readOnly ? s.readOnly : ""}
+          text={label}
+        />
+        {input}
+      </HStack>
+    );
+  }
+  return input;
 });
