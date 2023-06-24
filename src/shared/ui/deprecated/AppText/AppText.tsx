@@ -47,6 +47,7 @@ export const AppText = memo((props: AppTextProps) => {
     variant = AppTextVariant.PRYMARY,
     align = AppTextAlign.LEFT,
     size = AppTextSize.M,
+
     "data-testid": dataTestId = "AppText",
   } = props;
   const HeaderTag = mapSizeToHeader[size];

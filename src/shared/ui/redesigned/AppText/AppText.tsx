@@ -15,6 +15,7 @@ export interface AppTextProps {
   text?: string | undefined | null;
   variant?: AppTextVariant;
   align?: AppTextAlign;
+  bold?: boolean;
   size?: AppTextSize;
 
   "data-testid"?: string;
@@ -34,11 +35,12 @@ export const AppText = memo((props: AppTextProps) => {
     text,
     variant = "primary",
     align = "left",
+    bold,
     size = "m",
     "data-testid": dataTestId = "AppText",
   } = props;
   const HeaderTag = mapSizeToHeader[size];
-  const mods: Mods = {};
+  const mods: Mods = { [s.bold]: bold };
   return (
     <div
       className={classNames(s.appText, mods, [

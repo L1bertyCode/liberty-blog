@@ -1,18 +1,11 @@
 import { memo } from "react";
-import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { AppText } from "@/shared/ui/deprecated/AppText";
+import { Card as CardDeprecated } from "@/shared/ui/deprecated/Card";
+import { Card as CardRedesigned } from "@/shared/ui/redesigned/Card";
 
-import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { AppIcon, AppIconVarint } from "@/shared/ui/deprecated/AppIcon";
-
-import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
-import { Card } from "@/shared/ui/deprecated/Card";
-import { Avatar } from "@/shared/ui/deprecated/Avatar";
-
-import { AppButton, AppButtonVariant } from "@/shared/ui/deprecated/AppButton";
-import { Skeleton } from "@/shared/ui/deprecated/Skeleton";
+import { Skeleton as SkeletonDeprecated } from "@/shared/ui/deprecated/Skeleton";
+import { Skeleton as SkeletonRedesigned } from "@/shared/ui/redesigned/Skeleton";
 
 import s from "./ArticleListItem.module.scss";
 import {
@@ -23,8 +16,9 @@ import {
   ArticleBlockType,
   ArticleView,
 } from "@/entities/Article/model/consts/consts";
+import { toggleFeatures } from "@/shared/lib/features";
 
-interface ArticleListItemSkeletonProps {
+ interface ArticleListItemSkeletonProps {
   className?: string;
   article?: Article;
   view?: ArticleView;
@@ -34,21 +28,17 @@ interface ArticleListItemSkeletonProps {
 export const ArticleListItemSkeleton = memo(
   (props: ArticleListItemSkeletonProps) => {
     const { className, article, view = ArticleView.SMALL } = props;
-    const { t } = useTranslation();
+    const Skeleton = toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => SkeletonRedesigned,
+      off: () => SkeletonDeprecated,
+    });
 
-    const views = (
-      <>
-        <AppText
-          text={String(article?.views)}
-          className={s.views}
-        />
-        <AppIcon
-          Svg={EyeIcon}
-          variant={AppIconVarint.PRIMARY}
-        />
-      </>
-    );
-
+    const Card = toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => CardRedesigned,
+      off: () => CardDeprecated,
+    });
     if (view === ArticleView.BIG) {
       const textBlock = article?.blocks.find(
         (block) => block.type === ArticleBlockType.TEXT,
@@ -56,7 +46,7 @@ export const ArticleListItemSkeleton = memo(
       return (
         <div
           className={classNames(s.articleListItem, {}, [className, s[view]])}>
-          <Card>
+          <Card fullWidth>
             <div className={s.header}>
               <Skeleton
                 border={"50%"}
@@ -85,9 +75,7 @@ export const ArticleListItemSkeleton = memo(
               height={"200px"}
               className={s.img}
             />
-            {/* {textBlock && (
-              <Skeleton className={s.textBlock} />
-            )} */}
+
             <div className={s.footer}>
               <Skeleton
                 width={"200px"}

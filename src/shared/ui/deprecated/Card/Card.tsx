@@ -6,17 +6,20 @@ import s from "./Card.module.scss";
 export enum CardVariant {
   NORMAL = "normal",
   OUTLINED = "outlined",
+  LIGHT = "light",
 }
+export type CardPadding = "0" | "8" | "16" | "24";
+export type CardBorder = "round" | "normal";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   variant?: CardVariant;
   fullWidth?: boolean;
+  padding?: CardPadding;
+  border?: CardBorder;
 }
-/**
- * @deprecated
- */
+
 export const Card = (props: CardProps) => {
   const {
     className,

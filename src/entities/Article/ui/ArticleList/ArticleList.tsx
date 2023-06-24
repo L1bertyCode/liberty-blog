@@ -13,7 +13,7 @@ import { AppText, AppTextSize } from "@/shared/ui/deprecated/AppText";
 import { PAGE_ID } from "@/widgets/Page/Page";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
 
-interface ArticleListProps {
+ interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
