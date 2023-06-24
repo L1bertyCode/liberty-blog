@@ -58,19 +58,23 @@ export const ProfileCardRedesignedSkeleton = () => {
             fullWidth>
             <Skeleton
               width={"100%"}
-              height={"38"}
+              height={"38px"}
+              border={"25px"}
             />
             <Skeleton
               width={"100%"}
-              height={"38"}
+              border={"25px"}
+              height={"38px"}
             />
             <Skeleton
               width={"100%"}
-              height={"38"}
+              border={"25px"}
+              height={"38px"}
             />
             <Skeleton
               width={"100%"}
-              height={"38"}
+              border={"25px"}
+              height={"38px"}
             />
           </VStack>
           <VStack
@@ -78,19 +82,23 @@ export const ProfileCardRedesignedSkeleton = () => {
             fullWidth>
             <Skeleton
               width={"100%"}
-              height={"38"}
+              border={"25px"}
+              height={"38px"}
             />
             <Skeleton
               width={"100%"}
-              height={"38"}
+              border={"25px"}
+              height={"38px"}
             />
             <Skeleton
               width={"100%"}
-              height={"38"}
+              border={"25px"}
+              height={"38px"}
             />
             <Skeleton
               width={"100%"}
-              height={"38"}
+              border={"25px"}
+              height={"38px"}
             />
           </VStack>
         </HStack>
