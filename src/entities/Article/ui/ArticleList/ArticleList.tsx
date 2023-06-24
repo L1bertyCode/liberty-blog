@@ -10,10 +10,11 @@ import s from "./ArticleList.module.scss";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { AppText, AppTextSize } from "@/shared/ui/deprecated/AppText";
 
-import { PAGE_ID } from "@/widgets/Page/Page";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 
- interface ArticleListProps {
+interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
@@ -52,20 +53,44 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div
-      data-testid={"ArticleList"}
-      className={classNames(s.ArticleList, {}, [className, s[view]])}>
-      {articles.map((article) => (
-        <ArticleListItem
-          article={article}
-          view={view}
-          target={target}
-          key={article.id}
-          className={s.card}
-        />
-      ))}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          wrap="wrap"
+          gap="16"
+          data-testid={"ArticleList"}>
+          {articles.map((article) => (
+            <ArticleListItem
+              article={article}
+              view={view}
+              target={target}
+              key={article.id}
+              className={s.card}
+            />
+          ))}
 
-      {isLoading && getSkeletons(view)}
-    </div>
+          {isLoading && getSkeletons(view)}
+      
+        </HStack>
+      }
+      off={
+        <div
+          data-testid={"ArticleList"}
+          className={classNames(s.articleList, {}, [className, s[view]])}>
+          {articles.map((article) => (
+            <ArticleListItem
+              article={article}
+              view={view}
+              target={target}
+              key={article.id}
+              className={s.card}
+            />
+          ))}
+
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 });

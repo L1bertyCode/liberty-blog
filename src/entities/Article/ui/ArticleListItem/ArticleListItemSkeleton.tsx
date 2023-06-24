@@ -18,7 +18,7 @@ import {
 } from "@/entities/Article/model/consts/consts";
 import { toggleFeatures } from "@/shared/lib/features";
 
- interface ArticleListItemSkeletonProps {
+interface ArticleListItemSkeletonProps {
   className?: string;
   article?: Article;
   view?: ArticleView;
@@ -44,46 +44,45 @@ export const ArticleListItemSkeleton = memo(
         (block) => block.type === ArticleBlockType.TEXT,
       ) as ArticleTextBlock;
       return (
-        <div
+        <Card
+          fullWidth
           className={classNames(s.articleListItem, {}, [className, s[view]])}>
-          <Card fullWidth>
-            <div className={s.header}>
-              <Skeleton
-                border={"50%"}
-                width={"30px"}
-                height={"30px"}
-              />
-              <Skeleton
-                className={s.username}
-                width={"150px"}
-                height={"16px"}
-              />
-              <Skeleton
-                width={"150px"}
-                height={"16px"}
-                className={s.date}
-              />
-            </div>
+          <div className={s.header}>
             <Skeleton
-              className={s.title}
-              width={"250px"}
-              height={"24px"}
+              border={"50%"}
+              width={"30px"}
+              height={"30px"}
             />
-
             <Skeleton
-              width={"100%"}
-              height={"200px"}
-              className={s.img}
+              className={s.username}
+              width={"150px"}
+              height={"16px"}
             />
+            <Skeleton
+              width={"150px"}
+              height={"16px"}
+              className={s.date}
+            />
+          </div>
+          <Skeleton
+            className={s.title}
+            width={"250px"}
+            height={"24px"}
+          />
 
-            <div className={s.footer}>
-              <Skeleton
-                width={"200px"}
-                height={"36px"}
-              />
-            </div>
-          </Card>
-        </div>
+          <Skeleton
+            width={"100%"}
+            height={"200px"}
+            className={s.img}
+          />
+
+          <div className={s.footer}>
+            <Skeleton
+              width={"200px"}
+              height={"36px"}
+            />
+          </div>
+        </Card>
       );
     }
     return (
