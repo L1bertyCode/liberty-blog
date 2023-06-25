@@ -67,60 +67,58 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
       (block) => block.type === ArticleBlockType.TEXT,
     ) as ArticleTextBlock;
     return (
-      <div
+      <Card
         data-testid={"ArticleListItem"}
         className={classNames(s.articleListItem, {}, [className, s[view]])}>
-        <Card>
-          <div className={s.header}>
-            <Avatar
-              size={30}
-              src={article?.user.avatar}
-            />
-            <AppText
-              text={article?.user.username}
-              className={s.username}
-            />
-            <AppText
-              text={article?.createdAt}
-              className={s.date}
-            />
-          </div>
+        <div className={s.header}>
+          <Avatar
+            size={30}
+            src={article?.user.avatar}
+          />
           <AppText
-            title={article?.title}
-            className={s.title}
+            text={article?.user.username}
+            className={s.username}
           />
-          {types}
-          <AppImage
-            fallback={
-              <Skeleton
-                width={"100%"}
-                height={"250px"}
-              />
-            }
-            src={article?.img}
-            alt={article?.title}
-            className={s.img}
+          <AppText
+            text={article?.createdAt}
+            className={s.date}
           />
-          {textBlock && (
-            <ArticleTextBlockComponent
-              block={textBlock}
-              className={s.textBlock}
+        </div>
+        <AppText
+          title={article?.title}
+          className={s.title}
+        />
+        {types}
+        <AppImage
+          fallback={
+            <Skeleton
+              width={"100%"}
+              height={"250px"}
             />
-          )}
-          <div className={s.footer}>
-            <AppLink
-              target={target}
-              to={getRouteArticleDetails(article.id)}>
-              <AppButton
-                onClick={onOpenArticle}
-                variant={AppButtonVariant.OUTLINE}>
-                {t("Read more...")}
-              </AppButton>
-            </AppLink>
-            {views}
-          </div>
-        </Card>
-      </div>
+          }
+          src={article?.img}
+          alt={article?.title}
+          className={s.img}
+        />
+        {textBlock && (
+          <ArticleTextBlockComponent
+            block={textBlock}
+            className={s.textBlock}
+          />
+        )}
+        <div className={s.footer}>
+          <AppLink
+            target={target}
+            to={getRouteArticleDetails(article.id)}>
+            <AppButton
+              onClick={onOpenArticle}
+              variant={AppButtonVariant.OUTLINE}>
+              {t("Read more...")}
+            </AppButton>
+          </AppLink>
+          {views}
+        </div>
+      </Card>
     );
   }
   return (

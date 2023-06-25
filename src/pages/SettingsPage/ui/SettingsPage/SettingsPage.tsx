@@ -17,8 +17,8 @@ const SettingsPage = memo((props: SettingsPageProps) => {
 
   return (
     <Page className={classNames(s.settingsPage, {}, [className])}>
-      <VStack>
-        <AppText text={t("User settings")}/>
+      <VStack gap="16">
+        <AppText text={t("User settings")} />
         <UiDesignSwitcher />
       </VStack>
     </Page>

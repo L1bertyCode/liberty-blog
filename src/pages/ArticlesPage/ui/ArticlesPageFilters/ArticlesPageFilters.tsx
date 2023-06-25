@@ -1,16 +1,7 @@
 import { memo, useCallback, useMemo } from "react";
-import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-
-
-
-
-import {
-  ArticleType,
-
-} from "@/entities/Article";
-
+import { ArticleType } from "@/entities/Article";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesPageFilters.module.scss";
@@ -20,7 +11,8 @@ import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
 import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 import { ArticlesSortSelector } from "@/features/ArticlesSortSelector";
 import { Card } from "@/shared/ui/redesigned/Card";
-import { AppInput } from "@/shared/ui/redesigned/AppInput";
+import { Card as CardDeprecated } from "@/shared/ui/deprecated/Card";
+import { AppInput as AppInputDeprecated } from "@/shared/ui/deprecated/AppInput";
 import { useArticleFilters } from "../../lib/hooks/useArticleFilters";
 
 interface ArticlesPageFiltersProps {
@@ -74,13 +66,13 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
           onViewClick={onChangeView}
         />
       </div>
-      <Card className={s.search}>
-        <AppInput
+      <CardDeprecated className={s.search}>
+        <AppInputDeprecated
           placeholder={t("Search") || ""}
           value={search}
           onChange={onChangeSearch}
         />
-      </Card>
+      </CardDeprecated>
       <ArticleTypeTabs
         className={s.tabs}
         value={type}

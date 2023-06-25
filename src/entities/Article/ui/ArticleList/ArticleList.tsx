@@ -71,11 +71,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
           ))}
 
           {isLoading && getSkeletons(view)}
-      
         </HStack>
       }
       off={
-        <div
+        <HStack
+          wrap="wrap"
+          gap="16"
           data-testid={"ArticleList"}
           className={classNames(s.articleList, {}, [className, s[view]])}>
           {articles.map((article) => (
@@ -89,7 +90,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
           ))}
 
           {isLoading && getSkeletons(view)}
-        </div>
+        </HStack>
       }
     />
   );

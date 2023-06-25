@@ -1,9 +1,15 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import s from "./UiDesignSwitcher.module.scss";
-import { memo } from "react";
+import { memo, useState } from "react";
 import { Listbox } from "@/shared/ui/redesigned/Popups";
-import { getFeatureFlag } from "@/shared/lib/features";
+import { getFeatureFlag, updateFeatureFlag } from "@/shared/lib/features";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { getUserAuthData } from "@/entities/User";
+import { useSelector } from "react-redux";
+import { HStack } from "@/shared/ui/redesigned/Stack";
+import { AppText } from "@/shared/ui/deprecated/AppText";
+import { Skeleton } from "@/shared/ui/redesigned/Skeleton";
 
 interface UiDesignSwitcherProps {
   className?: string;
@@ -13,6 +19,9 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const isAppRedesigne = getFeatureFlag("isAppRedesigned");
+  const authData = useSelector(getUserAuthData);
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useAppDispatch();
   const items = [
     {
       content: t("New"),
@@ -23,13 +32,37 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
       value: "old",
     },
   ];
-  const onChange = () => {};
+  const onChange = async (value: string) => {
+    if (authData) {
+      setIsLoading(true);
+      await dispatch(
+        updateFeatureFlag({
+          userId: authData?.id,
+          newFeatures: {
+            isAppRedesigned: value === "new" ? true : false,
+          },
+        }),
+      ).unwrap();
+      setIsLoading(false);
+    }
+  };
   return (
-    <Listbox
-      onChange={onChange}
-      items={items}
-      value={isAppRedesigne ? "new" : "old"}
-      className={classNames(s.uiDesignSwitcher, {}, [className])}
-    />
+    <HStack>
+      <AppText text={t("Interface option")} />
+      {isLoading ? (
+        <Skeleton
+          width={"100px"}
+          height={"40px"}
+          border={"25px"}
+        />
+      ) : (
+        <Listbox
+          onChange={onChange}
+          items={items}
+          value={isAppRedesigne ? "new" : "old"}
+          className={classNames(s.uiDesignSwitcher, {}, [className])}
+        />
+      )}
+    </HStack>
   );
 });

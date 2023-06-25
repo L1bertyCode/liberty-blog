@@ -1,10 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-
 import { User } from "../types/user";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { getUserDataByIdQuery } from "../api/userApi";
-import { ThunkConfig } from "@/app/providers/StoreProvider/config/StateSchema";
+import { ThunkConfig } from "@/app/providers/StoreProvider";
 
 export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
   "user/initAuthData",

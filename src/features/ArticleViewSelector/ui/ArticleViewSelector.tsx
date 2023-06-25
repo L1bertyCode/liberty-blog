@@ -15,6 +15,7 @@ import { ArticleView } from "@/entities/Article/model/consts/consts";
 import { ToggleFeatures, toggleFeatures } from "@/shared/lib/features";
 import { AppButton } from "@/shared/ui/redesigned/AppButton";
 import { AppIcon } from "@/shared/ui/redesigned/AppIcon";
+import { AppIcon as AppIconDeprecated } from "@/shared/ui/deprecated/AppIcon";
 import { Card } from "@/shared/ui/redesigned/Card";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 
@@ -58,8 +59,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
           className={classNames(s.artcileViewSelectorRedesigned, {}, [
             className,
           ])}
-          border="round"
-          >
+          border="round">
           <HStack>
             {viewTypes.map((viewType, index) => (
               <AppIcon
@@ -84,7 +84,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
               key={index}
               onClick={onClick(viewType.view)}
               variant={AppButtonVariantDeprecated.CLEAR}>
-              <AppIcon
+              <AppIconDeprecated
                 Svg={viewType.icon}
                 width={"32px"}
                 height={"32px"}

@@ -1,4 +1,6 @@
-.artcileViewSelectorRedesigned {
+.artcileViewSelector {
+  display: flex;
+
   .notSelected {
     fill: var(--secondary-color);
   }
