@@ -58,7 +58,6 @@ export const App = memo(() => {
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<Sidebar />}
-              toolbar={<div>adfadsf</div>}
             />
           </Suspense>
         </div>
