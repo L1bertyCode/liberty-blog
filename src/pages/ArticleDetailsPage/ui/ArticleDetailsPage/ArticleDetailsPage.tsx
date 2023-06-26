@@ -27,6 +27,9 @@ import {
 } from "@/shared/lib/features";
 import { Counter } from "@/entities/Counter";
 import { Card } from "@/shared/ui/deprecated/Card";
+import { StickyLayout } from "@/shared/layouts/StickyLayout";
+import { DetailsContainer } from "../DetailsContainer/DetailsContainer";
+import { AditionalInfoContainer } from "../AditionalInfoContainer/AditionalInfoContainer";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -73,19 +76,42 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     <DynamicModuleLoader
       reducers={reducers}
       removeAfterUnmount>
-      <Page className={classNames(s.articleDetailsPage, {}, [className])}>
-        <VStack gap="16">
-          <ArticleDetailsPageHeader />
-          <ArticleDetails id={id} />
-          <ToggleFeatures
-            feature={"isArticleRatingEnabled"}
-            on={<ArticleRating articleId={id} />}
-            off={<Card>{t("Оценка статей скоро появится!")}</Card>}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <StickyLayout
+            content={
+              <Page
+                className={classNames(s.articleDetailsPage, {}, [className])}>
+                <VStack gap="16">
+                  <ArticleDetailsPageHeader />
+                  <DetailsContainer id={id} />
+                  {/* <ArticleDetails id={id} /> */}
+                  <ArticleRating articleId={id} />
+                  <ArticleRecommendationList />
+                  <ArticleDetailsComments id={id} />
+                </VStack>
+              </Page>
+            }
+            right={<AditionalInfoContainer />}
           />
-          <ArticleRecommendationList />
-          <ArticleDetailsComments id={id} />
-        </VStack>
-      </Page>
+        }
+        off={
+          <Page className={classNames(s.articleDetailsPage, {}, [className])}>
+            <VStack gap="16">
+              <ArticleDetailsPageHeader />
+              <ArticleDetails id={id} />
+              <ToggleFeatures
+                feature={"isArticleRatingEnabled"}
+                on={<ArticleRating articleId={id} />}
+                off={<Card>{t("Оценка статей скоро появится!")}</Card>}
+              />
+              <ArticleRecommendationList />
+              <ArticleDetailsComments id={id} />
+            </VStack>
+          </Page>
+        }
+      />
     </DynamicModuleLoader>
   );
 });

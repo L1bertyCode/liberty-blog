@@ -1,0 +1,1 @@
+export { ArticleAditionalInfo } from "./ArticleAditionalInfo";
