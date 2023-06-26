@@ -1,6 +1,6 @@
 import { Suspense, memo } from "react";
 
-import { Modal } from "@/shared/ui/deprecated/Modal";
+import { Modal } from "@/shared/ui/redesigned/Modal";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./LoginModal.module.scss";

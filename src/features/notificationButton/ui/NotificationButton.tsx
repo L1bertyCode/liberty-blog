@@ -14,7 +14,7 @@ import NotificationIconDeprecated from "@/shared/assets/icons/notification-20-20
 import NotificationIcon from "@/shared/assets/icons/notification.svg";
 
 import s from "./NotificationButton.module.scss";
-import { Drawer } from "@/shared/ui/deprecated/Drawer";
+import { Drawer } from "@/shared/ui/redesigned/Drawer";
 import { BrowserView, MobileView } from "react-device-detect";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { AppButton } from "@/shared/ui/redesigned/AppButton";

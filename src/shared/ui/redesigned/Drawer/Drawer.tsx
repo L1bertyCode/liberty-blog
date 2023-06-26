@@ -8,6 +8,7 @@ import {
 import { Overlay } from "../../redesigned/Overlay/Overlay";
 import s from "./Drawer.module.scss";
 import { Portal } from "../../redesigned/Portal/Portal";
+import { toggleFeatures } from "@/shared/lib/features";
 
 interface DrawerProps {
   className?: string;
@@ -18,9 +19,7 @@ interface DrawerProps {
 }
 
 const height = window.innerHeight - 100;
-/**
- * @deprecated
- */
+
 export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({
@@ -83,9 +82,18 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const display = y.to((py) => (py < height ? "block" : "none"));
 
   return (
-    <Portal>
+    <Portal element={document.getElementById("app") ?? document.body}>
       <div
-        className={classNames(s.drawer, {}, [className, theme, "app_drawer"])}>
+        className={classNames(s.drawer, {}, [
+          className,
+          theme,
+          "app_drawer",
+          toggleFeatures({
+            name: "isAppRedesigned",
+            on: () => s.drawerNew,
+            off: () => s.drawerOld,
+          }),
+        ])}>
         <Overlay onClick={close} />
         <Spring.a.div
           className={s.sheet}
