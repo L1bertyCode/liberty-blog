@@ -72,5 +72,9 @@
   "Old": "Old",
   "User settings": "User settings",
   "Interface option": "Interface option",
-  "Settings": "Settings"
+  "Settings": "Settings",
+  "{{count}} просмотров_zero": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_few": "{{count}} views",
+  "{{count}} просмотров_other": "{{count}} views"
 }

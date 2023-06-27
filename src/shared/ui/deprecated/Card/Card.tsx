@@ -16,6 +16,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   variant?: CardVariant;
   fullWidth?: boolean;
+  fullHeight?: boolean;
   padding?: CardPadding;
   border?: CardBorder;
 }

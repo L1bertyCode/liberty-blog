@@ -19,9 +19,7 @@ export enum AppTextSize {
   M = "size_m",
   L = "size_l",
 }
-/**
- * @deprecated
- */
+
 export interface AppTextProps {
   className?: string;
   title?: string | undefined | null;
@@ -39,6 +37,10 @@ const mapSizeToHeader: Record<AppTextSize, HeaderTagType> = {
   [AppTextSize.M]: "h2",
   [AppTextSize.L]: "h1",
 };
+
+/**
+ * @deprecated
+ */
 export const AppText = memo((props: AppTextProps) => {
   const {
     className,

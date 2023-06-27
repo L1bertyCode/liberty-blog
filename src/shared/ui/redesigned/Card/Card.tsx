@@ -12,6 +12,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   variant?: CardVariant;
   fullWidth?: boolean;
+  fullHeight?: boolean;
   padding?: CardPadding;
   border?: CardBorder;
 }
@@ -28,6 +29,7 @@ export const Card = (props: CardProps) => {
     children,
     variant = "normal",
     fullWidth,
+    fullHeight,
     padding = "8",
     border = "normal",
     ...otherProps
@@ -36,12 +38,11 @@ export const Card = (props: CardProps) => {
 
   return (
     <div
-      className={classNames(s.card, { [s.fullWidth]: fullWidth }, [
-        className,
-        s[variant],
-        s[paddingClass],
-        s[border],
-      ])}
+      className={classNames(
+        s.card,
+        { [s.fullWidth]: fullWidth, [s.fullHeight]: fullHeight },
+        [className, s[variant], s[paddingClass], s[border]],
+      )}
       {...otherProps}>
       {children}
     </div>

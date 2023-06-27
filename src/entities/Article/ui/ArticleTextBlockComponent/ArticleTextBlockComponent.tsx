@@ -4,7 +4,9 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ArticleTextBlockComponent.module.scss";
 import { ArticleTextBlock } from "../../model/types/article";
-import { AppText } from "@/shared/ui/deprecated/AppText";
+import { AppText as AppTextDeprecated } from "@/shared/ui/deprecated/AppText";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { AppText } from "@/shared/ui/redesigned/AppText";
 
 interface ArticleTextBlockComponentProps {
   className?: string;
@@ -16,23 +18,53 @@ export const ArticleTextBlockComponent = memo(
     const { className, block } = props;
     const { t } = useTranslation();
     return (
-      <div className={classNames(s.articleTextBlockComponent, {}, [className])}>
-        {block.title && (
-          <AppText
-            title={block.title}
-            className={s.title}
-          />
-        )}
-        {block.paragraphs.map((paragraph) => {
-          return (
-            <AppText
-              key={paragraph}
-              text={paragraph}
-              className={s.paragraph}
-            />
-          );
-        })}
-      </div>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div
+            className={classNames(s.articleTextBlockComponent, {}, [
+              className,
+            ])}>
+            {block.title && (
+              <AppText
+                title={block.title}
+                className={s.title}
+              />
+            )}
+            {block.paragraphs.map((paragraph) => {
+              return (
+                <AppText
+                  key={paragraph}
+                  text={paragraph}
+                  className={s.paragraph}
+                />
+              );
+            })}
+          </div>
+        }
+        off={
+          <div
+            className={classNames(s.articleTextBlockComponent, {}, [
+              className,
+            ])}>
+            {block.title && (
+              <AppTextDeprecated
+                title={block.title}
+                className={s.title}
+              />
+            )}
+            {block.paragraphs.map((paragraph) => {
+              return (
+                <AppTextDeprecated
+                  key={paragraph}
+                  text={paragraph}
+                  className={s.paragraph}
+                />
+              );
+            })}
+          </div>
+        }
+      />
     );
   },
 );
