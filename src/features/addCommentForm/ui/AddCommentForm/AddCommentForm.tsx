@@ -11,8 +11,8 @@ import {
   addCommentFormReducer,
 } from "../../model/slices/addCommentFormSlice";
 
-import { AppInput } from "@/shared/ui/deprecated/AppInput";
-import { AppButton } from "@/shared/ui/deprecated/AppButton";
+import { AppInput as AppInputDeprecated } from "@/shared/ui/deprecated/AppInput";
+import { AppButton as AppButtonDeprecated } from "@/shared/ui/deprecated/AppButton";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./AddCommentForm.module.scss";
@@ -22,6 +22,10 @@ import {
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { HStack } from "@/shared/ui/redesigned/Stack";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { AppButton } from "@/shared/ui/redesigned/AppButton";
+import { AppInput } from "@/shared/ui/redesigned/AppInput";
+import { Card } from "@/shared/ui/redesigned/Card";
 
 export interface AddCommentFormProps {
   className?: string;
@@ -50,23 +54,54 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   }, [text, onSendComment, onCommentTextChange]);
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <HStack
-        data-testid={"AddCommentForm"}
-        fullWidth
-        className={classNames(s.addCommentForm, {}, [className])}>
-        <AppInput
-          data-testid={"AddCommentForm.Input"}
-          className={s.input}
-          placeholder={t("Enter comment text") || ""}
-          value={text}
-          onChange={onCommentTextChange}
-        />
-        <AppButton
-          data-testid={"AddCommentForm.Button"}
-          onClick={onSendHandler}>
-          {"Send"}
-        </AppButton>
-      </HStack>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Card
+            fullWidth
+            padding="24">
+            <HStack
+              data-testid={"AddCommentForm"}
+              fullWidth
+              gap="16"
+              className={classNames(s.AddCommentFormredesigned, {}, [
+                className,
+              ])}>
+              <AppInput
+                data-testid={"AddCommentForm.Input"}
+                className={s.input}
+                placeholder={t("Enter comment text") || ""}
+                value={text}
+                onChange={onCommentTextChange}
+              />
+              <AppButton
+                data-testid={"AddCommentForm.Button"}
+                onClick={onSendHandler}>
+                {"Send"}
+              </AppButton>
+            </HStack>
+          </Card>
+        }
+        off={
+          <HStack
+            data-testid={"AddCommentForm"}
+            fullWidth
+            className={classNames(s.addCommentForm, {}, [className])}>
+            <AppInputDeprecated
+              data-testid={"AddCommentForm.Input"}
+              className={s.input}
+              placeholder={t("Enter comment text") || ""}
+              value={text}
+              onChange={onCommentTextChange}
+            />
+            <AppButtonDeprecated
+              data-testid={"AddCommentForm.Button"}
+              onClick={onSendHandler}>
+              {"Send"}
+            </AppButtonDeprecated>
+          </HStack>
+        }
+      />
     </DynamicModuleLoader>
   );
 });

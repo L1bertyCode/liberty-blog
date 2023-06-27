@@ -20,7 +20,9 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   padding?: CardPadding;
   border?: CardBorder;
 }
-
+/**
+ * @deprecated
+ */
 export const Card = (props: CardProps) => {
   const {
     className,
