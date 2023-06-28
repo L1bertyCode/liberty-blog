@@ -8,8 +8,10 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { getUserAuthData } from "@/entities/User";
 import { useSelector } from "react-redux";
 import { HStack } from "@/shared/ui/redesigned/Stack";
-import { AppText } from "@/shared/ui/deprecated/AppText";
+
 import { Skeleton } from "@/shared/ui/redesigned/Skeleton";
+import { useForceUpdate } from "@/shared/lib/render/forceUpdate";
+import { AppText } from "@/shared/ui/redesigned/AppText";
 
 interface UiDesignSwitcherProps {
   className?: string;
@@ -22,6 +24,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
   const authData = useSelector(getUserAuthData);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useAppDispatch();
+  const forceUpdate = useForceUpdate();
   const items = [
     {
       content: t("New"),
@@ -44,6 +47,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
         }),
       ).unwrap();
       setIsLoading(false);
+      forceUpdate();
     }
   };
   return (

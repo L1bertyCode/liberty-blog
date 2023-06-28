@@ -7,6 +7,8 @@ import { App } from "./app/App";
 import "@/app/styles/index.scss";
 import "./shared/config/i18n/i18n";
 import { StoreProvider } from "@/app/providers/StoreProvider";
+import { ErrorBoundary } from "./app/providers/ErrorBoundary";
+import { ForceUpdateProvider } from "./shared/lib/render/forceUpdate";
 
 const container = document.getElementById("root");
 
@@ -19,9 +21,13 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <BrowserRouter>
     <StoreProvider>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <ForceUpdateProvider>
+            <App />
+          </ForceUpdateProvider>
+        </ThemeProvider>
+      </ErrorBoundary>
     </StoreProvider>
   </BrowserRouter>,
 );

@@ -34,6 +34,7 @@ import { ToggleFeatures } from "@/shared/lib/features";
 import { AppInput } from "@/shared/ui/redesigned/AppInput";
 import { AppButton } from "@/shared/ui/redesigned/AppButton";
 import { AppText } from "@/shared/ui/redesigned/AppText";
+import { useForceUpdate } from "@/shared/lib/render/forceUpdate";
 
 export interface LoginFormProps {
   className?: string;
@@ -55,6 +56,8 @@ const LoginForm = memo((props: LoginFormProps) => {
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
+  const forceUpdate = useForceUpdate();
+
   const onChangeUsername = useCallback(
     (value: string) => {
       dispatch(loginActions.setUsername(value));
@@ -72,6 +75,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === "fulfilled") {
       onSuccess();
+      forceUpdate();
     }
   }, [dispatch, username, password, onSuccess]);
   return (
@@ -117,9 +121,9 @@ const LoginForm = memo((props: LoginFormProps) => {
           <div className={classNames(s.loginForm, {}, [className])}>
             <AppText title={t("Authorization form")} />
             {error && (
-              <AppText
+              <AppTextDeprecated
                 text={t("You entered an incorrect username or password")}
-                variant={"error"}
+                variant={AppTextVariantDeprecated.ERROR}
               />
             )}
             <AppInputDeprecated

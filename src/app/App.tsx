@@ -22,7 +22,7 @@ export const App = memo(() => {
 
   useEffect(() => {
     dispatch(initAuthData());
-  }, [dispatch]);
+  }, [dispatch, inited]);
   if (!inited) {
     return <PageLoader />;
   }
