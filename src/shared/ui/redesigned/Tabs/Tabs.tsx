@@ -55,7 +55,7 @@ export const Tabs = memo((props: TabsProps) => {
             className={classNames(s.tab, { [s.selected]: isSelected }, [])}
             key={tab.value}
             variant={tab.value === value ? "light" : "normal"}
-            border="round">
+            borderRadius="round_40">
             {tab.content}
           </Card>
         );

@@ -59,7 +59,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
           className={classNames(s.artcileViewSelectorRedesigned, {}, [
             className,
           ])}
-          border="round">
+          borderRadius="round_40">
           <HStack>
             {viewTypes.map((viewType, index) => (
               <AppIcon

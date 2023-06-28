@@ -86,7 +86,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
       on={
         <Card
           padding="24"
-          border="round"
+          borderRadius="round_40"
           fullWidth>
           <VStack
             data-testid={"CommentCard.Content"}

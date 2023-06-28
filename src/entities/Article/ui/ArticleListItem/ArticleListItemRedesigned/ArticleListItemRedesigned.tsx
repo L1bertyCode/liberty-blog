@@ -123,7 +123,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
       className={classNames(s.ArticleListItem, {}, [className, s[view]])}>
       <Card
         className={s.card}
-        border="round"
+        borderRadius="round_40"
         padding="0">
         <AppImage
           fallback={

@@ -9,7 +9,7 @@ export enum CardVariant {
   LIGHT = "light",
 }
 export type CardPadding = "0" | "8" | "16" | "24";
-export type CardBorder = "round" | "normal";
+export type CardBorder = "round_12" | "round_40";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -18,7 +18,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   fullWidth?: boolean;
   fullHeight?: boolean;
   padding?: CardPadding;
-  border?: CardBorder;
+  borderRadius?: CardBorder;
 }
 /**
  * @deprecated

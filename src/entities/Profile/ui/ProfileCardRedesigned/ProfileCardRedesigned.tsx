@@ -129,6 +129,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
   };
   return (
     <Card
+      borderRadius="round_20"
       padding="24"
       fullWidth
       className={classNames(s.profileCardRedesigned, {}, [className])}>

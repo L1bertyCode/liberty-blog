@@ -7,19 +7,29 @@ import { LoginModal } from "@/features/AuthByUsername";
 
 import { getUserAuthData } from "@/entities/User";
 
-import { AppButton, AppButtonVariant } from "@/shared/ui/deprecated/AppButton";
+import {
+  AppButton as AppButtonDeprecated,
+  AppButtonVariant as AppButtonVariantDeprecated,
+} from "@/shared/ui/deprecated/AppButton";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 
-import { AppLink, AppLinkVariant } from "@/shared/ui/deprecated/AppLink";
-import { AppText, AppTextVariant } from "@/shared/ui/deprecated/AppText";
+import {
+  AppLink as AppLinkDeprecated,
+  AppLinkVariant as AppLinkVariantDeprecated,
+} from "@/shared/ui/deprecated/AppLink";
+import {
+  AppText as AppTextDeprecated,
+  AppTextVariant as AppTextVariantDeprecated,
+} from "@/shared/ui/deprecated/AppText";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 
 import { NotificationButton } from "@/features/notificationButton";
 import { AvataDropdown } from "@/features/avataDropdown";
 import { getRouteArticleCreate } from "@/shared/const/router";
 import { ToggleFeatures } from "@/shared/lib/features";
+import { AppButton } from "@/shared/ui/redesigned/AppButton";
 
 interface NavbarProps {
   className?: string;
@@ -44,18 +54,6 @@ export const Navbar = memo((props: NavbarProps) => {
         feature={"isAppRedesigned"}
         on={
           <header className={classNames(s.navbarRedesigned, {}, [className])}>
-            {/* <AppText
-          className={s.logo}
-          title={t("Logo")}
-          variant={AppTextVariant.INVERTED}
-        /> */}
-            {/* <AppLink
-              to={getRouteArticleCreate()}
-              variant={AppLinkVariant.SECONDARY}
-              className={s.createBtn}>
-              {t("Create article")}
-            </AppLink> */}
-
             <div className={s.modal}>
               <HStack
                 gap="16"
@@ -73,17 +71,17 @@ export const Navbar = memo((props: NavbarProps) => {
         }
         off={
           <header className={classNames(s.navbar, {}, [className])}>
-            <AppText
+            <AppTextDeprecated
               className={s.logo}
               title={t("Logo")}
-              variant={AppTextVariant.INVERTED}
+              variant={AppTextVariantDeprecated.INVERTED}
             />
-            <AppLink
+            <AppLinkDeprecated
               to={getRouteArticleCreate()}
-              variant={AppLinkVariant.SECONDARY}
+              variant={AppLinkVariantDeprecated.SECONDARY}
               className={s.createBtn}>
               {t("Create article")}
-            </AppLink>
+            </AppLinkDeprecated>
 
             <div className={s.modal}>
               <HStack
@@ -109,15 +107,13 @@ export const Navbar = memo((props: NavbarProps) => {
       feature={"isAppRedesigned"}
       on={
         <header className={classNames(s.navbarRedesigned, {}, [className])}>
-          {/* <div className={s.logo}>{t("Logo")}</div> */}
-          {/* <AppLink to={getRouteArticleCreate()}>{t("Create article")}</AppLink> */}
           <div className={s.modal}>
             <AppButton
               className={s.btn}
               onClick={() => {
                 onShowModal();
               }}
-              variant={AppButtonVariant.CLEAR_INVERTED}>
+              variant={"clear"}>
               {t("Login")}
             </AppButton>
             {isAuthModal && (
@@ -132,16 +128,18 @@ export const Navbar = memo((props: NavbarProps) => {
       off={
         <header className={classNames(s.navbar, {}, [className])}>
           <div className={s.logo}>{t("Logo")}</div>
-          <AppLink to={getRouteArticleCreate()}>{t("Create article")}</AppLink>
+          <AppLinkDeprecated to={getRouteArticleCreate()}>
+            {t("Create article")}
+          </AppLinkDeprecated>
           <div className={s.modal}>
-            <AppButton
+            <AppButtonDeprecated
               className={s.btn}
               onClick={() => {
                 onShowModal();
               }}
-              variant={AppButtonVariant.CLEAR_INVERTED}>
+              variant={AppButtonVariantDeprecated.CLEAR_INVERTED}>
               {t("Login")}
-            </AppButton>
+            </AppButtonDeprecated>
             {isAuthModal && (
               <LoginModal
                 isOpen={isAuthModal}

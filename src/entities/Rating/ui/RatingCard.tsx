@@ -110,7 +110,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
           data-testid={"RatingCard"}
           className={classNames(s.ratingCard, {}, [className])}
           fullWidth
-          border="round">
+          borderRadius="round_40">
           <VStack
             align="center"
             gap="8">
