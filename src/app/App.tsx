@@ -16,11 +16,14 @@ import { ToggleFeatures } from "@/shared/lib/features";
 import { MainLayout } from "@/shared/layouts/MainLayout";
 import { AppLoaderLayout } from "@/shared/layouts/AppLoaderLayout";
 
+import { ScrollTollbar } from "@/widgets/ScrollTollbar";
+import { useAppTollbar } from "./lib/useAppTollbar";
+
 export const App = memo(() => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
-
+  const toolbar = useAppTollbar();
   useEffect(() => {
     dispatch(initAuthData());
   }, [dispatch, inited]);
@@ -75,6 +78,7 @@ export const App = memo(() => {
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<Sidebar />}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>
